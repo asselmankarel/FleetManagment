@@ -10,9 +10,5 @@ namespace FleetManagment.Domain.Models
     {
         public string RoleType { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }
-
-        public Role()
-        {
-        }
     }
 }
