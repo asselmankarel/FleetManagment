@@ -11,6 +11,7 @@ namespace FleetManagment.Domain.Models
         public ICollection<VehicleLicensePlate> VehicleLicensePlates { get; set; }
         public ICollection<Maintenance> Maintenances { get; set; }
         public ICollection<Repair> Repairs { get; set; }
+        public ICollection<DriverVehicle> DriverVehicles { get; set; }
 
     }
 }
