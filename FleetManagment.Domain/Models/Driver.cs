@@ -6,8 +6,8 @@ namespace FleetManagment.Domain.Models
     {
         public string DriversLicense { get; set; }
         public virtual ICollection<Request> Requests { get; set; }
-        public ICollection<DriverFuelcard> DriverFuelcards { get; set; }
-        public ICollection<DriverVehicle> DriverVehicles { get; set; }
+        public virtual ICollection<DriverFuelcard> DriverFuelcards { get; set; }
+        public virtual ICollection<DriverVehicle> DriverVehicles { get; set; }
 
     }
 }

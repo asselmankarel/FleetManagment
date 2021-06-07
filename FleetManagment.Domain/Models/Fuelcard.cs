@@ -6,6 +6,6 @@ namespace FleetManagment.Domain.Models
     {
         public string CardNumber { get; set; }
         public string AuthType { get; set; }
-        public ICollection<FuelcardOption> Options { get; set; }
+        public virtual ICollection<FuelcardOption> Options { get; set; }
     }
 }
