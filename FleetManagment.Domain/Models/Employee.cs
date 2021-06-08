@@ -11,7 +11,7 @@ namespace FleetManagment.Domain.Models
         public DateTime DateOfBirth { get; set; }
         public bool IsActive { get; set; }
         public Address Address { get; set; }
-        public virtual ICollection<Role> Roles { get; set; }
+        public ICollection<Role> Roles { get; set; }
 
     }
 }

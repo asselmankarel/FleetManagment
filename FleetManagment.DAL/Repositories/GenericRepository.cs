@@ -10,7 +10,7 @@ namespace FleetManagment.DAL.Repositories
     class GenericRepository<T> : IGenericRepository<T> where T : class
     {
 
-        public GenericRepository(Applcation)
+        public GenericRepository()
         {
 
         }
