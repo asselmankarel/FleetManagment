@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 using FleetManagment.Domain.Models;
 
-namespace FleetManagment.Domain.Queries
+namespace FleetManagment.ReadAPI.Queries
 {
     public class GetDriverByIdQuery : IRequest<Driver>
     {

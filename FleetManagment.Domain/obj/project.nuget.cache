@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zkYdHDRMXcusB2eAG1UGE8mPxJ6JYf1l+aZ0QTXcl6PhoGshApyzOgiDSfzFBThs6Uu5fa9TUqSZ/a2KaMrCCw==",
+  "dgSpecHash": "D/HyRLLJUsAHGQC2msgS2QbE1YwOTOPoVz3S+kZvz5mbS2U2ylXnxlbTV/9RynNzvqJvorAGR22YxH88PQrfcg==",
   "success": true,
   "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagment.Domain.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\KarelAsselman\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

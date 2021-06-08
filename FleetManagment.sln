@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagment.DAL", "Fleet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagment.WriteAPI", "FleetManagment.WriteAPI\FleetManagment.WriteAPI.csproj", "{735EAFA2-1806-464F-A52A-090A530C7910}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagment.ReadAPI", "FleetManagment.ReadAPI\FleetManagment.ReadAPI.csproj", "{5810315D-033D-4621-AAD1-C7A6FA7A48C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{735EAFA2-1806-464F-A52A-090A530C7910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{735EAFA2-1806-464F-A52A-090A530C7910}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{735EAFA2-1806-464F-A52A-090A530C7910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5810315D-033D-4621-AAD1-C7A6FA7A48C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5810315D-033D-4621-AAD1-C7A6FA7A48C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5810315D-033D-4621-AAD1-C7A6FA7A48C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5810315D-033D-4621-AAD1-C7A6FA7A48C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

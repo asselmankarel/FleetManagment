@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "jlcLcViqn9E7UvkHTRLrBQgRWCFPm8Bb57Gvaj/BTJp8Pa8s59/QP21JnHcEmjtMtSBlJrWYYp+zBmjDEsmqrw==",
+  "dgSpecHash": "rr67H6qZWLSkU3SQQ1Aa48NEUF47Fe9rwgIxSjy2sm7URIqo3yAXdI6MCVFc9NLmp++HC5i2NQT5HkvB9buWig==",
   "success": true,
   "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.DAL\\FleetManagment.DAL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\KarelAsselman\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

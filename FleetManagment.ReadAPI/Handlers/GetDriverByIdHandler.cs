@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using FleetManagment.Domain.Models;
-using FleetManagment.Domain.Queries;
+using FleetManagment.ReadAPI.Queries;
 
 
-namespace FleetManagment.Domain.Handlers
+namespace FleetManagment.ReadAPI.Handlers
 {
     public class GetDriverByIdHandler : IRequestHandler<GetDriverByIdQuery, Driver>
     {
