@@ -1,6 +1,6 @@
 ﻿namespace FleetManagment.Domain.Models
 {
-    public enum RequestTypes
+    public enum RequestType
     {
         Fuelcard,
         Maintenance,
@@ -8,9 +8,4 @@
         Other
     }
 
-    public class RequestType
-    {
-        public RequestTypes Name { get; set; }
-
-    }
 }

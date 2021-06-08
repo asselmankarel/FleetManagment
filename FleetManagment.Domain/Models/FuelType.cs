@@ -1,6 +1,6 @@
 ﻿namespace FleetManagment.Domain.Models
 {
-    public enum FuelTypes
+    public enum FuelType
     {
         Cng,
         Diesel,
@@ -10,9 +10,5 @@
         Hydrogen,
         Lpg
     }
-    public class FuelType
-    {
-        public FuelTypes Name { get; set; }
-
-    }
+ 
 }

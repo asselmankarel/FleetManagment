@@ -9,11 +9,7 @@ namespace FleetManagment.Domain.Models
         public DateTime PrefDate1 { get; set; }
         public DateTime PrefDate2 { get; set; }
         public Driver Driver { get; set; }
-        public RequestType Type { get; set; }
+        public RequestType RequestType { get; set; }
 
-        public Request()
-        {
-
-        }
     }
 }

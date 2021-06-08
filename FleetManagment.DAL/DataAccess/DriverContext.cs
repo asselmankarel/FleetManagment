@@ -1,5 +1,6 @@
 ﻿using FleetManagment.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ namespace FleetManagment.DAL.DataAccess
         public DbSet<Driver> Drivers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(""); // TODO: connection string
+        {            
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["FleetManagment"].ConnectionString);
         }
     }
 }
