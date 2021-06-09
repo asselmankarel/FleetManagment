@@ -6,6 +6,7 @@ namespace FleetManagment.Domain.Models
     {
         [Key]
         public int Id { get; set; }
-        public byte[] Content { get; set; }
+
+        public string FilePath { get; set; }
     }
 }

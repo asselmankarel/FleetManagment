@@ -6,11 +6,9 @@ namespace FleetManagment.Domain.Models
 {
     public class DriverVehicle
     {
-        [Key, Column(Order = 1)]
         [ForeignKey("Driver")]
         public int DriverId { get; set; }
 
-        [Key, Column(Order = 2)]
         [ForeignKey("Vehicle")]
         public int VehicleId { get; set; }
 
@@ -20,7 +18,7 @@ namespace FleetManagment.Domain.Models
 
         public DateTime StartDate { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
     }
 }

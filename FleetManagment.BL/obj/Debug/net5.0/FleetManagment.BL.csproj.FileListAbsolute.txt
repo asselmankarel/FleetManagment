@@ -1,6 +1,4 @@
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagment.BL.deps.json
-C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagment.BL.runtimeconfig.json
-C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagment.BL.runtimeconfig.dev.json
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagment.BL.dll
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\ref\FleetManagment.BL.dll
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagment.BL.pdb
@@ -18,4 +16,3 @@ C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\obj\Debug\n
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\obj\Debug\net5.0\FleetManagment.BL.dll
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\obj\Debug\net5.0\ref\FleetManagment.BL.dll
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\obj\Debug\net5.0\FleetManagment.BL.pdb
-C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\obj\Debug\net5.0\FleetManagment.BL.genruntimeconfig.cache

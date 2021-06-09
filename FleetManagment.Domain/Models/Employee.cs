@@ -7,19 +7,23 @@ namespace FleetManagment.Domain.Models
     public class Employee
     {
         [Key]
-        [MinLength(11), MaxLength(11)]
-        public int Nis { get; set; }
+        public int Id { get; set; }
+
+        [MaxLength(11)]
+        public string Nis { get; set; }
 
         [Required]
+        [MaxLength(100)]
         public string FirstName { get; set; }
 
         [Required]
+        [MaxLength(150)]
         public string LastName { get; set; }
 
         [Required]
         public DateTime DateOfBirth { get; set; }
-        public bool IsActive { get; set; }
 
+        public bool IsActive { get; set; }
 
         public Address Address { get; set; }
 
