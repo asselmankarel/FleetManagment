@@ -6,8 +6,7 @@ namespace FleetManagment.Domain.Models
 
     public class Driver : Employee
     {
-        [Key]
-        public int Id { get; set; }
+
         public DriversLicense DriversLicense { get; set; }
         public ICollection<Request> Requests { get; set; }
         public ICollection<DriverFuelcard> DriverFuelcards { get; set; }
