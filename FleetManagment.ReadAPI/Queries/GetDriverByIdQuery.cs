@@ -14,6 +14,7 @@ namespace FleetManagment.ReadAPI.Queries
         public GetDriverByIdQuery(int id)
         {
             Id = id;
+            
         }
     }
 }

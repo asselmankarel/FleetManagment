@@ -1,0 +1,12 @@
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\bin\Debug\net5.0\FleetManagment.Domain.deps.json
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\bin\Debug\net5.0\FleetManagment.Domain.dll
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\bin\Debug\net5.0\ref\FleetManagment.Domain.dll
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\bin\Debug\net5.0\FleetManagment.Domain.pdb
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\obj\Debug\net5.0\FleetManagment.Domain.csproj.AssemblyReference.cache
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\obj\Debug\net5.0\FleetManagment.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\obj\Debug\net5.0\FleetManagment.Domain.AssemblyInfoInputs.cache
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\obj\Debug\net5.0\FleetManagment.Domain.AssemblyInfo.cs
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\obj\Debug\net5.0\FleetManagment.Domain.csproj.CoreCompileInputs.cache
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\obj\Debug\net5.0\FleetManagment.Domain.dll
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\obj\Debug\net5.0\ref\FleetManagment.Domain.dll
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.Domain\obj\Debug\net5.0\FleetManagment.Domain.pdb

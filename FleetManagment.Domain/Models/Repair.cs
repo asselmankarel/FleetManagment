@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagment.Domain.Models
 {
     public class Repair
     {
+        [Key]
+        public int Id { get; set; }
+
         public Employee Employee { get; set; }
         public string InsuranceRefferenceNumber { get; set; }
         public DateTime RepairDate { get; set; }

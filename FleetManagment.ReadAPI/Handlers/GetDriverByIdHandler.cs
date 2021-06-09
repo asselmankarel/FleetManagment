@@ -13,7 +13,6 @@ namespace FleetManagment.ReadAPI.Handlers
 {
     public class GetDriverByIdHandler : IRequestHandler<GetDriverByIdQuery, Driver>
     {
-        
 
         public GetDriverByIdHandler()
         {
