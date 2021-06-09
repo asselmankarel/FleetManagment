@@ -4,14 +4,16 @@ using FleetManagment.DAL.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagment.DAL.Migrations
 {
     [DbContext(typeof(DriverDbContext))]
-    partial class DriverDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210609135143_ChangedDriversLicenseToEnum")]
+    partial class ChangedDriversLicenseToEnum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -399,14 +401,9 @@ namespace FleetManagment.DAL.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int?>("VehicleId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("DriverId");
-
-                    b.HasIndex("VehicleId");
 
                     b.ToTable("Requests");
                 });
@@ -645,13 +642,7 @@ namespace FleetManagment.DAL.Migrations
                         .WithMany("Requests")
                         .HasForeignKey("DriverId");
 
-                    b.HasOne("FleetManagment.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany()
-                        .HasForeignKey("VehicleId");
-
                     b.Navigation("Driver");
-
-                    b.Navigation("Vehicle");
                 });
 
             modelBuilder.Entity("FleetManagment.Domain.Models.VehicleLicensePlate", b =>

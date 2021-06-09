@@ -4,14 +4,16 @@ using FleetManagment.DAL.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagment.DAL.Migrations
 {
     [DbContext(typeof(DriverDbContext))]
-    partial class DriverDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210609125145_VehicleTypeEnum")]
+    partial class VehicleTypeEnum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,26 +45,22 @@ namespace FleetManagment.DAL.Migrations
 
                     b.Property<string>("Country")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Number")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -84,13 +82,11 @@ namespace FleetManagment.DAL.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -107,8 +103,7 @@ namespace FleetManagment.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FilePath")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("RepairId")
                         .HasColumnType("int");
@@ -245,8 +240,7 @@ namespace FleetManagment.DAL.Migrations
 
                     b.Property<string>("Number")
                         .IsRequired()
-                        .HasMaxLength(12)
-                        .HasColumnType("nvarchar(12)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -269,9 +263,8 @@ namespace FleetManagment.DAL.Migrations
                     b.Property<int?>("GarageId")
                         .HasColumnType("int");
 
-                    b.Property<string>("InvoiceFilePath")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                    b.Property<byte[]>("Invoice")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<DateTime>("MaintenanceDate")
                         .HasColumnType("datetime2");
@@ -324,8 +317,7 @@ namespace FleetManagment.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FilePath")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("RepairId")
                         .HasColumnType("int");
@@ -396,17 +388,11 @@ namespace FleetManagment.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int?>("VehicleId")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DriverId");
-
-                    b.HasIndex("VehicleId");
 
                     b.ToTable("Requests");
                 });
@@ -492,8 +478,8 @@ namespace FleetManagment.DAL.Migrations
                 {
                     b.HasBaseType("FleetManagment.Domain.Models.Employee");
 
-                    b.Property<int>("DriversLicense")
-                        .HasColumnType("int");
+                    b.Property<string>("DriversLicense")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasIndex("Nis")
                         .IsUnique()
@@ -645,13 +631,7 @@ namespace FleetManagment.DAL.Migrations
                         .WithMany("Requests")
                         .HasForeignKey("DriverId");
 
-                    b.HasOne("FleetManagment.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany()
-                        .HasForeignKey("VehicleId");
-
                     b.Navigation("Driver");
-
-                    b.Navigation("Vehicle");
                 });
 
             modelBuilder.Entity("FleetManagment.Domain.Models.VehicleLicensePlate", b =>

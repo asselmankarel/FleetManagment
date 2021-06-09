@@ -19,7 +19,8 @@ namespace FleetManagment.Domain.Models
 
         public decimal Price { get; set; }
 
-        public byte[] Invoice { get; set; }
+        [MaxLength(255)]
+        public string InvoiceFilePath { get; set; }
        
     }
 }

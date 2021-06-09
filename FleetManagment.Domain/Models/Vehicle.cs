@@ -11,7 +11,7 @@ namespace FleetManagment.Domain.Models
         [MaxLength(17)]
         public string Vin { get; set; }
 
-        public string VehicleType { get; set; }
+        public VehicleType VehicleType { get; set; }
 
         public FuelType FuelType { get; set; }
 
@@ -24,6 +24,8 @@ namespace FleetManagment.Domain.Models
         public ICollection<Repair> Repairs { get; set; }
 
         public ICollection<DriverVehicle> DriverVehicles { get; set; }
+
+
 
     }
 }

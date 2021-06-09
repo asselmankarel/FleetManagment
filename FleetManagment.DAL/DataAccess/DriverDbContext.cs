@@ -28,10 +28,9 @@ namespace FleetManagment.DAL.DataAccess
             builder.Entity<Fuelcard>().HasIndex(x => x.CardNumber).IsUnique();
 
             builder.Entity<Employee>().HasOne(e => e.Address).WithOne(x => x.Employee).HasForeignKey<Address>(a => a.EmployeeId);
-
+            //builder.Entity<Request>().HasOne(r => r.Vehicle);       
             builder.Entity<DriverFuelcard>().HasKey(x => new { x.DriverId, x.FuelcardId });
             builder.Entity<DriverVehicle>().HasKey(x => new { x.DriverId, x.VehicleId });
-   
             builder.Entity<VehicleLicensePlate>().HasKey(x => new { x.VehicleId, x.LicensePlateId });
 
         }
