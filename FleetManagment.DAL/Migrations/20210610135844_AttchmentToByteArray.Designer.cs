@@ -4,14 +4,16 @@ using FleetManagement.DAL.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagement.DAL.Migrations
 {
     [DbContext(typeof(DriverDbContext))]
-    partial class DriverDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210610135844_AttchmentToByteArray")]
+    partial class AttchmentToByteArray
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,21 +241,6 @@ namespace FleetManagement.DAL.Migrations
                     b.ToTable("FuelcardService");
                 });
 
-            modelBuilder.Entity("FleetManagement.Domain.Models.Invoice", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<byte[]>("File")
-                        .HasColumnType("varbinary(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Invoice");
-                });
-
             modelBuilder.Entity("FleetManagement.Domain.Models.LicensePlate", b =>
                 {
                     b.Property<int>("Id")
@@ -287,8 +274,9 @@ namespace FleetManagement.DAL.Migrations
                     b.Property<int?>("GarageId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InvoiceId")
-                        .HasColumnType("int");
+                    b.Property<string>("InvoiceFilePath")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<DateTime>("MaintenanceDate")
                         .HasColumnType("datetime2");
@@ -304,8 +292,6 @@ namespace FleetManagement.DAL.Migrations
                     b.HasIndex("EmployeeId");
 
                     b.HasIndex("GarageId");
-
-                    b.HasIndex("InvoiceId");
 
                     b.HasIndex("VehicleId");
 
@@ -342,8 +328,9 @@ namespace FleetManagement.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<byte[]>("File")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("FilePath")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<int?>("RepairId")
                         .HasColumnType("int");
@@ -615,10 +602,6 @@ namespace FleetManagement.DAL.Migrations
                         .WithMany()
                         .HasForeignKey("GarageId");
 
-                    b.HasOne("FleetManagement.Domain.Models.Invoice", "Invoice")
-                        .WithMany()
-                        .HasForeignKey("InvoiceId");
-
                     b.HasOne("FleetManagement.Domain.Models.Vehicle", "Vehicle")
                         .WithMany("Maintenances")
                         .HasForeignKey("VehicleId");
@@ -626,8 +609,6 @@ namespace FleetManagement.DAL.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("Garage");
-
-                    b.Navigation("Invoice");
 
                     b.Navigation("Vehicle");
                 });

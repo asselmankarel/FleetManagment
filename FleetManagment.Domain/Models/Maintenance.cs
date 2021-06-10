@@ -19,8 +19,7 @@ namespace FleetManagement.Domain.Models
 
         public decimal Price { get; set; }
 
-        [MaxLength(256)]
-        public string InvoiceFilePath { get; set; }
+        public Invoice Invoice { get; set; }
        
     }
 }

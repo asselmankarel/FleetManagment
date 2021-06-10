@@ -2,8 +2,9 @@
 
 namespace FleetManagement.Domain.Models
 {
-    public class Photo
+    public class Invoice
     {
+
         [Key]
         public int Id { get; set; }
 
