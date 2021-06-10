@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FleetManagment.WriteAPI.Controllers
+namespace FleetManagement.WriteAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]

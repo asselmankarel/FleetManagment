@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FleetManagment.Domain\FleetManagment.Domain.csproj" />
+    <ProjectReference Include="..\FleetManagment.Domain\FleetManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FleetManagment.DAL.Repositories
+namespace FleetManagement.DAL.Repositories
 {
     interface IGenericRepository<T> where T : class
     {

@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
-using FleetManagment.Domain.Models;
-using FleetManagment.ReadAPI.Queries;
+using FleetManagement.Domain.Models;
+using FleetManagement.ReadAPI.Queries;
 
-namespace FleetManagment.ReadAPI.Controllers
+namespace FleetManagement.ReadAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]

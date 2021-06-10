@@ -107,14 +107,14 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "FleetManagment.Domain/1.0.0": {
+      "FleetManagement.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/FleetManagment.Domain.dll": {}
+          "bin/placeholder/FleetManagement.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/FleetManagment.Domain.dll": {}
+          "bin/placeholder/FleetManagement.Domain.dll": {}
         }
       }
     }
@@ -271,15 +271,15 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
-    "FleetManagment.Domain/1.0.0": {
+    "FleetManagement.Domain/1.0.0": {
       "type": "project",
-      "path": "../FleetManagment.Domain/FleetManagment.Domain.csproj",
-      "msbuildProject": "../FleetManagment.Domain/FleetManagment.Domain.csproj"
+      "path": "../FleetManagment.Domain/FleetManagement.Domain.csproj",
+      "msbuildProject": "../FleetManagment.Domain/FleetManagement.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "FleetManagment.Domain >= 1.0.0",
+      "FleetManagement.Domain >= 1.0.0",
       "MediatR >= 9.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 9.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
@@ -320,8 +320,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagment.Domain.csproj": {
-              "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagment.Domain.csproj"
+            "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagement.Domain.csproj": {
+              "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagement.Domain.csproj"
             }
           }
         }

@@ -33,7 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "FleetManagment.ReadAPI/1.0.0": {
         "dependencies": {
-          "FleetManagment.Domain": "1.0.0",
+          "FleetManagement.Domain": "1.0.0",
           "MediatR": "9.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "9.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
@@ -414,12 +414,12 @@
           "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         }
       },
-      "FleetManagment.Domain/1.0.0": {
+      "FleetManagement.Domain/1.0.0": {
         "runtime": {
-          "FleetManagment.Domain.dll": {}
+          "FleetManagement.Domain.dll": {}
         },
         "compile": {
-          "FleetManagment.Domain.dll": {}
+          "FleetManagement.Domain.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -2191,7 +2191,7 @@
       "path": "swashbuckle.aspnetcore.swaggerui/5.6.3",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
     },
-    "FleetManagment.Domain/1.0.0": {
+    "FleetManagement.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

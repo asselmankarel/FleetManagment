@@ -1,10 +1,10 @@
-﻿using FleetManagment.Domain.Models;
+﻿using FleetManagement.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 
-namespace FleetManagment.DAL.DataAccess
+namespace FleetManagement.DAL.DataAccess
 {
     class DriverDbContext : DbContext
     {
@@ -40,7 +40,7 @@ namespace FleetManagment.DAL.DataAccess
                 .Build();
 
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("FleetManagement"));
-            //optionsBuilder.UseSqlServer("server=.;database=FleetManagment;Integrated Security=True;");
+            //optionsBuilder.UseSqlServer("server=.;database=FleetManagement;Integrated Security=True;");
         }
 
     }

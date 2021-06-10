@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using FleetManagment.Domain.Models;
+using FleetManagement.Domain.Models;
 
-namespace FleetManagment.ReadAPI.Queries
+namespace FleetManagement.ReadAPI.Queries
 {
     public class GetDriverByIdQuery : IRequest<Driver>
     {

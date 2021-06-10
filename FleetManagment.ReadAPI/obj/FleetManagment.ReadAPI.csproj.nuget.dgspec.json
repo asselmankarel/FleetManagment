@@ -4,12 +4,12 @@
     "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.ReadAPI\\FleetManagment.ReadAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagment.Domain.csproj": {
+    "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagement.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagment.Domain.csproj",
-        "projectName": "FleetManagment.Domain",
-        "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagment.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagement.Domain.csproj",
+        "projectName": "FleetManagement.Domain",
+        "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagement.Domain.csproj",
         "packagesPath": "C:\\Users\\KarelAsselman\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\obj\\",
         "projectStyle": "PackageReference",
@@ -94,8 +94,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagment.Domain.csproj": {
-                "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagment.Domain.csproj"
+              "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagement.Domain.csproj": {
+                "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.Domain\\FleetManagement.Domain.csproj"
               }
             }
           }

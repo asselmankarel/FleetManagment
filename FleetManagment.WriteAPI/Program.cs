@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FleetManagment.WriteAPI
+namespace FleetManagement.WriteAPI
 {
     public class Program
     {

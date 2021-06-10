@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FleetManagment.DAL\FleetManagement.DAL.csproj" />
+    <ProjectReference Include="..\FleetManagment.Domain\FleetManagement.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

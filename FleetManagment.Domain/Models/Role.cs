@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FleetManagment.Domain.Models
+namespace FleetManagement.Domain.Models
 {
     public class Role
     {

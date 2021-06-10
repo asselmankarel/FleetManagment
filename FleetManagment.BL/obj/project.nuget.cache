@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "blLFA6/HRd2C+AGouYkbPU4+K0Ac0oSyGh6t9t6RgMg9MSH/qSuSkppnwe1mGaPGF+CA5tGawQ8qBnZIdPt/9Q==",
+  "dgSpecHash": "hXwjPSGXPy2NgzKqbzcT6mePWfto24XjOd0QrvZZy5konI1LqvMU0Tuk0JQKPBGE2JkIL0Xa6lDOZf/kn8aCEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.BL\\FleetManagment.BL.csproj",
+  "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.BL\\FleetManagement.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

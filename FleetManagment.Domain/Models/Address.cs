@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FleetManagment.Domain.Models
+namespace FleetManagement.Domain.Models
 {
     public class Address
     {

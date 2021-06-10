@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace FleetManagment.Domain.Models
+namespace FleetManagement.Domain.Models
 {
 
     public class Driver : Employee

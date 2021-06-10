@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FleetManagment.ReadAPI
+namespace FleetManagement.ReadAPI
 {
     public class Startup
     {
@@ -31,7 +31,7 @@ namespace FleetManagment.ReadAPI
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagment.ReadAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagement.ReadAPI", Version = "v1" });
             });
             services.AddMediatR(typeof(Startup));
         }
@@ -43,7 +43,7 @@ namespace FleetManagment.ReadAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FleetManagment.ReadAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FleetManagement.ReadAPI v1"));
             }
 
             app.UseHttpsRedirection();

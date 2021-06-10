@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace FleetManagment.DAL.Migrations
+namespace FleetManagement.DAL.Migrations
 {
     public partial class InitialMigration : Migration
     {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SJKzt2UXLISrPtqDGsgDJFpxVGQPHyPX0mUrSZXMFYvw1X5OoUCkBCyMJMT+LPXUXXYAimY7EIjGzkMINs7Ltg==",
+  "dgSpecHash": "dTHniFiNWSXsebbkcmqTOWWkZdGZ44vzt4wytuWh70lfDBUnzuBZ0qVayheLtEpCLwfrvPhjSbKzafVUxe62oQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.DAL\\FleetManagment.DAL.csproj",
+  "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.DAL\\FleetManagement.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

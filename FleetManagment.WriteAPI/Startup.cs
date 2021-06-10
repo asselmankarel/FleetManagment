@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FleetManagment.WriteAPI
+namespace FleetManagement.WriteAPI
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace FleetManagment.WriteAPI
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagment.WriteAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagement.WriteAPI", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace FleetManagment.WriteAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FleetManagment.WriteAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FleetManagement.WriteAPI v1"));
             }
 
             app.UseHttpsRedirection();

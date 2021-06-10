@@ -13,8 +13,6 @@ C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\bin\De
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\bin\Debug\net5.0\FleetManagment.Domain.dll
-C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\bin\Debug\net5.0\FleetManagment.Domain.pdb
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\obj\Debug\net5.0\FleetManagment.ReadAPI.csproj.AssemblyReference.cache
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\obj\Debug\net5.0\FleetManagment.ReadAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\obj\Debug\net5.0\FleetManagment.ReadAPI.AssemblyInfoInputs.cache
@@ -31,3 +29,5 @@ C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\obj\De
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\obj\Debug\net5.0\ref\FleetManagment.ReadAPI.dll
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\obj\Debug\net5.0\FleetManagment.ReadAPI.pdb
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\obj\Debug\net5.0\FleetManagment.ReadAPI.genruntimeconfig.cache
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\bin\Debug\net5.0\FleetManagement.Domain.dll
+C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.ReadAPI\bin\Debug\net5.0\FleetManagement.Domain.pdb
