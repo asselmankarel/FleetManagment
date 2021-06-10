@@ -200,11 +200,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.WriteAPI\\FleetManagment.WriteAPI.csproj",
+      "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.WriteAPI\\FleetManagment.WriteAPI.csproj",
       "projectName": "FleetManagment.WriteAPI",
-      "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.WriteAPI\\FleetManagment.WriteAPI.csproj",
+      "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.WriteAPI\\FleetManagment.WriteAPI.csproj",
       "packagesPath": "C:\\Users\\KarelAsselman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.WriteAPI\\obj\\",
+      "outputPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.WriteAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

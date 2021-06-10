@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tozv7wA1IL2Cei0Zc5NbWbHADZE608iYSjILybwIIsvA6MygfZEPkU3xW/LNc/khwkAE0hguc3LdOvefK8TC3w==",
+  "dgSpecHash": "A8bI1x8ABJRiyj0c5wX3EwBB7C4o5Ni/f5zLmucsGA8zKjZNS2z5PWXK5/ni+89MYPZgF49JdWY7eL268ajstg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.WriteAPI\\FleetManagment.WriteAPI.csproj",
+  "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.WriteAPI\\FleetManagment.WriteAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

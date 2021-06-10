@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DcEuApSU4MedMVVUMYz9WkoqHF9t73jdHSFQshmxvxKxllo5o+8wIEZBsx4BN19P2NEbfi86iFtdYfvVc/mUHA==",
+  "dgSpecHash": "crl9YYMJZVtgFzdNm/eE35QcKv8DVjcuX+cO0IZkI9GBihYUZak7lJ4cdxNuQ2m+YS4AIxwiEFH1fWyQJRPdjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagment\\FleetManagment.ReadAPI\\FleetManagment.ReadAPI.csproj",
+  "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.ReadAPI\\FleetManagment.ReadAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
