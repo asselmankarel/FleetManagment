@@ -10,7 +10,7 @@ namespace FleetManagment.Domain.Models
         public int Id { get; set; }
 
         [MaxLength(11)]
-        public string Nis { get; set; }
+        public string NIS { get; set; }
 
         [Required]
         [MaxLength(100)]

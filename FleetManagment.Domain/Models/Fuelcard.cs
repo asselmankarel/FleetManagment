@@ -8,9 +8,10 @@ namespace FleetManagment.Domain.Models
         [Key]
         public int Id { get; set; }
 
+        [MaxLength(255)]
         public string CardNumber { get; set; }
 
-        public string AuthType { get; set; }
+        public AuthType AuthType { get; set; }
 
         public ICollection<FuelcardService> Services { get; set; }
 

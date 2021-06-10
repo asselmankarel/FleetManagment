@@ -11,7 +11,7 @@ namespace FleetManagment.Domain.Models
     {
         [Key]
         public int Id { get; set; }
-        public string RoleType { get; set; }
+        public RoleType RoleType { get; set; }
         public ICollection<Employee> Employees { get; set; }
     }
 }

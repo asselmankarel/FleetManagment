@@ -25,7 +25,5 @@ namespace FleetManagment.Domain.Models
 
         public ICollection<DriverVehicle> DriverVehicles { get; set; }
 
-
-
     }
 }

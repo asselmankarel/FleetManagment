@@ -131,7 +131,11 @@
               "target": "Package",
               "version": "[5.0.7, )"
             },
-            "System.Configuration.ConfigurationManager": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
             }

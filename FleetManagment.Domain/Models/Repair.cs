@@ -10,12 +10,19 @@ namespace FleetManagment.Domain.Models
         public int Id { get; set; }
 
         public Employee Employee { get; set; }
+        
+        [MaxLength(255)]
         public string InsuranceRefferenceNumber { get; set; }
+
         public DateTime RepairDate { get; set; }
+
         public Company InsuranceCompany { get; set; }
+
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         public ICollection<Photo> Photos { get; set; }
+
         public ICollection<Document> Documents { get; set; }
     }
 }

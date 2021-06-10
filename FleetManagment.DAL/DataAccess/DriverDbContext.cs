@@ -1,12 +1,8 @@
 ﻿using FleetManagment.Domain.Models;
-
-using System.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.IO;
 
 namespace FleetManagment.DAL.DataAccess
 {
@@ -21,7 +17,7 @@ namespace FleetManagment.DAL.DataAccess
         protected override void OnModelCreating(ModelBuilder builder)
         {
             
-            builder.Entity<Driver>().HasIndex(x => x.Nis).IsUnique();
+            builder.Entity<Driver>().HasIndex(x => x.NIS).IsUnique();
             builder.Entity<Driver>().HasIndex(x => new { x.FirstName, x.LastName }).IsUnique();
             builder.Entity<Vehicle>().HasIndex(x => x.Vin).IsUnique();
             builder.Entity<LicensePlate>().HasIndex(x => x.Number).IsUnique();
@@ -37,8 +33,14 @@ namespace FleetManagment.DAL.DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["FleetManagment"].ConnectionString);
-            optionsBuilder.UseSqlServer("server=.;database=FleetManagment;Integrated Security=True;");
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", false)
+                .Build();
+
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("FleetManagement"));
+            //optionsBuilder.UseSqlServer("server=.;database=FleetManagment;Integrated Security=True;");
         }
 
     }

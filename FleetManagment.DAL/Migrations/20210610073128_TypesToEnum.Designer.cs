@@ -4,14 +4,16 @@ using FleetManagment.DAL.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagment.DAL.Migrations
 {
     [DbContext(typeof(DriverDbContext))]
-    partial class DriverDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210610073128_TypesToEnum")]
+    partial class TypesToEnum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -189,7 +191,7 @@ namespace FleetManagment.DAL.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<string>("NIS")
+                    b.Property<string>("Nis")
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
 
@@ -246,8 +248,8 @@ namespace FleetManagment.DAL.Migrations
 
                     b.Property<string>("Number")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
 
                     b.HasKey("Id");
 
@@ -498,9 +500,9 @@ namespace FleetManagment.DAL.Migrations
                     b.Property<int>("DriversLicense")
                         .HasColumnType("int");
 
-                    b.HasIndex("NIS")
+                    b.HasIndex("Nis")
                         .IsUnique()
-                        .HasFilter("[NIS] IS NOT NULL");
+                        .HasFilter("[Nis] IS NOT NULL");
 
                     b.HasIndex("FirstName", "LastName")
                         .IsUnique();
