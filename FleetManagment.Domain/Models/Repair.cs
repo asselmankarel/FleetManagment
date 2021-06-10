@@ -11,7 +11,7 @@ namespace FleetManagement.Domain.Models
 
         public Employee Employee { get; set; }
         
-        [MaxLength(255)]
+        [MaxLength(256)]
         public string InsuranceRefferenceNumber { get; set; }
 
         public DateTime RepairDate { get; set; }

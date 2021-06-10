@@ -40,7 +40,6 @@ namespace FleetManagement.DAL.DataAccess
                 .Build();
 
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("FleetManagement"));
-            //optionsBuilder.UseSqlServer("server=.;database=FleetManagement;Integrated Security=True;");
         }
 
     }

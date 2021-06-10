@@ -8,7 +8,7 @@ namespace FleetManagement.Domain.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(255)]
+        [MaxLength(256)]
         public string CardNumber { get; set; }
 
         public AuthType AuthType { get; set; }

@@ -13,12 +13,18 @@ namespace FleetManagement.Domain.Models
         
         [MaxLength(255)]
         public string Status { get; set; }
+
+        [Required]
         public DateTime PrefDate1 { get; set; }
+
         public DateTime PrefDate2 { get; set; }
+
+        [Required]
         public Driver Driver { get; set; }
 
         public Vehicle Vehicle { get; set; }
 
+        [Required]
         public RequestType RequestType { get; set; }
 
     }

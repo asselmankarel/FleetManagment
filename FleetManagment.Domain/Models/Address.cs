@@ -9,7 +9,7 @@ namespace FleetManagement.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(255)]
+        [MaxLength(256)]
         public string Street { get; set; }
 
         [Required]
@@ -20,8 +20,10 @@ namespace FleetManagement.Domain.Models
         [MinLength(4), MaxLength(25)]
         public string PostalCode { get; set; }
 
+        public int Box { get; set; }
+
         [Required]
-        [MaxLength(255)]
+        [MaxLength(256)]
         public string Country { get; set; }
 
         public int EmployeeId { get; set; }

@@ -6,8 +6,8 @@ namespace FleetManagement.Domain.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
 
+        [Required]
         [MaxLength(15)]
         public string Number { get; set; }
     }

@@ -1,4 +1,3 @@
-C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.DAL\bin\Debug\net5.0\FleetManagement.DAL.dll.config
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.DAL\bin\Debug\net5.0\FleetManagement.DAL.deps.json
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.DAL\bin\Debug\net5.0\FleetManagement.DAL.runtimeconfig.json
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.DAL\bin\Debug\net5.0\FleetManagement.DAL.runtimeconfig.dev.json

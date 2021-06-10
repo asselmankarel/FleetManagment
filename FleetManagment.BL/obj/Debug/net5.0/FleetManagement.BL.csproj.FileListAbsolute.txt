@@ -5,7 +5,6 @@ C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\n
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagement.DAL.dll
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagement.Domain.dll
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagement.DAL.pdb
-C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagement.DAL.dll.config
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\bin\Debug\net5.0\FleetManagement.Domain.pdb
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\obj\Debug\net5.0\FleetManagement.BL.csproj.AssemblyReference.cache
 C:\Users\KarelAsselman\source\repos\FleetManagment\FleetManagment.BL\obj\Debug\net5.0\FleetManagement.BL.GeneratedMSBuildEditorConfig.editorconfig
