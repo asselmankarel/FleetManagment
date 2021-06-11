@@ -7,7 +7,7 @@ using System.IO;
 
 namespace FleetManagement.DAL.DataAccess
 {
-    class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         #region DbSets
         public DbSet<Employee> Employees { get; set; }

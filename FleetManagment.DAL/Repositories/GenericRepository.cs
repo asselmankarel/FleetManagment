@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FleetManagement.DAL.DataAccess;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +9,14 @@ namespace FleetManagement.DAL.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-
+        private readonly ApplicationDbContext _context;
         public GenericRepository()
         {
-
+            _context = new ApplicationDbContext();
         }
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().Find(id);
         }
 
         public IEnumerable<T> GetAll()

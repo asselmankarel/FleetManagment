@@ -25,13 +25,13 @@ namespace FleetManagement.ReadAPI.Controllers
         [HttpGet]
         public async Task<Driver> GetDriver(int id)
         {
-            // var result =  _mediatr.Send(new GetDriverByIdQuery(id));
-            // return await result;
-            var driver = Task.Run(() => new Driver() {
-                FirstName = "Karel",
-                LastName = "Asselman",
-                DriversLicense = DriversLicense.B });
-            return await driver;
+            var result = _mediatr.Send(new GetDriverByIdQuery(id));
+            return await result;
+            //var driver = Task.Run(() => new Driver() {
+            //    FirstName = "Karel",
+            //    LastName = "Asselman",
+            //    DriversLicense = DriversLicense.B });
+            //return await driver;
         }
 
 

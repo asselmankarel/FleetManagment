@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FleetManagment.DAL\FleetManagement.DAL.csproj" />
     <ProjectReference Include="..\FleetManagment.Domain\FleetManagement.Domain.csproj" />
   </ItemGroup>
 

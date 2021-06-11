@@ -1,26 +1,23 @@
-﻿using System;
-using System.Threading;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
+﻿using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Models;
 using FleetManagement.ReadAPI.Queries;
-
+using MediatR;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace FleetManagement.ReadAPI.Handlers
 {
     public class GetDriverByIdHandler : IRequestHandler<GetDriverByIdQuery, Driver>
     {
+        private readonly DriverRepository _driverRepository;
 
         public GetDriverByIdHandler()
         {
-            
+            _driverRepository = new DriverRepository();
         }
         public Task<Driver> Handle(GetDriverByIdQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.Run(() =>  _driverRepository.GetById(request.Id));
         }
     }
 }

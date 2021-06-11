@@ -4,14 +4,16 @@ using FleetManagement.DAL.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagement.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class DriverDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210611085424_ChangedDriverIsActive")]
+    partial class ChangedDriverIsActive
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -518,9 +520,8 @@ namespace FleetManagement.DAL.Migrations
                 {
                     b.HasBaseType("FleetManagement.Domain.Models.Employee");
 
-                    b.Property<string>("DriversLicense")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(2)");
+                    b.Property<int>("DriversLicense")
+                        .HasColumnType("int");
 
                     b.HasIndex("NIS")
                         .IsUnique()
