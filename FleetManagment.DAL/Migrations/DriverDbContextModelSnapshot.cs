@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagement.DAL.Migrations
 {
-    [DbContext(typeof(DriverDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class DriverDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -99,7 +99,7 @@ namespace FleetManagement.DAL.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("Company");
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("FleetManagement.Domain.Models.Document", b =>
@@ -119,7 +119,7 @@ namespace FleetManagement.DAL.Migrations
 
                     b.HasIndex("RepairId");
 
-                    b.ToTable("Document");
+                    b.ToTable("Documents");
                 });
 
             modelBuilder.Entity("FleetManagement.Domain.Models.DriverFuelcard", b =>
@@ -140,7 +140,7 @@ namespace FleetManagement.DAL.Migrations
 
                     b.HasIndex("FuelcardId");
 
-                    b.ToTable("DriverFuelcard");
+                    b.ToTable("DriverFuelcards");
                 });
 
             modelBuilder.Entity("FleetManagement.Domain.Models.DriverVehicle", b =>
@@ -161,7 +161,7 @@ namespace FleetManagement.DAL.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("DriverVehicle");
+                    b.ToTable("DriverVehicles");
                 });
 
             modelBuilder.Entity("FleetManagement.Domain.Models.Employee", b =>
@@ -209,15 +209,17 @@ namespace FleetManagement.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AuthType")
-                        .HasColumnType("int");
+                    b.Property<string>("AuthType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("CardNumber")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<int>("FuelType")
-                        .HasColumnType("int");
+                    b.Property<string>("FuelType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(25)");
 
                     b.HasKey("Id");
 
@@ -225,7 +227,7 @@ namespace FleetManagement.DAL.Migrations
                         .IsUnique()
                         .HasFilter("[CardNumber] IS NOT NULL");
 
-                    b.ToTable("Fuelcard");
+                    b.ToTable("Fuelcards");
                 });
 
             modelBuilder.Entity("FleetManagement.Domain.Models.FuelcardService", b =>
@@ -309,7 +311,7 @@ namespace FleetManagement.DAL.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("Maintenance");
+                    b.ToTable("Maintenances");
                 });
 
             modelBuilder.Entity("FleetManagement.Domain.Models.Mileage", b =>
@@ -390,7 +392,7 @@ namespace FleetManagement.DAL.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("Repair");
+                    b.ToTable("Repairs");
                 });
 
             modelBuilder.Entity("FleetManagement.Domain.Models.Request", b =>
@@ -443,7 +445,7 @@ namespace FleetManagement.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Role");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("FleetManagement.Domain.Models.Vehicle", b =>
@@ -454,10 +456,10 @@ namespace FleetManagement.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("FuelType")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar25");
 
                     b.Property<int>("VehicleType")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarhar25");
 
                     b.Property<string>("Vin")
                         .HasMaxLength(17)

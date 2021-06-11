@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.Repositories
 {
-    class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
 
         public GenericRepository()

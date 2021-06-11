@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagement.DAL.Migrations
 {
-    [DbContext(typeof(DriverDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210610135844_AttchmentToByteArray")]
     partial class AttchmentToByteArray
     {

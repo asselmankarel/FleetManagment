@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagement.DAL.Migrations
 {
-    [DbContext(typeof(DriverDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210609125145_VehicleTypeEnum")]
     partial class VehicleTypeEnum
     {
