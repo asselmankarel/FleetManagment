@@ -72,3 +72,4 @@ C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\obj\Deb
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\obj\Debug\net5.0\ref\FleetManagement.Seed.dll
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\obj\Debug\net5.0\FleetManagement.Seed.pdb
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\obj\Debug\net5.0\FleetManagement.Seed.genruntimeconfig.cache
+C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\bin\Debug\net5.0\Bogus.dll

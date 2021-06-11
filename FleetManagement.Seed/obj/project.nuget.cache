@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9F+EnvxRIX0dBi81yfKpT2lnYm8AfikTKmAfHYixVwSCEuYSHgysXCesQzCtlssfAT8TuHVtMI+y0wfeAefXJQ==",
+  "dgSpecHash": "pyGDO444ntG/ueGrzHFyioqwZ7BC6lhLpaei8T/oleYEICNoFd8u9v9e+IWrwKGPwRF60P5/TQopDaMWTXEUuw==",
   "success": true,
   "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\FleetManagement.Seed.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\KarelAsselman\\.nuget\\packages\\bogus\\33.0.2\\bogus.33.0.2.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
