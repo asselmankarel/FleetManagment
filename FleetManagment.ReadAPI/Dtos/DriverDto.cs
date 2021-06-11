@@ -8,6 +8,7 @@ namespace FleetManagment.ReadAPI.Dtos
     public class DriverDto
     {
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
 
         public string DriversLicense { get; set; }

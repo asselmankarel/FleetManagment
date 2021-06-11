@@ -17,6 +17,7 @@ namespace FleetManagement.ReadAPI.Handlers
         {
             _driverRepository = new DriverRepository(new ApplicationDbContext());
         }
+
         public Task<Driver> Handle(GetDriverByIdQuery request, CancellationToken cancellationToken)
         {
 

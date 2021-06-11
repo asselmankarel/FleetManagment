@@ -27,8 +27,7 @@ namespace FleetManagement.ReadAPI.Controllers
         [HttpGet]
         public async Task<DriverDto> GetDriver(int id)
         {
-            var mapper = new DriverMapper();
-            var result = mapper.ToDto(await _mediatr.Send(new GetDriverByIdQuery(id)));
+            var result = new DriverMapper().ToDto(await _mediatr.Send(new GetDriverByIdQuery(id)));
            
             return  result;
         }
