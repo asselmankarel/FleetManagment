@@ -36,6 +36,9 @@ namespace FleetManagement.DAL.DataAccess
             new DriverFuelcardConfiguration().Configure(builder.Entity<DriverFuelcard>());
             new DriverVehicleConfiguration().Configure(builder.Entity<DriverVehicle>());
             new VehicleLicensePlateConfiguration().Configure(builder.Entity<VehicleLicensePlate>());
+
+            //builder.Entity<Driver>().HasMany(d => d.Vehicles).WithMany
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -1,6 +1,9 @@
 ﻿using Bogus;
 using FleetManagement.DAL.DataAccess;
 using FleetManagement.Domain.Models;
+using System;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace FleetManagement.Seed
 {
@@ -15,7 +18,17 @@ namespace FleetManagement.Seed
             //CreateDrivers(10);
             //CreateVehicles(10);
 
-            _context.SaveChanges();
+            var vehicle = _context.Vehicles.Find(1);
+            Console.WriteLine(vehicle.Vin);
+
+            var driver = _context.Drivers.Include(d => d.DriverVehicles).Where(d => d.Id == 4).First();
+            
+            driver.DriverVehicles.Add(new DriverVehicle { Driver = driver, Vehicle = vehicle });
+            Console.WriteLine(driver.DriverVehicles.Count);
+
+        
+            //_context.SaveChanges();
+            Console.ReadLine();
         }
 
         private static void CreateVehicles(int numberOfVehicles)

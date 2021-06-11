@@ -20,7 +20,6 @@ namespace FleetManagement.ReadAPI.Handlers
 
         public Task<Driver> Handle(GetDriverByIdQuery request, CancellationToken cancellationToken)
         {
-
             return Task.Run(() =>  _driverRepository.GetById(request.Id));
         }
     }
