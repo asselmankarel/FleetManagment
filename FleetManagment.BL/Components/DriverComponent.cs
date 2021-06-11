@@ -1,4 +1,5 @@
-﻿using FleetManagement.DAL.Repositories;
+﻿using FleetManagement.DAL.DataAccess;
+using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Models;
 
 namespace FleetManagement.BL.Components
@@ -7,9 +8,9 @@ namespace FleetManagement.BL.Components
     {
         private readonly DriverRepository _driverRepository;
 
-        public DriverComponent(DriverRepository driverRepository)
+        public DriverComponent()
         {
-            _driverRepository = driverRepository;
+            _driverRepository = new DriverRepository(new ApplicationDbContext());
         }
 
         public Driver GetDriverById(int id)

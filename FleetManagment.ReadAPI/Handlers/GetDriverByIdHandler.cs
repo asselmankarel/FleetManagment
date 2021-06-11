@@ -1,6 +1,8 @@
-﻿using FleetManagement.DAL.Repositories;
+﻿using FleetManagement.DAL.DataAccess;
+using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Models;
 using FleetManagement.ReadAPI.Queries;
+using FleetManagment.ReadAPI.Mappers;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,10 +15,11 @@ namespace FleetManagement.ReadAPI.Handlers
 
         public GetDriverByIdHandler()
         {
-            _driverRepository = new DriverRepository();
+            _driverRepository = new DriverRepository(new ApplicationDbContext());
         }
         public Task<Driver> Handle(GetDriverByIdQuery request, CancellationToken cancellationToken)
         {
+
             return Task.Run(() =>  _driverRepository.GetById(request.Id));
         }
     }
