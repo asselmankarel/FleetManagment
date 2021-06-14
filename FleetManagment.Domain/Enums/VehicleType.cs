@@ -1,4 +1,4 @@
-﻿namespace FleetManagement.Domain.Models
+﻿namespace FleetManagement.Domain.Enums
 {
     public enum VehicleType
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FleetManagement.Domain.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Domain.Models
@@ -10,8 +11,7 @@ namespace FleetManagement.Domain.Models
 
         public DateTime CreatedAt { get; set; }
         
-        [MaxLength(256)]
-        public string Status { get; set; }
+        public RequestStatus Status { get; set; }
 
         [Required]
         public DateTime PrefDate1 { get; set; }

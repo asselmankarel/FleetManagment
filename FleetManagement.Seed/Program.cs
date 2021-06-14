@@ -4,6 +4,7 @@ using FleetManagement.Domain.Models;
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using FleetManagement.Domain.Enums;
 
 namespace FleetManagement.Seed
 {

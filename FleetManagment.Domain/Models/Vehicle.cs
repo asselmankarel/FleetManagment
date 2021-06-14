@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using FleetManagement.Domain.Enums;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Domain.Models
