@@ -7,6 +7,7 @@ namespace FleetManagement.Domain.Models
     public class Driver : Employee
     {
 
+        [Required]
         public DriversLicense DriversLicense { get; set; }
         public ICollection<Request> Requests { get; set; }
         public ICollection<DriverFuelcard> DriverFuelcards { get; set; }

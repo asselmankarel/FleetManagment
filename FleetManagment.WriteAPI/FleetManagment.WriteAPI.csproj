@@ -5,12 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Handlers\" />
+    <ProjectReference Include="..\FleetManagment.BL\FleetManagement.BL.csproj" />
+    <ProjectReference Include="..\FleetManagment.DAL\FleetManagement.DAL.csproj" />
+    <ProjectReference Include="..\FleetManagment.Domain\FleetManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>

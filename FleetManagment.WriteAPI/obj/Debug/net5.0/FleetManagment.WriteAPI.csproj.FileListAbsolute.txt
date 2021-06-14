@@ -56,3 +56,5 @@ C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\obj\
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\obj\Debug\net5.0\ref\FleetManagment.WriteAPI.dll
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\obj\Debug\net5.0\FleetManagment.WriteAPI.pdb
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\obj\Debug\net5.0\FleetManagment.WriteAPI.genruntimeconfig.cache
+C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\bin\Debug\net5.0\MediatR.dll
+C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

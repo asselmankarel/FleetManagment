@@ -27,7 +27,8 @@ namespace FleetManagement.DAL.Repositories
 
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Add(entity);
+            _context.SaveChanges();
         }
 
         public void Change(T entity)

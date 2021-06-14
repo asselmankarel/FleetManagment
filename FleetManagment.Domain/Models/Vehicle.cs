@@ -8,11 +8,14 @@ namespace FleetManagement.Domain.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(17)]
+        [StringLength(17, MinimumLength = 15)]
+        [Required]
         public string Vin { get; set; }
 
+        [Required]
         public VehicleType VehicleType { get; set; }
 
+        [Required]
         public FuelType FuelType { get; set; }
 
         public ICollection<Mileage> Mileages { get; set; }

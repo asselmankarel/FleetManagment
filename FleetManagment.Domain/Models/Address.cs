@@ -9,21 +9,21 @@ namespace FleetManagement.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(256)]
+        [StringLength(256, MinimumLength = 3)]
         public string Street { get; set; }
 
         [Required]
-        [MaxLength(25)]
+        [StringLength(25, MinimumLength = 1)]
         public string Number { get; set; }
 
         [Required]
-        [MinLength(4), MaxLength(25)]
+        [StringLength(25, MinimumLength = 4)]
         public string PostalCode { get; set; }
 
         public int Box { get; set; }
 
         [Required]
-        [MaxLength(256)]
+        [StringLength(256, MinimumLength = 2)]
         public string Country { get; set; }
 
         public int EmployeeId { get; set; }

@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 
 namespace FleetManagement.WriteAPI
 {
@@ -32,6 +33,7 @@ namespace FleetManagement.WriteAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagement.WriteAPI", Version = "v1" });
             });
+            services.AddMediatR(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
