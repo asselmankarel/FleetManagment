@@ -20,6 +20,8 @@ namespace FleetManagement.BL.Components
         {
             if (IsValid(vehicle))
             {
+                vehicle.Mileages = new List<Mileage>();
+                vehicle.Mileages.Add(new Mileage { Date = DateTime.Now, Km = 0 });
                 _vehicleRepository.Add(vehicle);
                 return vehicle;
             }
