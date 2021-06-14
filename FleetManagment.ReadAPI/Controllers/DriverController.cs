@@ -25,8 +25,8 @@ namespace FleetManagement.ReadAPI.Controllers
             _mediatr = mediatr;
         }
 
-        // GET: /GetDriver/2
         [HttpGet]
+        [Route("{id}")]
         public async Task<DriverDto> GetDriver(int id)
         {
             var result = new Mapper().ToDto(await _mediatr.Send(new GetDriverByIdQuery(id)));
@@ -35,6 +35,7 @@ namespace FleetManagement.ReadAPI.Controllers
         }
 
         [HttpGet]
+        [Route("{id}")]
         public async Task<VehicleDto> GetDriverVehicle(int driverId)
         {
             var result = new Mapper().ToDto(await _mediatr.Send(new GetVehicleByDriverIdQuery(driverId)));
