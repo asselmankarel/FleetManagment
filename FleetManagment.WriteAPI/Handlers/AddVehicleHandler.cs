@@ -18,7 +18,7 @@ namespace FleetManagment.WriteAPI.Handlers
 
         public Task<Vehicle> Handle(AddVehicleCommand request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_vehicleComponent.AddVehilce(request.vehicle));            
+            return Task.FromResult(_vehicleComponent.AddVehicle(request.vehicle));            
         }
     }
 }

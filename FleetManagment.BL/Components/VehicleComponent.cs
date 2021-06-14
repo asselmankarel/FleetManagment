@@ -1,9 +1,9 @@
 ﻿using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
 
 namespace FleetManagement.BL.Components
 {
@@ -16,13 +16,14 @@ namespace FleetManagement.BL.Components
             _vehicleRepository = new VehicleRepository(new ApplicationDbContext());
         }
 
-        public Vehicle AddVehilce(Vehicle vehicle)
+        public Vehicle AddVehicle(Vehicle vehicle)
         {
             if (IsValid(vehicle))
             {
-                _vehicleRepository.Add(vehicle);   
+                _vehicleRepository.Add(vehicle);
+                return vehicle;
             }
-            return vehicle;
+            throw new ArgumentException("Vehicle information not valid!");
         }
 
         private bool IsValid(Vehicle vehicle)
