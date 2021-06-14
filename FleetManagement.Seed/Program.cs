@@ -56,7 +56,7 @@ namespace FleetManagement.Seed
             _context.Drivers.AddRange(drivers);            
         }
 
-        private static void CreateRequestsForDriver(int numberOfrequests, Driver driver)
+        private static void CreateRequestsForDriver(int numberOfRequests, Driver driver)
         {
             //var requestType = (RequestType)
 
@@ -64,10 +64,8 @@ namespace FleetManagement.Seed
             //    .RuleFor(r => r.Driver, d => driver)
             //    .RuleFor(r => r.RequestType, f => requestType)
             //    .RuleFor(r => r.PrefDate1, f => f.Date.SoonOffset(5));
-
             
             //RequestFaker.RuleFor(r => r.Vehicle, f => vehicle)
-            
 
         }
     }

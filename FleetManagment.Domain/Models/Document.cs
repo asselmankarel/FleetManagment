@@ -7,7 +7,7 @@ namespace FleetManagement.Domain.Models
         [Key]
         public int Id { get; set; }
 
-
+        [Required]
         public byte[] File { get; set; }
     }
 }

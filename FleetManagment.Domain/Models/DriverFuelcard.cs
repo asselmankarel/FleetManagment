@@ -12,9 +12,11 @@ namespace FleetManagement.Domain.Models
 
         [ForeignKey("Fuelcard")]
         public int FuelcardId { get; set; }
-
+        
+        [Required]
         public Driver Driver { get; set; }
 
+        [Required]
         public Fuelcard Fuelcard { get; set; }
 
         public DateTime StartDate { get; set; }

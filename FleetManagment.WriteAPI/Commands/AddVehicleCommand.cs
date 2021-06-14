@@ -9,7 +9,7 @@ namespace FleetManagment.WriteAPI.Commands
 {
     public class AddVehicleCommand :IRequest<Vehicle>
     {
-        public Vehicle vehicle { get; set; }
+        public Vehicle vehicle { get; private set; }
 
         public AddVehicleCommand(Vehicle vehicle)
         {

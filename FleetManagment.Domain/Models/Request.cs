@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FleetManagement.Domain.Models
 {
@@ -11,7 +10,7 @@ namespace FleetManagement.Domain.Models
 
         public DateTime CreatedAt { get; set; }
         
-        [MaxLength(255)]
+        [MaxLength(256)]
         public string Status { get; set; }
 
         [Required]
@@ -26,6 +25,7 @@ namespace FleetManagement.Domain.Models
 
         [Required]
         public RequestType RequestType { get; set; }
+
 
     }
 }

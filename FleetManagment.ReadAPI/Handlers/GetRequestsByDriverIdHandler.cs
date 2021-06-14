@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FleetManagement.DAL.DataAccess;
+using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Models;
 using FleetManagment.ReadAPI.Queries;
 using MediatR;

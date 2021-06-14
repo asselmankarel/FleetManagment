@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.BL.Components
 {
-    public class VehicleComponent
+    public class VehicleComponent : IVehicleComponent
     {
         private readonly VehicleRepository _vehicleRepository;
 

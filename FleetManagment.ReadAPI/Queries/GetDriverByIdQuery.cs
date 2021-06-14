@@ -10,7 +10,7 @@ namespace FleetManagement.ReadAPI.Queries
 {
     public class GetDriverByIdQuery : IRequest<Driver>
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
         public GetDriverByIdQuery(int id)
         {
             Id = id;

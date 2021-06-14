@@ -9,13 +9,17 @@ namespace FleetManagement.Domain.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public Employee Employee { get; set; }
 
+        [Required]
         public Vehicle Vehicle { get; set; }
 
+        [Required]
         public Company Garage { get; set; }
 
-        public DateTime MaintenanceDate { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
 
         public decimal Price { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using FleetManagement.BL.Components;
 using FleetManagement.Domain.Models;
+using FleetManagment.WriteAPI.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,7 +15,7 @@ namespace FleetManagment.WriteAPI.Controllers
     public class VehicleController : Controller
     {
         private IMediator _mediator;
-
+       
         public VehicleController(IMediator mediator)
         {
             _mediator = mediator;
@@ -23,7 +24,7 @@ namespace FleetManagment.WriteAPI.Controllers
         [HttpPost]
         public async Task<Vehicle> AddVehicle(Vehicle vehicle)
         {
-            return await Task.FromResult(new VehicleComponent().AddVehicle(vehicle));
+            return await _mediator.Send(new AddVehicleCommand(vehicle));
 
         }
     }

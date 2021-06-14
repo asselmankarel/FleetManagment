@@ -16,12 +16,14 @@ namespace FleetManagement.Domain.Models
         [ForeignKey("LicensePlate")]
         public int LicensePlateId { get; set; }
 
+        [Required]
         public Vehicle Vehicle { get; set; }
 
+        [Required]
         public LicensePlate LicensePlate { get; set; }
 
         public DateTime StartDate { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }
