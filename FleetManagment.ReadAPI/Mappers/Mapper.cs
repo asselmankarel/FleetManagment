@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FleetManagment.ReadAPI.Mappers
 {
-    public class DriverMapper
+    public class Mapper
     {
 
         public DriverDto ToDto(Driver driver)
@@ -16,6 +16,19 @@ namespace FleetManagment.ReadAPI.Mappers
                 FirstName = driver.FirstName,
                 LastName = driver.LastName,
                 DriversLicense = driver.DriversLicense.ToString()
+            };
+
+            return dto;
+        }
+
+        public VehicleDto ToDto(Vehicle vehicle)
+        {
+
+            var dto = new VehicleDto()
+            {
+                Vin = vehicle.Vin,
+                VehicleType = vehicle.VehicleType.ToString(),
+                FuelType = vehicle.FuelType.ToString()                
             };
 
             return dto;
