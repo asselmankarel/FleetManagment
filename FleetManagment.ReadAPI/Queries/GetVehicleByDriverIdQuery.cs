@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace FleetManagment.ReadAPI.Queries
 {
-    public class GetVehicleByDriverId : IRequest<Vehicle>
+    public class GetVehicleByDriverIdQuery : IRequest<Vehicle>
     {
-        private int Id;
 
-        public GetVehicleByDriverId(int driverId)
+        public int Id { get; set; }
+
+        public GetVehicleByDriverIdQuery(int driverId)
         {
             Id = driverId;
         }

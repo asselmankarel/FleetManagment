@@ -14,16 +14,17 @@ using FleetManagment.ReadAPI.Queries;
 namespace FleetManagement.ReadAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class DriverController : Controller
     {
         private IMediator _mediatr;
 
+       
         public DriverController(IMediator mediatr)
         {
             _mediatr = mediatr;
         }
-        
+
         // GET: /GetDriver/2
         [HttpGet]
         public async Task<DriverDto> GetDriver(int id)
@@ -36,7 +37,7 @@ namespace FleetManagement.ReadAPI.Controllers
         [HttpGet]
         public async Task<VehicleDto> GetDriverVehicle(int driverId)
         {
-            var result = new Mapper().ToDto(await _mediatr.Send(new GetVehicleByDriverId(driverId)));
+            var result = new Mapper().ToDto(await _mediatr.Send(new GetVehicleByDriverIdQuery(driverId)));
 
             return result;
         }
