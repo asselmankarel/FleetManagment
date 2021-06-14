@@ -18,14 +18,15 @@ namespace FleetManagement.Seed
             //CreateDrivers(10);
             //CreateVehicles(10);
 
-            var vehicle = _context.Vehicles.Find(1);
-            Console.WriteLine(vehicle.Vin);
+            //var vehicle = _context.Vehicles.Find(1);
+            //Console.WriteLine(vehicle.Vin);
 
-            var driver = _context.Drivers.Include(d => d.DriverVehicles).Where(d => d.Id == 4).First();
+            //var driver = _context.Drivers.Include(d => d.DriverVehicles).Where(d => d.Id == 4).First();
             
-            driver.DriverVehicles.Add(new DriverVehicle { Driver = driver, Vehicle = vehicle });
-            Console.WriteLine(driver.DriverVehicles.Count);
+            //driver.DriverVehicles.Add(new DriverVehicle { Driver = driver, Vehicle = vehicle });
+            //Console.WriteLine(driver.DriverVehicles.Count);
 
+     
         
             //_context.SaveChanges();
             Console.ReadLine();
@@ -53,6 +54,21 @@ namespace FleetManagement.Seed
 
             var drivers = DriverFaker.Generate(numberOfDrivers);
             _context.Drivers.AddRange(drivers);            
+        }
+
+        private static void CreateRequestsForDriver(int numberOfrequests, Driver driver)
+        {
+            //var requestType = (RequestType)
+
+            //var RequestFaker = new Faker<Request>()
+            //    .RuleFor(r => r.Driver, d => driver)
+            //    .RuleFor(r => r.RequestType, f => requestType)
+            //    .RuleFor(r => r.PrefDate1, f => f.Date.SoonOffset(5));
+
+            
+            //RequestFaker.RuleFor(r => r.Vehicle, f => vehicle)
+            
+
         }
     }
 }
