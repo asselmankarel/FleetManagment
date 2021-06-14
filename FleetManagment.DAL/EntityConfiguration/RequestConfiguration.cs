@@ -10,7 +10,7 @@ namespace FleetManagement.DAL.EntityConfiguration
         public void Configure(EntityTypeBuilder<Request> entity)
         {
             entity.Property(r => r.RequestType).HasConversion<string>();
-            entity.Property(r => r.RequestType).HasColumnType("nvarchar(2)");
+            entity.Property(r => r.RequestType).HasColumnType("nvarchar(20)");
         }
     }
 }
