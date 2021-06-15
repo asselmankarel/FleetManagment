@@ -22,7 +22,7 @@ namespace FleetManagment.ReadAPI.Handlers
         }
         public Task<List<Request>> Handle(GetRequestsByDriverIdQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_requestRepository.GetAll().ToList());
         }
     }
 }

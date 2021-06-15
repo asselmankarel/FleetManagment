@@ -23,14 +23,14 @@ namespace FleetManagement.Seed
             //Console.WriteLine(vehicle.Vin);
 
             //var driver = _context.Drivers.Include(d => d.DriverVehicles).Where(d => d.Id == 4).First();
-            
+
             //driver.DriverVehicles.Add(new DriverVehicle { Driver = driver, Vehicle = vehicle });
             //Console.WriteLine(driver.DriverVehicles.Count);
 
-     
+            CreateRequestsForDriver();
         
-            //_context.SaveChanges();
-            Console.ReadLine();
+            _context.SaveChanges();
+            //Console.ReadLine();
         }
 
         private static void CreateVehicles(int numberOfVehicles)
@@ -57,17 +57,22 @@ namespace FleetManagement.Seed
             _context.Drivers.AddRange(drivers);            
         }
 
-        private static void CreateRequestsForDriver(int numberOfRequests, Driver driver)
+        private static void CreateRequestsForDriver()
         {
-            //var requestType = (RequestType)
+            Driver driver = _context.Drivers.Find(4);
+            Vehicle vehicle = _context.Vehicles.Find(1);
+            RequestType requestType = RequestType.Maintenance;
 
-            //var RequestFaker = new Faker<Request>()
-            //    .RuleFor(r => r.Driver, d => driver)
-            //    .RuleFor(r => r.RequestType, f => requestType)
-            //    .RuleFor(r => r.PrefDate1, f => f.Date.SoonOffset(5));
+            Console.WriteLine($"Driver: {driver.FirstName}, VIN: {vehicle.VIN}, RequestType: {requestType.ToString()}");
+
+            var RequestFaker = new Faker<Request>()
+                .RuleFor(r => r.Driver, d => driver)
+                .RuleFor(r => r.RequestType, f => requestType)
+                .RuleFor(r => r.PrefDate1, f => f.Date.Soon())
+                .RuleFor(r => r.Vehicle, f => vehicle);
             
-            //RequestFaker.RuleFor(r => r.Vehicle, f => vehicle)
-
+            var request = RequestFaker.Generate(1);
+            _context.Requests.AddRange(request);
         }
     }
 }

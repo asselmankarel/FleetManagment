@@ -22,7 +22,8 @@ namespace FleetManagement.DAL.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().ToList();
+            
         }
 
         public void Add(T entity)

@@ -20,11 +20,11 @@ namespace FleetManagment.ReadAPI.Controllers
             _mediator = mediator;
         }
     
-        [Route("{id}")]
         [HttpGet]
-        public async Task<List<Request>> GetRequestsByDriverId(int driverId)
+        [Route("{id}")]
+        public async Task<List<Request>> GetRequestsByDriverId(int id)
         {
-            return await _mediator.Send(new GetRequestsByDriverIdQuery(driverId));
+            return await _mediator.Send(new GetRequestsByDriverIdQuery(id));
         }
 
     }

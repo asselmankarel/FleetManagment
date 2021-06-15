@@ -1,8 +1,7 @@
 ﻿using FleetManagement.Domain.Models;
+using FleetManagment.WriteAPI.Commands;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace FleetManagment.WriteAPI.Controllers
@@ -11,11 +10,17 @@ namespace FleetManagment.WriteAPI.Controllers
     [Route("[controller]/[action]")]
     public class RequestController : Controller
     {
-    
-        [HttpPost]
-        public Task<Request> AddRequest(Request request)
+        private readonly IMediator _mediator;
+
+        public RequestController(IMediator mediator)
         {
-            throw new NotImplementedException();
+            _mediator = mediator;
+        }
+
+        [HttpPost]
+        public async Task<Request> AddRequest(Request request)
+        {
+            return await _mediator.Send(new AddRequestCommand(request));
         }
 
     }
