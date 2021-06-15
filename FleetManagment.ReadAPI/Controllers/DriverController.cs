@@ -18,7 +18,6 @@ namespace FleetManagement.ReadAPI.Controllers
     public class DriverController : Controller
     {
         private IMediator _mediator;
-
        
         public DriverController(IMediator mediatr)
         {
@@ -27,7 +26,7 @@ namespace FleetManagement.ReadAPI.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<DriverDto> GetDriver(int id)
+        public async Task<DriverDto> Driver(int id)
         {
             var result = new Mapper().ToDto(await _mediator.Send(new GetDriverByIdQuery(id)));
            
@@ -36,13 +35,12 @@ namespace FleetManagement.ReadAPI.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<VehicleDto> GetDriverVehicle(int driverId)
+        public async Task<VehicleDto> DriverVehicle(int id)
         {
-            var result = new Mapper().ToDto(await _mediator.Send(new GetVehicleByDriverIdQuery(driverId)));
+            var result = new Mapper().ToDto(await _mediator.Send(new GetVehicleByDriverIdQuery(id)));
 
             return result;
         }
-
 
     }
 }

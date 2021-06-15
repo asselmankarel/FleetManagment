@@ -15,23 +15,18 @@ namespace FleetManagement.DAL.Repositories
         }
 
         public Vehicle GetCurrentVehicleForDriver(int driverId)
-        {
-            Vehicle vehicle;
+        {        
+            var result = _context.DriverVehicles
+            .Where(dv => dv.DriverId == driverId && dv.EndDate == null)
+            .Include("Vehicle")
+            .FirstOrDefault();
 
-            try
-            {
-                vehicle = _context.DriverVehicles
-                .Where(dv => dv.DriverId == driverId && dv.EndDate == null)
-                .Include("Vehicle")
-                .FirstOrDefault()
-                .Vehicle;
-            }
-            catch (Exception)
+            if (result == null)
             {
                 throw new NullReferenceException();
             }
            
-            return vehicle;
+            return result.Vehicle;                     
         }
     }
 }

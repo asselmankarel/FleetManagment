@@ -53,6 +53,10 @@
             "Bogus": {
               "target": "Package",
               "version": "[33.0.2, )"
+            },
+            "ConsoleDump": {
+              "target": "Package",
+              "version": "[0.7.0, )"
             }
           },
           "imports": [

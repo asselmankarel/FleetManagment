@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FleetManagment.ReadAPI.Queries;
+using Newtonsoft.Json;
 
 namespace FleetManagment.ReadAPI.Controllers
 {
@@ -22,9 +23,9 @@ namespace FleetManagment.ReadAPI.Controllers
     
         [HttpGet]
         [Route("{id}")]
-        public async Task<List<Request>> GetRequestsByDriverId(int id)
-        {
-            return await _mediator.Send(new GetRequestsByDriverIdQuery(id));
+        public async Task<IActionResult> DriverRequests(int id)
+        {            
+            return Json(await _mediator.Send(new GetRequestsByDriverIdQuery(id)));
         }
 
     }

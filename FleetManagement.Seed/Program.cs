@@ -5,6 +5,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using FleetManagement.Domain.Enums;
+using ConsoleDump;
 
 namespace FleetManagement.Seed
 {
@@ -27,10 +28,20 @@ namespace FleetManagement.Seed
             //driver.DriverVehicles.Add(new DriverVehicle { Driver = driver, Vehicle = vehicle });
             //Console.WriteLine(driver.DriverVehicles.Count);
 
-            CreateRequestsForDriver();
-        
-            _context.SaveChanges();
-            //Console.ReadLine();
+            // CreateRequestsForDriver();
+
+
+            //var driver = _context.Drivers.Find(4);
+            //var requests = _context.Requests.Include("Vehicle").Where(r => r.Driver == driver);
+
+            //foreach(var request in requests)
+            //{
+            //    request.Dump();
+            //    request.Vehicle.Dump();
+            //}
+
+            //_context.SaveChanges();
+            Console.ReadLine();
         }
 
         private static void CreateVehicles(int numberOfVehicles)

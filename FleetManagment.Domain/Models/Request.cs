@@ -1,6 +1,7 @@
 ﻿using FleetManagement.Domain.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace FleetManagement.Domain.Models
 {
@@ -25,7 +26,6 @@ namespace FleetManagement.Domain.Models
 
         [Required]
         public RequestType RequestType { get; set; }
-
 
     }
 }
