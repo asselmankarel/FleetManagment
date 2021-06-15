@@ -9,9 +9,9 @@ namespace FleetManagement.Domain.Models
         [Key]
         public int Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-        
-        public RequestStatus Status { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        public RequestStatus Status { get; set; } = RequestStatus.Created;
 
         [Required]
         public DateTime PrefDate1 { get; set; }

@@ -11,16 +11,23 @@ namespace FleetManagement.BL.Components
     {
 
         private readonly RequestRepository _requestRepository;
+        private readonly DriverRepository _driverRepository;
 
         public RequestComponent()
         {
-            _requestRepository = new RequestRepository(new ApplicationDbContext());
+            var context = new ApplicationDbContext();
+            _requestRepository = new RequestRepository(context);
+            _driverRepository = new DriverRepository(context);
         }
 
         public Request AddRequest(Request request)
         {
+            var driver = _driverRepository.GetById(request.Driver.Id);
+            request.Driver = driver;
+
             if (IsValid(request))
             {
+                // TODO: check type of request and add vehicle if needed
                 _requestRepository.Add(request);
                 return request;
             }

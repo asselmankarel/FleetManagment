@@ -37,6 +37,7 @@ namespace FleetManagement.WriteAPI
             services.AddMediatR(typeof(Startup));
            
             services.AddScoped<IVehicleComponent, VehicleComponent>();
+            services.AddScoped<IRequestComponent, RequestComponent>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
