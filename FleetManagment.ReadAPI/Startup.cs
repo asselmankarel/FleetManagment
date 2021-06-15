@@ -34,6 +34,8 @@ namespace FleetManagement.ReadAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagement.ReadAPI", Version = "v1" });
             });
             services.AddMediatR(typeof(Startup));
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

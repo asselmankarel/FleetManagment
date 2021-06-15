@@ -1,6 +1,8 @@
 ﻿using FleetManagement.DAL.DataAccess;
 using FleetManagement.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+
 using System.Linq;
 
 namespace FleetManagement.DAL.Repositories
@@ -12,9 +14,23 @@ namespace FleetManagement.DAL.Repositories
 
         }
 
-        public Vehicle GetVehicleByDriverId(int id)
+        public Vehicle GetCurrentVehicleForDriver(int driverId)
         {
-            var vehicle = _context.DriverVehicles.Where(dv => dv.DriverId == id && dv.EndDate == null).Include("Vehicle").FirstOrDefault().Vehicle;
+            Vehicle vehicle;
+
+            try
+            {
+                vehicle = _context.DriverVehicles
+                .Where(dv => dv.DriverId == driverId && dv.EndDate == null)
+                .Include("Vehicle")
+                .FirstOrDefault()
+                .Vehicle;
+            }
+            catch (Exception)
+            {
+                throw new NullReferenceException();
+            }
+           
             return vehicle;
         }
     }

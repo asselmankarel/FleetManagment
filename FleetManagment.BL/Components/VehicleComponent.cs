@@ -1,19 +1,23 @@
 ﻿using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace FleetManagement.BL.Components
 {
     public class VehicleComponent : IVehicleComponent
     {
         private readonly VehicleRepository _vehicleRepository;
+        private readonly ApplicationDbContext _context;
 
         public VehicleComponent()
         {
-            _vehicleRepository = new VehicleRepository(new ApplicationDbContext());
+            _context = new ApplicationDbContext();
+            _vehicleRepository = new VehicleRepository(_context);
         }
 
         public Vehicle AddVehicle(Vehicle vehicle)

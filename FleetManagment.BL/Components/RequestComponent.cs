@@ -1,5 +1,6 @@
 ﻿using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
+using FleetManagement.Domain.Enums;
 using FleetManagement.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,14 @@ namespace FleetManagement.BL.Components
 
         private readonly RequestRepository _requestRepository;
         private readonly DriverRepository _driverRepository;
+        private readonly VehicleRepository _vehicleRepository;
 
         public RequestComponent()
         {
             var context = new ApplicationDbContext();
             _requestRepository = new RequestRepository(context);
             _driverRepository = new DriverRepository(context);
+            _vehicleRepository = new VehicleRepository(context);
         }
 
         public Request AddRequest(Request request)
@@ -27,13 +30,25 @@ namespace FleetManagement.BL.Components
 
             if (IsValid(request))
             {
-                // TODO: check type of request and add vehicle if needed
+                if (RequestRequiresCar(request))
+                {
+                    request.Vehicle = _vehicleRepository.GetCurrentVehicleForDriver(request.Driver.Id);
+                }
                 _requestRepository.Add(request);
                 return request;
             }
             throw new ArgumentException("Request not valid!");
         }
 
+        private bool RequestRequiresCar(Request request)
+        {
+            switch (request.RequestType)
+            {
+                case RequestType.Maintenance: return true;
+                case RequestType.Repair: return true;
+                default: return false;
+            }            
+        }
 
         private bool IsValid(Request request)
         {
