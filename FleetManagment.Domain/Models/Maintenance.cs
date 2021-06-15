@@ -23,7 +23,7 @@ namespace FleetManagement.Domain.Models
 
         public decimal Price { get; set; }
 
-        public Invoice Invoice { get; set; }
+        public Attachment Invoice { get; set; }
        
     }
 }

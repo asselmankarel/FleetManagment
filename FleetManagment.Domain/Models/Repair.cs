@@ -21,8 +21,8 @@ namespace FleetManagement.Domain.Models
         [MaxLength(1000)]
         public string Description { get; set; }
 
-        public ICollection<Photo> Photos { get; set; }
+        public ICollection<Attachment> Photos { get; set; }
 
-        public ICollection<Document> Documents { get; set; }
+        public ICollection<Attachment> Documents { get; set; }
     }
 }

@@ -14,6 +14,9 @@ namespace FleetManagement.Domain.Enums
         jpeg,
         tiff,
         doc,
-        docx
+        docx,
+        xls,
+        xlsx,
+        csv
     }
 }

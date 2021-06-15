@@ -14,7 +14,7 @@ namespace FleetManagement.DAL.DataAccess
         public DbSet<Role> Roles { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Company> Companies { get; set; }
-        public DbSet<Document> Documents { get; set; }
+        public DbSet<Attachment> Documents { get; set; }
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<DriverVehicle> DriverVehicles { get; set; }
         public DbSet<DriverFuelcard> DriverFuelcards { get; set; }
