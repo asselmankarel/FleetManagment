@@ -9,16 +9,22 @@ namespace FleetManagement.Domain.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        public Vehicle Vehicle { get; set; }
+
+        [Required]
         public Employee Employee { get; set; }
         
-        [MaxLength(256)]
+        [StringLength(256, MinimumLength = 3)]
         public string InsuranceRefferenceNumber { get; set; }
 
+        [Required]
         public DateTime RepairDate { get; set; }
 
+        [Required]
         public Company InsuranceCompany { get; set; }
 
-        [MaxLength(1000)]
+        [StringLength(1000, MinimumLength = 5)]
         public string Description { get; set; }
 
         public ICollection<Attachment> Photos { get; set; }
