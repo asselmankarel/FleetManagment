@@ -1,9 +1,11 @@
 ﻿using FleetManagement.Domain.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace FleetManagement.Domain.Models
 {
+    [Index(nameof(VIN), IsUnique = true)]
     public class Vehicle
     {
         [Key]
@@ -11,7 +13,7 @@ namespace FleetManagement.Domain.Models
 
         [StringLength(17, MinimumLength = 15)]
         [Required]
-        public string Vin { get; set; }
+        public string VIN { get; set; }
 
         [Required]
         public VehicleType VehicleType { get; set; }

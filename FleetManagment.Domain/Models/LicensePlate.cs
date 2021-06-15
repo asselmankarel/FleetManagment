@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace FleetManagement.Domain.Models
 {
+    [Index(nameof(Number), IsUnique = true)]
     public class LicensePlate
     {
         [Key]

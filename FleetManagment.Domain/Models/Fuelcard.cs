@@ -1,9 +1,11 @@
 ﻿using FleetManagement.Domain.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace FleetManagement.Domain.Models
 {
+    [Index(nameof(CardNumber), IsUnique = true)]
     public class Fuelcard
     {
         [Key]

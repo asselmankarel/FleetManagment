@@ -8,7 +8,7 @@ namespace FleetManagement.DAL.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<LicensePlate> entity)
         {
-            entity.HasIndex(x => x.Number).IsUnique();
+            //entity.HasIndex(x => x.Number).IsUnique();
         }
     }
 }

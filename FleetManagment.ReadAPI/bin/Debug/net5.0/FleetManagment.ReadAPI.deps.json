@@ -1434,6 +1434,9 @@
         }
       },
       "FleetManagement.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.7"
+        },
         "runtime": {
           "FleetManagement.Domain.dll": {}
         },

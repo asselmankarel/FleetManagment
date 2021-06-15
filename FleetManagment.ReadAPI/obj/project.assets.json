@@ -1677,6 +1677,9 @@
       "FleetManagement.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.7"
+        },
         "compile": {
           "bin/placeholder/FleetManagement.Domain.dll": {}
         },

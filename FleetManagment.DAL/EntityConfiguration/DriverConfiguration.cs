@@ -10,7 +10,7 @@ namespace FleetManagement.DAL.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Driver> entity)
         {
-            entity.HasIndex(d => d.NIS).IsUnique();
+            //entity.HasIndex(d => d.NIS).IsUnique();
             entity.HasIndex(d => new { d.FirstName, d.LastName }).IsUnique();
             entity.Property(d => d.IsActive).HasDefaultValue(true);
 

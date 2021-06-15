@@ -12,7 +12,7 @@ namespace FleetManagement.DAL.EntityConfiguration
 
         public void Configure(EntityTypeBuilder<Vehicle> entity)
         {
-            entity.HasIndex(v => v.Vin).IsUnique();
+            //entity.HasIndex(v => v.VIN).IsUnique();
             entity.Property(v => v.FuelType).HasConversion<string>();
             entity.Property(v => v.FuelType).HasColumnType("nvarchar(25)");
             entity.Property(v => v.VehicleType).HasConversion<string>();

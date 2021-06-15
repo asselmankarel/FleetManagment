@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Domain.Models
 {
+    [Index(nameof(NIS), IsUnique = true)]
     public class Employee
     {
         [Key]
         public int Id { get; set; }
 
         [MaxLength(11)]
-
         public string NIS { get; set; }
 
         [Required]

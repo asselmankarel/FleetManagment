@@ -7,7 +7,7 @@ namespace FleetManagement.BL.Validators
     {
         public VehicleValidator()
         {
-            RuleFor(v => v.Vin).MinimumLength(15).MinimumLength(17);
+            RuleFor(v => v.VIN).MinimumLength(15).MinimumLength(17);
 
         }
     }

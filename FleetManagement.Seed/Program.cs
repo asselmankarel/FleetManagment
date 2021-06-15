@@ -36,7 +36,7 @@ namespace FleetManagement.Seed
         private static void CreateVehicles(int numberOfVehicles)
         {
             var VehicleFaker = new Faker<Vehicle>()
-               .RuleFor(d => d.Vin, f => f.Random.AlphaNumeric(17))
+               .RuleFor(d => d.VIN, f => f.Random.AlphaNumeric(17))
                .RuleFor(d => d.VehicleType, f => (VehicleType)f.Random.Int(0, 2))
                .RuleFor(v => v.FuelType, f => (FuelType)f.Random.Int(0, 3));
 

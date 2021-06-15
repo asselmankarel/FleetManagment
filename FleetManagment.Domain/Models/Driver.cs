@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Domain.Models
 {
-
     public class Driver : Employee
     {
 

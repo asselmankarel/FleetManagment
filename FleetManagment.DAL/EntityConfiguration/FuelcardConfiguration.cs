@@ -8,7 +8,7 @@ namespace FleetManagement.DAL.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Fuelcard> entity)
         {
-            entity.HasIndex(f => f.CardNumber).IsUnique();
+            //entity.HasIndex(f => f.CardNumber).IsUnique();
             entity.Property(f => f.AuthType).HasConversion<string>();
             entity.Property(f => f.AuthType).HasColumnType("nvarchar(25)");
             entity.Property(f => f.FuelType).HasConversion<string>();
