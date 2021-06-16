@@ -37,9 +37,10 @@ namespace FleetManagement.ReadAPI.Controllers
         [Route("{id}")]
         public async Task<VehicleDto> DriverVehicle(int id)
         {
-            var result = new Mapper().ToDto(await _mediator.Send(new GetVehicleByDriverIdQuery(id)));
+            var vehicleDto = new Mapper().ToDto(await _mediator.Send(new GetVehicleByDriverIdQuery(id)));
+            vehicleDto.LastMileage = await _mediator.Send(new GetLastMileageForVehicleQuery(vehicleDto.Id));
 
-            return result;
+            return vehicleDto;
         }
 
     }

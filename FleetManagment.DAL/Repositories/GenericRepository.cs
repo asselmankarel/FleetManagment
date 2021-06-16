@@ -22,8 +22,7 @@ namespace FleetManagement.DAL.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            return _context.Set<T>().ToList();
-            
+            return _context.Set<T>().ToList();            
         }
 
         public void Add(T entity)
@@ -32,9 +31,10 @@ namespace FleetManagement.DAL.Repositories
             _context.SaveChanges();
         }
 
-        public void Change(T entity)
+        public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Update(entity);
+            _context.SaveChanges();
         }
 
 

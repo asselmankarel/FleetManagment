@@ -26,6 +26,7 @@ namespace FleetManagment.ReadAPI.Mappers
 
             var dto = new VehicleDto()
             {
+                Id = vehicle.Id,
                 Vin = vehicle.VIN,
                 VehicleType = vehicle.VehicleType.ToString(),
                 FuelType = vehicle.FuelType.ToString()                

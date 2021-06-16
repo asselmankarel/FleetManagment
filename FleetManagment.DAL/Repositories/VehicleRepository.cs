@@ -28,5 +28,22 @@ namespace FleetManagement.DAL.Repositories
            
             return result.Vehicle;                     
         }
+
+        public int GetLastMileage(int id)
+        {
+            var km = 0;
+
+            try
+            {
+                km = _context.Vehicles.Where(v => v.Id == id).Include(v => v.Mileages).FirstOrDefault().Mileages.Last().Km;
+            }
+            catch (Exception)
+            {
+                km = -1;
+            }
+            
+
+            return km;
+        }
     }
 }

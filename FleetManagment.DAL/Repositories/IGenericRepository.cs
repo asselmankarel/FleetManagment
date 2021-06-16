@@ -7,6 +7,6 @@ namespace FleetManagement.DAL.Repositories
         T GetById(int id);
         IEnumerable<T> GetAll();
         void Add(T entity);
-        void Change(T entity);
+        void Update(T entity);
     }
 }
