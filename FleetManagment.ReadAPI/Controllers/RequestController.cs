@@ -1,14 +1,10 @@
-﻿using FleetManagement.Domain.Models;
+﻿using FleetManagment.ReadAPI.Dtos;
+using FleetManagment.ReadAPI.Mappers;
+using FleetManagment.ReadAPI.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using FleetManagment.ReadAPI.Queries;
-using Newtonsoft.Json;
-using FleetManagment.ReadAPI.Dtos;
-using FleetManagment.ReadAPI.Mappers;
 
 namespace FleetManagment.ReadAPI.Controllers
 {
@@ -28,13 +24,10 @@ namespace FleetManagment.ReadAPI.Controllers
         public async Task<IActionResult> DriverRequests(int id)
         {   
             var requests = await _mediator.Send(new GetRequestsByDriverIdQuery(id));
-            List<RequestDto> requestDtos = new List<RequestDto>();
+            var requestDtos = new List<RequestDto>();
             var mapper = new Mapper();
 
-            foreach(var request in requests)
-            {
-                requestDtos.Add(mapper.toDto(request));
-            }
+            requests.ForEach(r => requestDtos.Add(mapper.ToDto(r)));
 
             return Json(requestDtos);
         }

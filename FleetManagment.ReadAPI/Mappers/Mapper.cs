@@ -35,7 +35,7 @@ namespace FleetManagment.ReadAPI.Mappers
             return dto;
         }
 
-        public RequestDto toDto(Request request)
+        public RequestDto ToDto(Request request)
         {
             var dto = new RequestDto()
             {
