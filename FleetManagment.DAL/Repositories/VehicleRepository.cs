@@ -42,7 +42,6 @@ namespace FleetManagement.DAL.Repositories
                 km = -1;
             }
             
-
             return km;
         }
     }

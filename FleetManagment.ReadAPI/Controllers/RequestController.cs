@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using FleetManagment.ReadAPI.Queries;
 using Newtonsoft.Json;
+using FleetManagment.ReadAPI.Dtos;
+using FleetManagment.ReadAPI.Mappers;
 
 namespace FleetManagment.ReadAPI.Controllers
 {
@@ -24,8 +26,17 @@ namespace FleetManagment.ReadAPI.Controllers
         [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> DriverRequests(int id)
-        {            
-            return Json(await _mediator.Send(new GetRequestsByDriverIdQuery(id)));
+        {   
+            var requests = await _mediator.Send(new GetRequestsByDriverIdQuery(id));
+            List<RequestDto> requestDtos = new List<RequestDto>();
+            var mapper = new Mapper();
+
+            foreach(var request in requests)
+            {
+                requestDtos.Add(mapper.toDto(request));
+            }
+
+            return Json(requestDtos);
         }
 
     }

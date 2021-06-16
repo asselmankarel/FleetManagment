@@ -13,10 +13,12 @@ namespace FleetManagement.DAL.Repositories
     {
         public RequestRepository(ApplicationDbContext context) : base (context) { }
 
-        public List<Request> GetRequestsByDriverId(int id)
+        public List<Request> GetRequestsByDriverId(int id, int number)
         {
-            var driver = _context.Drivers.Find(id);
-            var requests = _context.Requests.Where(r => r.Driver == driver).Include(r => r.Vehicle);
+            var requests = _context.Requests
+                .Where(r => r.Driver.Id == id)
+                .Include(r => r.Vehicle)
+                .Skip(_context.Requests.Count() - number - 1);
 
             return requests.ToList();
         }

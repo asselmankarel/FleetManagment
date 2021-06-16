@@ -10,6 +10,11 @@ namespace FleetManagment.ReadAPI.Dtos
     {
         public DateTime CreatedAt { get; set; }
 
-        public RequestStatus MyProperty { get; set; }
+        public string Type { get; set; }
+
+        public string VIN { get; set; }
+
+        public string Status { get; set; }
+
     }
 }
