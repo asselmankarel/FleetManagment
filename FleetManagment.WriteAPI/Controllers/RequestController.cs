@@ -20,7 +20,7 @@ namespace FleetManagment.WriteAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<Request> AddRequest(RequestDto requestDto)
+        public async Task<Request> New(RequestDto requestDto)
         {
             Request request = Mapper.FromDto(requestDto);
             

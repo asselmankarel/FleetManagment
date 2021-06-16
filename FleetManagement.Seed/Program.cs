@@ -25,7 +25,7 @@ namespace FleetManagement.Seed
 
             //var driver = _context.Drivers.Include(d => d.DriverVehicles).Where(d => d.Id == 4).First();
 
-            //driver.DriverVehicles.Add(new DriverVehicle { Driver = driver, Vehicle = vehicle });
+            //driver.DriverVehicles.Add(new DriverVehicle { Driver = driver, Vehicle = vehicle , StartDate = DateTime.Now, EndDate = null});
             //Console.WriteLine(driver.DriverVehicles.Count);
 
             // CreateRequestsForDriver();
