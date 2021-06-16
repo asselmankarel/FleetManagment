@@ -2,7 +2,6 @@
 using FleetManagement.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-
 using System.Linq;
 
 namespace FleetManagement.DAL.Repositories
@@ -43,6 +42,20 @@ namespace FleetManagement.DAL.Repositories
             }
             
             return km;
+        }
+
+        public string GetActiveLicensePlateForVehicle(int id)
+        {
+            var vehicle = _context.Vehicles
+                .Where(v => v.Id == id)
+                .Include(v => v.VehicleLicensePlates.Where(vlp => vlp.EndDate == null))
+                .ThenInclude(vlp => vlp.LicensePlate)
+                .FirstOrDefault();
+
+            var licensePlate = vehicle.VehicleLicensePlates.FirstOrDefault().LicensePlate;   
+
+            return licensePlate.Number;
+
         }
     }
 }

@@ -39,6 +39,7 @@ namespace FleetManagement.ReadAPI.Controllers
         {
             var vehicleDto = new Mapper().ToDto(await _mediator.Send(new GetVehicleByDriverIdQuery(id)));
             vehicleDto.LastMileage = await _mediator.Send(new GetLastMileageForVehicleQuery(vehicleDto.Id));
+            vehicleDto.LicensePlate = await _mediator.Send(new GetActiveLicensePlateForVehicleQuery(vehicleDto.Id));
 
             return vehicleDto;
         }
