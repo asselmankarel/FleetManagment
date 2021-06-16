@@ -1,8 +1,6 @@
 ﻿using FleetManagement.Domain.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace FleetManagment.ReadAPI.Dtos
 {
@@ -10,11 +8,13 @@ namespace FleetManagment.ReadAPI.Dtos
     {
         public DateTime CreatedAt { get; set; }
 
-        public string Type { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public RequestType Type { get; set; }
 
         public string VIN { get; set; }
 
-        public string Status { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public RequestStatus Status { get; set; }
 
     }
 }

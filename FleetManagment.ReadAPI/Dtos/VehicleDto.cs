@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FleetManagement.Domain.Enums;
+using System.Text.Json.Serialization;
 
 namespace FleetManagment.ReadAPI.Dtos
 {
@@ -12,9 +10,11 @@ namespace FleetManagment.ReadAPI.Dtos
 
         public string LicensePlate { get; set; }
 
-        public string FuelType { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public FuelType FuelType { get; set; }
 
-        public string VehicleType { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public VehicleType VehicleType { get; set; }
 
         public int LastMileage { get; set; }
     }

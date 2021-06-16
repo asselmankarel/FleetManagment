@@ -28,8 +28,8 @@ namespace FleetManagment.ReadAPI.Mappers
             {
                 Id = vehicle.Id,
                 Vin = vehicle.VIN,
-                VehicleType = vehicle.VehicleType.ToString(),
-                FuelType = vehicle.FuelType.ToString()                
+                VehicleType = vehicle.VehicleType,
+                FuelType = vehicle.FuelType                
             };
 
             return dto;
@@ -41,8 +41,8 @@ namespace FleetManagment.ReadAPI.Mappers
             {
                 CreatedAt = request.CreatedAt,
                 VIN = (request.Vehicle == null) ? "" : request.Vehicle.VIN,
-                Type = request.RequestType.ToString(),
-                Status = request.Status.ToString()
+                Type = request.RequestType,
+                Status = request.Status
             };
 
             return dto;

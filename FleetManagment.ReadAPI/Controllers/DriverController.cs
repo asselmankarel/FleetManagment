@@ -1,15 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MediatR;
-using FleetManagement.Domain.Models;
-using FleetManagement.ReadAPI.Queries;
-using FleetManagment.ReadAPI.Mappers;
+﻿using FleetManagement.ReadAPI.Queries;
 using FleetManagment.ReadAPI.Dtos;
+using FleetManagment.ReadAPI.Mappers;
 using FleetManagment.ReadAPI.Queries;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace FleetManagement.ReadAPI.Controllers
 {
@@ -37,13 +32,13 @@ namespace FleetManagement.ReadAPI.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<VehicleDto> DriverVehicle(int id)
+        public async Task<ActionResult<VehicleDto>> DriverVehicle(int id)
         {
             var vehicleDto = _mapper.ToDto(await _mediator.Send(new GetVehicleByDriverIdQuery(id)));
             vehicleDto.LastMileage = await _mediator.Send(new GetLastMileageForVehicleQuery(vehicleDto.Id));
             vehicleDto.LicensePlate = await _mediator.Send(new GetActiveLicensePlateForVehicleQuery(vehicleDto.Id));
 
-            return vehicleDto;
+            return Ok(vehicleDto);
         }
 
     }

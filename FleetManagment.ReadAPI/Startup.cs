@@ -35,8 +35,7 @@ namespace FleetManagement.ReadAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagement.ReadAPI", Version = "v1" });
             });
             services.AddMediatR(typeof(Startup));
-            services.AddControllers().AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddScoped<IMapper, Mapper>();
         }
 
