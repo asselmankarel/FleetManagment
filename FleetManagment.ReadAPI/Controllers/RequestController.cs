@@ -13,10 +13,12 @@ namespace FleetManagment.ReadAPI.Controllers
     public class RequestController : Controller
     {
         private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public RequestController(IMediator mediator)
+        public RequestController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
     
         [HttpGet]
@@ -24,10 +26,8 @@ namespace FleetManagment.ReadAPI.Controllers
         public async Task<IActionResult> DriverRequests(int id)
         {   
             var requests = await _mediator.Send(new GetRequestsByDriverIdQuery(id));
-            var requestDtos = new List<RequestDto>();
-            var mapper = new Mapper();
-
-            requests.ForEach(r => requestDtos.Add(mapper.ToDto(r)));
+            var requestDtos = new List<RequestDto>();            
+            requests.ForEach(r => requestDtos.Add(_mapper.ToDto(r)));
 
             return Json(requestDtos);
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FleetManagment.ReadAPI.Mappers
 {
-    public class Mapper
+    public class Mapper : IMapper
     {
 
         public DriverDto ToDto(Driver driver)
