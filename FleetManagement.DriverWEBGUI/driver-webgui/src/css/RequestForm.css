@@ -12,10 +12,10 @@
 
 .form-item {
     line-height: 2.5em;
-    
+    margin-top: 1em;
 }
 
-input {
+input, select {
     height: 2em;
     width: 85%;
     font-size: 1.2em;
@@ -38,4 +38,8 @@ label {
 .button {
     font-size: 1.2em;
     border: none;
+}
+
+.button-cancel {
+    background-color:#D49823;
 }
