@@ -1,7 +1,8 @@
-import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import './App.css';
 import Banner from './Banner';
-import logo from './Logo50px.png';
+import Footer from './Footer';
+
 
 function App() {
   return (
@@ -12,16 +13,15 @@ function App() {
       <div ClassName="container">
         <Switch>
           <Route exact path="/">
-
+            <VehicleInfo />
+            <Requests />
           </Route>
           <Route exact path="/request">
 
           </Route>
         </Switch>
       </div>
-      <footer>   
-        <img src={logo} alt="logo"/>
-      </footer>      
+     <Footer />
     </BrowserRouter>
   );
 }
