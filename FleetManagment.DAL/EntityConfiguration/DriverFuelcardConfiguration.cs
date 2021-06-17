@@ -8,7 +8,7 @@ namespace FleetManagement.DAL.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<DriverFuelcard> entity)
         {
-            entity.HasKey(x => new { x.DriverId, x.FuelcardId });
+            entity.HasKey("DriverId", "FuelcardId");
         }
     }
 }

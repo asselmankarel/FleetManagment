@@ -74,7 +74,7 @@ namespace FleetManagement.Seed
             Vehicle vehicle = _context.Vehicles.Find(1);
             RequestType requestType = RequestType.Maintenance;
 
-            Console.WriteLine($"Driver: {driver.FirstName}, VIN: {vehicle.VIN}, RequestType: {requestType.ToString()}");
+            Console.WriteLine($"Driver: {driver.FirstName}, VIN: {vehicle.VIN}, RequestType: {requestType}");
 
             var RequestFaker = new Faker<Request>()
                 .RuleFor(r => r.Driver, d => driver)

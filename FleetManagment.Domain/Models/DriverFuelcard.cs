@@ -7,12 +7,7 @@ namespace FleetManagement.Domain.Models
     public class DriverFuelcard
     {
         
-        [ForeignKey("Driver")]
-        public int DriverId { get; set; }
-
-        [ForeignKey("Fuelcard")]
-        public int FuelcardId { get; set; }
-        
+                
         [Required]
         public Driver Driver { get; set; }
 
