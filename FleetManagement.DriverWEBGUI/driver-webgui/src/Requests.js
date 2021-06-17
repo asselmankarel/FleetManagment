@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import Loader from './Loader';
 import useFetch from './useFetch';
 import Request from './Request';
@@ -18,7 +19,10 @@ export default function Requests(props) {
 
     return(
         <div className="requests">
-            <h2><i className="far fa-list-alt"></i> My requests</h2>
+            <div className="requests-title">
+                <h2><i className="far fa-list-alt"></i> My requests</h2>
+                <NavLink className="button" to="/request/new"><i className="fas fa-plus"></i> New</NavLink> 
+            </div>   
             { loading && <Loader /> }
             { loading === false &&
                 <div className="requests-list">
@@ -26,7 +30,7 @@ export default function Requests(props) {
                         <span>Created at</span>
                         <span>Type</span>
                         <span>Status</span>
-                        <span>VIN</span>
+                        <span>Chassis number</span>
                     </div>
                     { requests.map((request) => {
                         return (
