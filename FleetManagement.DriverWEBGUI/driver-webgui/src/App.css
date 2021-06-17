@@ -53,37 +53,49 @@ header {
 .container {
   max-width: 800px;
   margin: auto;
+  padding-left: 5px;
+  padding-right: 5px;;
 }
 
 .vehicle {
-
   margin-top: 4em;
-  
 }
+
 .vehicle .fas {
   color: darkgrey;
   padding-left: .5em;
 }
 
 .vehicle-info {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+
+  align-items: center;
   border: 1px solid gray;
   border-radius: 4px;
   padding: 1em;
 }
 
-.vehicle-info-row {
-  width: 40%;
+.vehicle-info-row {  
   display: flex;
   justify-content: space-between;
+
 }
+.vehicle-image {
+  margin:auto;
+}
+
 
 .requests {
   margin-top: 5em;
-
 }
 
 .requests-list {
   margin-top: 2em;
+}
+
+.request:nth-child(odd){
+  background-color: lightgray;
 }
 
 .request-row {
@@ -120,7 +132,6 @@ footer {
   text-align: center;
   bottom: 0;
   background-color: #2397D4;
-
   color: whitesmoke;
   font-size: 1.4em;
 }
@@ -133,12 +144,7 @@ footer {
     transform: rotate(270deg);
   }
 }
-.path {
-  stroke-dasharray: 187;
-  stroke-dashoffset: 0;
-  transform-origin: center;
-  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-}
+
 @keyframes colors {
   0% {
     stroke: #4285f4;

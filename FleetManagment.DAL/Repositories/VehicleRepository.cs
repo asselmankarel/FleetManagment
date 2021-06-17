@@ -52,7 +52,6 @@ namespace FleetManagement.DAL.Repositories
             var licensePlate = vehicle.VehicleLicensePlates.FirstOrDefault().LicensePlate;   
 
             return licensePlate.Number;
-
         }
     }
 }

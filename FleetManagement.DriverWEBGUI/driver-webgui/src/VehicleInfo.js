@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Loader from './Loader';
 import useFetch from './useFetch';
+import car from './images/car.png';
 
 export default function VehicleInfo(props) {
 
@@ -26,6 +27,9 @@ export default function VehicleInfo(props) {
                         <li><div className="vehicle-info-row"><strong>Vehicle type:</strong> {vehicle.vehicleType}</div></li>
                         <li><div className="vehicle-info-row"><strong>Last mileage:</strong> {vehicle.lastMileage}km</div></li>               
                     </ul>
+                    <div className="vehicle-image">
+                        <img src={car} alt="car" width="200px"/>
+                    </div>
                 </div>
             }
         </div>
