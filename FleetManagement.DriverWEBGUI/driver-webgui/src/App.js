@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css';
 import Banner from './Banner';
 import Footer from './Footer';
+import VehicleInfo from "./VehicleInfo";
 
 
 function App() {
@@ -10,12 +11,13 @@ function App() {
       <header>
         <Banner />
       </header>
-      <div ClassName="container">
+      <div className="container">
         <Switch>
           <Route exact path="/">
-            <VehicleInfo />
-            <Requests />
+            <VehicleInfo driverId={4} />
+            
           </Route>
+
           <Route exact path="/request">
 
           </Route>

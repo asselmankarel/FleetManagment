@@ -14,6 +14,10 @@ h1  {
   font-size: 1.8em;
 }
 
+h2 {
+  margin-bottom: .5em;
+}
+
 header {
   background-color: #2397D4;
   height: 2.8em;
@@ -33,6 +37,38 @@ header {
 
 .banner, .fas {
   color: whitesmoke;
+}
+
+.spinner {
+  color: darkgrey;
+}
+
+.vehicle {
+  max-width: 800px;
+  margin: auto;
+  margin-top: 1.2em;
+  
+}
+.vehicle .fas {
+  color: darkgrey;
+  padding-left: .5em;
+}
+
+.vehicle-info {
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 1em;
+}
+
+.vehicle-info-row {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  list-style: none;
+  line-height: 2em;
 }
 
 footer {
