@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <VehicleInfo driverId={4} />
-            <Requests />
+            <Requests driverId={4} />
           </Route>
 
           <Route exact path="/request">

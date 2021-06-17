@@ -57,7 +57,7 @@ header {
 
 .vehicle {
 
-  margin-top: 2em;
+  margin-top: 4em;
   
 }
 .vehicle .fas {
@@ -78,21 +78,36 @@ header {
 }
 
 .requests {
-  margin-top: 4em;
+  margin-top: 5em;
+
 }
+
+.requests-list {
+  margin-top: 2em;
+}
+
+.request-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: .75em;
+  border-bottom: 1px solid darkgrey;
+}
+
+
+.request-row-header {
+  background-color: #2397D4;
+  color: whitesmoke;
+  font-weight: bold;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
 
 .requests .far {
   color: darkgrey;
   padding-left: .5em;
 }
 
-.request {
-  margin-top: 1em;
-  border: 1px solid gray;
-  border-radius: 4px;
-  padding: 1em;
-
-}
 
 li {
   list-style: none;
