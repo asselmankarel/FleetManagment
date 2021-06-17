@@ -3,6 +3,7 @@ import './App.css';
 import Banner from './Banner';
 import Footer from './Footer';
 import VehicleInfo from "./VehicleInfo";
+import Requests from "./Requests";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <VehicleInfo driverId={4} />
-            
+            <Requests />
           </Route>
 
           <Route exact path="/request">
