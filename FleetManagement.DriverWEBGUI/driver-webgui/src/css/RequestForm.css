@@ -42,15 +42,3 @@ label {
     background-color:#D49823;
 }
 
-.message {
-    margin: 2em;;
-    padding: 1em;
-    background-color: white;
-    border-radius: 3px;
-    border: 2px solid #8FEEC3;
-    box-shadow: 0  2px rgba(255, 255, 255, 10);
-}
-
-.error {
-    border-color:#F63B3D;
-}

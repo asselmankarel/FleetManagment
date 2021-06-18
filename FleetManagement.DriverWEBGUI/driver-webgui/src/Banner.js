@@ -8,7 +8,7 @@ export default function Banner() {
     <div className="banner">
         <NavLink to="/"><i className="fas fa-2x fa-home"></i></NavLink>
         <h1>Fleet Management</h1>
-        <NavLink to="/Profile"><i className="fas fa-2x fa-user-circle"></i></NavLink>        
+        <NavLink to="/profile"><i className="fas fa-2x fa-user-circle"></i></NavLink>        
 
     </div>
     );

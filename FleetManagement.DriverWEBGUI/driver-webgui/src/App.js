@@ -6,6 +6,7 @@ import Footer from './Footer';
 import VehicleInfo from "./VehicleInfo";
 import Requests from "./Requests";
 import RequestForm from "./RequestForm";
+import Profile from "./Profile";
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
 
           <Route exact path="/request/new">
             <RequestForm driverId={driverId}/>
+          </Route>
+
+          <Route exact path="/profile" >
+            <Profile driverId={driverId}/>
           </Route>
         </Switch>
       </div>

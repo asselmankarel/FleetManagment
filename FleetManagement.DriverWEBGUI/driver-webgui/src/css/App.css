@@ -18,10 +18,17 @@ h2 {
   margin-bottom: .5em;
 }
 
+.mt-2 {
+  margin-top: 2em;
+}
+
+.ml-2 {
+  margin-left: 2.5em;
+}
+
 header {
   background-color: #2397D4;
   height: 2.8em;
-
 }
 
 .banner {
