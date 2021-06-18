@@ -18,7 +18,9 @@ export default function VehicleInfo(props) {
     return(
         <div className="vehicle">
             <h2><i className="fas fa-car"></i> My vehicle</h2>
-            {loading && <Loader />}            
+            <div className="form-loader">
+                {loading && <Loader />}            
+            </div>
             {loading === false &&
                 <div className="vehicle-info">
                     <ul>

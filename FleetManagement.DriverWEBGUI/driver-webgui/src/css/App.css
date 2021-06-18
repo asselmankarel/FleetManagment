@@ -104,6 +104,7 @@ header {
   font-weight: bold;
   border-radius: 3px;
   transition: all .2s ease-in-out;
+  text-shadow: 1px 1px black;
 }
 
 .button:hover {
@@ -136,6 +137,7 @@ header {
   font-weight: bold;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  text-shadow: 1px 0 black;
 }
 
 
@@ -148,6 +150,12 @@ header {
 li {
   list-style: none;
   line-height: 2em;
+}
+
+.form-loader {
+  width: 60px;
+  margin: auto;
+  margin-top: 2em;
 }
 
 footer {

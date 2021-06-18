@@ -1,9 +1,7 @@
 .request-form {
-    
     width: 50%;
     margin: auto;
     margin-top:4em;    
-
 }
 
 .form-group {
@@ -42,4 +40,10 @@ label {
 
 .button-cancel {
     background-color:#D49823;
+}
+
+.form-loader {
+    width: 60px;
+    margin: auto;
+    margin-top: 2em;
 }
