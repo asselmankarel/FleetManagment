@@ -18,13 +18,13 @@ input, select {
     width: 85%;
     font-size: 1.2em;
     padding-left: 1em;
-    padding-right: 1em;;
+    padding-right: 1em;
 }
 
 label {
     font-size: 1.4em;
     font-weight: bold;
-    margin-left: 2px;;
+    margin-left: 2px;
 }
 
 .button-group  {
@@ -42,8 +42,15 @@ label {
     background-color:#D49823;
 }
 
-.form-loader {
-    width: 60px;
-    margin: auto;
-    margin-top: 2em;
+.message {
+    margin: 2em;;
+    padding: 1em;
+    background-color: white;
+    border-radius: 3px;
+    border: 2px solid #8FEEC3;
+    box-shadow: 0  2px rgba(255, 255, 255, 10);
+}
+
+.error {
+    border-color:#F63B3D;
 }

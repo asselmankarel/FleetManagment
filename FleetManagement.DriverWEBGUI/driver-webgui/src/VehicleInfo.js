@@ -6,14 +6,21 @@ import car from './images/car.png';
 export default function VehicleInfo(props) {
 
     const { driverId } = props;
-    const [ vehicle , setVehicle ] = useState([]);
     const { get, loading } = useFetch('https://localhost:44318/'); // base url
+    const [ vehicle , setVehicle ] = useState([]);
+    const [ loadError, setLoadError ] = useState(false);
 
     useEffect(() => {
         get(`Driver/DriverVehicle/${driverId}`)
-        .then((data) => { setVehicle(data); })
-        .catch((error) => console.log("Could not load vehicle information!", error));
-    })
+        .then((data) => {
+            setVehicle(data); 
+            setLoadError(false);
+        })
+        .catch((error) => {
+            console.log("Could not load vehicle information!", error);
+            setLoadError(true);
+        });        
+    }, [driverId])
 
     return(
         <div className="vehicle">
@@ -34,6 +41,7 @@ export default function VehicleInfo(props) {
                     </div>
                 </div>
             }
+            { loadError && <div className="message error">Oops! 😱 Unable to load vehicle data...</div>}
         </div>
     );
 }

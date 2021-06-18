@@ -17,7 +17,7 @@ namespace FleetManagement.DAL.Repositories
                 .Include(r => r.Vehicle)
                 .Skip(_context.Requests.Count() - number - 1);
 
-            return requests.ToList();
+            return requests.OrderByDescending(r => r.Id).ToList();
         }
     }
 }

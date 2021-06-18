@@ -23,11 +23,11 @@ namespace FleetManagement.ReadAPI.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<DriverDto> Show(int id)
+        public async Task<ActionResult<DriverDto>> Show(int id)
         {
             var result = new Mapper().ToDto(await _mediator.Send(new GetDriverByIdQuery(id)));
            
-            return  result;
+            return  Ok(result);
         }
 
         [HttpGet]

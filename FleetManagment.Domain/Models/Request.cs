@@ -17,7 +17,7 @@ namespace FleetManagement.Domain.Models
         [Required]
         public DateTime PrefDate1 { get; set; }
 
-        public DateTime PrefDate2 { get; set; }
+        public DateTime? PrefDate2 { get; set; }
 
         [Required]
         public Driver Driver { get; set; }

@@ -9,13 +9,20 @@ export default function Requests(props) {
 
     const { driverId } = props;
     const [ requests, setRequests ] = useState([]);
+    const [ loadError, setLoadError] = useState(false);
     const { get, loading } = useFetch('https://localhost:44318/');
 
     useEffect(() => {
         get(`Request/DriverRequests/${driverId}`)
-        .then((data) => setRequests(data))
-        .catch((error) => console.log('Requests could not be loaded!', error));
-    })
+        .then((data) => {
+            setRequests(data);
+            setLoadError(false);
+        })
+        .catch((error) => {
+            console.log('Requests could not be loaded!', error);
+            setLoadError(true);
+        });
+    }, [driverId])
 
     return(
         <div className="requests">
@@ -39,7 +46,8 @@ export default function Requests(props) {
                     { requests.map((request) => {
                         return (
                             <Request
-                                createdAt={new Date(request.createdAt).toLocaleString()}
+                                key={Date.parse(request.createdAt)}
+                                createdAt={new Date(request.createdAt).toLocaleString('nl-BE', {dateStyle: 'short', timeStyle : 'short'})}
                                 type={request.type}
                                 vin={request.vin}
                                 status={request.status}
@@ -49,6 +57,7 @@ export default function Requests(props) {
                     }
                 </div>
             }
+            { loadError && <div className="message error">Oops! 😱 Unable to load requests...</div>}
         </div>
     );
 }

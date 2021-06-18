@@ -33,7 +33,7 @@ export default function useFetch(baseUrl) {
           body: JSON.stringify(body),
         },
       })
-        .then((response) => response.json())
+        .then((response) =>  response.json() )
         .then((data) => {
           if (!data) {
             setLoading(false);
