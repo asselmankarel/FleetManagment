@@ -15,7 +15,7 @@ namespace FleetManagment.ReadAPI.Mappers
             var dto = new DriverDto() {
                 FirstName = driver.FirstName,
                 LastName = driver.LastName,
-                DriversLicense = driver.DriversLicense.ToString()
+                DriversLicense = driver.DriversLicense
             };
 
             return dto;
@@ -53,7 +53,7 @@ namespace FleetManagment.ReadAPI.Mappers
             var dto = new FuelcardDto()
             {
                 Number = fuelcard.CardNumber,
-                FuelType = fuelcard.FuelType.ToString(),
+                FuelType = fuelcard.FuelType,
                 Services = new string[fuelcard.Services.Count]
             };
 

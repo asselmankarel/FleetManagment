@@ -8,6 +8,7 @@
 body {
   width: 100%;
   font-family: 'Raleway', sans-serif;
+  min-width: 380px;
 }
 
 h1  {
@@ -30,7 +31,7 @@ h2 {
   margin-left: 2.5em;
 }
 
-.mx-auto{
+.mx-auto {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
@@ -99,7 +100,6 @@ header {
   margin:auto;
 }
 
-
 .requests-title{
   display: flex;
   justify-content: space-between;
@@ -107,7 +107,7 @@ header {
 }
 
 .button {
-  padding: 10px 15px;
+  padding: 10px 20px;
   background-color: #2397D4;
   color: whitesmoke;
   text-decoration: none;
@@ -115,10 +115,17 @@ header {
   border-radius: 3px;
   transition: all .2s ease-in-out;
   text-shadow: 1px 1px black;
+  font-size: 1em;
 }
 
 .button:hover {
   transform: scale(1.1);
+}
+
+.login-button-wrapper {
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .fa-plus {
@@ -159,6 +166,10 @@ li {
   line-height: 2em;
 }
 
+span {
+  margin-left: .5em;
+}
+
 .form-loader {
   width: 60px;
   margin: auto;
@@ -186,7 +197,11 @@ footer {
   bottom: 0;
   background-color: #2397D4;
   color: whitesmoke;
-  font-size: 1.4em;
+  font-size: 1em;
+}
+footer img {
+  width: 2.5em;
+  height: 2.5em;
 }
 
 @keyframes rotator {
@@ -241,9 +256,18 @@ footer {
     font-size: .75em;
   }
 
+  h1 {
+    font-size: 1.4em;
+  }
+
   h2 {
     margin-bottom: .2em;
     font-size: 1.2em;
+  }
+
+  footer {
+    position: relative;
+    margin-top: 2em;
   }
 
 }

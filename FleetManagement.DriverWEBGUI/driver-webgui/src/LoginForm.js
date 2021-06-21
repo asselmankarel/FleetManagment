@@ -1,15 +1,18 @@
 import React, { useState }from 'react';
 
 export default function LoginForm(props) {
-    const [ username, setUsername ] = useState('Username');
-    const [ password, setPassword ] = useState('Password');
+    const [ username, setUsername ] = useState('');
+    const [ password, setPassword ] = useState('');
 
     return (
         <div className="login-form mx-auto mt-3" >
             <h2>Sign on</h2>
-            <input type="text" onChange={e => setUsername(e.target.value)}  value={ username } />
-            <input type="password" onChange={e => setPassword(e.target.value)} value={ password } className="mt-2" />
-            <button className="button mt-3" onClick={() => props.handleSuccessFullLogin(username)}>Login</button>
+            <input type="text" onChange={e => setUsername(e.target.value)}  value={ username } placeholder="Username" />
+            <input type="password" onChange={e => setPassword(e.target.value)} value={ password } placeholder="Password" className="mt-2" />
+
+            <div className="mt-3 login-button-wrapper">
+                <button className="button" onClick={() => props.handleSuccessFullLogin(username)}>Login</button>
+            </div>
         </div>
     );
 }

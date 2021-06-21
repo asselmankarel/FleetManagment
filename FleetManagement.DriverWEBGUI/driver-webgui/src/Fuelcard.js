@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Loader from './Loader';
 import useFetch from './useFetch';
 import './css/Fuelcard.css';
+import carwash from './images/carwash.png';
+import tires from './images/tires.png';
+import shop from './images/shop.png';
 
 export default function Fuelcard(props) {
 
@@ -41,7 +44,21 @@ export default function Fuelcard(props) {
                     <div className="fuelcard-col">
                         <p><strong>Services: </strong></p>
                         { fuelcard.services.map(service => {
-                            return <p>{service}</p>;
+                            switch (service) {
+                                case 'carwash':
+                                    return (<img className="service-image" src={carwash} alt="carwash" title="Carwash" />);
+                                    break;
+                                
+                                case 'tires':
+                                    return (<img className="service-image" src={tires} alt="tires" title="Tires" />);
+                                    break;
+                                case 'shop':
+                                    return (<img className="service-image" src={shop} alt="shop" title="Shop" />);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        
                         })}
                     </div>
                 </div>

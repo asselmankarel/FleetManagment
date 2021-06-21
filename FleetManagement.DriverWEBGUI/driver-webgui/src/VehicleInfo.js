@@ -31,10 +31,10 @@ export default function VehicleInfo(props) {
             {(loading === false && loadError === false) &&
                 <div className="vehicle-info">
                     <ul>
-                        <li><div className="vehicle-info-row"><strong>Chassis number:</strong> {vehicle.vin}</div></li>
-                        <li><div className="vehicle-info-row"><strong>License plate:</strong> {vehicle.licensePlate}</div></li>
-                        <li><div className="vehicle-info-row"><strong>Vehicle type:</strong> {vehicle.vehicleType}</div></li>
-                        <li><div className="vehicle-info-row"><strong>Last mileage:</strong> {vehicle.lastMileage}km</div></li>               
+                        <li><div className="vehicle-info-row"><strong>Chassis number:</strong> <span>{vehicle.vin}</span></div></li>
+                        <li><div className="vehicle-info-row"><strong>License plate:</strong> <span>{vehicle.licensePlate}</span></div></li>
+                        <li><div className="vehicle-info-row"><strong>Vehicle type:</strong> <span>{vehicle.vehicleType}</span></div></li>
+                        <li><div className="vehicle-info-row"><strong>Last mileage:</strong> <span>{vehicle.lastMileage}km</span></div></li>               
                     </ul>
                     <div className="vehicle-image">
                         <img src={car} alt="car" width="200px"/>
