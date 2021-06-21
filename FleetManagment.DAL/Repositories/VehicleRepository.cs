@@ -41,10 +41,10 @@ namespace FleetManagement.DAL.Repositories
             return km;
         }
 
-        public string GetActiveLicensePlateForVehicle(int id)
+        public string GetActiveLicensePlateForVehicle(int vehicleId)
         {
             var vehicle = _context.Vehicles
-                .Where(v => v.Id == id)
+                .Where(v => v.Id == vehicleId)
                 .Include(v => v.VehicleLicensePlates.Where(vlp => vlp.EndDate == null))
                 .ThenInclude(vlp => vlp.LicensePlate)
                 .FirstOrDefault();

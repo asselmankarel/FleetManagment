@@ -39,7 +39,7 @@ function App() {
           </Route>
 
           <Route exact path="/profile" >
-            <Profile driverId={driverId}/>
+            <Profile driverId={driverId} apiUrl={baseUrlReadApi} />
           </Route>
         </Switch>
       </div>

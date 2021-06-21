@@ -6,8 +6,8 @@ import './css/Profile.css';
 
 export default function Profile(props) {
 
-    const { driverId } = props;
-    const { get, loading } = useFetch('https://localhost:44318/');
+    const { driverId, apiUrl } = props;
+    const { get, loading } = useFetch(apiUrl);
     const [ driverDetails, setDriverDetails ] = useState([]);
     const [ failed, setFailed ] = useState(false);
 
@@ -38,6 +38,4 @@ export default function Profile(props) {
             { failed && <div className="message error mt-2">Oops! 😱 Unable to load profile...</div> }
         </div>
     );
-
-
 }

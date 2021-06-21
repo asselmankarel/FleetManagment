@@ -26,7 +26,7 @@ export default function VehicleInfo(props) {
         <div className="vehicle">
             <h2><i className="fas fa-car"></i> My vehicle</h2>
             <div className="form-loader">
-                {loading && <Loader />}            
+                { loading && <Loader /> }            
             </div>
             {loading === false &&
                 <div className="vehicle-info">
@@ -41,7 +41,7 @@ export default function VehicleInfo(props) {
                     </div>
                 </div>
             }
-            { loadError && <div className="message error">😱 Unable to load vehicle data...</div>}
+            { loadError && <div className="message error">😱 Unable to load vehicle data...</div> }
         </div>
     );
 }

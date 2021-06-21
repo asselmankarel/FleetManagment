@@ -32,13 +32,25 @@ namespace FleetManagement.ReadAPI.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<VehicleDto>> DriverVehicle(int id)
+        public async Task<ActionResult<VehicleDto>> Vehicle(int id)
         {
             var vehicleDto = _mapper.ToDto(await _mediator.Send(new GetVehicleByDriverIdQuery(id)));
             vehicleDto.LastMileage = await _mediator.Send(new GetLastMileageForVehicleQuery(vehicleDto.Id));
             vehicleDto.LicensePlate = await _mediator.Send(new GetActiveLicensePlateForVehicleQuery(vehicleDto.Id));
 
             return Ok(vehicleDto);
+        }
+
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult<FuelcardDto>> Fuelcard(int id)
+        {
+            var fuelcard = await _mediator.Send(new GetFuelcardByDriverIdQuery(id));
+            var fuelcardServices = await _mediator.Send(new GetFuelcardServicesByFuelcardIdQuery(fuelcard.Id));
+            //var fuelcardDto = _mapper.ToDto(fuelcard, fuelcardService);
+
+            return Ok(new FuelcardDto());
         }
 
     }

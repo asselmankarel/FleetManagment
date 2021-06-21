@@ -14,7 +14,6 @@ export default function RequestForm(props) {
     const [ loading, setLoading ] = useState(false);
     const [ success , setSuccess] = useState(false);
     const [ failure , setFailure] = useState(false);
-
     const { post } = useFetch(apiUrl);
 
     const resetFlags = () => {  
@@ -24,9 +23,7 @@ export default function RequestForm(props) {
         setValidationErrors([]);
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();               
-        resetFlags();
+    function validateFormData() {
         let errorCount = 0;
 
         if (type === '') {
@@ -50,22 +47,26 @@ export default function RequestForm(props) {
             errorCount++;            
         }
 
-        if (errorCount === 0) {                    
+        return errorCount;
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();               
+        resetFlags();        
+
+        if (validateFormData() === 0) {                    
             var  body = {                
                         "type" : Number.parseInt(type),
                         "prefDate1": date1,                    
                         "driverId": driverId
             };
     
-            if (date2 !== '') {
-                body.prefDate2 = date2
-            }
+            if (date2 !== '') { body.prefDate2 = date2 }
     
             post('Request/New', body)
             .then((data) => {
                 setLoading(false);
-                setSuccess(true);
-                
+                setSuccess(true);                
             })
             .catch((error) => {
                 if (error) {
@@ -73,7 +74,8 @@ export default function RequestForm(props) {
                 }
                 setLoading(false);
                 console.log('Error: ', error);
-            }); 
+            });
+
         } else {
             setLoading(false);
         }
@@ -106,13 +108,13 @@ export default function RequestForm(props) {
                     <div className="form-group">
                         <label>Preferred date 2:</label>
                         <div className="form-item">
-                            <input type="date" value={ date2 } onChange={ e => setDate2(e.target.value) } />
+                            <input type="date" value={date2} onChange={e => setDate2(e.target.value)} />
                         </div>
                     </div>                
                     
                     <div className="button-group">
                         <NavLink to="/" ><button className="button button-cancel">Cancel</button></NavLink>
-                        <button className="button" onClick={ handleSubmit } >Send request</button>
+                        <button className="button" onClick={handleSubmit} >Send request</button>
                     </div>
                     <div className="form-loader">
                         { loading && <Loader /> }

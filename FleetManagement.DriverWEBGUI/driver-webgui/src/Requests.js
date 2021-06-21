@@ -7,10 +7,10 @@ import Request from './Request';
 
 export default function Requests(props) {
 
-    const { driverId } = props;
+    const { driverId, apiUrl } = props;
     const [ requests, setRequests ] = useState([]);
     const [ loadError, setLoadError] = useState(false);
-    const { get, loading } = useFetch('https://localhost:44318/');
+    const { get, loading } = useFetch(apiUrl);
 
     useEffect(() => {
         get(`Request/DriverRequests/${driverId}`)
