@@ -10,7 +10,7 @@ export default function RequestForm(props) {
     const [ type, setType ] = useState('');
     const [ date1, setDate1 ] = useState('');
     const [ date2, setDate2 ] = useState('');
-    const [ valid, setValid] = useState(false);
+    const [ validationErrors, setValidationErrors] = useState([]);
     const [ loading, setLoading ] = useState(false);
     const [ success , setSuccess] = useState(false);
     const [ failure , setFailure] = useState(false);
@@ -23,49 +23,59 @@ export default function RequestForm(props) {
         setFailure(false);
     }
 
-    const validateForm = () => {
-        if (type !== '' ){
-            setValid(true);
-        }
-    }
  
     const handleSubmit = (e) => {
         e.preventDefault();
-        resetFlags();
-        
-        var  body = {                
-                    "type" : Number.parseInt(type),
-                    "prefDate1": date1,                    
-                    "driverId": driverId
-        };
+        let errorCount = 0;
 
-        if (date2 !== "") {
-            body.prefDate2 = date2
+        if (type === '') {
+            setValidationErrors(validationErrors => [...validationErrors, 'Please select a type']);
+            errorCount++;
         }
 
-        post('Request/New', body)
-        .then((data) => {
-            setLoading(false);
-            setSuccess(true);
-            
-        })
-        .catch((error) => {
-            if (error) {
-                setFailure(true);
+        if (date1 === '') {
+            setValidationErrors(validationErrors => [...validationErrors, 'Please select date 1']);
+            errorCount++;       
+        }        
+
+        if (errorCount === 0) {
+            resetFlags();
+        
+            var  body = {                
+                        "type" : Number.parseInt(type),
+                        "prefDate1": date1,                    
+                        "driverId": driverId
+            };
+    
+            if (date2 !== '') {
+                body.prefDate2 = date2
             }
-            setLoading(false);
-            console.log('Error: ', error);
-        }); 
+    
+            post('Request/New', body)
+            .then((data) => {
+                setLoading(false);
+                setSuccess(true);
+                
+            })
+            .catch((error) => {
+                if (error) {
+                    setFailure(true);
+                }
+                setLoading(false);
+                console.log('Error: ', error);
+            }); 
+        }
+
     }
 
     return(
         <div className="request-form">
             {success === false &&
-                <form onChange={validateForm}>
+                <form >
                     <div className="form-group">                    
                         <label>Type of request</label>               
                         <div className="form-item">
-                            <select onChange={e =>  setType(e.target.value) } value={type} required>
+                            <select onChange={e =>  setType(e.target.value) }  required="true">
                                 <option></option>
                                 <option value="0" >Fuelcard</option>
                                 <option value="1" >Maintenance</option>
@@ -91,15 +101,16 @@ export default function RequestForm(props) {
                     
                     <div className="button-group">
                         <NavLink to="/" ><button className="button button-cancel">Cancel</button></NavLink>
-                        { valid &&  <button className="button" onClick={ handleSubmit } >Send request</button> }
+                        <button className="button" onClick={ handleSubmit } >Send request</button> 
                     </div>
-                    <div className="form-loader">
+                    <div className="form-loader mt-2">
                         { loading && <Loader />}
                     </div>
                         
                 </form>
             }
-
+                        
+            {validationErrors.map(error => <div className="message error" >😱 {error}...</div>)}            
             { failure && <div className="message error">Oops! 😱 Request failed!</div>}
             { success && 
                 <div>
