@@ -5,8 +5,8 @@ import car from './images/car.png';
 
 export default function VehicleInfo(props) {
 
-    const { driverId } = props;
-    const { get, loading } = useFetch('https://localhost:44318/'); // base url
+    const { driverId, apiUrl } = props;
+    const { get, loading } = useFetch(apiUrl); // base url
     const [ vehicle , setVehicle ] = useState([]);
     const [ loadError, setLoadError ] = useState(false);
 
@@ -41,7 +41,7 @@ export default function VehicleInfo(props) {
                     </div>
                 </div>
             }
-            { loadError && <div className="message error">Oops! 😱 Unable to load vehicle data...</div>}
+            { loadError && <div className="message error">😱 Unable to load vehicle data...</div>}
         </div>
     );
 }

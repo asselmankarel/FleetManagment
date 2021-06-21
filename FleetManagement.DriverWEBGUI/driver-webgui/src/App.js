@@ -1,16 +1,23 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useState } from "react";
-import './css/App.css';
 import Banner from './Banner';
-import Footer from './Footer';
+import Profile from "./Profile";
+import LoginForm from "./LoginForm";
 import VehicleInfo from "./VehicleInfo";
 import Requests from "./Requests";
 import RequestForm from "./RequestForm";
-import Profile from "./Profile";
+import Footer from './Footer';
+import './css/App.css';
 
 
 function App() {
-  const [driverId , setDriverId] = useState(4);
+  const [driverId , setDriverId] = useState(0);
+  const baseUrlReadApi = 'https://localhost:44318/';
+  const baseUrlWriteApi = 'https://localhost:44340/';
+
+  function handleSuccessFullLogin(id) {
+    setDriverId(id);
+  }
 
   return (
     <BrowserRouter>
@@ -20,12 +27,15 @@ function App() {
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <VehicleInfo driverId={driverId} />
-            <Requests driverId={driverId} />
+            { driverId === 0 && <LoginForm handleSuccessFullLogin={ handleSuccessFullLogin }/> }
+            { driverId > 0 && <div>
+              <VehicleInfo driverId={driverId} apiUrl={baseUrlReadApi} />
+              <Requests driverId={driverId} apiUrl={baseUrlReadApi} />
+            </div> }
           </Route>
 
           <Route exact path="/request/new">
-            <RequestForm driverId={driverId}/>
+            <RequestForm driverId={driverId} apiUrl={baseUrlWriteApi}/>
           </Route>
 
           <Route exact path="/profile" >

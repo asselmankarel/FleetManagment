@@ -6,7 +6,7 @@ import './css/RequestForm.css';
 
 export default function RequestForm(props) {
 
-    const { driverId } = props
+    const { driverId, apiUrl } = props
     const [ type, setType ] = useState('');
     const [ date1, setDate1 ] = useState('');
     const [ date2, setDate2 ] = useState('');
@@ -15,21 +15,24 @@ export default function RequestForm(props) {
     const [ success , setSuccess] = useState(false);
     const [ failure , setFailure] = useState(false);
 
-    const { post } = useFetch('https://localhost:44340/');
+    const { post } = useFetch(apiUrl);
 
-    const resetFlags = () => {
-        setLoading(false);
+    const resetFlags = () => {  
+        setLoading(true);       
         setSuccess(false);
         setFailure(false);
+        setValidationErrors([]);
     }
 
  
     const handleSubmit = (e) => {
         e.preventDefault();
+               
+        resetFlags();
         let errorCount = 0;
 
         if (type === '') {
-            setValidationErrors(validationErrors => [...validationErrors, 'Please select a type']);
+            setValidationErrors(validationErrors => ['Please select a type']);
             errorCount++;
         }
 
@@ -39,7 +42,7 @@ export default function RequestForm(props) {
         }        
 
         if (errorCount === 0) {
-            resetFlags();
+            
         
             var  body = {                
                         "type" : Number.parseInt(type),
@@ -64,6 +67,8 @@ export default function RequestForm(props) {
                 setLoading(false);
                 console.log('Error: ', error);
             }); 
+        } else {
+            setLoading(false);
         }
 
     }
@@ -75,7 +80,7 @@ export default function RequestForm(props) {
                     <div className="form-group">                    
                         <label>Type of request</label>               
                         <div className="form-item">
-                            <select onChange={e =>  setType(e.target.value) }  required="true">
+                            <select onChange={ e => setType(e.target.value) }  required={true}>
                                 <option></option>
                                 <option value="0" >Fuelcard</option>
                                 <option value="1" >Maintenance</option>
@@ -88,30 +93,30 @@ export default function RequestForm(props) {
                     <div className="form-group">
                         <label>Preferred date 1:</label>
                         <div className="form-item">
-                            <input type="date" value={date1} onChange={e =>  setDate1(e.target.value) } required />
+                            <input type="date" value={ date1 } onChange={ e => setDate1(e.target.value) } required={ true } />
                         </div>
                     </div>
 
                     <div className="form-group">
                         <label>Preferred date 2:</label>
                         <div className="form-item">
-                            <input type="date" value={date2} onChange={e =>  setDate2(e.target.value) } />
+                            <input type="date" value={ date2 } onChange={ e => setDate2(e.target.value) } />
                         </div>
                     </div>                
                     
                     <div className="button-group">
                         <NavLink to="/" ><button className="button button-cancel">Cancel</button></NavLink>
-                        <button className="button" onClick={ handleSubmit } >Send request</button> 
+                        <button className="button" onClick={ handleSubmit } >Send request</button>
                     </div>
-                    <div className="form-loader mt-2">
-                        { loading && <Loader />}
+                    <div className="form-loader">
+                        { loading && <Loader /> }
                     </div>
                         
                 </form>
             }
                         
-            {validationErrors.map(error => <div className="message error" >😱 {error}...</div>)}            
-            { failure && <div className="message error">Oops! 😱 Request failed!</div>}
+            { validationErrors.map(error => <div className="message error" >😱 {error}...</div>) }            
+            { failure && <div className="message error">😱 Request failed!</div> }
             { success && 
                 <div>
                     <div className="message">Yay! 🎉 Request sent succesfully... </div>

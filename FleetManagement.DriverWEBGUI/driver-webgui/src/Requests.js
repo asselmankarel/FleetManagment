@@ -57,7 +57,7 @@ export default function Requests(props) {
                     }
                 </div>
             }
-            { loadError && <div className="message error">Oops! 😱 Unable to load requests...</div>}
+            { loadError && <div className="message error">😱 Unable to load requests...</div>}
         </div>
     );
 }

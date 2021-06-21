@@ -27,14 +27,15 @@ export default function Profile(props) {
 
     return (
         <div className="driver-details">
-            { loading && <Loader />}
             <h2><i className="fas fa-info-circle"></i> Profile info</h2>
             <ul>
                 <li><div className="driver-details-row"><strong>First name:</strong> {driverDetails.firstName}</div></li>
                 <li><div className="driver-details-row"><strong>Last name:</strong> {driverDetails.lastName}</div></li>
                 <li><div className="driver-details-row"><strong>Driverslicense:</strong> {driverDetails.driversLicense}</div></li>          
             </ul>
-            <NavLink to="/"><button className="button mt-2 ml-2" >Back</button></NavLink>
+            <div><NavLink to="/"><button className="button mt-2 ml-2" >Back</button></NavLink></div>
+            { loading && <div className="mt-2 form-loader"><Loader /></div> }
+            { failed && <div className="message error mt-2">Oops! 😱 Unable to load profile...</div> }
         </div>
     );
 
