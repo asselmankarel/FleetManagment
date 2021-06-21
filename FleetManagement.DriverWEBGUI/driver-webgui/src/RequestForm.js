@@ -24,26 +24,33 @@ export default function RequestForm(props) {
         setValidationErrors([]);
     }
 
- 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-               
+    function handleSubmit(e) {
+        e.preventDefault();               
         resetFlags();
         let errorCount = 0;
 
         if (type === '') {
-            setValidationErrors(validationErrors => ['Please select a type']);
+            setValidationErrors(['Please select a type']);
             errorCount++;
         }
 
         if (date1 === '') {
             setValidationErrors(validationErrors => [...validationErrors, 'Please select date 1']);
             errorCount++;       
-        }        
-
-        if (errorCount === 0) {
-            
+        }  
         
+        if (new Date(date1) <= new Date()) {
+            setValidationErrors(validationErrors => [...validationErrors, 'Date 1 must be in the future']);
+            errorCount++;
+        }
+        
+        if ((date2 !== '') && (new Date(date2) <= new Date())) {            
+
+            setValidationErrors(validationErrors => [...validationErrors, 'Date 2 must be in the future']);
+            errorCount++;            
+        }
+
+        if (errorCount === 0) {                    
             var  body = {                
                         "type" : Number.parseInt(type),
                         "prefDate1": date1,                    
@@ -70,7 +77,6 @@ export default function RequestForm(props) {
         } else {
             setLoading(false);
         }
-
     }
 
     return(
@@ -119,7 +125,7 @@ export default function RequestForm(props) {
             { failure && <div className="message error">😱 Request failed!</div> }
             { success && 
                 <div>
-                    <div className="message">Yay! 🎉 Request sent succesfully... </div>
+                    <div className="message">🎉 Request sent succesfully... </div>
                     <NavLink to="/" className="button">Back</NavLink>
                 </div>
             }
