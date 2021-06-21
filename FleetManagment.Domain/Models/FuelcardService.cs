@@ -9,6 +9,7 @@ namespace FleetManagement.Domain.Models
         [MinLength(3), MaxLength(20)]
         public string Name { get; set; }
 
+        [System.Text.Json.Serialization.JsonIgnore]
         public ICollection<Fuelcard> Fuelcards { get; set; }
     }
 }

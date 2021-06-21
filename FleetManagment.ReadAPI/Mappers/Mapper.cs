@@ -47,5 +47,25 @@ namespace FleetManagment.ReadAPI.Mappers
 
             return dto;
         }
+
+        public FuelcardDto ToDto(Fuelcard fuelcard)
+        {
+            var dto = new FuelcardDto()
+            {
+                Number = fuelcard.CardNumber,
+                FuelType = fuelcard.FuelType.ToString(),
+                Services = new string[fuelcard.Services.Count]
+            };
+
+            var services = new List<string>();
+
+            foreach(var service in fuelcard.Services)
+            {
+                services.Add(service.Name);
+            }
+
+            dto.Services = services.ToArray();
+            return dto;
+        }
     }
 }

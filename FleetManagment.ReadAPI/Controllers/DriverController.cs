@@ -46,11 +46,9 @@ namespace FleetManagement.ReadAPI.Controllers
         [Route("{id}")]
         public async Task<ActionResult<FuelcardDto>> Fuelcard(int id)
         {
-            var fuelcard = await _mediator.Send(new GetFuelcardByDriverIdQuery(id));
-            var fuelcardServices = await _mediator.Send(new GetFuelcardServicesByFuelcardIdQuery(fuelcard.Id));
-            //var fuelcardDto = _mapper.ToDto(fuelcard, fuelcardService);
-
-            return Ok(new FuelcardDto());
+            var fuelcard = _mapper.ToDto(await _mediator.Send(new GetFuelcardByDriverIdQuery(id)));
+        
+            return Ok(fuelcard);
         }
 
     }

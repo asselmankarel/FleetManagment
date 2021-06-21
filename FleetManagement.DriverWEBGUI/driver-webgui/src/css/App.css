@@ -52,7 +52,7 @@ header {
   align-items: center;
 }
 
-.banner, .fas {
+.banner, .fas  {
   color: whitesmoke;
 }
 
@@ -75,11 +75,7 @@ header {
   padding-right: 5px;
 }
 
-.vehicle {
-  margin-top: 4em;
-}
-
-.vehicle .fas {
+.vehicle .fas, .fa-credit-card{
   color: darkgrey;
   padding-left: .5em;
 }
@@ -103,9 +99,6 @@ header {
   margin:auto;
 }
 
-.requests {
-  margin-top: 5em;
-}
 
 .requests-title{
   display: flex;

@@ -4,6 +4,7 @@ import Banner from './Banner';
 import Profile from "./Profile";
 import LoginForm from "./LoginForm";
 import VehicleInfo from "./VehicleInfo";
+import Fuelcard from "./Fuelcard";
 import Requests from "./Requests";
 import RequestForm from "./RequestForm";
 import Footer from './Footer';
@@ -30,6 +31,7 @@ function App() {
             { driverId === 0 && <LoginForm handleSuccessFullLogin={ handleSuccessFullLogin }/> }
             { driverId > 0 && <div>
               <VehicleInfo driverId={driverId} apiUrl={baseUrlReadApi} />
+              <Fuelcard driverId={driverId} apiUrl={baseUrlReadApi} />
               <Requests driverId={driverId} apiUrl={baseUrlReadApi} />
             </div> }
           </Route>

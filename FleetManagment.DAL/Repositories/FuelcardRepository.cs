@@ -16,23 +16,15 @@ namespace FleetManagement.DAL.Repositories
 
         public Fuelcard GetActiveFuelcardForDriver(int driverId)
         {
-            var result = _context.DriverFuelcards
+            var fuelcard = _context.DriverFuelcards
                 .Where(df => df.Driver.Id == driverId && df.EndDate == null)
                 .Include(df => df.Fuelcard)
+                .ThenInclude(dfc => dfc.Services)
                 .FirstOrDefault()
                 .Fuelcard;
 
-            return new Fuelcard();
+            return fuelcard;
         }
 
-        public List<FuelcardService> GetFuelcardServicesByFuelcardId(int fuelcardId)
-        {
-            var fuelcard = _context.Fuelcards
-                .Where(fc => fc.Id == fuelcardId)
-                .Include(fc => fc.Services)
-                .FirstOrDefault();
-
-            return fuelcard.Services.ToList(); ;
-        }
     }
 }

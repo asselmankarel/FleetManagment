@@ -25,7 +25,7 @@ export default function Requests(props) {
     }, [driverId])
 
     return(
-        <div className="requests">
+        <div className="requests mt-3">
             <div className="requests-title">
                 <h2><i className="far fa-list-alt"></i> My requests</h2>
                 <NavLink className="button" to="/request/new"><i className="fas fa-plus"></i> New</NavLink> 

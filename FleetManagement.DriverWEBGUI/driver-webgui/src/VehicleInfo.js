@@ -11,7 +11,7 @@ export default function VehicleInfo(props) {
     const [ loadError, setLoadError ] = useState(false);
 
     useEffect(() => {
-        get(`Driver/DriverVehicle/${driverId}`)
+        get(`Driver/Vehicle/${driverId}`)
         .then((data) => {
             setVehicle(data); 
             setLoadError(false);
@@ -23,12 +23,12 @@ export default function VehicleInfo(props) {
     }, [driverId])
 
     return(
-        <div className="vehicle">
+        <div className="vehicle mt-2">
             <h2><i className="fas fa-car"></i> My vehicle</h2>
             <div className="form-loader">
                 { loading && <Loader /> }            
             </div>
-            {loading === false &&
+            {(loading === false && loadError === false) &&
                 <div className="vehicle-info">
                     <ul>
                         <li><div className="vehicle-info-row"><strong>Chassis number:</strong> {vehicle.vin}</div></li>
