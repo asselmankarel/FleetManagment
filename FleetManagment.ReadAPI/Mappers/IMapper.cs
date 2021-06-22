@@ -9,9 +9,9 @@ namespace FleetManagment.ReadAPI.Mappers
 {
     public interface IMapper
     {
-        public DriverDto ToDto(Driver driver);
+        public DriverInfo ToDto(Driver driver);
 
-        public VehicleDto ToDto(Vehicle vehicle);
+        public VehicleInfo ToDto(Vehicle vehicle);
 
         public RequestDto ToDto(Request request);
         

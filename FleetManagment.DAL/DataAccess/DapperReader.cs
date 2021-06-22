@@ -26,19 +26,29 @@ namespace FleetManagement.DAL.DataAccess
             _connectionString = configuration.GetConnectionString("FleetManagement");
         }
 
-        private  IDbConnection GetConnection()
+        private IDbConnection GetConnection()
         {
             return new SqlConnection(_connectionString);
         }
 
-        public T GetDriverInfo<T>(int driverId) {
-            using (var connection = GetConnection()) {
+        public T GetDriverInfo<T>(int driverId)
+        {
+            using (var connection = GetConnection())
+            {
                 var procedure = "Driver_ReadModel";
                 var result = connection.Query<T>(procedure, new { DriverId = driverId }, commandType: CommandType.StoredProcedure).ToList().FirstOrDefault();
                 return result;
             }
         }
-        
 
+        public T GetVehicleInfo<T>(int driverId)
+        {
+            using (var connection = GetConnection())
+            {
+                var procedure = "Vehicle_ReadModel";
+                var result = connection.Query<T>(procedure, new { DriverId = driverId }, commandType: CommandType.StoredProcedure).ToList().FirstOrDefault();
+                return result;
+            }
+        }
     }
 }

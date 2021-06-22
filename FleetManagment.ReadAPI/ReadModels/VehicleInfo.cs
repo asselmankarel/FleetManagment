@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace FleetManagment.ReadAPI.ReadModels
 {
-    public class VehicleDto
+    public class VehicleInfo
     {
         public int Id { get; set; }
         public string Vin { get; set; }

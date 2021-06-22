@@ -9,10 +9,10 @@ using FleetManagment.ReadAPI.ReadModels;
 
 namespace FleetManagement.ReadAPI.Queries
 {
-    public class GetDriverByIdQuery : IRequest<DriverDto>
+    public class GetDriverById : IRequest<DriverInfo>
     {
         public int Id { get; private set; }
-        public GetDriverByIdQuery(int id)
+        public GetDriverById(int id)
         {
             Id = id;
             

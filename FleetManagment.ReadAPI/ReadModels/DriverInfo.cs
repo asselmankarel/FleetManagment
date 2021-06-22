@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FleetManagment.ReadAPI.ReadModels
     {
-    public class DriverDto
+    public class DriverInfo
     {
         public string FirstName { get; set; }
 

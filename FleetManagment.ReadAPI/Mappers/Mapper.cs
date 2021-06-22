@@ -10,9 +10,9 @@ namespace FleetManagment.ReadAPI.Mappers
     public class Mapper : IMapper
     {
 
-        public DriverDto ToDto(Driver driver)
+        public DriverInfo ToDto(Driver driver)
         {
-            var dto = new DriverDto() {
+            var dto = new DriverInfo() {
                 FirstName = driver.FirstName,
                 LastName = driver.LastName,
                 DriversLicense = driver.DriversLicense
@@ -21,9 +21,9 @@ namespace FleetManagment.ReadAPI.Mappers
             return dto;
         }
 
-        public VehicleDto ToDto(Vehicle vehicle)
+        public VehicleInfo ToDto(Vehicle vehicle)
         {
-            var dto = new VehicleDto()
+            var dto = new VehicleInfo()
             {
                 Id = vehicle.Id,
                 Vin = vehicle.VIN,

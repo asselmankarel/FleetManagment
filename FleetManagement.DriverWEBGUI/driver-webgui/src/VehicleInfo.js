@@ -34,6 +34,7 @@ export default function VehicleInfo(props) {
                         <li><div className="vehicle-info-row"><strong>Chassis number:</strong> <span>{vehicle.vin}</span></div></li>
                         <li><div className="vehicle-info-row"><strong>License plate:</strong> <span>{vehicle.licensePlate}</span></div></li>
                         <li><div className="vehicle-info-row"><strong>Vehicle type:</strong> <span>{vehicle.vehicleType}</span></div></li>
+                        <li><div className="vehicle-info-row"><strong>Fuel type:</strong> <span>{vehicle.fuelType}</span></div></li>
                         <li><div className="vehicle-info-row"><strong>Last mileage:</strong> <span>{vehicle.lastMileage}km</span></div></li>               
                     </ul>
                     <div className="vehicle-image">

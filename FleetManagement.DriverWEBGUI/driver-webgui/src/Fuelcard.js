@@ -29,7 +29,9 @@ export default function Fuelcard(props) {
     return (
         <div className="mt-3">
             <h2> <i className="far fa-credit-card"></i> My Fuelcard</h2>
-            { loading && <Loader /> }
+            <div className="form-loader">
+                { loading && <Loader /> }
+            </div>
             { (loading === false && loadError === false) && 
                 <div className="fuelcard">
                     <div className="fuelcard-col">
@@ -46,16 +48,16 @@ export default function Fuelcard(props) {
                         { fuelcard.services.map(service => {
                             switch (service) {
                                 case 'carwash':
-                                    return (<img className="service-image" src={carwash} alt="carwash" title="Carwash" />);
+                                    return (<img key={service} className="service-image" src={carwash} alt="carwash" title="Carwash" />);
                                     break;
-                                
                                 case 'tires':
-                                    return (<img className="service-image" src={tires} alt="tires" title="Tires" />);
+                                    return (<img key={service} className="service-image" src={tires} alt="tires" title="Tires" />);
                                     break;
                                 case 'shop':
-                                    return (<img className="service-image" src={shop} alt="shop" title="Shop" />);
+                                    return (<img key={service} className="service-image" src={shop} alt="shop" title="Shop" />);
                                     break;
                                 default:
+                                    return (<img key={service} className="service-image" src="" alt={service} tite={service}> </img>);
                                     break;
                             }
                         
