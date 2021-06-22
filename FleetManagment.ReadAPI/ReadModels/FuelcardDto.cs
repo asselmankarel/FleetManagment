@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace FleetManagment.ReadAPI.Dtos
+namespace FleetManagment.ReadAPI.ReadModels
 {
     public class FuelcardDto
     {

@@ -74,3 +74,4 @@ C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\obj\Deb
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\obj\Debug\net5.0\FleetManagement.Seed.genruntimeconfig.cache
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\bin\Debug\net5.0\Bogus.dll
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\bin\Debug\net5.0\ConsoleDump.dll
+C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Seed\bin\Debug\net5.0\Dapper.dll

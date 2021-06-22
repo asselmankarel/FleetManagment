@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AECb9ILjByojqrymrnxlIYsPKmnH1JM6RzOT8W8Xxxo3BOCH9GSQnF9MdyHT86ymWy6eY8ylDyWsp2gMI4zaJw==",
+  "dgSpecHash": "uDFymerTOyR9hrU3OzHPnFMrSLeK9G8u2KUOCWzL5tuqgwmqL9xPa/SC64VDpaFEyaTshC8kxYpEBGBGzTUvhw==",
   "success": true,
   "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.WriteAPI\\FleetManagment.WriteAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\KarelAsselman\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\fluentvalidation\\10.2.3\\fluentvalidation.10.2.3.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",

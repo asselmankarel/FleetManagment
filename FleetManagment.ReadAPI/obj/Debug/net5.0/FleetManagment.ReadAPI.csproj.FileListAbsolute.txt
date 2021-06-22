@@ -97,3 +97,4 @@ C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.ReadAPI\bin\D
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.ReadAPI\bin\Debug\net5.0\FleetManagement.DAL.dll
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.ReadAPI\bin\Debug\net5.0\FleetManagement.DAL.pdb
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.ReadAPI\bin\Debug\net5.0\FleetManagement.DAL.dll.config
+C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.ReadAPI\bin\Debug\net5.0\Dapper.dll

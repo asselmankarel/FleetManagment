@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "92Wr/KUfpKqO7Yy8d/Fjfn3S1XhzoNsaUWHZj9Bwo1CpC7oNGqDZnNJtfRg4v/8Dae/mJcOymG4lfMFq6Z3aHQ==",
+  "dgSpecHash": "5tel304seocM4O8MWFg5isu1PIDrXl482AiZMkDG7Tj6cevq48tWc6hpXTlfhzcQ1in/YLM22d533hw8jp5ZVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.ReadAPI\\FleetManagment.ReadAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\KarelAsselman\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

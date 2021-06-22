@@ -1,5 +1,5 @@
 ﻿using FleetManagement.Domain.Models;
-using FleetManagment.ReadAPI.Dtos;
+using FleetManagment.ReadAPI.ReadModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +23,6 @@ namespace FleetManagment.ReadAPI.Mappers
 
         public VehicleDto ToDto(Vehicle vehicle)
         {
-
             var dto = new VehicleDto()
             {
                 Id = vehicle.Id,

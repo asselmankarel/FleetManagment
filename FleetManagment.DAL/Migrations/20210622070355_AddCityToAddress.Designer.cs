@@ -4,14 +4,16 @@ using FleetManagement.DAL.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagement.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class DriverDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210622070355_AddCityToAddress")]
+    partial class AddCityToAddress
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +43,7 @@ namespace FleetManagement.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Box")
+                    b.Property<int>("Box")
                         .HasColumnType("int");
 
                     b.Property<string>("City")

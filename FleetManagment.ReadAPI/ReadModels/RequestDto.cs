@@ -2,7 +2,7 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace FleetManagment.ReadAPI.Dtos
+namespace FleetManagment.ReadAPI.ReadModels
 {
     public class RequestDto
     {

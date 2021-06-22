@@ -21,7 +21,11 @@ namespace FleetManagement.Domain.Models
         public string PostalCode { get; set; }
 
         [Range(1,10000)]
-        public int Box { get; set; }
+        public int? Box { get; set; }
+
+        [Required]
+        [StringLength(256, MinimumLength = 2)]
+        public string City { get; set; }
 
         [Required]
         [StringLength(256, MinimumLength = 2)]

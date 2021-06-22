@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BoKeNXHciSxDKD9yJf1rw4KCX6XkUxmqiR9CX/CZnU/3aEykl4WergkQH013+G9AwxGTwlTQ0AKgZCnkwAaoEA==",
+  "dgSpecHash": "qBcIz/S4u1dnf2xEFUkL2BY5A3803zyamrX6ylnkab2YrGdafObHOmcllzoLpV6VlzDShll5hectQO8uP8CzUw==",
   "success": true,
   "projectFilePath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.BL\\FleetManagement.BL.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\KarelAsselman\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\fluentvalidation\\10.2.3\\fluentvalidation.10.2.3.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\KarelAsselman\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

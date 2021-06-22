@@ -28,7 +28,7 @@ export default function Fuelcard(props) {
 
     return (
         <div className="mt-3">
-            <h2> <i className="far fa-credit-card"></i> Fuelcard</h2>
+            <h2> <i className="far fa-credit-card"></i> My Fuelcard</h2>
             { loading && <Loader /> }
             { (loading === false && loadError === false) && 
                 <div className="fuelcard">

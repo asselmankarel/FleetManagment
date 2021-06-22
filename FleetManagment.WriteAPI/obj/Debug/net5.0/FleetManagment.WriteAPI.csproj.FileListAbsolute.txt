@@ -99,3 +99,4 @@ C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\bin\
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagment.WriteAPI\bin\Debug\net5.0\Dapper.dll

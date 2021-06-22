@@ -37,6 +37,7 @@ namespace FleetManagement.DAL.DataAccess
             new DriverVehicleConfiguration().Configure(builder.Entity<DriverVehicle>());
             new VehicleLicensePlateConfiguration().Configure(builder.Entity<VehicleLicensePlate>());
             new RequestConfiguration().Configure(builder.Entity<Request>());
+            
             //builder.Entity<Driver>().HasMany(d => d.Vehicles).WithMany
         }
 

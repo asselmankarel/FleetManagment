@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace FleetManagment.ReadAPI.Dtos
-{
+namespace FleetManagment.ReadAPI.ReadModels
+    {
     public class DriverDto
     {
         public string FirstName { get; set; }
@@ -15,6 +15,20 @@ namespace FleetManagment.ReadAPI.Dtos
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public DriversLicense DriversLicense { get; set; }
+
+        public string Street { get; set; }
+
+        public string Number { get; set; }
+
+        public int box { get; set; }
+
+        public string PostalCode { get; set; }
+
+        public string City { get; set; }
+
+        public string Country { get; set; }
+
+
 
     }
 }

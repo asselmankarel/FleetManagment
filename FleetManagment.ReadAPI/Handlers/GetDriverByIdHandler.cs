@@ -3,24 +3,26 @@ using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Models;
 using FleetManagement.ReadAPI.Queries;
 using FleetManagment.ReadAPI.Mappers;
+using FleetManagment.ReadAPI.ReadModels;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace FleetManagement.ReadAPI.Handlers
 {
-    public class GetDriverByIdHandler : IRequestHandler<GetDriverByIdQuery, Driver>
-    {
-        private readonly DriverRepository _driverRepository;
+    public class GetDriverByIdHandler : IRequestHandler<GetDriverByIdQuery, DriverDto>
+    {        
+        private readonly DapperReader _dapperReader;
 
         public GetDriverByIdHandler()
-        {
-            _driverRepository = new DriverRepository(new ApplicationDbContext());
+        {            
+            _dapperReader = new DapperReader();
         }
 
-        public Task<Driver> Handle(GetDriverByIdQuery request, CancellationToken cancellationToken)
+        public Task<DriverDto> Handle(GetDriverByIdQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_driverRepository.GetById(request.Id));
+            
+            return Task.FromResult(_dapperReader.GetDriverInfo<DriverDto>(request.Id));
         }
     }
 }

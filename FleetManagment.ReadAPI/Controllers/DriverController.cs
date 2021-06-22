@@ -1,10 +1,11 @@
 ﻿using FleetManagement.ReadAPI.Queries;
-using FleetManagment.ReadAPI.Dtos;
+using FleetManagment.ReadAPI.ReadModels;
 using FleetManagment.ReadAPI.Mappers;
 using FleetManagment.ReadAPI.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using FleetManagement.DAL.DataAccess;
 
 namespace FleetManagement.ReadAPI.Controllers
 {
@@ -25,7 +26,7 @@ namespace FleetManagement.ReadAPI.Controllers
         [Route("{id}")]
         public async Task<ActionResult<DriverDto>> Show(int id)
         {
-            var result = new Mapper().ToDto(await _mediator.Send(new GetDriverByIdQuery(id)));
+            var result = await _mediator.Send(new GetDriverByIdQuery(id));
            
             return  Ok(result);
         }

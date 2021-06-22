@@ -1,4 +1,4 @@
-﻿using FleetManagment.ReadAPI.Dtos;
+﻿using FleetManagment.ReadAPI.ReadModels;
 using FleetManagment.ReadAPI.Mappers;
 using FleetManagment.ReadAPI.Queries;
 using MediatR;
