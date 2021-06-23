@@ -1,11 +1,9 @@
 ﻿using FleetManagement.ReadAPI.Queries;
-using FleetManagment.ReadAPI.ReadModels;
-using FleetManagment.ReadAPI.Mappers;
 using FleetManagment.ReadAPI.Queries;
+using FleetManagment.ReadAPI.ReadModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using FleetManagement.DAL.DataAccess;
 
 namespace FleetManagement.ReadAPI.Controllers
 {
