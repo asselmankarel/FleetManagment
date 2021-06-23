@@ -15,6 +15,6 @@ namespace FleetManagment.ReadAPI.Mappers
 
         public RequestDto ToDto(Request request);
         
-        public FuelcardDto ToDto(Fuelcard fuelcard);
+        public FuelcardInfo ToDto(Fuelcard fuelcard);
     }
 }

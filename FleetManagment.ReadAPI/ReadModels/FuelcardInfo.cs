@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FleetManagment.ReadAPI.ReadModels
 {
-    public class FuelcardDto
+    public class FuelcardInfo
     {
-        public string Number { get; set; }
+        public string CardNumber { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public FuelType FuelType { get; set; }

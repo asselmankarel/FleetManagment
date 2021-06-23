@@ -36,7 +36,12 @@ namespace FleetManagement.DAL.DataAccess
             using (var connection = GetConnection())
             {
                 var procedure = "Driver_ReadModel";
-                var result = connection.Query<T>(procedure, new { DriverId = driverId }, commandType: CommandType.StoredProcedure).ToList().FirstOrDefault();
+                var result = connection.Query<T>(procedure,
+                    new { DriverId = driverId },
+                    commandType: CommandType.StoredProcedure)
+                    .ToList()
+                    .FirstOrDefault();
+
                 return result;
             }
         }
@@ -46,9 +51,46 @@ namespace FleetManagement.DAL.DataAccess
             using (var connection = GetConnection())
             {
                 var procedure = "Vehicle_ReadModel";
-                var result = connection.Query<T>(procedure, new { DriverId = driverId }, commandType: CommandType.StoredProcedure).ToList().FirstOrDefault();
+                var result = connection.Query<T>(procedure,
+                    new { DriverId = driverId },
+                    commandType: CommandType.StoredProcedure)
+                    .ToList()
+                    .FirstOrDefault();
+
                 return result;
             }
         }
+
+        public T GetFuelcardInfo<T>(int driverId)
+        {
+            using (var connection = GetConnection())
+            {
+                var procedure = "Fuelcard_ReadModel";
+                var result = connection.Query<T>(procedure,
+                    new { DriverId = driverId },
+                    commandType: CommandType.StoredProcedure)
+                    .ToList()
+                    .FirstOrDefault();
+
+                return result;
+            }
+        }
+
+        public  (T, List<string>) GetFuelcardInfoWithServices<T>(int driverId)
+        {
+            using (var connection = GetConnection())
+            {
+                var procedure = "Fuelcard_And_Services_ReadModel";
+                var response = connection.QueryMultiple(procedure,
+                    new { DriverId = driverId, FuelCardId = 0 },
+                    commandType: CommandType.StoredProcedure);
+
+                var fuelcard = response.Read<T>().FirstOrDefault();
+                var services = response.Read<string>().ToList();
+               
+                return (fuelcard, services);
+            }
+        }
+
     }
 }

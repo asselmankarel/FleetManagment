@@ -47,11 +47,11 @@ namespace FleetManagment.ReadAPI.Mappers
             return dto;
         }
 
-        public FuelcardDto ToDto(Fuelcard fuelcard)
+        public FuelcardInfo ToDto(Fuelcard fuelcard)
         {
-            var dto = new FuelcardDto()
+            var dto = new FuelcardInfo()
             {
-                Number = fuelcard.CardNumber,
+                CardNumber = fuelcard.CardNumber,
                 FuelType = fuelcard.FuelType,
                 Services = new string[fuelcard.Services.Count]
             };

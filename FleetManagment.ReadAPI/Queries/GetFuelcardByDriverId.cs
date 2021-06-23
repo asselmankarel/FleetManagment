@@ -1,13 +1,14 @@
 ﻿using FleetManagement.Domain.Models;
+using FleetManagment.ReadAPI.ReadModels;
 using MediatR;
 
 namespace FleetManagment.ReadAPI.Queries
 {
-    public class GetFuelcardByDriverIdQuery : IRequest<Fuelcard>
+    public class GetFuelcardByDriverId : IRequest<FuelcardInfo>
     {
         public int Id { get; private set; }
 
-        public GetFuelcardByDriverIdQuery(int driverId)
+        public GetFuelcardByDriverId(int driverId)
         {
             Id = driverId;
         }

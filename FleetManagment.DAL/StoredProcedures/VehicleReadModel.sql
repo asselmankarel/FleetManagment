@@ -13,7 +13,7 @@ CREATE PROCEDURE [dbo].[Vehicle_ReadModel]
 AS
 BEGIN
 	SELECT TOP 1 Vehicles.Id, Vehicles.VIN, Vehicles.VehicleType, Vehicles.FuelType,
-	LastMileage = (SELECT MAX(Mileages.km) FROM Mileages), LicensePlate.Number	
+	LastMileage = (SELECT MAX(Mileages.km) FROM Mileages), LicensePlate.Number AS LicensePlate
 	FROM Vehicles
 	JOIN DriverVehicles ON DriverVehicles.DriverId = @DriverId
 	JOIN Mileages ON Mileages.VehicleId = Vehicles.Id
