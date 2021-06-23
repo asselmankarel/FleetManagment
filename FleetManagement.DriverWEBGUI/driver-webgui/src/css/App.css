@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+:root {
+  /* --darkBlue: #1F2330; */
+  --lightBlue: #2397D4;
+}
 
 * {
   margin: 0;
@@ -7,12 +13,17 @@
 
 body {
   width: 100%;
-  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
   min-width: 380px;
 }
 
+h1, h2, h3 {
+  font-family: 'Bangers', cursive;
+}
+
 h1  {
-  font-size: 1.8em;
+  font-size: 2.2em;
 }
 
 h2 {
@@ -42,7 +53,7 @@ h2 {
 }
 
 header {
-  background-color: #2397D4;
+  background-color: var(--lightBlue);
   height: 2.8em;
 }
 
@@ -113,7 +124,7 @@ header {
 
 .button {
   padding: 10px 20px;
-  background-color: #2397D4;
+  background-color: var(--lightBlue);
   color: whitesmoke;
   text-decoration: none;
   font-weight: bold;
@@ -154,7 +165,7 @@ header {
 }
 
 .request-row-header {
-  background-color: #2397D4;
+  background-color: var(--lightBlue);
   color: whitesmoke;
   font-weight: bold;
   border-top-left-radius: 2px;
@@ -182,7 +193,7 @@ span {
   background-color: white;
   border-radius: 3px;
   border: 2px solid #8FEEC3;
-  box-shadow: 0  2px rgba(255, 255, 255, 10);
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
   width: max-content;
   font-weight: bold;
 }
@@ -196,7 +207,7 @@ footer {
   width: 100%;
   text-align: center;
   bottom: 0;
-  background-color: #2397D4;
+  background-color: var(--lightBlue);
   color: whitesmoke;
   font-size: 1em;
 }

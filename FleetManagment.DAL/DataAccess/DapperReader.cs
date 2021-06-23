@@ -81,9 +81,11 @@ namespace FleetManagement.DAL.DataAccess
             using (var connection = GetConnection())
             {
                 var procedure = "Fuelcard_And_Services_ReadModel";
-                var response = connection.QueryMultiple(procedure,
+                var response = connection.QueryMultiple(
+                    procedure,
                     new { DriverId = driverId, FuelCardId = 0 },
-                    commandType: CommandType.StoredProcedure);
+                    commandType: CommandType.StoredProcedure
+                    );
 
                 var fuelcard = response.Read<T>().FirstOrDefault();
                 var services = response.Read<string>().ToList();
@@ -97,11 +99,9 @@ namespace FleetManagement.DAL.DataAccess
             using (var connection = GetConnection())
             {
                 var procedure = "Requests_ReadModel";
-                var response = connection.Query<T>(procedure,
-                    new
-                    {
-                        DriverId = driverId
-                    },
+                var response = connection.Query<T>(
+                    procedure,
+                    new { DriverId = driverId },
                     commandType: CommandType.StoredProcedure)
                     .ToList();
 
