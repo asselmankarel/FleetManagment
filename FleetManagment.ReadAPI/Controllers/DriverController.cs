@@ -14,12 +14,10 @@ namespace FleetManagement.ReadAPI.Controllers
     public class DriverController : Controller
     {
         private IMediator _mediator;
-        private IMapper _mapper;
        
-        public DriverController(IMediator mediatr, IMapper mapper)
+        public DriverController(IMediator mediatr)
         {
             _mediator = mediatr;
-            _mapper = mapper;
         }
 
         [HttpGet]

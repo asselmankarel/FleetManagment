@@ -34,9 +34,9 @@ namespace FleetManagment.ReadAPI.Mappers
             return dto;
         }
 
-        public RequestDto ToDto(Request request)
+        public RequestInfo ToDto(Request request)
         {
-            var dto = new RequestDto()
+            var dto = new RequestInfo()
             {
                 CreatedAt = request.CreatedAt,
                 VIN = (request.Vehicle == null) ? "" : request.Vehicle.VIN,

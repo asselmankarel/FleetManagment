@@ -41,7 +41,7 @@ namespace FleetManagement.ReadAPI
             });
             services.AddMediatR(typeof(Startup));
 
-            services.AddScoped<IMapper, Mapper>();
+           //services.AddScoped<IMapper, Mapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

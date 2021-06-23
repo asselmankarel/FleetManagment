@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace FleetManagment.ReadAPI.ReadModels
 {
-    public class RequestDto
+    public class RequestInfo
     {
         public DateTime CreatedAt { get; set; }
 
@@ -12,6 +12,8 @@ namespace FleetManagment.ReadAPI.ReadModels
         public RequestType Type { get; set; }
 
         public string VIN { get; set; }
+
+        public string LicensePlate { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public RequestStatus Status { get; set; }

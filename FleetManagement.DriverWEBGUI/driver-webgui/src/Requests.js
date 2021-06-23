@@ -42,6 +42,7 @@ export default function Requests(props) {
                         <span>Type</span>
                         <span>Status</span>
                         <span>Chassis number</span>
+                        <span>LicensePlate</span>
                     </div>
                     { requests.map((request) => {
                         return (
@@ -51,6 +52,7 @@ export default function Requests(props) {
                                 type={request.type}
                                 vin={request.vin}
                                 status={request.status}
+                                licensePlate={request.licensePlate}
                             />
                         );
                     })

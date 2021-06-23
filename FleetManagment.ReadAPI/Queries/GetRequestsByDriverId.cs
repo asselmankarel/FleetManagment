@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FleetManagement.Domain.Models;
+using FleetManagment.ReadAPI.ReadModels;
 using MediatR;
 
 namespace FleetManagment.ReadAPI.Queries
 {
-    public class GetRequestsByDriverIdQuery : IRequest<List<Request>>
+    public class GetRequestsByDriverId : IRequest<List<RequestInfo>>
     {
         public int Id { get; private set; }
 
-        public GetRequestsByDriverIdQuery(int driverId)
+        public GetRequestsByDriverId(int driverId)
         {
             Id = driverId;
         }

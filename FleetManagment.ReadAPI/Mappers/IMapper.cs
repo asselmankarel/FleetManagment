@@ -13,7 +13,7 @@ namespace FleetManagment.ReadAPI.Mappers
 
         public VehicleInfo ToDto(Vehicle vehicle);
 
-        public RequestDto ToDto(Request request);
+        public RequestInfo ToDto(Request request);
         
         public FuelcardInfo ToDto(Fuelcard fuelcard);
     }

@@ -92,5 +92,22 @@ namespace FleetManagement.DAL.DataAccess
             }
         }
 
+        public List<T> GetRequestsByDriverId<T>(int driverId)
+        {
+            using (var connection = GetConnection())
+            {
+                var procedure = "Requests_ReadModel";
+                var response = connection.Query<T>(procedure,
+                    new
+                    {
+                        DriverId = driverId
+                    },
+                    commandType: CommandType.StoredProcedure)
+                    .ToList();
+
+                return response;
+            }
+        }
+
     }
 }
