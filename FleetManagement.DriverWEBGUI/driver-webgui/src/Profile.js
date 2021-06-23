@@ -38,7 +38,7 @@ export default function Profile(props) {
                 <li><div className="driver-details-row"><strong>City:</strong> {driverDetails.city}</div></li>
                 <li><div className="driver-details-row"><strong>Country:</strong> {driverDetails.country}</div></li>
             </ul>
-            <div><NavLink to="/"><button className="button mt-2 ml-2" >Back</button></NavLink></div>
+            <div><NavLink to="/"><button className="button mt-2 mx-auto" >Back</button></NavLink></div>
             { loading && <div className="mt-2 form-loader"><Loader /></div> }
             { failed && <div className="message error mt-2">😱 Unable to load profile...</div> }
         </div>

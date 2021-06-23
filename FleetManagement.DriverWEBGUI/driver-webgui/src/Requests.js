@@ -25,10 +25,10 @@ export default function Requests(props) {
     }, [driverId])
 
     return(
-        <div className="requests mt-4">
+        <div className="requests mt-3">
             <div className="requests-title">
                 <h2><i className="far fa-list-alt"></i> My requests</h2>
-                { loadError === false && <NavLink className="button" to="/request/new"><i className="fas fa-plus"></i> New</NavLink> }
+                { loadError === false && <NavLink className="button" to="/request/new"><i className="fas fa-plus-circle"></i> New</NavLink> }
             </div>
              
             <div className="form-loader">

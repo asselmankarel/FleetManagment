@@ -4,7 +4,7 @@ import logo from './images/logo.png';
 export default function Footer() {
     return (
         <footer>   
-            <img src={logo} alt="logo"/>
+            <img src={logo} alt="logo" title="AllPhi" />
         </footer> 
     );
 }

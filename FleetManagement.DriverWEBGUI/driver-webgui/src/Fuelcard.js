@@ -35,8 +35,8 @@ export default function Fuelcard(props) {
             { (loading === false && loadError === false) && 
                 <div className="fuelcard">
                     <div className="fuelcard-col">
-                        <div><strong>Number: </strong></div>
-                        <div>{fuelcard.number}</div>
+                        <div><strong>Card number:</strong></div>
+                        <div>{fuelcard.cardNumber}</div>
                     </div>
                     <div className="fuelcard-col">
                         <div><strong>Fuel type: </strong></div>

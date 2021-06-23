@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 :root {
-  /* --darkBlue: #1F2330; */
+  --darkBlue: #1F2330;
   --lightBlue: #2397D4;
 }
 
@@ -20,14 +20,17 @@ body {
 
 h1, h2, h3 {
   font-family: 'Bangers', cursive;
+  letter-spacing: 1px;
 }
 
 h1  {
   font-size: 2.2em;
+  letter-spacing: 2px;
 }
 
 h2 {
-  margin-bottom: .5em;
+  margin-bottom: .4em;
+  color: var(--darkBlue);
 }
 
 .mt-2 {
@@ -91,7 +94,7 @@ header {
   padding-right: 5px;
 }
 
-.vehicle .fas, .fa-credit-card, .fa-list-alt{
+.vehicle .fas, .fa-credit-card, .fa-list-alt, .fa-info-circle {
   color: darkgrey;
   padding-left: .5em;
   color: #e7bb41;
@@ -102,9 +105,15 @@ header {
   grid-template-columns: 1.3fr 1fr;
 
   align-items: center;
-  border: 1px solid gray;
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
   border-radius: 3px;
-  padding: 1em;
+  padding: .5em 1em;
+}
+
+ul {
+  list-style: none;
+  margin-left: 1em;
+  line-height: 1.5em;
 }
 
 .vehicle-info-row {  
@@ -116,11 +125,7 @@ header {
   margin:auto;
 }
 
-.requests-title{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 
 .button {
   padding: 10px 20px;
@@ -130,7 +135,6 @@ header {
   font-weight: bold;
   border-radius: 3px;
   transition: all .2s ease-in-out;
-  text-shadow: 1px 1px black;
   font-size: 1em;
 }
 
@@ -148,20 +152,24 @@ header {
   margin-right: .5em;
 }
 
-.requests-list {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-size: 1em;
+.requests-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.request:nth-child(odd){
-  background-color: #e5e5e5;
+.requests-list {
+  margin-top: 1em;
+  margin-bottom: 4em;
+  border-radius: 4px;
+  font-size: 1em;
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
 }
 
 .request-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  padding: .75em;
+  padding: .5em;
 }
 
 .request-row-header {
@@ -170,12 +178,10 @@ header {
   font-weight: bold;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  text-shadow: 1px 0 black;
 }
 
-li {
-  list-style: none;
-  line-height: 2em;
+.request:nth-child(odd){
+  background-color: #f0f0f0;
 }
 
 span {

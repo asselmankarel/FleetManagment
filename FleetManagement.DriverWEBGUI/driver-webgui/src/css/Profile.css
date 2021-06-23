@@ -6,13 +6,13 @@
 }
 
 .fas.fa-info-circle {
-    color: darkgrey;
-    margin-bottom: 2em;;
+    margin-bottom: 1.6em;
 }
 
 .driver-details-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: .4em 0;
 }
 
 .mx-auto {
