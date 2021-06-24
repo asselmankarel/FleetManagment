@@ -28,7 +28,7 @@ function App() {
       <div className="container">
         <Switch>
           <Route exact path="/">
-            { driverId === 0 && <LoginForm handleSuccessFullLogin={ handleSuccessFullLogin }/> }
+            { driverId === 0 && <LoginForm handleSuccessFullLogin={handleSuccessFullLogin}/> }
             { driverId > 0 && <div>
               <VehicleInfo driverId={driverId} apiUrl={baseUrlReadApi} />
               <Fuelcard driverId={driverId} apiUrl={baseUrlReadApi} />
@@ -45,7 +45,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-     <Footer />
+      <Footer />
     </BrowserRouter>
   );
 }

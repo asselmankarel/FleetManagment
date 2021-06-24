@@ -1,6 +1,5 @@
 ﻿USE [FleetManagment]
 GO
-
 SET ANSI_NULLS ON
 GO
 

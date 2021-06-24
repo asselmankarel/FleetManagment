@@ -30,7 +30,7 @@ h1  {
 
 h2 {
   margin-bottom: .4em;
-  color: var(--darkBlue);
+  color: #313131;
 }
 
 .mt-2 {
@@ -45,8 +45,16 @@ h2 {
   margin-top: 4em;
 }
 
+.ml-1 {
+  margin-left: 1em;
+}
+
 .ml-2 {
   margin-left: 2.5em;
+}
+
+.mb-1{
+  margin-bottom: 1em;
 }
 
 .mx-auto {
@@ -125,8 +133,6 @@ ul {
   margin:auto;
 }
 
-
-
 .button {
   padding: 10px 20px;
   background-color: var(--lightBlue);
@@ -197,11 +203,12 @@ span {
   margin: 2em;
   padding: 1em;
   background-color: white;
-  border-radius: 3px;
+  border-radius: 2px;
   border: 2px solid #8FEEC3;
   box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
   width: max-content;
   font-weight: bold;
+  transform: skewX(-8deg);
 }
 
 .error {

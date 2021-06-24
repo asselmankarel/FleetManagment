@@ -9,6 +9,7 @@ namespace FleetManagment.WriteAPI.Commands
 {
     public class AddRequestCommand : IRequest<Request>
     {
+        // TODO: 
         public Request request { get; private set; }
 
         public AddRequestCommand(Request request)

@@ -21,7 +21,10 @@ namespace FleetManagement.DAL.DataAccess
         public DbSet<Request> Requests { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Mileage> Mileages { get; set; }
+        public DbSet<LicensePlate> LicensePlates { get; set; }
+        public DbSet<VehicleLicensePlate> VehicleLicensPlates  { get; set; }
         public DbSet<Fuelcard> Fuelcards { get; set; }
+        public DbSet<FuelcardService> FuelcardServices { get; set; }
         public DbSet<Repair> Repairs { get; set; }
         public DbSet<Maintenance> Maintenances { get; set; }
         #endregion
