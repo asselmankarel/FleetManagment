@@ -1,19 +1,16 @@
-﻿using FleetManagement.Domain.Models;
+﻿using FleetManagment.WriteAPI.Models;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FleetManagment.WriteAPI.Commands
 {
-    public class AddVehicleCommand :IRequest<Vehicle>
+    public class AddVehicleCommand : IRequest<Response>
     {
-        public Vehicle vehicle { get; private set; }
+        // TODO: add properties for vehicle creation
+        public int MyProperty { get; private set; }
 
-        public AddVehicleCommand(Vehicle vehicle)
+        public AddVehicleCommand()
         {
-            this.vehicle = vehicle;
+            
         }
     }
 }

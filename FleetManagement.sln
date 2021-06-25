@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagment.ReadAPI", "F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.BL", "FleetManagment.BL\FleetManagement.BL.csproj", "{879E4F03-471D-4204-8F8B-42EA21E1E1B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagement.Seed", "FleetManagement.Seed\FleetManagement.Seed.csproj", "{CB3BA613-021E-4444-95F1-89D049E10C1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.Seed", "FleetManagement.Seed\FleetManagement.Seed.csproj", "{CB3BA613-021E-4444-95F1-89D049E10C1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagement.Test", "FleetManagement.Test\FleetManagement.Test.csproj", "{750F17C1-17FD-4922-B321-D2D6673ACC44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{CB3BA613-021E-4444-95F1-89D049E10C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB3BA613-021E-4444-95F1-89D049E10C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB3BA613-021E-4444-95F1-89D049E10C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FleetManagment.WriteAPI.Models
+﻿namespace FleetManagment.WriteAPI.Models
 {
     public class Response
     {
