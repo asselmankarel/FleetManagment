@@ -8,8 +8,8 @@ export default function RequestForm(props) {
 
     const { driverId, apiUrl } = props
     const [ type, setType ] = useState('');
-    const [ date1, setDate1 ] = useState('');
-    const [ date2, setDate2 ] = useState('');
+    const [ prefDate1, setPrefDate1 ] = useState('');
+    const [ prefDate2, setPrefDate2 ] = useState('');
     const [ validationErrors, setValidationErrors] = useState([]);
     const [ loading, setLoading ] = useState(false);
     const [ success , setSuccess] = useState(false);
@@ -31,17 +31,17 @@ export default function RequestForm(props) {
             errorCount++;
         }
 
-        if (date1 === '') {
+        if (prefDate1 === '') {
             setValidationErrors(validationErrors => [...validationErrors, 'Please select date 1']);
             errorCount++;       
         }  
         
-        if (new Date(date1) <= new Date()) {
+        if (new Date(prefDate1) <= new Date()) {
             setValidationErrors(validationErrors => [...validationErrors, 'Date 1 must be in the future']);
             errorCount++;
         }
         
-        if ((date2 !== '') && (new Date(date2) <= new Date())) {            
+        if ((prefDate2 !== '') && (new Date(prefDate2) <= new Date())) {            
 
             setValidationErrors(validationErrors => [...validationErrors, 'Date 2 must be in the future']);
             errorCount++;            
@@ -57,11 +57,11 @@ export default function RequestForm(props) {
         if (validateFormData() === 0) {                    
             var  body = {                
                         "type" : Number.parseInt(type),
-                        "prefDate1": date1,                    
+                        "prefDate1": prefDate1,                    
                         "driverId": driverId
             };
     
-            if (date2 !== '') { body.prefDate2 = date2 }
+            if (prefDate2 !== '') { body.prefDate2 = prefDate2 }
     
             post('Request/New', body)
             .then((data) => {
@@ -101,14 +101,14 @@ export default function RequestForm(props) {
                     <div className="form-group">
                         <label>Preferred date 1:</label>
                         <div className="form-item">
-                            <input type="date" value={ date1 } onChange={ e => setDate1(e.target.value) } required={ true } />
+                            <input type="date" value={ prefDate1 } onChange={ e => setPrefDate1(e.target.value) } required={ true } />
                         </div>
                     </div>
 
                     <div className="form-group">
                         <label>Preferred date 2:</label>
                         <div className="form-item">
-                            <input type="date" value={date2} onChange={e => setDate2(e.target.value)} />
+                            <input type="date" value={ prefDate2} onChange={e => setPrefDate2(e.target.value)} />
                         </div>
                     </div>                
                     

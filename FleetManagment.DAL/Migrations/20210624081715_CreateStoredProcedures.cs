@@ -59,14 +59,13 @@ namespace FleetManagement.DAL.Migrations
 							@DriverID int
 				AS
 				BEGIN
-					SELECT TOP 1 Vehicles.Id, Vehicles.VIN, Vehicles.VehicleType, Vehicles.FuelType,
-					LastMileage = (SELECT MAX(Mileages.km) FROM Mileages), LicensePlates.Number AS LicensePlate
+					SELECT Vehicles.Id, Vehicles.VIN, Vehicles.VehicleType, Vehicles.FuelType, LicensePlates.Number AS LicensePlate, Mileages.km AS LastMileage
 					FROM Vehicles
-					JOIN DriverVehicles ON DriverVehicles.DriverId = @DriverId
+					JOIN DriverVehicles ON DriverVehicles.VehicleId = Vehicles.Id
+					JOIN VehicleLicensePlates ON VehicleLicensePlates.VehicleId = Vehicles.Id 
+					JOIN LicensePlates ON LicensePlates.Id = VehicleLicensePlates.LicensePlateId
 					JOIN Mileages ON Mileages.VehicleId = Vehicles.Id
-					JOIN VehicleLicensePlates ON VehicleLicensePlates.VehicleId = Vehicles.Id AND VehicleLicensePlates.EndDate IS NULL
-					LEFT JOIN LicensePlates ON LicensePlates.Id = VehicleLicensePlates.LicensePlateId
-					WHERE Vehicles.Id = DriverVehicles.VehicleId
+					WHERE DriverVehicles.DriverId = @DriverId AND DriverVehicles.EndDate IS NULL AND Mileages.km =(SELECT MAX(Mileages.Km) FROM Mileages WHERE Mileages.VehicleId = Vehicles.Id)
 				END
 				GO";
 

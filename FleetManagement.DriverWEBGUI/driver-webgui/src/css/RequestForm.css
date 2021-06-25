@@ -15,11 +15,15 @@
 
 input, select {
     height: 2em;
-    width: 85%;
     font-size: 1.2em;
     padding-left: 1em;
     padding-right: 1em;
+
+    border-radius: .375em;
+    color: #363636;
 }
+
+
 
 label {
     font-size: 1.4em;

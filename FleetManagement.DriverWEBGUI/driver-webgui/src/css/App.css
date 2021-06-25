@@ -57,11 +57,27 @@ h2 {
   margin-bottom: 1em;
 }
 
+.width-max {
+  width: 100%;
+}
+
+.width-85 {
+  width: 85%;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
+
+.inline {
+  display: inline;
+}
+ .row {
+   display: flex;
+   align-items: center;
+ }
 
 header {
   background-color: var(--lightBlue);
@@ -148,6 +164,12 @@ ul {
   transform: scale(1.1);
 }
 
+.login-form {
+  width: 50%;
+  padding: 2em;
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+}
+
 .login-button-wrapper {
   width: max-content;
   margin-left: auto;
@@ -197,6 +219,7 @@ span {
 .form-loader {
   width: 60px;
   margin: auto;
+  margin-top: 2em;
 }
 
 .message {
@@ -224,6 +247,7 @@ footer {
   color: whitesmoke;
   font-size: 1em;
 }
+
 footer img {
   width: 2.5em;
   height: 2.5em;

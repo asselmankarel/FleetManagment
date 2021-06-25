@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.DataAccess
 {
-    public interface IDataAccessReader
+    public interface IDataAccessReader : IDisposable
     {
         public T GetDriverInfoFromPersistentStore<T>(int driverId);
 

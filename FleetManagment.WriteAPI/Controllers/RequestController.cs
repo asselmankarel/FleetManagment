@@ -18,9 +18,9 @@ namespace FleetManagment.WriteAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<Response> New(RequestPostModel postedData)
+        public async Task<Response> New(AddRequestCommand addRequestCommand)
         {
-            return await _mediator.Send(new AddRequestCommand(postedData.driverId, postedData.Type, postedData.PrefDate1, postedData.PrefDate2));
+            return await _mediator.Send(addRequestCommand);
         }
 
     }

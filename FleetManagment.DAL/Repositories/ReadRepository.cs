@@ -23,7 +23,7 @@ namespace FleetManagement.DAL.Repositories
         }
 
         public T GetFuelcardInfo<T>(int driverId)
-        {
+        {  
             return _dataAccessReader.GetFuelcardInfoFromPersistentStore<T>(driverId);
         }
 

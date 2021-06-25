@@ -21,7 +21,6 @@ namespace FleetManagment.WriteAPI.Commands
             RequestType = requestType;
             PrefDate1 = prefDate1;
             PrefDate2 = prefDate2;
-
         }
     }
 }

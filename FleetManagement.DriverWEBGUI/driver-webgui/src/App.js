@@ -16,7 +16,11 @@ function App() {
   const baseUrlReadApi = 'https://localhost:44318/';
   const baseUrlWriteApi = 'https://localhost:44340/';
 
-  function handleSuccessFullLogin(id) {
+  function handleSuccessFullLogin(username, password, rememberMe) {
+    //do some authentication
+
+    // store username in LocalStoreage
+    const id = username;
     setDriverId(id);
   }
 

@@ -28,7 +28,7 @@ export default function Requests(props) {
         <div className="requests mt-3">
             <div className="requests-title">
                 <h2><i className="far fa-list-alt"></i> My requests</h2>
-                { loadError === false && <NavLink className="button" to="/request/new"><i className="fas fa-plus-circle"></i> New</NavLink> }
+                { (loadError === false && loading === false) && <NavLink className="button" to="/request/new"><i className="fas fa-plus-circle"></i> New</NavLink> }
             </div>
              
             <div className="form-loader">
