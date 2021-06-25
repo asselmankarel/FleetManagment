@@ -31,6 +31,7 @@ namespace FleetManagement.Domain.Models
         [StringLength(256, MinimumLength = 2)]
         public string Country { get; set; }
 
+        public int EmployeeId { get; set; }
         public Employee Employee { get; set; }
 
 

@@ -128,7 +128,9 @@ export default function RequestForm(props) {
             { success && 
                 <div>
                     <div className="message">🎉 Request sent succesfully... </div>
-                    <NavLink to="/" className="button">Back</NavLink>
+                    <div className="mx-auto mt-4">
+                        <NavLink to="/" className="button">Back</NavLink>
+                    </div>
                 </div>
             }
         </div>

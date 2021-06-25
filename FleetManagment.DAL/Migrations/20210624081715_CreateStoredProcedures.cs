@@ -48,11 +48,11 @@ namespace FleetManagement.DAL.Migrations
 					@DriverId int
 				AS
 				BEGIN
-					SELECT CreatedAt, RequestType AS Type, Requests.Status,  Vehicles.VIN, LicensePlate.Number as LicensePlate FROM Requests
-					JOIN Vehicles ON Vehicles.Id = VehicleId
-					JOIN VehicleLicensePlate ON VehicleLicensePlate.VehicleId = Requests.VehicleId AND VehicleLicensePlate.EndDate IS NULL
-					LEFT JOIN LicensePlate ON LicensePlate.Id = VehicleLicensePlate.LicensePlateId
-					WHERE DriverId = @DriverId
+					SELECT CreatedAt, RequestType AS Type, Requests.Status,  Vehicles.VIN, LicensePlates.Number as LicensePlate FROM Requests
+					LEFT OUTER JOIN Vehicles ON Vehicles.Id = VehicleId
+					LEFT OUTER JOIN VehicleLicensePlates ON VehicleLicensePlates.VehicleId = Requests.VehicleId
+					LEFT OUTER JOIN LicensePlates ON LicensePlates.Id = VehicleLicensePlates.LicensePlateId
+					WHERE DriverId = @DriverId AND VehicleLicensePlates.EndDate IS NULL
 				END
 				GO
 				CREATE PROCEDURE[dbo].[Vehicle_ReadModel]
@@ -60,12 +60,12 @@ namespace FleetManagement.DAL.Migrations
 				AS
 				BEGIN
 					SELECT TOP 1 Vehicles.Id, Vehicles.VIN, Vehicles.VehicleType, Vehicles.FuelType,
-					LastMileage = (SELECT MAX(Mileages.km) FROM Mileages), LicensePlate.Number AS LicensePlate
+					LastMileage = (SELECT MAX(Mileages.km) FROM Mileages), LicensePlates.Number AS LicensePlate
 					FROM Vehicles
 					JOIN DriverVehicles ON DriverVehicles.DriverId = @DriverId
 					JOIN Mileages ON Mileages.VehicleId = Vehicles.Id
-					JOIN VehicleLicensePlate ON VehicleLicensePlate.VehicleId = Vehicles.Id AND VehicleLicensePlate.EndDate IS NULL
-					LEFT JOIN LicensePlate ON LicensePlate.Id = VehicleLicensePlate.LicensePlateId
+					JOIN VehicleLicensePlates ON VehicleLicensePlates.VehicleId = Vehicles.Id AND VehicleLicensePlates.EndDate IS NULL
+					LEFT JOIN LicensePlates ON LicensePlates.Id = VehicleLicensePlates.LicensePlateId
 					WHERE Vehicles.Id = DriverVehicles.VehicleId
 				END
 				GO";

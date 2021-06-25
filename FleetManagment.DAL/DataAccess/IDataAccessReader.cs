@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FleetManagement.DAL.DataAccess
+{
+    public interface IDataAccessReader
+    {
+        public T GetDriverInfoFromPersistentStore<T>(int driverId);
+
+        public T GetVehicleInfoFromPersistentStore<T>(int driverId);
+
+        public T GetFuelcardInfoFromPersistentStore<T>(int driverId);
+
+        public (T, List<string>) GetFuelcardInfoWithServicesFromPersistentStore<T>(int driverId);
+
+
+        public List<T> GetRequestsByDriverIdFromPersistentStore<T>(int driverId);
+    }
+}

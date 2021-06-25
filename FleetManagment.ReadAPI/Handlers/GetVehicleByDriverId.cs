@@ -1,5 +1,6 @@
 ﻿
 using FleetManagement.DAL.DataAccess;
+using FleetManagement.DAL.Repositories;
 using FleetManagment.ReadAPI.ReadModels;
 using MediatR;
 using System;
@@ -10,16 +11,16 @@ namespace FleetManagment.ReadAPI.Handlers
 {
     public class GetVehicleByDriverId : IRequestHandler<Queries.GetVehicleByDriverId, VehicleInfo>
     {
-        private readonly DapperReader _dapperReader;
+        private readonly IReadRepository _readRepository;
 
         public GetVehicleByDriverId()
         {
-            _dapperReader = new DapperReader();
+            _readRepository = new ReadRepository(new DapperReader());
         }
 
         public Task<VehicleInfo> Handle(Queries.GetVehicleByDriverId request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_dapperReader.GetVehicleInfo<VehicleInfo>(request.Id));
+            return Task.FromResult(_readRepository.GetVehicleInfo<VehicleInfo>(request.Id));
         }
     }
 }

@@ -1,7 +1,5 @@
-﻿using FleetManagement.Domain.Models;
-using FleetManagment.WriteAPI.Commands;
-using FleetManagment.WriteAPI.Dtos;
-using FleetManagment.WriteAPI.Mappers;
+﻿using FleetManagment.WriteAPI.Commands;
+using FleetManagment.WriteAPI.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -20,11 +18,9 @@ namespace FleetManagment.WriteAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<Request> New(RequestDto requestDto)
+        public async Task<Response> New(RequestPostModel postedData)
         {
-            Request request = Mapper.FromDto(requestDto);
-            
-            return await _mediator.Send(new AddRequestCommand(request));
+            return await _mediator.Send(new AddRequestCommand(postedData.driverId, postedData.Type, postedData.PrefDate1, postedData.PrefDate2));
         }
 
     }

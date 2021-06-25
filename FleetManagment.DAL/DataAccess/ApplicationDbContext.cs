@@ -9,7 +9,7 @@ namespace FleetManagement.DAL.DataAccess
 {
     public class ApplicationDbContext : DbContext
     {
-        #region DbSets
+        #region Database Sets
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Address> Addresses { get; set; }
@@ -22,7 +22,7 @@ namespace FleetManagement.DAL.DataAccess
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Mileage> Mileages { get; set; }
         public DbSet<LicensePlate> LicensePlates { get; set; }
-        public DbSet<VehicleLicensePlate> VehicleLicensPlates  { get; set; }
+        public DbSet<VehicleLicensePlate> VehicleLicensePlates  { get; set; }
         public DbSet<Fuelcard> Fuelcards { get; set; }
         public DbSet<FuelcardService> FuelcardServices { get; set; }
         public DbSet<Repair> Repairs { get; set; }

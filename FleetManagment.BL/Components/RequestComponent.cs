@@ -23,21 +23,27 @@ namespace FleetManagement.BL.Components
             _vehicleRepository = new VehicleRepository(context);
         }
 
-        public Request AddRequest(Request request)
+        public bool AddRequest(int driverId, int requestType, DateTime prefDate1, DateTime prefDate2)
         {
-            var driver = _driverRepository.GetById(request.Driver.Id);
-            request.Driver = driver;
+            var driver = _driverRepository.GetById(driverId);
+            if (driver == null) return false;
 
-            if (IsValid(request))
+            var request = new Request() {
+                Driver = driver,
+                RequestType = (RequestType)requestType,
+                PrefDate1 = prefDate1,
+                PrefDate2 = (prefDate2.Year < DateTime.Now.Year) ? null : prefDate2 
+            };
+
+            if (!RequestIsValid(request)) return false;
+            
+            if (RequestRequiresCar(request))
             {
-                if (RequestRequiresCar(request))
-                {
-                    request.Vehicle = _vehicleRepository.GetCurrentVehicleForDriver(request.Driver.Id);
-                }
-                _requestRepository.Add(request);
-                return request;
+                request.Vehicle = _vehicleRepository.GetCurrentVehicleForDriver(request.Driver.Id);
             }
-            throw new ArgumentException("Request not valid!");
+            _requestRepository.Add(request);
+
+            return true;
         }
 
         private bool RequestRequiresCar(Request request)
@@ -50,7 +56,7 @@ namespace FleetManagement.BL.Components
             }            
         }
 
-        private bool IsValid(Request request)
+        private bool RequestIsValid(Request request)
         {
             var context = new ValidationContext(request);
             var results = new List<ValidationResult>();

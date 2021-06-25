@@ -9,9 +9,10 @@ using System.Linq;
 
 namespace FleetManagement.DAL.DataAccess
 {
-    public class DapperReader
+    public class DapperReader : IDataAccessReader, IDisposable
     {
         private string _connectionString;
+        private IDbConnection _sqlConnection;
 
         public DapperReader()
         {
@@ -26,10 +27,15 @@ namespace FleetManagement.DAL.DataAccess
 
         private IDbConnection GetConnection()
         {
-            return new SqlConnection(_connectionString);
+            if (_sqlConnection == null)
+            {
+                _sqlConnection = new SqlConnection(_connectionString);
+            }
+
+            return _sqlConnection;
         }
 
-        public T GetDriverInfo<T>(int driverId)
+        public T GetDriverInfoFromPersistentStore<T>(int driverId)
         {
             using (var connection = GetConnection())
             {
@@ -44,7 +50,7 @@ namespace FleetManagement.DAL.DataAccess
             }
         }
 
-        public T GetVehicleInfo<T>(int driverId)
+        public T GetVehicleInfoFromPersistentStore<T>(int driverId)
         {
             using (var connection = GetConnection())
             {
@@ -59,7 +65,7 @@ namespace FleetManagement.DAL.DataAccess
             }
         }
 
-        public T GetFuelcardInfo<T>(int driverId)
+        public T GetFuelcardInfoFromPersistentStore<T>(int driverId)
         {
             using (var connection = GetConnection())
             {
@@ -74,7 +80,7 @@ namespace FleetManagement.DAL.DataAccess
             }
         }
 
-        public  (T, List<string>) GetFuelcardInfoWithServices<T>(int driverId)
+        public  (T, List<string>) GetFuelcardInfoWithServicesFromPersistentStore<T>(int driverId)
         {
             using (var connection = GetConnection())
             {
@@ -92,7 +98,7 @@ namespace FleetManagement.DAL.DataAccess
             }
         }
 
-        public List<T> GetRequestsByDriverId<T>(int driverId)
+        public List<T> GetRequestsByDriverIdFromPersistentStore<T>(int driverId)
         {
             using (var connection = GetConnection())
             {
@@ -107,5 +113,11 @@ namespace FleetManagement.DAL.DataAccess
             }
         }
 
+        public void Dispose()
+        {            
+            _connectionString = null;
+            _sqlConnection.Dispose();
+            _sqlConnection = null;
+        }
     }
 }

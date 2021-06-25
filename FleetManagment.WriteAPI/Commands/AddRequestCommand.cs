@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FleetManagement.Domain.Models;
+using FleetManagment.WriteAPI.Models;
 using MediatR;
 
 namespace FleetManagment.WriteAPI.Commands
 {
-    public class AddRequestCommand : IRequest<Request>
+    public class AddRequestCommand : IRequest<Response>
     {
-        // TODO: 
-        public Request request { get; private set; }
+        public int DriverId { get; private set; }
+        public int RequestType { get; private set; }
+        public DateTime PrefDate1 { get; private set; }
+        public DateTime PrefDate2 { get; private set; }
 
-        public AddRequestCommand(Request request)
+        public AddRequestCommand(int driverId, int requestType, DateTime prefDate1, DateTime prefDate2 )
         {
-            this.request = request;
+            DriverId = driverId;
+            RequestType = requestType;
+            PrefDate1 = prefDate1;
+            PrefDate2 = prefDate2;
+
         }
     }
 }

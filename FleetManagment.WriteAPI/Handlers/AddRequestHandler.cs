@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using FleetManagement.BL.Components;
+using FleetManagment.WriteAPI.Commands;
+using FleetManagment.WriteAPI.Models;
+using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using FleetManagement.BL.Components;
-using FleetManagement.Domain.Models;
-using FleetManagment.WriteAPI.Commands;
-using MediatR;
 
 namespace FleetManagment.WriteAPI.Handlers
 {
-    public class AddRequestHandler : IRequestHandler<AddRequestCommand, Request>
+    public class AddRequestHandler : IRequestHandler<AddRequestCommand, Response>
     {
         private readonly IRequestComponent _requestComponent;
 
@@ -19,9 +17,13 @@ namespace FleetManagment.WriteAPI.Handlers
             _requestComponent = requestComponent;
         }
 
-        public Task<Request> Handle(AddRequestCommand request, CancellationToken cancellationToken)
+        public Task<Response> Handle(AddRequestCommand request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_requestComponent.AddRequest(request.request));
+            var response = new Response(_requestComponent.AddRequest(request.DriverId, request.RequestType, request.PrefDate1, request.PrefDate2), "");
+
+            return Task.FromResult(response);
         }
+
+
     }
 }
