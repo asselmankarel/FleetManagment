@@ -85,7 +85,7 @@ namespace FleetManagement.Seed
         private static void CreateVehicles(int numberOfVehicles)
         {
             var VehicleFaker = new Faker<Vehicle>()
-               .RuleFor(v => v.VIN, f => f.Random.AlphaNumeric(17))
+               .RuleFor(v => v.ChassisNumber, f => f.Random.AlphaNumeric(17))
                .RuleFor(v => v.VehicleType, f => (VehicleType)f.Random.Int(0, 2))
                .RuleFor(v => v.FuelType, f => (FuelType)f.Random.Int(0, 3))
                .RuleFor(v => v.Mileages, f => new List<Mileage>() { 
@@ -106,7 +106,7 @@ namespace FleetManagement.Seed
               .RuleFor(a => a.PostalCode, f => f.Address.ZipCode("#####"));
 
             var DriverFaker = new Faker<Driver>()
-                .RuleFor(d => d.NIS, f => $"{f.Random.Long(01000000000, 99999999999)}")
+                .RuleFor(d => d.NationalIdentificationNumber, f => $"{f.Random.Long(01000000000, 99999999999)}")
                 .RuleFor(d => d.FirstName, f => f.Person.FirstName)
                 .RuleFor(d => d.LastName, f => f.Person.LastName)
                 .RuleFor(d => d.DateOfBirth, f => f.Person.DateOfBirth)

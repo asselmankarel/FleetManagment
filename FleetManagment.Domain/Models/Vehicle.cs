@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FleetManagement.Domain.Models
 {
-    [Index(nameof(VIN), IsUnique = true)]
+    [Index(nameof(ChassisNumber), IsUnique = true)]
     public class Vehicle
     {
         [Key]
@@ -13,7 +13,7 @@ namespace FleetManagement.Domain.Models
 
         [StringLength(17, MinimumLength = 15)]
         [Required]
-        public string VIN { get; set; }
+        public string ChassisNumber { get; set; }
 
         [Required]
         public VehicleType VehicleType { get; set; }

@@ -5,14 +5,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Domain.Models
 {
-    [Index(nameof(NIS), IsUnique = true)]
+    [Index(nameof(NationalIdentificationNumber), IsUnique = true)]
     public class Employee
     {
         [Key]
         public int Id { get; set; }
 
         [MaxLength(11)]
-        public string NIS { get; set; }
+        public string NationalIdentificationNumber { get; set; }
 
         [Required]
         [StringLength(100, MinimumLength = 2)]

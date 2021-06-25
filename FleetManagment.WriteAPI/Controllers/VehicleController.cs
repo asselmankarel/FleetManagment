@@ -1,11 +1,7 @@
-﻿using FleetManagement.BL.Components;
-using FleetManagement.Domain.Models;
-using FleetManagment.WriteAPI.Commands;
+﻿using FleetManagment.WriteAPI.Commands;
+using FleetManagment.WriteAPI.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace FleetManagment.WriteAPI.Controllers
@@ -22,10 +18,9 @@ namespace FleetManagment.WriteAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<Vehicle> AddVehicle(Vehicle vehicle)
+        public async Task<Response> AddVehicle(AddVehicleCommand addVehicleCommand)
         {
-            return await _mediator.Send(new AddVehicleCommand(vehicle));
-
+            return await _mediator.Send(addVehicleCommand);
         }
     }
 }
