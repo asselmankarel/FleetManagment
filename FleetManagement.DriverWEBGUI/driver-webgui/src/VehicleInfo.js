@@ -23,7 +23,7 @@ export default function VehicleInfo(props) {
     }, [driverId])
 
     return(
-        <div className="vehicle mt-2">
+        <div className="vehicle mt-3">
             <h2><i className="fas fa-car"></i> My vehicle</h2>
             <div className="form-loader">
                 { loading && <Loader /> }            
