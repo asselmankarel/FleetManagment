@@ -86,9 +86,9 @@ export default function RequestForm(props) {
             {success === false &&
                 <form >
                     <div className="form-group">                    
-                        <label>Type of request</label>               
-                        <div className="form-item">
-                            <select onChange={ e => setType(e.target.value) }  required={true}>
+                        <label for="requestType">Type of request</label>               
+                        <div for="requestType" className="form-item">
+                            <select name="requestType" onChange={ e => setType(e.target.value) }  required={true}>
                                 <option></option>
                                 <option value="0" >Fuelcard</option>
                                 <option value="1" >Maintenance</option>
@@ -99,16 +99,16 @@ export default function RequestForm(props) {
                     </div>
                     
                     <div className="form-group">
-                        <label>Preferred date 1:</label>
+                        <label for="prefDate1" >Preferred date 1:</label>
                         <div className="form-item">
-                            <input type="date" value={ prefDate1 } onChange={ e => setPrefDate1(e.target.value) } required={ true } />
+                            <input name="prefDate1" type="date" value={ prefDate1 } onChange={ e => setPrefDate1(e.target.value) } required={ true } />
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <label>Preferred date 2:</label>
+                        <label for="prefDate2" >Preferred date 2:</label>
                         <div className="form-item">
-                            <input type="date" value={ prefDate2} onChange={e => setPrefDate2(e.target.value)} />
+                            <input name="prefDate2" type="date" value={ prefDate2} onChange={e => setPrefDate2(e.target.value)} />
                         </div>
                     </div>                
                     
