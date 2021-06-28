@@ -18,5 +18,6 @@ namespace FleetManagement.DAL.DataAccess
 
 
         public List<T> GetRequestsByDriverIdFromPersistentStore<T>(int driverId);
+
     }
 }

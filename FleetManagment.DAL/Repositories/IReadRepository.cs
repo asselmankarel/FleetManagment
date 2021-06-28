@@ -17,5 +17,7 @@ namespace FleetManagement.DAL.Repositories
         public (T, List<string>) GetFuelcardInfoWithServices<T>(int driverId);
 
         public List<T> GetRequestsByDriverId<T>(int driverId);
+
+        public Array GetRequestTypes();
     }
 }

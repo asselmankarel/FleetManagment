@@ -1,4 +1,6 @@
 ﻿using FleetManagement.DAL.DataAccess;
+using FleetManagement.Domain.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace FleetManagement.DAL.Repositories
@@ -36,6 +38,11 @@ namespace FleetManagement.DAL.Repositories
         public List<T> GetRequestsByDriverId<T>(int driverId)
         {
             return _dataAccessReader.GetRequestsByDriverIdFromPersistentStore<T>(driverId);
+        }
+
+        public Array GetRequestTypes()
+        {            
+            return Enum.GetNames(typeof(RequestType));
         }
     }
 }
