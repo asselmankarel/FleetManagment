@@ -1,5 +1,6 @@
 ﻿using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
+using FleetManagement.Domain.Enums;
 using FleetManagement.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,8 +21,9 @@ namespace FleetManagement.BL.Components
             _vehicleRepository = new VehicleRepository(_context);
         }
 
-        public Vehicle AddVehicle(Vehicle vehicle)
+        public Vehicle AddVehicle(string chassisNumber, int vehicleType, int fuelType)
         {
+            var vehicle = new Vehicle() { ChassisNumber = chassisNumber, VehicleType = (VehicleType)vehicleType, FuelType = (FuelType)fuelType};
             if (IsValid(vehicle))
             {
                 vehicle.Mileages = new List<Mileage>();
