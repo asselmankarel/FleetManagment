@@ -2,11 +2,9 @@
 using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Enums;
 using FleetManagement.Domain.Models;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace FleetManagement.BL.Components
 {
@@ -29,8 +27,10 @@ namespace FleetManagement.BL.Components
                 vehicle.Mileages = new List<Mileage>();
                 vehicle.Mileages.Add(new Mileage { Date = DateTime.Now, Km = 0 });
                 _vehicleRepository.Add(vehicle);
+
                 return vehicle;
             }
+
             throw new ArgumentException("Vehicle information not valid!");
         }
 

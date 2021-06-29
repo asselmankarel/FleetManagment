@@ -27,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <header>
-        <Banner />
+        <Banner driverId={driverId}/>
       </header>
       <div className="container">
         <Switch>
@@ -41,7 +41,7 @@ function App() {
           </Route>
 
           <Route exact path="/request/new">
-            <RequestForm driverId={driverId} apiUrl={baseUrlWriteApi}/>
+            <RequestForm driverId={driverId} baseUrlWriteApi={baseUrlWriteApi} baseUrlReadApi={baseUrlReadApi}/>
           </Route>
 
           <Route exact path="/profile" >

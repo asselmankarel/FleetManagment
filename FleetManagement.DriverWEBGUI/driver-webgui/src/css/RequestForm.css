@@ -46,3 +46,19 @@ label {
     background-color:#D49823;
 }
 
+
+@media only screen and (max-width: 600px) {
+    .button-group {
+        margin-top: 2em;
+        flex-direction: column;
+    }
+    
+    .button {
+        margin: .75em;
+        width: max-content;
+    }
+    
+    label {
+        font-size: 1.2em;
+    }
+}

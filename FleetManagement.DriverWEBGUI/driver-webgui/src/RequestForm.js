@@ -1,20 +1,27 @@
-import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import {NavLink} from 'react-router-dom';
 import useFetch from './useFetch';
 import Loader from './Loader';
 import './css/RequestForm.css';
 
 export default function RequestForm(props) {
 
-    const { driverId, apiUrl } = props
-    const [ type, setType ] = useState('');
-    const [ prefDate1, setPrefDate1 ] = useState('');
-    const [ prefDate2, setPrefDate2 ] = useState('');
-    const [ validationErrors, setValidationErrors] = useState([]);
-    const [ loading, setLoading ] = useState(false);
-    const [ success , setSuccess] = useState(false);
-    const [ failure , setFailure] = useState(false);
-    const { post } = useFetch(apiUrl);
+    const {driverId, baseUrlWriteApi, baseUrlReadApi} = props
+
+    const [postModel, setPostModel] = useState({
+        type : '',
+        prefDate1 : '',
+        prefDate2 : '',
+    });
+
+    const [types, setTypes] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [success , setSuccess] = useState(false);
+    const [failure , setFailure] = useState(false);
+    const [validationErrors, setValidationErrors] = useState([]);
+
+    const {get} = useFetch(baseUrlReadApi);
+    const {post} = useFetch(baseUrlWriteApi);
 
     const resetFlags = () => {  
         setLoading(true);       
@@ -23,25 +30,31 @@ export default function RequestForm(props) {
         setValidationErrors([]);
     }
 
+    useEffect(() => {
+        get('Request/GetRequestTypes')
+        .then((data) => setTypes(data))
+        .catch((error) => console.log(error));
+    }, []);
+
     function validateFormData() {
         let errorCount = 0;
 
-        if (type === '') {
+        if (postModel.type === '') {
             setValidationErrors(['Please select a type']);
             errorCount++;
         }
 
-        if (prefDate1 === '') {
+        if (postModel.prefDate1 === '') {
             setValidationErrors(validationErrors => [...validationErrors, 'Please select date 1']);
             errorCount++;       
         }  
         
-        if (new Date(prefDate1) <= new Date()) {
+        if (new Date(postModel.prefDate1) <= new Date()) {
             setValidationErrors(validationErrors => [...validationErrors, 'Date 1 must be in the future']);
             errorCount++;
         }
         
-        if ((prefDate2 !== '') && (new Date(prefDate2) <= new Date())) {            
+        if ((postModel.prefDate2 !== '') && (new Date(postModel.prefDate2) <= new Date())) {            
 
             setValidationErrors(validationErrors => [...validationErrors, 'Date 2 must be in the future']);
             errorCount++;            
@@ -55,15 +68,7 @@ export default function RequestForm(props) {
         resetFlags();        
 
         if (validateFormData() === 0) {                    
-            var  body = {                
-                        "type" : Number.parseInt(type),
-                        "prefDate1": prefDate1,                    
-                        "driverId": driverId
-            };
-    
-            if (prefDate2 !== '') { body.prefDate2 = prefDate2 }
-    
-            post('Request/New', body)
+            post('Request/New', postModel)
             .then((data) => {
                 setLoading(false);
                 setSuccess(true);                
@@ -81,34 +86,33 @@ export default function RequestForm(props) {
         }
     }
 
-    return(
+    return (
         <div className="request-form">
             {success === false &&
                 <form >
                     <div className="form-group">                    
-                        <label for="requestType">Type of request</label>               
-                        <div for="requestType" className="form-item">
-                            <select name="requestType" onChange={ e => setType(e.target.value) }  required={true}>
+                        <label htmlFor="requestType">Type of request</label>               
+                        <div htmlFor="requestType" className="form-item">
+                            <select name="requestType" onChange={e => setPostModel({...postModel, type: e.target.value})}  required={true}>
                                 <option></option>
-                                <option value="0" >Fuelcard</option>
-                                <option value="1" >Maintenance</option>
-                                <option value="2" >Repair</option>
-                                <option value="3" >Other</option>                    
+                                { types.map(type => {
+                                    return (<option value={types.indexOf(type)}>{type}</option>);
+                                })}                
                             </select>
                         </div>
                     </div>
                     
                     <div className="form-group">
-                        <label for="prefDate1" >Preferred date 1:</label>
+                        <label htmlFor="prefDate1" >Preferred date 1:</label>
                         <div className="form-item">
-                            <input name="prefDate1" type="date" value={ prefDate1 } onChange={ e => setPrefDate1(e.target.value) } required={ true } />
+                            <input name="prefDate1" type="date" value={postModel.prefDate1} onChange={e => setPostModel({...postModel, prefDate1: e.target.value })} required={ true } />
                         </div>
                     </div>
 
                     <div className="form-group">
-                        <label for="prefDate2" >Preferred date 2:</label>
+                        <label htmlFor="prefDate2" >Preferred date 2:</label>
                         <div className="form-item">
-                            <input name="prefDate2" type="date" value={ prefDate2} onChange={e => setPrefDate2(e.target.value)} />
+                            <input name="prefDate2" type="date" value={postModel.prefDate2} onChange={e => setPostModel({...postModel, prefDate2: e.target.value})} />
                         </div>
                     </div>                
                     
