@@ -26,7 +26,7 @@ namespace FleetManagment.ReadAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetRequestTypes()
+        public async Task<IActionResult> Types()
         {
             return Json(await _mediator.Send(new GetRequestTypes()));
         }

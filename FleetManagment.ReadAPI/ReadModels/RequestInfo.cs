@@ -11,7 +11,7 @@ namespace FleetManagment.ReadAPI.ReadModels
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public RequestType Type { get; set; }
 
-        public string VIN { get; set; }
+        public string ChassisNumber { get; set; }
 
         public string LicensePlate { get; set; }
 

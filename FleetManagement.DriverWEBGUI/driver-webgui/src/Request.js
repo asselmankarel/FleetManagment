@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Request(props) {
 
-    const { createdAt, type, vin, status, licensePlate } = props;
+    const { createdAt, type, chassisNumber, status, licensePlate } = props;
 
     return (
         <div className="request">
@@ -10,7 +10,7 @@ export default function Request(props) {
                 <span>{createdAt}</span>
                 <span>{type}</span>
                 <span>{status}</span>
-                <span>{vin}</span>
+                <span>{chassisNumber}</span>
                 <span>{licensePlate}</span>
             </div>
         </div>

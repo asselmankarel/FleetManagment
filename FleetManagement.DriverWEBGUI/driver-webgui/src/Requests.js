@@ -50,7 +50,7 @@ export default function Requests(props) {
                                 key={Date.parse(request.createdAt)}
                                 createdAt={new Date(request.createdAt).toLocaleString('nl-BE', {dateStyle: 'short', timeStyle : 'short'})}
                                 type={request.type}
-                                vin={request.vin}
+                                chassisNumber={request.chassisNumber}
                                 status={request.status}
                                 licensePlate={request.licensePlate}
                             />

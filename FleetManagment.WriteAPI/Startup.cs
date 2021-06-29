@@ -29,7 +29,7 @@ namespace FleetManagement.WriteAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options => options.AddPolicy(name: "LocalOrigins", builder => {
-                builder.AllowAnyOrigin()
+                builder.WithOrigins("http://localhost:3000")
                .AllowAnyMethod()
                .AllowAnyHeader();
             }));

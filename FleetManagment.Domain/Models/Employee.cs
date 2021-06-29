@@ -31,5 +31,9 @@ namespace FleetManagement.Domain.Models
 
         public ICollection<Role> Roles { get; set; }
 
+        public string FullName() {
+            return $"{FirstName} {LastName}";
+        }
+
     }
 }

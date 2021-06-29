@@ -6,7 +6,7 @@ namespace FleetManagment.ReadAPI.ReadModels
     public class VehicleInfo
     {
         public int Id { get; set; }
-        public string Vin { get; set; }
+        public string ChassisNumber { get; set; }
 
         public string LicensePlate { get; set; }
 

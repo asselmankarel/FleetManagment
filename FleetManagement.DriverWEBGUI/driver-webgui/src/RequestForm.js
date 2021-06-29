@@ -31,7 +31,7 @@ export default function RequestForm(props) {
     }
 
     useEffect(() => {
-        get('Request/GetRequestTypes')
+        get('Request/Types')
         .then((data) => setTypes(data))
         .catch((error) => console.log(error));
     }, []);

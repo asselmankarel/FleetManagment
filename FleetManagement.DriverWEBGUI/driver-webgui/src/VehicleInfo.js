@@ -14,13 +14,14 @@ export default function VehicleInfo(props) {
         get(`Driver/Vehicle/${driverId}`)
         .then((data) => {
             setVehicle(data); 
+            console.log(data);
             setLoadError(false);
         })
         .catch((error) => {
             console.log("Could not load vehicle information!", error);
             setLoadError(true);
         });        
-    }, [driverId])
+    }, [driverId]);
 
     return(
         <div className="vehicle mt-3">
@@ -31,7 +32,7 @@ export default function VehicleInfo(props) {
             {(loading === false && loadError === false) &&
                 <div className="vehicle-info">
                     <ul>
-                        <li><div className="vehicle-info-row"><strong>Chassis number:</strong> <span>{vehicle.vin}</span></div></li>
+                        <li><div className="vehicle-info-row"><strong>Chassis number:</strong> <span>{vehicle.chassisNumber}</span></div></li>
                         <li><div className="vehicle-info-row"><strong>License plate:</strong> <span>{vehicle.licensePlate}</span></div></li>
                         <li><div className="vehicle-info-row"><strong>Vehicle type:</strong> <span>{vehicle.vehicleType}</span></div></li>
                         <li><div className="vehicle-info-row"><strong>Fuel type:</strong> <span>{vehicle.fuelType}</span></div></li>
