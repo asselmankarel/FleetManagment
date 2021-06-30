@@ -37,12 +37,17 @@ namespace FleetManagement.DAL.Repositories
 
         public List<T> GetRequestsByDriverId<T>(int driverId)
         {
-            return _dataAccessReader.GetRequestsByDriverIdFromPersistentStore<T>(driverId);
+            return _dataAccessReader.GetRequestsFromPersistentStore<T>(driverId);
         }
 
         public Array GetRequestTypes()
         {            
             return Enum.GetNames(typeof(RequestType));
+        }
+
+        public List<T> getMaintenancesByVehicleId<T>(int vehicleId)
+        {
+            return _dataAccessReader.GetMaintenanceInfoFromPersistenStore<T>(vehicleId);
         }
     }
 }

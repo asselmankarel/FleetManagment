@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ConsoleDump;
 
 namespace FleetManagement.Seed
 {
@@ -36,6 +35,17 @@ namespace FleetManagement.Seed
         private static void SeedDb(int numberOfEntities)
         {
             Console.WriteLine(" START SEEDING");
+            CreateEntities(numberOfEntities);
+
+            Console.WriteLine(" SAVING CHANGES");
+            _context.SaveChanges();
+
+            Console.WriteLine(" LINK ENTITIES");
+            LinkEntities();
+        }
+
+        private static void CreateEntities(int numberOfEntities)
+        {
             Console.WriteLine("\t Creating drivers");
             CreateDrivers(numberOfEntities);
             Console.WriteLine("\t Creating vehicles");
@@ -44,9 +54,12 @@ namespace FleetManagement.Seed
             CreateFuelcards(numberOfEntities);
             Console.WriteLine("\t Creating LicensePlates");
             CreateLicensePLates(numberOfEntities);
-            Console.WriteLine(" SAVING CHANGES");
-            _context.SaveChanges();
-            Console.WriteLine(" ASSIGNMENTS");
+            Console.WriteLine("\t Creating Companies");
+            CreateCompanies(numberOfEntities);
+        }
+
+        private static void LinkEntities()
+        {
             Console.WriteLine("\t Vehicle to drivers");
             AssignVehicleToDrivers();
             Console.WriteLine("\t Fuelcard to drivers");
@@ -55,6 +68,15 @@ namespace FleetManagement.Seed
             AssignLicensePlateToVehicle();
         }
 
+        private static void CreateCompanies(int numberOfCompanies)
+        {
+            var companyFaker = new Faker<Company>()
+                .RuleFor(c => c.Name, f => f.Company.CompanyName())
+                .RuleFor(c => c.PhoneNumber, f => f.Phone.PhoneNumber());
+            var companies = companyFaker.Generate(numberOfCompanies);
+
+            _context.Companies.AddRange(companies);
+        }
 
         private static void CreateLicensePLates(int numberOfLicensePLates)
         {
@@ -183,7 +205,5 @@ namespace FleetManagement.Seed
             var request = RequestFaker.Generate(1);
             _context.Requests.AddRange(request);
         }
-
-
     }
 }

@@ -15,14 +15,14 @@ namespace FleetManagement.Domain.Validators
 
         public override bool IsValid(object value)
         {
-            var val = value as int?;
+            var val = (int)value;
 
             return Enum.IsDefined(_enumType, val) ? true : false;
         }
 
         public override string FormatErrorMessage(string name)
         {
-            return $"Value not valid for type: {_enumType}";
+            return "Type Value not valid";
         }
     }
 }

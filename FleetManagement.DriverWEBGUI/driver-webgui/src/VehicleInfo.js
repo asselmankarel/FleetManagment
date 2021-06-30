@@ -14,8 +14,7 @@ export default function VehicleInfo(props) {
     useEffect(() => {
         get(`Driver/Vehicle/${driverId}`)
         .then((data) => {
-            setVehicle(data); 
-            console.log(data);
+            setVehicle(data);             
             setLoadError(false);
         })
         .catch((error) => {
@@ -28,7 +27,7 @@ export default function VehicleInfo(props) {
         <div className="vehicle mt-3">
             <div className="vehicle-title">
                 <h2><i className="fas fa-car"></i> My vehicle</h2>
-                { (loadError === false && loading === false) && <NavLink className="button" to={`vehicle/${vehicle.id}/maintenances`}><i className="fas fa-tools"></i> View</NavLink> }
+                { (loadError === false && loading === false) && <NavLink className="button" to={`vehicle/${vehicle.id}/maintenances`}><i className="fas fa-tools"></i> Maintenance & Repair</NavLink> }
 
             </div>
             <div className="form-loader">

@@ -93,7 +93,7 @@ namespace FleetManagement.DAL.DataAccess
             }
         }
 
-        public List<T> GetRequestsByDriverIdFromPersistentStore<T>(int driverId)
+        public List<T> GetRequestsFromPersistentStore<T>(int driverId)
         {
             using (var connection = GetConnection())
             {
@@ -106,10 +106,15 @@ namespace FleetManagement.DAL.DataAccess
 
                 return response;
             }
+        }       
+
+        public List<T> GetMaintenanceInfoFromPersistenStore<T>(int vehicleId)
+        {
+            throw new NotImplementedException();
         }
 
         public void Dispose()
-        {            
+        {
             _sqlConnection.Dispose();
             _connectionString = null;
         }

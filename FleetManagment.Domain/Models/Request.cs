@@ -8,6 +8,7 @@ namespace FleetManagement.Domain.Models
 {
     public class Request
     {
+     
         [Key]
         public int Id { get; set; }
 
@@ -27,6 +28,7 @@ namespace FleetManagement.Domain.Models
         public Vehicle Vehicle { get; set; }
 
         [Required]
+        [ValueMustBeInEnum(typeof(RequestType))]
         public RequestType RequestType { get; set; }
 
     }

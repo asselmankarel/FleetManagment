@@ -24,7 +24,7 @@ namespace FleetManagement.ReadAPI.Controllers
         {
             var result = await _mediator.Send(new GetDriverById(id));
            
-            return  Ok(result);
+            return  Json(result);
         }
 
         [HttpGet]
@@ -33,7 +33,7 @@ namespace FleetManagement.ReadAPI.Controllers
         {
             var vehicelInfo = await _mediator.Send(new GetVehicleByDriverId(id));
 
-            return Ok(vehicelInfo);
+            return Json(vehicelInfo);
         }
 
 
@@ -43,7 +43,7 @@ namespace FleetManagement.ReadAPI.Controllers
         {
             var fuelcard = await _mediator.Send(new GetFuelcardByDriverId(id));
         
-            return Ok(fuelcard);
+            return Json(fuelcard);
         }
 
     }

@@ -9,9 +9,10 @@ export default function RequestForm(props) {
     const {driverId, baseUrlWriteApi, baseUrlReadApi} = props
 
     const [postModel, setPostModel] = useState({
-        type : '',
-        prefDate1 : '',
-        prefDate2 : '',
+        driverId : driverId, 
+        requestType : null,
+        prefDate1 : null,
+        prefDate2 : null,
     });
 
     const [types, setTypes] = useState([]);
@@ -39,23 +40,17 @@ export default function RequestForm(props) {
     function validateFormData() {
         let errorCount = 0;
 
-        if (postModel.type === '') {
+        if (postModel.requestType === null) {
             setValidationErrors(['Please select a type']);
             errorCount++;
         }
-
-        if (postModel.prefDate1 === '') {
-            setValidationErrors(validationErrors => [...validationErrors, 'Please select date 1']);
-            errorCount++;       
-        }  
         
         if (new Date(postModel.prefDate1) <= new Date()) {
             setValidationErrors(validationErrors => [...validationErrors, 'Date 1 must be in the future']);
             errorCount++;
         }
         
-        if ((postModel.prefDate2 !== '') && (new Date(postModel.prefDate2) <= new Date())) {            
-
+        if (new Date(postModel.prefDate2) <= new Date()) {            
             setValidationErrors(validationErrors => [...validationErrors, 'Date 2 must be in the future']);
             errorCount++;            
         }
@@ -71,6 +66,8 @@ export default function RequestForm(props) {
             post('Request/New', postModel)
             .then((data) => {
                 setLoading(false);
+                console.log(data);
+                // Check response for success and errorMessages
                 setSuccess(true);                
             })
             .catch((error) => {
@@ -78,7 +75,7 @@ export default function RequestForm(props) {
                     setFailure(true);
                 }
                 setLoading(false);
-                console.log('Error: ', error);
+                console.log('Post error: ', error);
             });
 
         } else {
@@ -94,7 +91,7 @@ export default function RequestForm(props) {
                     <div className="form-group mt-2">                    
                         <label htmlFor="requestType">Type of request</label>               
                         <div htmlFor="requestType" className="form-item">
-                            <select name="requestType" onChange={e => setPostModel({...postModel, type: e.target.value})}  required={true}>
+                            <select name="requestType" onChange={e => setPostModel({...postModel, requestType: e.target.value})}  required={true}>
                                 <option></option>
                                 { types.map(type => {
                                     return (<option value={types.indexOf(type)}>{type}</option>);

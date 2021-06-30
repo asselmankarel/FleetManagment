@@ -17,7 +17,8 @@ namespace FleetManagement.DAL.DataAccess
         public (T, List<string>) GetFuelcardInfoWithServicesFromPersistentStore<T>(int driverId);
 
 
-        public List<T> GetRequestsByDriverIdFromPersistentStore<T>(int driverId);
+        public List<T> GetRequestsFromPersistentStore<T>(int driverId);
 
+        public List<T> GetMaintenanceInfoFromPersistenStore<T>(int vehicleId);
     }
 }

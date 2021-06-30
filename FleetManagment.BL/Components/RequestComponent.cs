@@ -5,6 +5,7 @@ using FleetManagement.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace FleetManagement.BL.Components
 {
@@ -23,10 +24,10 @@ namespace FleetManagement.BL.Components
             _vehicleRepository = new VehicleRepository(context);
         }
 
-        public bool AddRequest(int driverId, int requestType, DateTime prefDate1, DateTime prefDate2)
-        {
+        public (bool, string[]) AddRequest(int driverId, int requestType, DateTime prefDate1, DateTime prefDate2)
+        {  
             var driver = _driverRepository.GetById(driverId);
-            if (driver == null) return false;
+            if (driver == null) return (false, new string[] { "Driver not found..." });
 
             var request = new Request() {
                 Driver = driver,
@@ -35,7 +36,9 @@ namespace FleetManagement.BL.Components
                 PrefDate2 = (prefDate2.Year < DateTime.Now.Year) ? null : prefDate2 
             };
 
-            if (!RequestIsValid(request)) return false;
+            var validationResults = RequestIsValid(request);
+
+            if (!validationResults.Item1) return validationResults;
             
             if (RequestRequiresCar(request))
             {
@@ -43,7 +46,7 @@ namespace FleetManagement.BL.Components
             }
             _requestRepository.Add(request);
 
-            return true;
+            return (validationResults);
         }
 
         private bool RequestRequiresCar(Request request)
@@ -56,12 +59,19 @@ namespace FleetManagement.BL.Components
             }            
         }
 
-        private bool RequestIsValid(Request request)
+        private (bool, string[]) RequestIsValid(Request request)
         {
             var context = new ValidationContext(request);
             var results = new List<ValidationResult>();
+            bool success = Validator.TryValidateObject(request, context, results, true);
 
-            return Validator.TryValidateObject(request, context, results, true);
+            List<string> messages = new List<string>();
+            foreach (var result in results)
+            {
+                messages.Add(result.ErrorMessage);
+            }
+
+            return (success, messages.ToArray());
         }
     }
 }

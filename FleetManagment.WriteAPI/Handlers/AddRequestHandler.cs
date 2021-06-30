@@ -19,7 +19,7 @@ namespace FleetManagment.WriteAPI.Handlers
 
         public Task<Response> Handle(AddRequestCommand request, CancellationToken cancellationToken)
         {
-            var response = new Response(_requestComponent.AddRequest(request.DriverId, request.RequestType, request.PrefDate1, request.PrefDate2), "");
+            var response = new Response(_requestComponent.AddRequest(request.DriverId, request.RequestType, request.PrefDate1, request.PrefDate2));
 
             return Task.FromResult(response);
         }

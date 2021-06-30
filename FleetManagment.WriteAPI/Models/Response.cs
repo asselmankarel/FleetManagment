@@ -1,14 +1,16 @@
-﻿namespace FleetManagment.WriteAPI.Models
+﻿using System;
+
+namespace FleetManagment.WriteAPI.Models
 {
     public class Response
     {
-        public bool Success { get; private set; }
-        public string Message { get; private set; }
+        public bool RequestSuccessFull { get; private set; }
+        public string[] ErrorMessages { get; private set; }
 
-        public Response(bool success, string message)
+        public Response(ValueTuple<bool, string[]> tuple)
         {
-            Success = success;
-            Message = message;
+            RequestSuccessFull = tuple.Item1;
+            ErrorMessages = tuple.Item2;           
         }
 
     }
