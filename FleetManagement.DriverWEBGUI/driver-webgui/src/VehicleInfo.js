@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import Loader from './Loader';
 import useFetch from './useFetch';
 import car from './images/car.png';
@@ -25,7 +26,11 @@ export default function VehicleInfo(props) {
 
     return(
         <div className="vehicle mt-3">
-            <h2><i className="fas fa-car"></i> My vehicle</h2>
+            <div className="vehicle-title">
+                <h2><i className="fas fa-car"></i> My vehicle</h2>
+                { (loadError === false && loading === false) && <NavLink className="button" to={`vehicle/${vehicle.id}/maintenances`}><i className="fas fa-tools"></i> View</NavLink> }
+
+            </div>
             <div className="form-loader">
                 { loading && <Loader /> }            
             </div>

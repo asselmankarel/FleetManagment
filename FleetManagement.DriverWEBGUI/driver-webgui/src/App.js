@@ -1,12 +1,14 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { useState } from "react";
+import { BrowserRouter, Switch, Route, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import Banner from './Banner';
-import Profile from "./Profile";
-import LoginForm from "./LoginForm";
+import Profile from './Profile';
+import LoginForm from './LoginForm';
 import VehicleInfo from "./VehicleInfo";
-import Fuelcard from "./Fuelcard";
-import Requests from "./Requests";
-import RequestForm from "./RequestForm";
+import VehicleMaintenanceAndRepair from './VehicleMaintenanceAndRepair';
+
+import Fuelcard from './Fuelcard';
+import Requests from './Requests';
+import RequestForm from './RequestForm';
 import Footer from './Footer';
 import './css/App.css';
 
@@ -15,6 +17,7 @@ function App() {
   const [driverId , setDriverId] = useState(0);
   const baseUrlReadApi = 'https://localhost:44318/';
   const baseUrlWriteApi = 'https://localhost:44340/';
+
 
   function handleSuccessFullLogin(username, password, rememberMe) {
     //do some authentication
@@ -38,6 +41,10 @@ function App() {
               <Fuelcard driverId={driverId} apiUrl={baseUrlReadApi} />
               <Requests driverId={driverId} apiUrl={baseUrlReadApi} />
             </div> }
+          </Route>
+
+          <Route path="/vehicle/:vehicleId/maintenances">
+              <VehicleMaintenanceAndRepair />
           </Route>
 
           <Route exact path="/request/new">

@@ -41,11 +41,9 @@ namespace FleetManagement.DAL.DataAccess
             using (var connection = GetConnection())
             {
                 var procedure = "Driver_ReadModel";
-                var result = connection.Query<T>(procedure,
+                var result = connection.QueryFirstOrDefault<T>(procedure,
                     new { DriverId = driverId },
-                    commandType: CommandType.StoredProcedure)
-                    .ToList()
-                    .FirstOrDefault();
+                    commandType: CommandType.StoredProcedure);
 
                 return result;
             }
@@ -56,11 +54,9 @@ namespace FleetManagement.DAL.DataAccess
             using (var connection = GetConnection())
             {
                 var procedure = "Vehicle_ReadModel";
-                var result = connection.Query<T>(procedure,
+                var result = connection.QueryFirstOrDefault<T>(procedure,
                     new { DriverId = driverId },
-                    commandType: CommandType.StoredProcedure)
-                    .ToList()
-                    .FirstOrDefault();
+                    commandType: CommandType.StoredProcedure);
 
                 return result;
             }
@@ -71,11 +67,9 @@ namespace FleetManagement.DAL.DataAccess
             using (var connection = GetConnection())
             {
                 var procedure = "Fuelcard_ReadModel";
-                var result = connection.Query<T>(procedure,
+                var result = connection.QueryFirstOrDefault<T>(procedure,
                     new { DriverId = driverId },
-                    commandType: CommandType.StoredProcedure)
-                    .ToList()
-                    .FirstOrDefault();
+                    commandType: CommandType.StoredProcedure);
 
                 return result;
             }
@@ -116,9 +110,8 @@ namespace FleetManagement.DAL.DataAccess
 
         public void Dispose()
         {            
-            _connectionString = null;
             _sqlConnection.Dispose();
-            _sqlConnection = null;
+            _connectionString = null;
         }
     }
 }

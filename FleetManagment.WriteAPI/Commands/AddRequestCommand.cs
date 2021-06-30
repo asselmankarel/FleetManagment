@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using FleetManagement.Domain.Models;
@@ -15,7 +16,7 @@ namespace FleetManagment.WriteAPI.Commands
         public DateTime PrefDate1 { get; private set; }
         public DateTime PrefDate2 { get; private set; }
 
-        public AddRequestCommand(int driverId, int requestType, DateTime prefDate1, DateTime prefDate2 )
+        public AddRequestCommand(int driverId, int requestType, DateTime prefDate1, DateTime prefDate2)
         {
             DriverId = driverId;
             RequestType = requestType;

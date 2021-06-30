@@ -13,7 +13,6 @@
 
 body {
   width: 100%;
-  /* font-family: 'Raleway', sans-serif; */
   font-family: 'Montserrat', sans-serif;
   min-width: 380px;
 }
@@ -55,6 +54,10 @@ h2 {
 
 .mb-1{
   margin-bottom: 1em;
+}
+
+.p1 {
+  padding: 1em;
 }
 
 .width-max {
@@ -101,7 +104,6 @@ input[type="checkbox"] {
 
 }
 
-
 .banner, .fas  {
   color: whitesmoke;
 }
@@ -115,7 +117,7 @@ input[type="checkbox"] {
   stroke-dasharray: 187;
   stroke-dashoffset: 0;
   transform-origin: center;
-  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+  animation: dash 1.4s ease-in-out infinite, colors 5s ease-in-out infinite;
 }
 
 .container {
@@ -125,8 +127,7 @@ input[type="checkbox"] {
   padding-right: 5px;
 }
 
-.vehicle .fas, .fa-credit-card, .fa-list-alt, .fa-info-circle {
-  color: darkgrey;
+.vehicle .fas, .fa-credit-card, .fa-list-alt, .fa-info-circle, .maintenance-title .fa-tools, h2 .fas.fa-plus-circle {
   padding-left: .5em;
   color: #e7bb41;
 }
@@ -183,17 +184,21 @@ ul {
   margin-right: auto;
 }
 
+.vehicle .fa-tools {
+  color: whitesmoke;
+  padding: 0;
+}
 .fa-plus {
   margin-right: .5em;
 }
 
-.requests-title{
+.requests-title, .vehicle-title, .maintenance-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.requests-list {
+.requests-list, .maintenances-list, .repairs-list {
   margin-top: 1em;
   margin-bottom: 4em;
   border-radius: 4px;

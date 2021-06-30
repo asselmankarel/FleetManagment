@@ -90,7 +90,8 @@ export default function RequestForm(props) {
         <div className="request-form">
             {success === false &&
                 <form >
-                    <div className="form-group">                    
+                    <h2><i className="fas fa-plus-circle"></i> New request</h2>
+                    <div className="form-group mt-2">                    
                         <label htmlFor="requestType">Type of request</label>               
                         <div htmlFor="requestType" className="form-item">
                             <select name="requestType" onChange={e => setPostModel({...postModel, type: e.target.value})}  required={true}>
