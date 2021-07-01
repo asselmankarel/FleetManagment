@@ -198,7 +198,7 @@ ul {
   align-items: center;
 }
 
-.requests-list, .maintenances-list, .repairs-list {
+.requests-list, .maintenance-list, .repairs-list {
   margin-top: 1em;
   margin-bottom: 4em;
   border-radius: 4px;
@@ -212,7 +212,13 @@ ul {
   padding: .5em;
 }
 
-.request-row-header {
+.maintenance-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: .5em;
+}
+
+.request-row-header, .maintenance-row-header {
   background-color: var(--lightBlue);
   color: whitesmoke;
   font-weight: bold;

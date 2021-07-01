@@ -44,7 +44,7 @@ function App() {
           </Route>
 
           <Route path="/vehicle/:vehicleId/maintenances">
-              <VehicleMaintenanceAndRepair />
+              <VehicleMaintenanceAndRepair apiUrl={baseUrlReadApi} />
           </Route>
 
           <Route exact path="/request/new">

@@ -1,16 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using FleetManagment.ReadAPI.Queries;
+using MediatR;
+using System.Threading.Tasks;
 
 namespace FleetManagment.ReadAPI.Controllers
 {
     [ApiController]
     public class VehicleController : Controller
     {
+        private readonly IMediator _mediator;
+
+        public VehicleController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         [HttpGet]
         [Route("[controller]/{vehicleId}/[action]")]
-        public IActionResult Maintenances(int vehicleId)
+        public async Task<IActionResult> Maintenances(int vehicleId)
         {
-            return Json($"Maintenances for Vehicle Id = {vehicleId}");
+            var result = await _mediator.Send(new GetMaintenancesByVehicleId(vehicleId));
+
+            return Json(result);
         }
 
         [HttpGet]

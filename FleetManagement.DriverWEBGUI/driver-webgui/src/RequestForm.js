@@ -24,7 +24,7 @@ export default function RequestForm(props) {
     const {get} = useFetch(baseUrlReadApi);
     const {post} = useFetch(baseUrlWriteApi);
 
-    const resetFlags = () => {  
+    function resetFlags() {  
         setLoading(true);       
         setSuccess(false);
         setFailure(false);

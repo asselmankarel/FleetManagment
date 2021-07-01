@@ -73,8 +73,8 @@ namespace FleetManagement.Seed
             var companyFaker = new Faker<Company>()
                 .RuleFor(c => c.Name, f => f.Company.CompanyName())
                 .RuleFor(c => c.PhoneNumber, f => f.Phone.PhoneNumber());
-            var companies = companyFaker.Generate(numberOfCompanies);
 
+            var companies = companyFaker.Generate(numberOfCompanies);
             _context.Companies.AddRange(companies);
         }
 
@@ -82,6 +82,7 @@ namespace FleetManagement.Seed
         {
             var licensePlateFaker = new Faker<LicensePlate>()
                  .RuleFor(lp => lp.Number, f => $"1-{f.Random.String(3, 'A', 'Z')}-{f.Random.String(3, '0', '9')}");
+
             var licensePlates = licensePlateFaker.Generate(numberOfLicensePLates);
             _context.LicensePlates.AddRange(licensePlates);
         }

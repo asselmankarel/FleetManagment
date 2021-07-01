@@ -110,7 +110,17 @@ namespace FleetManagement.DAL.DataAccess
 
         public List<T> GetMaintenanceInfoFromPersistenStore<T>(int vehicleId)
         {
-            throw new NotImplementedException();
+            using (var connection = GetConnection())
+            {
+                var procedure = "MaintenancesForVehicle";
+                var response = connection.Query<T>(
+                    procedure,
+                    new { VehicleId = vehicleId },
+                    commandType: CommandType.StoredProcedure)
+                    .ToList();
+
+                return response;
+            }
         }
 
         public void Dispose()
