@@ -36,11 +36,11 @@ namespace FleetManagement.BL.Components
                 PrefDate2 = (prefDate2.Year < DateTime.Now.Year) ? null : prefDate2 
             };
 
-            var validationResults = RequestIsValid(request);
+            var validationResults = IsValid(request);
 
             if (!validationResults.Item1) return validationResults;
             
-            if (RequestRequiresCar(request))
+            if (RequiresCar(request))
             {
                 request.Vehicle = _vehicleRepository.GetCurrentVehicleForDriver(request.Driver.Id);
             }
@@ -49,7 +49,7 @@ namespace FleetManagement.BL.Components
             return (validationResults);
         }
 
-        private bool RequestRequiresCar(Request request)
+        private bool RequiresCar(Request request)
         {
             switch (request.RequestType)
             {
@@ -59,7 +59,7 @@ namespace FleetManagement.BL.Components
             }            
         }
 
-        private (bool, string[]) RequestIsValid(Request request)
+        private (bool, string[]) IsValid(Request request)
         {
             var context = new ValidationContext(request);
             var results = new List<ValidationResult>();

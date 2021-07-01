@@ -1,15 +1,15 @@
 import { BrowserRouter, Switch, Route, useParams } from 'react-router-dom';
 import { useState } from 'react';
-import Banner from './Banner';
-import Profile from './Profile';
-import LoginForm from './LoginForm';
-import VehicleInfo from "./VehicleInfo";
+import Banner from './components/Banner';
+import Profile from './components/Profile';
+import LoginForm from './forms/LoginForm';
+import VehicleInfo from "./components/VehicleInfo";
 import VehicleMaintenanceAndRepair from './VehicleMaintenanceAndRepair';
 
-import Fuelcard from './Fuelcard';
+import Fuelcard from './components/Fuelcard';
 import Requests from './Requests';
-import RequestForm from './RequestForm';
-import Footer from './Footer';
+import RequestForm from './forms/RequestForm';
+import Footer from './components/Footer';
 import './css/App.css';
 
 

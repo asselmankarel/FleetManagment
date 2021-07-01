@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Loader from './Loader';
-import useFetch from './useFetch';
-import './css/Fuelcard.css';
-import carwash from './images/carwash.png';
-import tires from './images/tires.png';
-import shop from './images/shop.png';
+import useFetch from '../useFetch';
+import '../css/Fuelcard.css';
+import carwash from '../images/carwash.png';
+import tires from '../images/tires.png';
+import shop from '../images/shop.png';
 
 export default function Fuelcard(props) {
 
@@ -59,8 +59,7 @@ export default function Fuelcard(props) {
                                 default:
                                     return (<img key={service} className="service-image" src="" alt={service} tite={service}> </img>);
                                     break;
-                            }
-                        
+                            }                        
                         })}
                     </div>
                 </div>

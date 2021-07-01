@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import useFetch from './useFetch';
+import useFetch from '../useFetch';
 import Loader from './Loader';
 import { NavLink } from 'react-router-dom';
-import './css/Profile.css';
+import '../css/Profile.css';
 
 export default function Profile(props) {
 

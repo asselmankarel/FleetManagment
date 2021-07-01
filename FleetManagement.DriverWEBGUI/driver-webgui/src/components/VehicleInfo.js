@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Loader from './Loader';
-import useFetch from './useFetch';
-import car from './images/car.png';
+import useFetch from '../useFetch';
+import car from '../images/car.png';
 
 export default function VehicleInfo(props) {
 

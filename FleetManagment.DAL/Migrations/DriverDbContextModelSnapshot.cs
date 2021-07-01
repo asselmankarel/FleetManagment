@@ -91,22 +91,12 @@ namespace FleetManagement.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int?>("RepairId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RepairId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RepairId");
-
-                    b.HasIndex("RepairId1");
-
-                    b.ToTable("Documents");
+                    b.ToTable("Attachments");
                 });
 
             modelBuilder.Entity("FleetManagement.Domain.Models.Company", b =>

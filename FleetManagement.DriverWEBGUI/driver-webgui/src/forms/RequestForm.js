@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
-import useFetch from './useFetch';
-import Loader from './Loader';
-import './css/RequestForm.css';
+import useFetch from '../useFetch';
+import Loader from '../components/Loader';
+import '../css/RequestForm.css';
 
 export default function RequestForm(props) {
 

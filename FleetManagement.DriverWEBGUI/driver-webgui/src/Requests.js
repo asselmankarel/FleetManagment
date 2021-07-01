@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Loader from './Loader';
+import Loader from './components/Loader';
 import useFetch from './useFetch';
-import Request from './Request';
+import Request from './components/Request';
 
 
 export default function Requests(props) {
@@ -48,7 +48,7 @@ export default function Requests(props) {
                         return (
                             <Request
                                 key={Date.parse(request.createdAt)}
-                                createdAt={new Date(request.createdAt).toLocaleString('nl-BE', {dateStyle: 'short', timeStyle : 'short'})}
+                                createdAt={new Date(request.createdAt).toLocaleString('nl-BE', {day: '2-digit', month: '2-digit', year:'numeric', hour: '2-digit', minute: '2-digit'})}
                                 type={request.type}
                                 chassisNumber={request.chassisNumber}
                                 status={request.status}
