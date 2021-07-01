@@ -44,11 +44,12 @@ export default function VehicleMaintenanceAndRepair(props) {
                 <NavLink className="button" to="/">Back</NavLink>                
             </div>
 
+            <h3 className="mt-2 ml-2">Maintenances</h3>
+            
             <div className="form-loader">
                 { loading && <Loader /> }
             </div>
             
-            <h3 className="mt-2 ml-2">Maintenances</h3>
             { (loading === false && maintenanceLoadError === false) &&            
                 <div className="mt-2">
                     <div className="maintenance-list">

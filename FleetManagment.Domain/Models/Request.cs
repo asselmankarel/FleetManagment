@@ -2,7 +2,6 @@
 using FleetManagement.Domain.Validators;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace FleetManagement.Domain.Models
 {

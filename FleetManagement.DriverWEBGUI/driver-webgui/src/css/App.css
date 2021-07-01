@@ -249,7 +249,7 @@ span {
   background-color: white;
   border-radius: 2px;
   border: 2px solid #8FEEC3;
-  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+  box-shadow: 0 0.5em 1em 0.1em rgb(10 10 10 / 25%), 0 0 0 1px rgb(10 10 10 / 2%);
   width: max-content;
   font-weight: bold;
   transform: skewX(-8deg);

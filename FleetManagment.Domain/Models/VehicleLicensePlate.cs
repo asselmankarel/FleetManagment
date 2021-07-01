@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FleetManagement.Domain.Models
 {
@@ -22,6 +18,7 @@ namespace FleetManagement.Domain.Models
         [Required]
         public LicensePlate LicensePlate { get; set; }
 
+        [Required]
         public DateTime StartDate { get; set; }
 
         public DateTime? EndDate { get; set; } = null;
