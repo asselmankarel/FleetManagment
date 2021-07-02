@@ -3,7 +3,7 @@ using System;
 
 namespace FleetManagment.ReadAPI.Queries
 {
-    public class GetRequestTypes : IRequest<Array>
+    public class GetRequestTypes : IRequest<string[]>
     {
 
     }

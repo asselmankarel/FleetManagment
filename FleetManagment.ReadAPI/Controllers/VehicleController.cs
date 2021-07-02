@@ -26,9 +26,12 @@ namespace FleetManagment.ReadAPI.Controllers
 
         [HttpGet]
         [Route("[controller]/{vehicleId}/[action]")]
-        public IActionResult Repairs(int vehicleId)
+        public async Task<IActionResult> Repairs(int vehicleId)
         {
-            return Json($"Repairs for Vehicle Id = {vehicleId}");
+            var result = await _mediator.Send(new GetRepairsByVehicleId(vehicleId));
+
+            return Json(result);
         }
+
     }
 }

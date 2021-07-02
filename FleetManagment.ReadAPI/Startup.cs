@@ -1,3 +1,4 @@
+using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -33,7 +34,8 @@ namespace FleetManagement.ReadAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagement.ReadAPI", Version = "v1" });
             });
             services.AddMediatR(typeof(Startup));
-
+            //services.AddScoped<IReadRepository, ReadRepository>();
+            //services.AddScoped<IDataAccessReader, DapperReader>();
 
         }
 

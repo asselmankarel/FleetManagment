@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace FleetManagement.Domain.Models
 {
     public class Maintenance
-    {
-        
+    {        
         [Key]
         public int Id { get; set; }
 
@@ -23,7 +22,6 @@ namespace FleetManagement.Domain.Models
 
         public decimal Price { get; set; }
 
-        public Attachment Invoice { get; set; }
-       
+        public Invoice Invoice { get; set; }       
     }
 }

@@ -20,5 +20,7 @@ namespace FleetManagement.DAL.DataAccess
         public List<T> GetRequestsFromPersistentStore<T>(int driverId);
 
         public List<T> GetMaintenanceInfoFromPersistenStore<T>(int vehicleId);
+
+        public List<T> GetRepairInfoFromPersistenStore<T>(int vehicleId);
     }
 }

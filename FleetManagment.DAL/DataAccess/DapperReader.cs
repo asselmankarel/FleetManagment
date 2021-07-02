@@ -122,6 +122,21 @@ namespace FleetManagement.DAL.DataAccess
                 return response;
             }
         }
+        
+        public List<T> GetRepairInfoFromPersistenStore<T>(int vehicleId)
+        {
+            using (var connection = GetConnection())
+            {
+                var procedure = "RepairsForVehicle";
+                var response = connection.Query<T>(
+                    procedure,
+                    new { VehicleId = vehicleId },
+                    commandType: CommandType.StoredProcedure)
+                    .ToList();
+
+                return response;
+            }
+        }
 
         public void Dispose()
         {

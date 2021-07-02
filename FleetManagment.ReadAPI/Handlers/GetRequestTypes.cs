@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FleetManagment.ReadAPI.Handlers
 {
-    public class GetRequestTypes : IRequestHandler<Queries.GetRequestTypes, Array>
+    public class GetRequestTypes : IRequestHandler<Queries.GetRequestTypes, string[]>
     {
         private readonly IReadRepository _readRepository;
 
@@ -15,7 +15,7 @@ namespace FleetManagment.ReadAPI.Handlers
         {
             _readRepository = new ReadRepository(new DapperReader());
         }
-        public Task<Array> Handle(Queries.GetRequestTypes request, CancellationToken cancellationToken)
+        public Task<string[]> Handle(Queries.GetRequestTypes request, CancellationToken cancellationToken)
         {
             return Task.FromResult(_readRepository.GetRequestTypes());
         }

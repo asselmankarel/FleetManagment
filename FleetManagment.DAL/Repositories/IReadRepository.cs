@@ -18,8 +18,10 @@ namespace FleetManagement.DAL.Repositories
 
         public List<T> GetRequestsByDriverId<T>(int driverId);
 
-        public Array GetRequestTypes();
+        public string[] GetRequestTypes();
 
         public List<T> getMaintenancesByVehicleId<T>(int vehicleId);
+
+        public List<T> getRepairsByVehicleId<T>(int VehicleId);
     }
 }

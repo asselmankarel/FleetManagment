@@ -25,7 +25,7 @@ namespace FleetManagement.DAL.Repositories
         }
 
         public T GetFuelcardInfo<T>(int driverId)
-        {  
+        {
             return _dataAccessReader.GetFuelcardInfoFromPersistentStore<T>(driverId);
         }
 
@@ -40,7 +40,7 @@ namespace FleetManagement.DAL.Repositories
             return _dataAccessReader.GetRequestsFromPersistentStore<T>(driverId);
         }
 
-        public Array GetRequestTypes()
+        public string[] GetRequestTypes()
         {            
             return Enum.GetNames(typeof(RequestType));
         }
@@ -48,6 +48,11 @@ namespace FleetManagement.DAL.Repositories
         public List<T> getMaintenancesByVehicleId<T>(int vehicleId)
         {
             return _dataAccessReader.GetMaintenanceInfoFromPersistenStore<T>(vehicleId);
+        }
+
+        public List<T> getRepairsByVehicleId<T>(int vehicleId)
+        {
+            return _dataAccessReader.GetRepairInfoFromPersistenStore<T>(vehicleId);
         }
     }
 }
