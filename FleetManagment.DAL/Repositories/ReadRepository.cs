@@ -47,12 +47,12 @@ namespace FleetManagement.DAL.Repositories
 
         public List<T> getMaintenancesByVehicleId<T>(int vehicleId)
         {
-            return _dataAccessReader.GetMaintenanceInfoFromPersistenStore<T>(vehicleId);
+            return _dataAccessReader.GetMaintenanceInfoFromPersistentStore<T>(vehicleId);
         }
 
         public List<T> getRepairsByVehicleId<T>(int vehicleId)
         {
-            return _dataAccessReader.GetRepairInfoFromPersistenStore<T>(vehicleId);
+            return _dataAccessReader.GetRepairInfoFromPersistentStore<T>(vehicleId);
         }
     }
 }

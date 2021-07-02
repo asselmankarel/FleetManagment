@@ -17,6 +17,10 @@ body {
   min-width: 380px;
 }
 
+hr {
+  margin: .4em 0 .4em 0;
+}
+
 h1, h2, h3 {
   font-family: 'Bangers', cursive;
   letter-spacing: 1px;
@@ -29,7 +33,11 @@ h1  {
 
 h2 {
   margin-bottom: .4em;
-  color: #313131;
+  color: var(--darkBlue);
+}
+
+.mt-1{
+  margin-top: 1em;
 }
 
 .mt-2 {
@@ -46,6 +54,10 @@ h2 {
 
 .ml-1 {
   margin-left: 1em;
+}
+
+.mr-1 {
+  margin-right: 1em;
 }
 
 .ml-2 {
@@ -127,7 +139,14 @@ input[type="checkbox"] {
   padding-right: 5px;
 }
 
-.vehicle .fas, .fa-credit-card, .fa-list-alt, .fa-info-circle, .maintenance-title .fa-tools, h2 .fas.fa-plus-circle, .fa-file-invoice {
+.vehicle .fas,
+.fa-credit-card,
+.fa-list-alt,
+.fa-info-circle,
+.maintenance-title .fa-tools,
+h2 .fas.fa-plus-circle,
+.fa-file-invoice,
+.fa-sign-in-alt {
   padding-left: .5em;
   color: #e7bb41;
 }
@@ -192,16 +211,26 @@ ul {
   margin-right: .5em;
 }
 
-.requests-title, .vehicle-title, .maintenance-title {
+.requests-title,
+.vehicle-title,
+.maintenance-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.requests-list, .maintenance-list, .repairs-list {
+.requests-list,
+.maintenance-list {
   margin-top: 1em;
   margin-bottom: 4em;
   border-radius: 4px;
+  font-size: 1em;
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+}
+
+.repairs-list {
+  margin-top: 1.2em;
+  border-radius: 3px;
   font-size: 1em;
   box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
 }
@@ -214,14 +243,16 @@ ul {
   font-size: .9em;
 }
 
-.maintenance-row, .maintenance-row-header {
+.maintenance-row,
+.maintenance-row-header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: .5em;
   padding: .5em;
 }
 
-.request-row-header, .maintenance-row-header {
+.request-row-header,
+.maintenance-row-header {
   background-color: var(--lightBlue);
   color: whitesmoke;
   font-weight: bold;
@@ -229,8 +260,15 @@ ul {
   border-top-right-radius: 2px;
 }
 
-.request:nth-child(odd), .maintenance-row:nth-child(odd){
+.request:nth-child(odd),
+.maintenance-row:nth-child(odd){
   background-color: #f0f0f0;
+}
+
+.repair-list-header {
+  
+  display: flex;
+  justify-content: space-between;
 }
 
 span {
@@ -316,7 +354,10 @@ footer img {
 }
 
 @media only screen and (max-width: 600px) {
-  .requests-list, .maintenance-list {
+
+  .requests-list,
+  .maintenance-list,
+  .repairs-list {
     font-size: .75em;
   }
 

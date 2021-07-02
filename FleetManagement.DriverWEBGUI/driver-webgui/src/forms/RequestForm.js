@@ -68,7 +68,7 @@ export default function RequestForm(props) {
                 setLoading(false);
                 console.log(data);
                 // Check response for success and errorMessages
-                setSuccess(true);                
+                setSuccess(true);              
             })
             .catch((error) => {
                 if (error) {

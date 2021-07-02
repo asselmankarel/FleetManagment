@@ -6,7 +6,7 @@ import Loader from './components/Loader';
 
 export default function VehicleMaintenanceAndRepair(props) {
 
-    let { vehicleId } = useParams();
+    const { vehicleId } = useParams();
     const { apiUrl } = props;
     const { get, loading } = useFetch(apiUrl);
 
@@ -16,8 +16,17 @@ export default function VehicleMaintenanceAndRepair(props) {
     const [repairLoadError, setRepairLoadError ] = useState(false);
 
     useEffect(() => {
+        resetErrorFlags();
+        getMaintenances();
+        getRepairs(); 
+    }, [])
+
+    function resetErrorFlags() {
         setRepairLoadError(false);
         setMaintenanceLoadError(false);
+    }
+
+    function getMaintenances() {
         get(`vehicle/${vehicleId}/maintenances`)
         .then((data) => {
             setMaintenances(data);
@@ -26,16 +35,18 @@ export default function VehicleMaintenanceAndRepair(props) {
             console.log(error);
             setMaintenanceLoadError(true);
         });
+    }
 
+    function getRepairs() {
         get(`vehicle/${vehicleId}/repairs`)
-        .then((data) => {
+        .then((data) => {            
             setRepairs(data);
         })
         .catch((error) => {
             console.log(error);
             setRepairLoadError(true);
         });
-    }, [])
+    }
 
     return (
         <>
@@ -74,9 +85,28 @@ export default function VehicleMaintenanceAndRepair(props) {
             { maintenanceLoadError && <div className="message error">😱 Unable to load maintenances...</div>}
 
             <h3 className="mt-2 ml-2">Repairs</h3>
-            <div className="repairs-list">
-                <p className=" p1">TODO: Repairs for Vehicle id: {vehicleId}</p>
+
+            <div className="form-loader">
+                { loading && <Loader /> }
             </div>
+
+            { (loading === false && repairLoadError === false) && 
+                 repairs.map(repair => {
+                    return (
+                        <div className="repairs-list p1">
+                            <div className="repair-list-header">
+                                <div><strong className="mr-1" >Repair date:</strong> {new Date(repair.repairDate).toLocaleString('nl-be',{day: '2-digit', month: '2-digit', year:'numeric'})}</div>
+                                <div><strong className="mr-1" >Insurance company:</strong> {repair.insuranceCompany}</div>
+                            </div>
+                            <hr />
+                            <div className="mt-1"><strong>Description</strong></div>
+                            <div className="mt-1"> {repair.description}</div>
+                        </div>
+                    )
+                })}
+
+            { repairLoadError && <div className="message error">😱 Unable to load repairs...</div>}
+            
         </>
     );
 }

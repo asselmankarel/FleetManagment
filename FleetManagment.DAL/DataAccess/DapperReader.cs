@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using FleetManagement.Domain.Enums;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -108,7 +107,7 @@ namespace FleetManagement.DAL.DataAccess
             }
         }       
 
-        public List<T> GetMaintenanceInfoFromPersistenStore<T>(int vehicleId)
+        public List<T> GetMaintenanceInfoFromPersistentStore<T>(int vehicleId)
         {
             using (var connection = GetConnection())
             {
@@ -123,7 +122,7 @@ namespace FleetManagement.DAL.DataAccess
             }
         }
         
-        public List<T> GetRepairInfoFromPersistenStore<T>(int vehicleId)
+        public List<T> GetRepairInfoFromPersistentStore<T>(int vehicleId)
         {
             using (var connection = GetConnection())
             {
