@@ -4,7 +4,7 @@ using FleetManagement.Domain.Models;
 
 namespace FleetManagement.BL.Components
 {
-    public class DriverComponent
+    public class DriverComponent : IDriverComponent
     {
         private readonly DriverRepository _driverRepository;
 

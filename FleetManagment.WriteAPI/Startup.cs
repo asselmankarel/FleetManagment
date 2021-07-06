@@ -1,4 +1,6 @@
 using FleetManagement.BL.Components;
+using FleetManagement.DAL.DataAccess;
+using FleetManagement.DAL.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,8 +36,15 @@ namespace FleetManagement.WriteAPI
             });
             services.AddMediatR(typeof(Startup));
 
-            services.AddScoped<IVehicleComponent, VehicleComponent>();
+            services.AddScoped<ApplicationDbContext>();
+            services.AddScoped<IRequestRepository, RequestRepository>();
             services.AddScoped<IRequestComponent, RequestComponent>();
+
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IVehicleComponent, VehicleComponent>();
+
+            services.AddScoped<IDriverRepository, DriverRepository>();
+            services.AddScoped<IDriverComponent, DriverComponent>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

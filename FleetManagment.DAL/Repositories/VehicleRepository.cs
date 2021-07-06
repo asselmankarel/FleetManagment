@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace FleetManagement.DAL.Repositories
 {
-    public class VehicleRepository : GenericRepository<Vehicle>
+    public class VehicleRepository : GenericRepository<Vehicle>, IVehicleRepository
     {
         public VehicleRepository(ApplicationDbContext context) : base(context)
         {
@@ -14,7 +14,7 @@ namespace FleetManagement.DAL.Repositories
         }
 
         public Vehicle GetCurrentVehicleForDriver(int driverId)
-        {        
+        {
             var result = _context.DriverVehicles
             .Where(dv => dv.DriverId == driverId && dv.EndDate == null)
             .Include("Vehicle")
@@ -24,8 +24,8 @@ namespace FleetManagement.DAL.Repositories
             {
                 throw new NullReferenceException();
             }
-           
-            return result.Vehicle;                     
+
+            return result.Vehicle;
         }
 
         public int GetLastMileage(int id)
@@ -36,8 +36,8 @@ namespace FleetManagement.DAL.Repositories
             {
                 km = _context.Vehicles.Where(v => v.Id == id).Include(v => v.Mileages).FirstOrDefault().Mileages.Last().Km;
             }
-            catch (Exception) {}
-            
+            catch (Exception) { }
+
             return km;
         }
 
@@ -49,7 +49,7 @@ namespace FleetManagement.DAL.Repositories
                 .ThenInclude(vlp => vlp.LicensePlate)
                 .FirstOrDefault();
 
-            var licensePlate = vehicle.VehicleLicensePlates.FirstOrDefault().LicensePlate;   
+            var licensePlate = vehicle.VehicleLicensePlates.FirstOrDefault().LicensePlate;
 
             return licensePlate.Number;
         }

@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace FleetManagement.DAL.Repositories
 {
-    public class RequestRepository : GenericRepository<Request>
+    public class RequestRepository : GenericRepository<Request>, IRequestRepository
     {
-        public RequestRepository(ApplicationDbContext context) : base (context) { }
+        public RequestRepository(ApplicationDbContext context) : base(context) { }
 
         public List<Request> GetRequestsByDriverId(int id, int number)
         {

@@ -1,5 +1,4 @@
-﻿using FleetManagement.Domain.Enums;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Domain.Validators
@@ -15,9 +14,15 @@ namespace FleetManagement.Domain.Validators
 
         public override bool IsValid(object value)
         {
-            var val = (int)value;
-
-            return Enum.IsDefined(_enumType, val) ? true : false;
+            try
+            {
+                var val = (int)value;
+                return Enum.IsDefined(_enumType, val) ? true : false;
+            }
+            catch 
+            {
+                return false;
+            }
         }
 
         public override string FormatErrorMessage(string name)

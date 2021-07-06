@@ -1,23 +1,19 @@
 ﻿using FleetManagement.BL.Requests;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using FleetManagment.WriteAPI.Commands;
 
 namespace FleetManagment.WriteAPI.Mappers
 {
     public static class CommandToRequestMapper
     {
 
-        public static ICreateRequest CreatRequestFromCommand(Commands.AddRequest request) 
+        public static ICreateRequest CreatRequestFromCommand(AddRequest requestCommand) 
         {
             var createRequest = new CreateRequest()
             {
-                DriverId = request.DriverId,
-                RequestType = request.RequestType,
-                PrefDate1 = request.PrefDate1,
-                PrefDate2 = request.PrefDate2
-
+                DriverId = requestCommand.DriverId,
+                RequestType = requestCommand.RequestType,
+                PrefDate1 = requestCommand.PrefDate1,
+                PrefDate2 = requestCommand.PrefDate2
             };
 
             return createRequest;

@@ -13,16 +13,15 @@ namespace FleetManagement.BL.Components
 {
     public class RequestComponent : IRequestComponent
     {
-        private readonly RequestRepository _requestRepository;
-        private readonly DriverRepository _driverRepository;
-        private readonly VehicleRepository _vehicleRepository;
+        private readonly IRequestRepository _requestRepository;
+        private readonly IDriverRepository _driverRepository;
+        private readonly IVehicleRepository _vehicleRepository;
 
-        public RequestComponent()
+        public RequestComponent(IRequestRepository requestRepository, IDriverRepository driverRpository, IVehicleRepository vehicleRepository)
         {
-            var context = new ApplicationDbContext();
-            _requestRepository = new RequestRepository(context);
-            _driverRepository = new DriverRepository(context);
-            _vehicleRepository = new VehicleRepository(context);
+            _requestRepository = requestRepository;
+            _driverRepository = driverRpository;
+            _vehicleRepository = vehicleRepository;
         }
 
         public ICreateResponse Create(ICreateRequest createRequest)

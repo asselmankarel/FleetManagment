@@ -13,9 +13,9 @@ namespace FleetManagement.BL.Components
         private readonly VehicleRepository _vehicleRepository;
         private readonly ApplicationDbContext _context;
 
-        public VehicleComponent()
+        public VehicleComponent(ApplicationDbContext context)
         {
-            _context = new ApplicationDbContext();
+            _context = context;
             _vehicleRepository = new VehicleRepository(_context);
         }
 

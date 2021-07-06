@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace FleetManagement.DAL.Repositories
 {
-    public class DriverRepository : GenericRepository<Driver>
+    public class DriverRepository : GenericRepository<Driver>, IDriverRepository
     {
 
         public DriverRepository(ApplicationDbContext context) : base(context)
