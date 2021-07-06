@@ -1,13 +1,12 @@
 ﻿using FleetManagement.BL.Requests;
 using FleetManagement.BL.Responses;
-using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Enums;
 using FleetManagement.Domain.Models;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace FleetManagement.BL.Components
 {
@@ -17,11 +16,11 @@ namespace FleetManagement.BL.Components
         private readonly IDriverRepository _driverRepository;
         private readonly IVehicleRepository _vehicleRepository;
 
-        public RequestComponent(IRequestRepository requestRepository, IDriverRepository driverRpository, IVehicleRepository vehicleRepository)
+        public RequestComponent(IServiceProvider serviceProvider)
         {
-            _requestRepository = requestRepository;
-            _driverRepository = driverRpository;
-            _vehicleRepository = vehicleRepository;
+            _requestRepository = serviceProvider.GetRequiredService<IRequestRepository>();
+            _driverRepository = serviceProvider.GetRequiredService<IDriverRepository>();
+            _vehicleRepository = serviceProvider.GetRequiredService<IVehicleRepository>();
         }
 
         public ICreateResponse Create(ICreateRequest createRequest)

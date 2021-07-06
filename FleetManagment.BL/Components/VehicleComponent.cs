@@ -1,5 +1,4 @@
-﻿using FleetManagement.DAL.DataAccess;
-using FleetManagement.DAL.Repositories;
+﻿using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Enums;
 using FleetManagement.Domain.Models;
 using System;
@@ -10,16 +9,14 @@ namespace FleetManagement.BL.Components
 {
     public class VehicleComponent : IVehicleComponent
     {
-        private readonly VehicleRepository _vehicleRepository;
-        private readonly ApplicationDbContext _context;
+        private readonly IVehicleRepository _vehicleRepository;        
 
-        public VehicleComponent(ApplicationDbContext context)
+        public VehicleComponent(IVehicleRepository vehicleRepository)
         {
-            _context = context;
-            _vehicleRepository = new VehicleRepository(_context);
+            _vehicleRepository = vehicleRepository;
         }
 
-        public Vehicle AddVehicle(string chassisNumber, int vehicleType, int fuelType, int currentMileage)
+        public Vehicle Create(string chassisNumber, int vehicleType, int fuelType, int currentMileage)
         {
             var vehicle = new Vehicle() { ChassisNumber = chassisNumber, VehicleType = (VehicleType)vehicleType, FuelType = (FuelType)fuelType};
             if (IsValid(vehicle))

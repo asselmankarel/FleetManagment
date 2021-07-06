@@ -6,6 +6,6 @@ namespace FleetManagement.BL.Components
 {
     public interface IVehicleComponent
     {
-        public Vehicle AddVehicle(string chassisNumber, int vehicleType, int fuelType, int currentMileage);
+        public Vehicle Create(string chassisNumber, int vehicleType, int fuelType, int currentMileage);
     }
 }

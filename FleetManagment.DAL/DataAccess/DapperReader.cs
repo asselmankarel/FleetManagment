@@ -79,6 +79,7 @@ namespace FleetManagement.DAL.DataAccess
             using (var connection = GetConnection())
             {
                 var procedure = "Fuelcard_And_Services_ReadModel";
+                //var res = connection.QueryAsync<T, string, T>()
                 var response = connection.QueryMultiple(
                     procedure,
                     new { DriverId = driverId, FuelCardId = 0 },
