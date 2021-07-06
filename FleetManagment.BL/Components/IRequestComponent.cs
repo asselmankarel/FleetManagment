@@ -1,10 +1,12 @@
-﻿using FleetManagement.Domain.Models;
+﻿using FleetManagement.BL.Requests;
+using FleetManagement.BL.Responses;
+using FleetManagement.Domain.Models;
 using System;
 
 namespace FleetManagement.BL.Components
 {
     public interface IRequestComponent
     {
-        public (bool, string[]) AddRequest(int driverId, int requestType, DateTime prefDate1, DateTime prefDate2);
+        public ICreateResponse Create(ICreateRequest createRequest);
     }
 }

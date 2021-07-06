@@ -1,17 +1,18 @@
-﻿using FleetManagement.DAL.DataAccess;
+﻿using FleetManagement.BL.Requests;
+using FleetManagement.BL.Responses;
+using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Enums;
 using FleetManagement.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
 
 namespace FleetManagement.BL.Components
 {
     public class RequestComponent : IRequestComponent
     {
-
         private readonly RequestRepository _requestRepository;
         private readonly DriverRepository _driverRepository;
         private readonly VehicleRepository _vehicleRepository;
@@ -24,32 +25,46 @@ namespace FleetManagement.BL.Components
             _vehicleRepository = new VehicleRepository(context);
         }
 
-        public (bool, string[]) AddRequest(int driverId, int requestType, DateTime prefDate1, DateTime prefDate2)
-        {  
-            var driver = _driverRepository.GetById(driverId);
-            if (driver == null) return (false, new string[] { "Driver not found..." });
+        public ICreateResponse Create(ICreateRequest createRequest)
+        {
+            var driver = _driverRepository.GetById(createRequest.DriverId);
+            if (driver == null) return MakeFailedResponse("Driver not found...");
 
-            var request = new Request() {
-                Driver = driver,
-                RequestType = (RequestType)requestType,
-                PrefDate1 = prefDate1,
-                PrefDate2 = (prefDate2.Year < DateTime.Now.Year) ? null : prefDate2 
-            };
+            var request = MakeRequest(driver, createRequest);
+            CreateResponse createResponse = IsValid(request);
 
-            var validationResults = IsValid(request);
+            if (!createResponse.SuccessFul) return createResponse;            
 
-            if (!validationResults.Item1) return validationResults;
-            
             if (RequiresCar(request))
             {
                 request.Vehicle = _vehicleRepository.GetCurrentVehicleForDriver(request.Driver.Id);
+                if (request.Vehicle == null) return MakeFailedResponse("No vehicle found for driver...");
             }
             _requestRepository.Add(request);
 
-            return (validationResults);
+            return new CreateResponse() { SuccessFul = true };
         }
 
-        private bool RequiresCar(Request request)
+        private static ICreateResponse MakeFailedResponse(string error)
+        {
+            return new CreateResponse()
+            {
+                SuccessFul = false,
+                ErrorMessages = new string[] { error }
+            };
+        }
+
+        private static Request MakeRequest(Driver driver, ICreateRequest createRequest)
+        {
+            return new Request() {
+                Driver = driver,
+                RequestType = (RequestType)createRequest.RequestType,
+                PrefDate1 = createRequest.PrefDate1,
+                PrefDate2 = (createRequest.PrefDate2.Year < DateTime.Now.Year) ? null : createRequest.PrefDate2
+            };
+        }
+
+        private static bool RequiresCar(Request request)
         {
             switch (request.RequestType)
             {
@@ -59,19 +74,15 @@ namespace FleetManagement.BL.Components
             }            
         }
 
-        private (bool, string[]) IsValid(Request request)
+        private static CreateResponse IsValid(Request request)
         {
             var context = new ValidationContext(request);
             var results = new List<ValidationResult>();
             bool success = Validator.TryValidateObject(request, context, results, true);
+            var messages = new List<string>();
+            results.ForEach(result => messages.Add(result.ErrorMessage));
 
-            List<string> messages = new List<string>();
-            foreach (var result in results)
-            {
-                messages.Add(result.ErrorMessage);
-            }
-
-            return (success, messages.ToArray());
+            return new CreateResponse() { SuccessFul = success, ErrorMessages = messages.ToArray()};
         }
     }
 }

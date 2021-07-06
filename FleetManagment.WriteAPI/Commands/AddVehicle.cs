@@ -3,7 +3,7 @@ using MediatR;
 
 namespace FleetManagment.WriteAPI.Commands
 {
-    public class AddVehicleCommand : IRequest<Response>
+    public class AddVehicle : IRequest<Response>
     {
         // TODO: add properties for vehicle creation
         public string ChassisNumber { get; private set; }
@@ -12,12 +12,15 @@ namespace FleetManagment.WriteAPI.Commands
 
         public int FuelType { get; private set; }
 
+        public int CurrentMileage { get; private set; }
 
-        public AddVehicleCommand(string chassisNumber, int vehicleType, int fuelType)
+
+        public AddVehicle(string chassisNumber, int vehicleType, int fuelType, int currentMileage = 0)
         {
             ChassisNumber = chassisNumber;
             VehicleType = vehicleType;
             FuelType = fuelType;
+            CurrentMileage = currentMileage;
         }
     }
 }

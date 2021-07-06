@@ -33,8 +33,6 @@ namespace FleetManagement.WriteAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagement.WriteAPI", Version = "v1" });
             });
             services.AddMediatR(typeof(Startup));
-            services.AddControllers().AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddScoped<IVehicleComponent, VehicleComponent>();
             services.AddScoped<IRequestComponent, RequestComponent>();

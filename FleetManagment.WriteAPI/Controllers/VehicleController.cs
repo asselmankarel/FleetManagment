@@ -18,7 +18,7 @@ namespace FleetManagment.WriteAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<Response> AddVehicle(AddVehicleCommand addVehicleCommand)
+        public async Task<Response> AddVehicle(AddVehicle addVehicleCommand)
         {
             return await _mediator.Send(addVehicleCommand);
         }

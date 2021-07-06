@@ -8,7 +8,6 @@ namespace FleetManagement.BL.Validators
         public VehicleValidator()
         {
             RuleFor(v => v.ChassisNumber).MinimumLength(15).MaximumLength(17);
-
         }
     }
 }

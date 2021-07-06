@@ -1,5 +1,4 @@
 ﻿using FleetManagement.BL.Components;
-using FleetManagment.WriteAPI.Commands;
 using FleetManagment.WriteAPI.Models;
 using MediatR;
 using System;
@@ -8,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace FleetManagment.WriteAPI.Handlers
 {
-    public class AddVehicleHandler : IRequestHandler<AddVehicleCommand, Response>
+    public class AddVehicle : IRequestHandler<Commands.AddVehicle, Response>
     {
         private readonly IVehicleComponent _vehicleComponent;
-        public AddVehicleHandler(IVehicleComponent vehicleComponent)
+        public AddVehicle(IVehicleComponent vehicleComponent)
         {
             _vehicleComponent = vehicleComponent;
         }
 
-        public Task<Response> Handle(AddVehicleCommand request, CancellationToken cancellationToken)
+        public Task<Response> Handle(Commands.AddVehicle request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

@@ -19,13 +19,13 @@ namespace FleetManagement.BL.Components
             _vehicleRepository = new VehicleRepository(_context);
         }
 
-        public Vehicle AddVehicle(string chassisNumber, int vehicleType, int fuelType)
+        public Vehicle AddVehicle(string chassisNumber, int vehicleType, int fuelType, int currentMileage)
         {
             var vehicle = new Vehicle() { ChassisNumber = chassisNumber, VehicleType = (VehicleType)vehicleType, FuelType = (FuelType)fuelType};
             if (IsValid(vehicle))
             {
                 vehicle.Mileages = new List<Mileage>();
-                vehicle.Mileages.Add(new Mileage { Date = DateTime.Now, Km = 0 });
+                vehicle.Mileages.Add(new Mileage { Date = DateTime.Now, Km = currentMileage });
                 _vehicleRepository.Add(vehicle);
 
                 return vehicle;

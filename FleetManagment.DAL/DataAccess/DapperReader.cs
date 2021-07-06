@@ -139,7 +139,7 @@ namespace FleetManagement.DAL.DataAccess
 
         public void Dispose()
         {
-            _sqlConnection.Dispose();
+            //_sqlConnection.Dispose();
             _connectionString = null;
         }
     }

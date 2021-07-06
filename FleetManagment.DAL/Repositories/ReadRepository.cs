@@ -11,7 +11,7 @@ namespace FleetManagement.DAL.Repositories
         private IDataAccessReader _dataAccessReader;
 
         public IDataAccessReader dataAccessReader
-        {            
+        {
             init { _dataAccessReader = value; }
         }
 
@@ -34,7 +34,6 @@ namespace FleetManagement.DAL.Repositories
         {
             return _dataAccessReader.GetFuelcardInfoWithServicesFromPersistentStore<T>(driverId);
         }
-
 
         public List<T> GetRequestsByDriverId<T>(int driverId)
         {

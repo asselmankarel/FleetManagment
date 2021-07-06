@@ -1,16 +1,17 @@
-﻿using System;
+﻿using FleetManagement.BL.Responses;
+using System;
 
 namespace FleetManagment.WriteAPI.Models
 {
     public class Response
     {
-        public bool RequestSuccessFull { get; private set; }
+        public bool RequestSuccessFul { get; private set; }
         public string[] ErrorMessages { get; private set; }
 
-        public Response(ValueTuple<bool, string[]> tuple)
+        public Response(ICreateResponse response)
         {
-            RequestSuccessFull = tuple.Item1;
-            ErrorMessages = tuple.Item2;           
+            RequestSuccessFul = response.SuccessFul;
+            ErrorMessages = response.ErrorMessages;
         }
 
     }
