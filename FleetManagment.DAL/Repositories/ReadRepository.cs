@@ -7,11 +7,12 @@ namespace FleetManagement.DAL.Repositories
 {
     public class ReadRepository : IReadRepository
     {
+
         private IDataAccessReader _dataAccessReader;
 
-        public ReadRepository(IDataAccessReader dataAccessReader)
-        {
-            _dataAccessReader = dataAccessReader;
+        public IDataAccessReader dataAccessReader
+        {            
+            init { _dataAccessReader = value; }
         }
 
         public T GetDriverInfo<T>(int driverId)

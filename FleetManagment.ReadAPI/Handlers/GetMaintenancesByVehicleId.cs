@@ -13,9 +13,10 @@ namespace FleetManagment.ReadAPI.Handlers
 
         private readonly IReadRepository _readRepository;
 
-        public GetMaintenancesByVehicleId()
+        public GetMaintenancesByVehicleId(IReadRepository readRepository, IDataAccessReader dataAccessReader)
         {
-            _readRepository = new ReadRepository(new DapperReader());
+            _readRepository = new ReadRepository() { dataAccessReader = dataAccessReader };
+
         }
 
         public Task<List<MaintenanceInfo>> Handle(Queries.GetMaintenancesByVehicleId request, CancellationToken cancellationToken)

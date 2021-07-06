@@ -1,7 +1,6 @@
 ﻿using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
 using MediatR;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,9 +10,10 @@ namespace FleetManagment.ReadAPI.Handlers
     {
         private readonly IReadRepository _readRepository;
 
-        public GetRequestTypes()
+        public GetRequestTypes(IReadRepository readRepository, IDataAccessReader dataAccessReader)
         {
-            _readRepository = new ReadRepository(new DapperReader());
+            _readRepository = new ReadRepository() { dataAccessReader = dataAccessReader };
+
         }
         public Task<string[]> Handle(Queries.GetRequestTypes request, CancellationToken cancellationToken)
         {

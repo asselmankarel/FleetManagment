@@ -12,9 +12,9 @@ namespace FleetManagment.ReadAPI.Handlers
     {
         private readonly IReadRepository _readRepository;
 
-        public GetFuelcardByDriverId()
+        public GetFuelcardByDriverId(IReadRepository readRepository, IDataAccessReader dataAccessReader)
         {
-            _readRepository = new ReadRepository(new DapperReader());
+            _readRepository = new ReadRepository() { dataAccessReader = dataAccessReader };
         }
 
         public Task<FuelcardInfo> Handle(Queries.GetFuelcardByDriverId request, CancellationToken cancellationToken)

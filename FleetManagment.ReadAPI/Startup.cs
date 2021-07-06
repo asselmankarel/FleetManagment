@@ -34,8 +34,8 @@ namespace FleetManagement.ReadAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagement.ReadAPI", Version = "v1" });
             });
             services.AddMediatR(typeof(Startup));
-            //services.AddScoped<IReadRepository, ReadRepository>();
-            //services.AddScoped<IDataAccessReader, DapperReader>();
+            services.AddScoped<IDataAccessReader, DapperReader>();
+            services.AddScoped<IReadRepository, ReadRepository>();
 
         }
 

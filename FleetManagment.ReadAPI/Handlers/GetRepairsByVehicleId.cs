@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using FleetManagement.DAL.DataAccess;
+﻿using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
 using FleetManagment.ReadAPI.ReadModels;
 using MediatR;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace FleetManagment.ReadAPI.Handlers
 {
@@ -15,9 +13,10 @@ namespace FleetManagment.ReadAPI.Handlers
 
         private readonly IReadRepository _readRepository;
 
-        public GetRepairsByVehicleId()
+        public GetRepairsByVehicleId(IReadRepository readRepository, IDataAccessReader dataAccessReader)
         {
-            _readRepository = new ReadRepository(new DapperReader());
+            _readRepository = new ReadRepository() { dataAccessReader = dataAccessReader };
+
         }
 
         Task<List<RepairInfo>> IRequestHandler<Queries.GetRepairsByVehicleId, List<RepairInfo>>.Handle(Queries.GetRepairsByVehicleId request, CancellationToken cancellationToken)
