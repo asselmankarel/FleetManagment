@@ -1,9 +1,6 @@
-﻿using System;
+﻿using FleetManagement.DAL.DataAccess;
 using System.Collections.Generic;
-using FleetManagement.DAL.DataAccess;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.Repositories
 {
@@ -36,7 +33,5 @@ namespace FleetManagement.DAL.Repositories
             _context.Set<T>().Update(entity);
             _context.SaveChanges();
         }
-
-
     }
 }

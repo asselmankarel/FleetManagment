@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FleetManagement.BL.Responses
 {
     public class CreateResponse : ICreateResponse
     {
-
-        public bool SuccessFul { get; init; }
-
-        public string[] ErrorMessages { get; init; }
-
+        public bool Successful { get; init; }
+        public List<string> ErrorMessages { get; init; } = new ();
     }
 }

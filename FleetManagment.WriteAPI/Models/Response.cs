@@ -5,14 +5,17 @@ namespace FleetManagment.WriteAPI.Models
 {
     public class Response
     {
-        public bool RequestSuccessFul { get; private set; }
-        public string[] ErrorMessages { get; private set; }
+        public bool RequestSuccessful { get; init; }
+        public string[] ErrorMessages { get; init; }
 
         public Response(ICreateResponse response)
         {
-            RequestSuccessFul = response.SuccessFul;
-            ErrorMessages = response.ErrorMessages;
+            RequestSuccessful = response.Successful;
+            ErrorMessages = response.ErrorMessages.ToArray();
         }
 
+        public Response()
+        {
+        }
     }
 }

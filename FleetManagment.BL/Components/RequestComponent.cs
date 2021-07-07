@@ -28,10 +28,10 @@ namespace FleetManagement.BL.Components
             var driver = _driverRepository.GetById(createRequest.DriverId);
             if (driver == null) return MakeFailedResponse("Driver not found...");
 
-            var request = MakeRequest(driver, createRequest);
+            var request = MapCreateRequestToRequest(driver, createRequest);
             CreateResponse createResponse = IsValid(request);
 
-            if (!createResponse.SuccessFul) return createResponse;            
+            if (!createResponse.Successful) return createResponse;            
 
             if (RequiresCar(request))
             {
@@ -40,19 +40,19 @@ namespace FleetManagement.BL.Components
             }
             _requestRepository.Add(request);
 
-            return new CreateResponse() { SuccessFul = true };
+            return new CreateResponse() { Successful = true };
         }
 
         private static ICreateResponse MakeFailedResponse(string error)
         {
             return new CreateResponse()
             {
-                SuccessFul = false,
-                ErrorMessages = new string[] { error }
+                Successful = false,
+                ErrorMessages = { error }
             };
         }
 
-        private static Request MakeRequest(Driver driver, ICreateRequest createRequest)
+        private static Request MapCreateRequestToRequest(Driver driver, ICreateRequest createRequest)
         {
             return new Request() {
                 Driver = driver,
@@ -80,7 +80,7 @@ namespace FleetManagement.BL.Components
             var messages = new List<string>();
             results.ForEach(result => messages.Add(result.ErrorMessage));
 
-            return new CreateResponse() { SuccessFul = success, ErrorMessages = messages.ToArray()};
+            return new CreateResponse() { Successful = success, ErrorMessages = messages};
         }
     }
 }

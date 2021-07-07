@@ -38,6 +38,5 @@ namespace FleetManagement.BL.Components
 
             return Validator.TryValidateObject(vehicle, context, results, true);
         }
-
     }
 }

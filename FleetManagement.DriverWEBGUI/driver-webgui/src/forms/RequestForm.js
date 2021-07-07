@@ -61,14 +61,18 @@ export default function RequestForm(props) {
     function handleSubmit(e) {
         e.preventDefault();               
         resetFlags();        
+        console.log(postModel);
 
         if (validateFormData() === 0) {                    
             post('Request/New', postModel)
             .then((data) => {
-                setLoading(false);
-                console.log(data);
-                // Check response for success and errorMessages
-                setSuccess(true);              
+                setLoading(false);              
+                if (data.requestSuccessful) {
+                    setSuccess(true);              
+                } else {
+                    setSuccess(false);
+                    setValidationErrors(data.errorMessages);
+                }
             })
             .catch((error) => {
                 if (error) {
@@ -94,7 +98,7 @@ export default function RequestForm(props) {
                             <select name="requestType" onChange={e => setPostModel({...postModel, requestType: e.target.value})}  required={true}>
                                 <option></option>
                                 { types.map(type => {
-                                    return (<option value={types.indexOf(type)}>{type}</option>);
+                                    return (<option key={type} value={types.indexOf(type)}>{type}</option>);
                                 })}                
                             </select>
                         </div>

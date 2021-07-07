@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FleetManagement.BL.Responses
 {
     public interface ICreateResponse
     {
-
-        bool SuccessFul { get; init; }
-
-        string[] ErrorMessages { get; init; }
-
-        
-
+        bool Successful { get; init; }
+        List<string> ErrorMessages { get; init; }
     }
 }
