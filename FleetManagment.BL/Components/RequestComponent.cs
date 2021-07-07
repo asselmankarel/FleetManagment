@@ -40,12 +40,12 @@ namespace FleetManagement.BL.Components
             }
             _requestRepository.Add(request);
 
-            return new CreateResponse() { Successful = true };
+            return new CreateResponse { Successful = true };
         }
 
         private static ICreateResponse MakeFailedResponse(string error)
         {
-            return new CreateResponse()
+            return new CreateResponse
             {
                 Successful = false,
                 ErrorMessages = { error }
@@ -54,7 +54,8 @@ namespace FleetManagement.BL.Components
 
         private static Request MapCreateRequestToRequest(Driver driver, ICreateRequest createRequest)
         {
-            return new Request() {
+            return new Request 
+            {
                 Driver = driver,
                 RequestType = (RequestType)createRequest.RequestType,
                 PrefDate1 = createRequest.PrefDate1,
@@ -77,10 +78,11 @@ namespace FleetManagement.BL.Components
             var context = new ValidationContext(request);
             var results = new List<ValidationResult>();
             bool success = Validator.TryValidateObject(request, context, results, true);
-            var messages = new List<string>();
-            results.ForEach(result => messages.Add(result.ErrorMessage));
+            
+            var response = new CreateResponse { Successful = success };
+            results.ForEach(result => response.ErrorMessages.Add(result.ErrorMessage));
 
-            return new CreateResponse() { Successful = success, ErrorMessages = messages};
+            return response;
         }
     }
 }

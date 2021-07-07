@@ -26,7 +26,7 @@ namespace FleetManagment.WriteAPI.Controllers
         [HttpPost]
         public async Task<Response> AddMileage(AddMileage addMileageCommand)
         {
-            return new Response() { RequestSuccessful = false, ErrorMessages = new string[] { "Not implemented" } };
+            return await _mediator.Send(addMileageCommand);
         }
     }
 }

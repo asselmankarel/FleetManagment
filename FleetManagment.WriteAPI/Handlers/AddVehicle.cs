@@ -1,4 +1,5 @@
 ﻿using FleetManagement.BL.Components;
+using FleetManagment.WriteAPI.Mappers;
 using FleetManagment.WriteAPI.Models;
 using MediatR;
 using System;
@@ -17,6 +18,7 @@ namespace FleetManagment.WriteAPI.Handlers
 
         public Task<Response> Handle(Commands.AddVehicle request, CancellationToken cancellationToken)
         {
+            var response = _vehicleComponent.Create(CommandToRequestMapper.CreateRequestFromCommand(request));
             throw new NotImplementedException();
         }
     }

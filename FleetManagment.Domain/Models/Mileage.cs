@@ -10,7 +10,7 @@ namespace FleetManagement.Domain.Models
 
         public DateTime Date { get; set; }
 
-        [Range(0,250000)]
+        [Range(0, 300000)]
         public int Km { get; set; }
     }
 }   

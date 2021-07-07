@@ -1,11 +1,15 @@
 ﻿
 
+using FleetManagement.BL.Requests;
+using FleetManagement.BL.Responses;
 using FleetManagement.Domain.Models;
 
 namespace FleetManagement.BL.Components
 {
     public interface IVehicleComponent
     {
-        public Vehicle Create(string chassisNumber, int vehicleType, int fuelType, int currentMileage);
+        public ICreateResponse Create(ICreateVehicle createVehicle);
+
+        public ICreateResponse AddMileage(ICreateMileage createMileage);
     }
 }
