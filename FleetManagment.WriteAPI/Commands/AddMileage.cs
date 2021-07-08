@@ -16,7 +16,6 @@ namespace FleetManagment.WriteAPI.Commands
             VehicleId = vehicleId;
             Mileage = mileage;
             Date = date;
-
         }
     }
 }

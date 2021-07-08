@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route, useParams } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Banner from './components/Banner';
 import Profile from './components/Profile';
@@ -22,7 +22,7 @@ function App() {
   function handleSuccessFullLogin(username, password, rememberMe) {
     //do some authentication
 
-    // store username in LocalStoreage
+    // store username 
     const id = username;
     setDriverId(id);
   }

@@ -147,7 +147,8 @@ input[type="checkbox"] {
 .maintenance-title .fa-tools,
 h2 .fas.fa-plus-circle,
 .fa-file-invoice,
-.fa-sign-in-alt {
+.fa-sign-in-alt,
+summary::marker {
   padding-left: .5em;
   color: #e7bb41;
 }
@@ -272,10 +273,11 @@ ul {
   background-color: #f0f0f0;
 }
 
-.repair-list-header {
-  
+.repair-list-header {  
   display: flex;
   justify-content: space-between;
+  padding-bottom: .5em;
+  border-bottom: 1px solid lightgray;
 }
 
 span {

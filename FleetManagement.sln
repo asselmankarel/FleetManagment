@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.BL", "Fleet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.Seed", "FleetManagement.Seed\FleetManagement.Seed.csproj", "{CB3BA613-021E-4444-95F1-89D049E10C1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagement.Test", "FleetManagement.Test\FleetManagement.Test.csproj", "{750F17C1-17FD-4922-B321-D2D6673ACC44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.Test", "FleetManagement.Test\FleetManagement.Test.csproj", "{750F17C1-17FD-4922-B321-D2D6673ACC44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleetmanagement.Identity", "Fleetmanagement.Identity\Fleetmanagement.Identity.csproj", "{5FA7B491-6E7B-4742-BAE5-6685B38FA888}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FA7B491-6E7B-4742-BAE5-6685B38FA888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA7B491-6E7B-4742-BAE5-6685B38FA888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA7B491-6E7B-4742-BAE5-6685B38FA888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA7B491-6E7B-4742-BAE5-6685B38FA888}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

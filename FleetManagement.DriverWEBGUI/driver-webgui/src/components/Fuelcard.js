@@ -27,7 +27,7 @@ export default function Fuelcard(props) {
     }, [driverId])
 
     return (
-        <div className="mt-3">
+        <section className="mt-3">
             <h2> <i className="far fa-credit-card"></i> My Fuelcard</h2>
             <div className="form-loader">
                 { loading && <Loader /> }
@@ -48,23 +48,19 @@ export default function Fuelcard(props) {
                         { fuelcard.services.map(service => {
                             switch (service) {
                                 case 'carwash':
-                                    return (<img key={service} className="service-image" src={carwash} alt="carwash" title="Carwash" />);
-                                    break;
+                                    return (<img key={service} className="service-image" src={carwash} alt="carwash" title="Carwash" />);                                   
                                 case 'tires':
                                     return (<img key={service} className="service-image" src={tires} alt="tires" title="Tires" />);
-                                    break;
                                 case 'shop':
                                     return (<img key={service} className="service-image" src={shop} alt="shop" title="Shop" />);
-                                    break;
                                 default:
                                     return (<img key={service} className="service-image" src="" alt={service} tite={service}> </img>);
-                                    break;
                             }                        
                         })}
                     </div>
                 </div>
             }
             { loadError && <div className="message error">😱 Unable to load fuelcard data...</div> }
-        </div>
+        </section>
     );
 }

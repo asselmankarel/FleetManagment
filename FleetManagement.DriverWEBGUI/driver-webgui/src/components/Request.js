@@ -5,7 +5,7 @@ export default function Request(props) {
     const { createdAt, type, chassisNumber, status, licensePlate } = props;
 
     return (
-        <div className="request">
+        <section className="request">
             <div className="request-row">
                 <div className="request-row-item">{createdAt}</div>
                 <div className="request-row-item">{type}</div>
@@ -13,7 +13,7 @@ export default function Request(props) {
                 <div className="request-row-item"><small>{chassisNumber}</small></div>
                 <div className="request-row-item">{licensePlate}</div>
             </div>
-        </div>
+        </section>
     );
     
 }

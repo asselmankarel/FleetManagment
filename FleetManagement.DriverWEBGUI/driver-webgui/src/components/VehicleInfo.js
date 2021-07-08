@@ -30,7 +30,7 @@ export default function VehicleInfo(props) {
 
     return(
         <>
-            <div className="vehicle mt-3">
+            <section className="vehicle mt-3">
                 <div className="vehicle-title">
                     <h2><i className="fas fa-car"></i> My vehicle</h2>
                     { (loadError === false && loading === false) && <NavLink className="button" to={`vehicle/${vehicle.id}/maintenances`}><i className="fas fa-tools"></i> Maintenance & Repair</NavLink> }
@@ -54,7 +54,7 @@ export default function VehicleInfo(props) {
                     </div>
                 }
                 { loadError && <div className="message error">😱 Unable to load vehicle data...</div> }
-            </div>
+            </section>
 
         </>
     );

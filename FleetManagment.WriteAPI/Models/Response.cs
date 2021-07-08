@@ -8,14 +8,15 @@ namespace FleetManagment.WriteAPI.Models
         public bool RequestSuccessful { get; init; }
         public string[] ErrorMessages { get; init; }
 
+        public Response()
+        {
+        }
+
         public Response(ICreateResponse response)
         {
             RequestSuccessful = response.Successful;
             ErrorMessages = response.ErrorMessages.ToArray();
         }
 
-        public Response()
-        {
-        }
     }
 }

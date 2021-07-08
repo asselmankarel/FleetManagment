@@ -98,9 +98,11 @@ export default function VehicleMaintenanceAndRepair(props) {
                                 <div><strong className="mr-1" >Repair date:</strong> {new Date(repair.repairDate).toLocaleString('nl-be',{day: '2-digit', month: '2-digit', year:'numeric'})}</div>
                                 <div><strong className="mr-1" >Insurance company:</strong> {repair.insuranceCompany}</div>
                             </div>
-                            <hr />
-                            <div className="mt-1"><strong>Description</strong></div>
-                            <div className="mt-1"> {repair.description}</div>
+                            
+                            <details>
+                                <summary className="mt-1"><strong>Description</strong></summary>
+                                <p className="mt-1"> {repair.description}</p>
+                            </details>                                                        
                         </div>
                     )
                 })}
