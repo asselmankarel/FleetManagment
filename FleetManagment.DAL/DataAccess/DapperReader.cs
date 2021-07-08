@@ -84,7 +84,7 @@ namespace FleetManagement.DAL.DataAccess
                     procedure,
                     new { DriverId = driverId, FuelCardId = 0 },
                     commandType: CommandType.StoredProcedure
-                    );
+                );
 
                 var fuelcard = response.Read<T>().FirstOrDefault();
                 var services = response.Read<string>().ToList();
