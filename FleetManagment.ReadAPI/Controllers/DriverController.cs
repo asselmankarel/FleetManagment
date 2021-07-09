@@ -20,30 +20,45 @@ namespace FleetManagement.ReadAPI.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<DriverInfo>> Show(int id)
+        public async Task<IActionResult> Show(int id)
         {
-            var result = await _mediator.Send(new GetDriverById(id));
+            var driverInfo = await _mediator.Send(new GetDriverById(id));
+
+            if (driverInfo == null)
+            {
+                return NotFound();
+            }
            
-            return  Json(result);
+            return  Ok(driverInfo);
         }
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<VehicleInfo>> Vehicle(int id)
+        public async Task<IActionResult> Vehicle(int id)
         {
-            var vehicelInfo = await _mediator.Send(new GetVehicleByDriverId(id));
+            var vehicleInfo = await _mediator.Send(new GetVehicleByDriverId(id));
 
-            return Json(vehicelInfo);
+            if (vehicleInfo == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(vehicleInfo);
         }
 
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<FuelcardInfo>> Fuelcard(int id)
+        public async Task<IActionResult> Fuelcard(int id)
         {
             var fuelcard = await _mediator.Send(new GetFuelcardByDriverId(id));
+
+            if (fuelcard == null)
+            {
+                return NotFound();
+            }
         
-            return Json(fuelcard);
+            return Ok(fuelcard);
         }
 
     }

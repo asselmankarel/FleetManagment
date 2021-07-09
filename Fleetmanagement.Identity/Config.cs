@@ -1,8 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
-
-using IdentityServer4.Models;
+﻿using IdentityServer4.Models;
 using System.Collections.Generic;
 
 namespace Fleetmanagement.Identity
@@ -17,10 +13,20 @@ namespace Fleetmanagement.Identity
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
-            { };
+            {
+                new ApiScope("read-api", "Fleetmanagement read API"),
+                new ApiScope("write-api", "Fleetmanagement write API")
+            };
 
         public static IEnumerable<Client> Clients =>
             new Client[] 
-            { };
+            {
+                new Client 
+                { 
+                    ClientId = "driver-webgui",
+                    ClientSecrets = { new Secret("zanyPan)a35".Sha512()) },
+                    AllowedScopes = { "read-api", "write-api" }
+                }
+            };
     }
 }

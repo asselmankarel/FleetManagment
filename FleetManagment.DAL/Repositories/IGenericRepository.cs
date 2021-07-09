@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace FleetManagement.DAL.Repositories
 {
@@ -8,5 +9,7 @@ namespace FleetManagement.DAL.Repositories
         IEnumerable<T> GetAll();
         void Add(T entity);
         void Update(T entity);
+
+ 
     }
 }

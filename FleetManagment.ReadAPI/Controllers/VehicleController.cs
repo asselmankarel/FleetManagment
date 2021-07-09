@@ -19,18 +19,18 @@ namespace FleetManagment.ReadAPI.Controllers
         [Route("[controller]/{vehicleId}/[action]")]
         public async Task<IActionResult> Maintenances(int vehicleId)
         {
-            var result = await _mediator.Send(new GetMaintenancesByVehicleId(vehicleId));
+            var maintenances = await _mediator.Send(new GetMaintenancesByVehicleId(vehicleId));
 
-            return Json(result);
+            return Ok(maintenances);
         }
 
         [HttpGet]
         [Route("[controller]/{vehicleId}/[action]")]
         public async Task<IActionResult> Repairs(int vehicleId)
         {
-            var result = await _mediator.Send(new GetRepairsByVehicleId(vehicleId));
+            var repairs = await _mediator.Send(new GetRepairsByVehicleId(vehicleId));
 
-            return Json(result);
+            return Ok(repairs);
         }
 
     }

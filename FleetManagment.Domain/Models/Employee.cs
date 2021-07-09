@@ -24,8 +24,13 @@ namespace FleetManagement.Domain.Models
 
         [Required]
         public DateTime DateOfBirth { get; set; }
+        
+        [Required]
+        [EmailAddress]
+        [StringLength(256)]
+        public string Email { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         public Address Address { get; set; }
 

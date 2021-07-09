@@ -54,5 +54,6 @@ namespace FleetManagement.DAL.Repositories
         {
             return _dataAccessReader.GetRepairInfoFromPersistentStore<T>(vehicleId);
         }
+
     }
 }

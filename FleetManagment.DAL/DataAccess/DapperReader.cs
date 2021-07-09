@@ -140,8 +140,14 @@ namespace FleetManagement.DAL.DataAccess
 
         public void Dispose()
         {
-            //_sqlConnection.Dispose();
+            if (_sqlConnection != null)
+            {
+                _sqlConnection.Dispose();
+                //GC.SuppressFinalize(this);
+            }
+
             _connectionString = null;
         }
+
     }
 }

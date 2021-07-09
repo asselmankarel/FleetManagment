@@ -107,14 +107,14 @@ export default function RequestForm(props) {
                     <div className="form-group">
                         <label htmlFor="prefDate1" >Preferred date 1:</label>
                         <div className="form-item">
-                            <input name="prefDate1" type="date" value={postModel.prefDate1} onChange={e => setPostModel({...postModel, prefDate1: e.target.value })} required={ true } />
+                            <input name="prefDate1" type="date" min={new Date(Date.now()).toLocaleString('fr-CA').split(',')[0]} value={postModel.prefDate1} onChange={e => setPostModel({...postModel, prefDate1: e.target.value })} required={ true } />
                         </div>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="prefDate2" >Preferred date 2:</label>
                         <div className="form-item">
-                            <input name="prefDate2" type="date" value={postModel.prefDate2} onChange={e => setPostModel({...postModel, prefDate2: e.target.value})} />
+                            <input name="prefDate2" type="date" min={new Date(Date.now()).toLocaleString('fr-CA').split(',')[0]} value={postModel.prefDate2} onChange={e => setPostModel({...postModel, prefDate2: e.target.value})} />
                         </div>
                     </div>                
                     

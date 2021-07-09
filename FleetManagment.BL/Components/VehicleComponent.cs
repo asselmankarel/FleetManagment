@@ -33,7 +33,7 @@ namespace FleetManagement.BL.Components
             {
                 vehicle.Mileages = new List<Mileage>();
                 vehicle.Mileages.Add(new Mileage { Date = DateTime.Now, Km = createVehicle.Mileage });
-                _vehicleRepository.Add(vehicle);
+                _vehicleRepository.Add(vehicle);                
             }
 
             return validationResult;

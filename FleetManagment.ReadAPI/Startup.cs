@@ -1,11 +1,13 @@
 using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
+using IdentityServer4.AccessTokenValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 namespace FleetManagement.ReadAPI
@@ -29,10 +31,18 @@ namespace FleetManagement.ReadAPI
             }));
 
             services.AddControllers();
+
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(options => {
+                    options.Authority = "https://localhost:5001";
+                    options.ApiName = "read-api";                   
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FleetManagement.ReadAPI", Version = "v1" });
             });
+
             services.AddMediatR(typeof(Startup));
             services.AddScoped<IDataAccessReader, DapperReader>();
             services.AddScoped<IReadRepository, ReadRepository>();
@@ -50,11 +60,10 @@ namespace FleetManagement.ReadAPI
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
             app.UseCors("LocalOrigins");
-
-            app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();           
 
             app.UseEndpoints(endpoints =>
             {
