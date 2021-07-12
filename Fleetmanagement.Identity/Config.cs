@@ -14,8 +14,8 @@ namespace Fleetmanagement.Identity
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope("read-api", "Fleetmanagement read API"),
-                new ApiScope("write-api", "Fleetmanagement write API")
+                new ApiScope(name: "read-api", displayName: "Fleetmanagement read API"),
+                new ApiScope(name: "write-api", displayName: "Fleetmanagement write API")
             };
 
         public static IEnumerable<Client> Clients =>

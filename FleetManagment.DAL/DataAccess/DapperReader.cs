@@ -37,105 +37,92 @@ namespace FleetManagement.DAL.DataAccess
 
         public T GetDriverInfoFromPersistentStore<T>(int driverId)
         {
-            using (var connection = GetConnection())
-            {
-                var procedure = "Driver_ReadModel";
-                var result = connection.QueryFirstOrDefault<T>(procedure,
-                    new { DriverId = driverId },
-                    commandType: CommandType.StoredProcedure);
+            using var connection = GetConnection();
+            var procedure = "Driver_ReadModel";
+            var result = connection.QueryFirstOrDefault<T>(procedure,
+                new { DriverId = driverId },
+                commandType: CommandType.StoredProcedure);
 
-                return result;
-            }
+            return result;
         }
 
         public T GetVehicleInfoFromPersistentStore<T>(int driverId)
         {
-            using (var connection = GetConnection())
-            {
-                var procedure = "Vehicle_ReadModel";
-                var result = connection.QueryFirstOrDefault<T>(procedure,
-                    new { DriverId = driverId },
-                    commandType: CommandType.StoredProcedure);
+            using var connection = GetConnection();
+            var procedure = "Vehicle_ReadModel";
+            var result = connection.QueryFirstOrDefault<T>(procedure,
+                new { DriverId = driverId },
+                commandType: CommandType.StoredProcedure);
 
-                return result;
-            }
+            return result;
+
         }
 
         public T GetFuelcardInfoFromPersistentStore<T>(int driverId)
         {
-            using (var connection = GetConnection())
-            {
-                var procedure = "Fuelcard_ReadModel";
-                var result = connection.QueryFirstOrDefault<T>(procedure,
-                    new { DriverId = driverId },
-                    commandType: CommandType.StoredProcedure);
-
-                return result;
-            }
+            using var connection = GetConnection();
+            var procedure = "Fuelcard_ReadModel";
+            var result = connection.QueryFirstOrDefault<T>(procedure,
+                new { DriverId = driverId },
+                commandType: CommandType.StoredProcedure);
+            return result;            
         }
 
         public  (T, List<string>) GetFuelcardInfoWithServicesFromPersistentStore<T>(int driverId)
         {
-            using (var connection = GetConnection())
-            {
-                var procedure = "Fuelcard_And_Services_ReadModel";
-                //var res = connection.QueryAsync<T, string, T>()
-                var response = connection.QueryMultiple(
-                    procedure,
-                    new { DriverId = driverId, FuelCardId = 0 },
-                    commandType: CommandType.StoredProcedure
-                );
+            using var connection = GetConnection();
+            var procedure = "Fuelcard_And_Services_ReadModel";
+            //var res = connection.QueryAsync<T, string, T>()
+            var response = connection.QueryMultiple(
+                procedure,
+                new { DriverId = driverId, FuelCardId = 0 },
+                commandType: CommandType.StoredProcedure
+            );
 
-                var fuelcard = response.Read<T>().FirstOrDefault();
-                var services = response.Read<string>().ToList();
-               
-                return (fuelcard, services);
-            }
+            var fuelcard = response.Read<T>().FirstOrDefault();
+            var services = response.Read<string>().ToList();
+
+            return (fuelcard, services);
         }
 
         public List<T> GetRequestsFromPersistentStore<T>(int driverId)
         {
-            using (var connection = GetConnection())
-            {
-                var procedure = "Requests_ReadModel";
-                var response = connection.Query<T>(
-                    procedure,
-                    new { DriverId = driverId },
-                    commandType: CommandType.StoredProcedure)
-                    .ToList();
+            using var connection = GetConnection();
+            var procedure = "Requests_ReadModel";
+            var response = connection.Query<T>(
+                procedure,
+                new { DriverId = driverId },
+                commandType: CommandType.StoredProcedure)
+                .ToList();
 
-                return response;
-            }
+            return response;
+
         }       
 
         public List<T> GetMaintenanceInfoFromPersistentStore<T>(int vehicleId)
         {
-            using (var connection = GetConnection())
-            {
-                var procedure = "MaintenancesForVehicle";
-                var response = connection.Query<T>(
-                    procedure,
-                    new { VehicleId = vehicleId },
-                    commandType: CommandType.StoredProcedure)
-                    .ToList();
+            using var connection = GetConnection();
+            var procedure = "MaintenancesForVehicle";
+            var response = connection.Query<T>(
+                procedure,
+                new { VehicleId = vehicleId },
+                commandType: CommandType.StoredProcedure)
+                .ToList();
 
-                return response;
-            }
+            return response;
         }
         
         public List<T> GetRepairInfoFromPersistentStore<T>(int vehicleId)
         {
-            using (var connection = GetConnection())
-            {
-                var procedure = "RepairsForVehicle";
-                var response = connection.Query<T>(
-                    procedure,
-                    new { VehicleId = vehicleId },
-                    commandType: CommandType.StoredProcedure)
-                    .ToList();
+            using var connection = GetConnection();
+            var procedure = "RepairsForVehicle";
+            var response = connection.Query<T>(
+                procedure,
+                new { VehicleId = vehicleId },
+                commandType: CommandType.StoredProcedure)
+                .ToList();
 
-                return response;
-            }
+            return response;
         }
 
         public void Dispose()
