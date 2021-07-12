@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.Seed", "Fle
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.Test", "FleetManagement.Test\FleetManagement.Test.csproj", "{750F17C1-17FD-4922-B321-D2D6673ACC44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleetmanagement.Identity", "Fleetmanagement.Identity\Fleetmanagement.Identity.csproj", "{5FA7B491-6E7B-4742-BAE5-6685B38FA888}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.DAL", "FleetManagement.DAL\FleetManagement.DAL.csproj", "{659E7017-51AB-4130-ACED-C1D436460E22}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.Domain", "FleetManagement.Domain\FleetManagement.Domain.csproj", "{32A024D0-CDE0-4147-8063-033F8F4C6E4E}"
@@ -18,6 +16,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagment.WriteAPI", "FleetManagement.WriteAPI\FleetManagment.WriteAPI.csproj", "{7578FA61-22E4-4B71-BF79-23FE8886D35E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.BL", "FleetManagement.BL\FleetManagement.BL.csproj", "{B9930D26-353A-4EAD-BA69-2386F24285DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleetmanagement.Identity", "Fleetmanagement.Identity\Fleetmanagement.Identity.csproj", "{516021FF-1588-4CDB-9289-CD72899DE378}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +33,6 @@ Global
 		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{750F17C1-17FD-4922-B321-D2D6673ACC44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FA7B491-6E7B-4742-BAE5-6685B38FA888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FA7B491-6E7B-4742-BAE5-6685B38FA888}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FA7B491-6E7B-4742-BAE5-6685B38FA888}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FA7B491-6E7B-4742-BAE5-6685B38FA888}.Release|Any CPU.Build.0 = Release|Any CPU
 		{659E7017-51AB-4130-ACED-C1D436460E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{659E7017-51AB-4130-ACED-C1D436460E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{659E7017-51AB-4130-ACED-C1D436460E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +53,10 @@ Global
 		{B9930D26-353A-4EAD-BA69-2386F24285DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9930D26-353A-4EAD-BA69-2386F24285DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9930D26-353A-4EAD-BA69-2386F24285DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{516021FF-1588-4CDB-9289-CD72899DE378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{516021FF-1588-4CDB-9289-CD72899DE378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{516021FF-1588-4CDB-9289-CD72899DE378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{516021FF-1588-4CDB-9289-CD72899DE378}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

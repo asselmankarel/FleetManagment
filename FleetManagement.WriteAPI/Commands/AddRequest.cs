@@ -1,5 +1,4 @@
-﻿using FleetManagement.BL.Requests;
-using FleetManagment.WriteAPI.Models;
+﻿using FleetManagment.WriteAPI.Models;
 using MediatR;
 using System;
 
