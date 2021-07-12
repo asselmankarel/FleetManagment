@@ -6400,8 +6400,8 @@
     },
     "FleetManagement.Domain/1.0.0": {
       "type": "project",
-      "path": "../FleetManagment.Domain/FleetManagement.Domain.csproj",
-      "msbuildProject": "../FleetManagment.Domain/FleetManagement.Domain.csproj"
+      "path": "../FleetManagement.Domain/FleetManagement.Domain.csproj",
+      "msbuildProject": "../FleetManagement.Domain/FleetManagement.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6448,8 +6448,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\FleetManagement.Domain.csproj": {
-              "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\FleetManagement.Domain.csproj"
+            "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj": {
+              "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj"
             }
           }
         }

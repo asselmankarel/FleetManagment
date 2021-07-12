@@ -1607,7 +1607,6 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "FleetManagement.DAL": "1.0.0",
-          "FleetManagement.Domain": "1.0.0",
           "FluentValidation": "10.2.3"
         },
         "compile": {
@@ -1622,7 +1621,6 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Dapper": "2.0.90",
-          "FleetManagement.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.7",
           "Microsoft.Extensions.Configuration": "5.0.0",
@@ -1633,19 +1631,6 @@
         },
         "runtime": {
           "bin/placeholder/FleetManagement.DAL.dll": {}
-        }
-      },
-      "FleetManagement.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "5.0.7"
-        },
-        "compile": {
-          "bin/placeholder/FleetManagement.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/FleetManagement.Domain.dll": {}
         }
       }
     }
@@ -5947,20 +5932,13 @@
     },
     "FleetManagement.DAL/1.0.0": {
       "type": "project",
-      "path": "../FleetManagment.DAL/FleetManagement.DAL.csproj",
-      "msbuildProject": "../FleetManagment.DAL/FleetManagement.DAL.csproj"
-    },
-    "FleetManagement.Domain/1.0.0": {
-      "type": "project",
-      "path": "../FleetManagment.Domain/FleetManagement.Domain.csproj",
-      "msbuildProject": "../FleetManagment.Domain/FleetManagement.Domain.csproj"
+      "path": "../FleetManagement.DAL/FleetManagement.DAL.csproj",
+      "msbuildProject": "../FleetManagement.DAL/FleetManagement.DAL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "FleetManagement.BL >= 1.0.0",
-      "FleetManagement.DAL >= 1.0.0",
-      "FleetManagement.Domain >= 1.0.0",
       "MediatR >= 9.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 9.0.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.7",
@@ -6004,12 +5982,6 @@
           "projectReferences": {
             "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.BL\\FleetManagement.BL.csproj": {
               "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.BL\\FleetManagement.BL.csproj"
-            },
-            "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\FleetManagement.DAL.csproj": {
-              "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\FleetManagement.DAL.csproj"
-            },
-            "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\FleetManagement.Domain.csproj": {
-              "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\FleetManagement.Domain.csproj"
             }
           }
         }

@@ -4,88 +4,14 @@
     "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\FleetManagement.Seed.csproj": {}
   },
   "projects": {
-    "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\FleetManagement.Seed.csproj": {
+    "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.DAL\\FleetManagement.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\FleetManagement.Seed.csproj",
-        "projectName": "FleetManagement.Seed",
-        "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\FleetManagement.Seed.csproj",
-        "packagesPath": "C:\\Users\\KarelAsselman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\KarelAsselman\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {
-              "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\FleetManagement.DAL.csproj": {
-                "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\FleetManagement.DAL.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "dependencies": {
-            "Bogus": {
-              "target": "Package",
-              "version": "[33.0.2, )"
-            },
-            "ConsoleDump": {
-              "target": "Package",
-              "version": "[0.7.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\FleetManagement.DAL.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\FleetManagement.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.DAL\\FleetManagement.DAL.csproj",
         "projectName": "FleetManagement.DAL",
-        "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\FleetManagement.DAL.csproj",
+        "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.DAL\\FleetManagement.DAL.csproj",
         "packagesPath": "C:\\Users\\KarelAsselman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\obj\\",
+        "outputPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -108,8 +34,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\FleetManagement.Domain.csproj": {
-                "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\FleetManagement.Domain.csproj"
+              "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj": {
+                "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj"
               }
             }
           }
@@ -170,14 +96,14 @@
         }
       }
     },
-    "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\FleetManagement.Domain.csproj": {
+    "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\FleetManagement.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj",
         "projectName": "FleetManagement.Domain",
-        "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\FleetManagement.Domain.csproj",
+        "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj",
         "packagesPath": "C:\\Users\\KarelAsselman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.Domain\\obj\\",
+        "outputPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -215,6 +141,83 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\FleetManagement.Seed.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\FleetManagement.Seed.csproj",
+        "projectName": "FleetManagement.Seed",
+        "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\FleetManagement.Seed.csproj",
+        "packagesPath": "C:\\Users\\KarelAsselman\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Seed\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\KarelAsselman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.DAL\\FleetManagement.DAL.csproj": {
+                "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.DAL\\FleetManagement.DAL.csproj"
+              },
+              "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj": {
+                "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[33.0.2, )"
+            },
+            "ConsoleDump": {
+              "target": "Package",
+              "version": "[0.7.0, )"
             }
           },
           "imports": [

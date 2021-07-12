@@ -6004,20 +6004,21 @@
     },
     "FleetManagement.DAL/1.0.0": {
       "type": "project",
-      "path": "../FleetManagment.DAL/FleetManagement.DAL.csproj",
-      "msbuildProject": "../FleetManagment.DAL/FleetManagement.DAL.csproj"
+      "path": "../FleetManagement.DAL/FleetManagement.DAL.csproj",
+      "msbuildProject": "../FleetManagement.DAL/FleetManagement.DAL.csproj"
     },
     "FleetManagement.Domain/1.0.0": {
       "type": "project",
-      "path": "../FleetManagment.Domain/FleetManagement.Domain.csproj",
-      "msbuildProject": "../FleetManagment.Domain/FleetManagement.Domain.csproj"
+      "path": "../FleetManagement.Domain/FleetManagement.Domain.csproj",
+      "msbuildProject": "../FleetManagement.Domain/FleetManagement.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Bogus >= 33.0.2",
       "ConsoleDump >= 0.7.0",
-      "FleetManagement.DAL >= 1.0.0"
+      "FleetManagement.DAL >= 1.0.0",
+      "FleetManagement.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -6055,8 +6056,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\FleetManagement.DAL.csproj": {
-              "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagment.DAL\\FleetManagement.DAL.csproj"
+            "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.DAL\\FleetManagement.DAL.csproj": {
+              "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.DAL\\FleetManagement.DAL.csproj"
+            },
+            "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj": {
+              "projectPath": "C:\\Users\\KarelAsselman\\source\\repos\\FleetManagement\\FleetManagement.Domain\\FleetManagement.Domain.csproj"
             }
           }
         }
