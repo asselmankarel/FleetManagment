@@ -29,7 +29,7 @@ namespace Fleetmanagement.Identity
                 using (var scope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
                     var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
-                    
+                    context.Database.EnsureDeleted();
                     context.Database.Migrate();
 
                     var userMgr = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
