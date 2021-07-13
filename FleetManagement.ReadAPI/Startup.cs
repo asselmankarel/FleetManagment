@@ -35,7 +35,7 @@ namespace FleetManagement.ReadAPI
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
                 .AddIdentityServerAuthentication(options => {
                     options.Authority = "https://localhost:5001";
-                    options.ApiName = "read-api";                   
+                    options.ApiName = "fleetmanagement-read-api";                   
             });
 
             services.AddSwaggerGen(c =>
