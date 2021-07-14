@@ -9,6 +9,7 @@ using IdentityServer4.EntityFramework.Mappers;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -37,6 +38,7 @@ namespace Fleetmanagement.IdentityProvider
                 options.UseSqlServer(connectionString);
             });
 
+            services.AddScoped<IPasswordHasher<Entities.User>, PasswordHasher<Entities.User>>();
             services.AddScoped<ILocalUserService, LocalUserService>();
 
             var builder = services.AddIdentityServer(options =>
