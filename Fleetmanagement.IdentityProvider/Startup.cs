@@ -2,6 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using Fleetmanagement.IdentityProvider.DbContexts;
+using Fleetmanagement.IdentityProvider.Services;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
 using IdentityServerHost.Quickstart.UI;
@@ -31,15 +33,23 @@ namespace Fleetmanagement.IdentityProvider
             // uncomment, if you want to add an MVC-based UI
             services.AddControllersWithViews();
 
+            services.AddDbContext<IdentityDbContext>(options => {
+                options.UseSqlServer(connectionString);
+            });
+
+            services.AddScoped<ILocalUserService, LocalUserService>();
+
             var builder = services.AddIdentityServer(options =>
             {
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
-            })
+            });
             //.AddInMemoryIdentityResources(Config.IdentityResources)
             //.AddInMemoryApiScopes(Config.ApiScopes)
             //.AddInMemoryClients(Config.Clients)
-            .AddTestUsers(TestUsers.Users);
+            //.AddTestUsers(TestUsers.Users);
+
+            builder.AddProfileService<LocalUserProfileService>();
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
