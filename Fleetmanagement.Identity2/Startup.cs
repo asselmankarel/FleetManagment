@@ -65,7 +65,7 @@ namespace Fleetmanagement.Identity2
                 app.UseDeveloperExceptionPage();
             }
 
-            InitializeDatabase(app);
+            //InitializeDatabase(app);
 
             // uncomment if you want to add MVC
             app.UseStaticFiles();

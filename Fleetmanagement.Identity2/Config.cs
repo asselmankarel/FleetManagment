@@ -26,18 +26,14 @@ namespace Fleetmanagement.Identity2
                     ClientName = "Fleetmanagement Driver WebGUI",
                     AllowedGrantTypes = GrantTypes.Code,
                     RequirePkce = true,
-                    RedirectUris = new List<string>()
-                    {
-                        "https://localhost:3000/signin-oidc"
-                    },
-                    PostLogoutRedirectUris = new List<string>()
-                    {
-                        "https://localhost:3000/signout-callback-oidc"
-                    },
+                    RedirectUris = new List<string>() { "https://localhost:3000/signin-oidc" },
+                    PostLogoutRedirectUris = new List<string>() { "https://localhost:3000/signout-callback-oidc" },
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "fleetmanagement-read-api",
+                        "fleetmanagement-write-api"
                     },
                     ClientSecrets =
                     {
