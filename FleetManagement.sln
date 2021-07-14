@@ -17,9 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagment.WriteAPI", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.BL", "FleetManagement.BL\FleetManagement.BL.csproj", "{B9930D26-353A-4EAD-BA69-2386F24285DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleetmanagement.Identity", "Fleetmanagement.Identity\Fleetmanagement.Identity.csproj", "{9A66CEE4-2988-4C30-A581-5EBA46C4B704}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleetmanagement.Identity2", "Fleetmanagement.Identity2\Fleetmanagement.Identity2.csproj", "{5A9FEC44-E023-4616-84A7-078A0940E377}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleetmanagement.IdentityProvider", "Fleetmanagement.Identity2\Fleetmanagement.IdentityProvider.csproj", "{5A9FEC44-E023-4616-84A7-078A0940E377}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +53,6 @@ Global
 		{B9930D26-353A-4EAD-BA69-2386F24285DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9930D26-353A-4EAD-BA69-2386F24285DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9930D26-353A-4EAD-BA69-2386F24285DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A66CEE4-2988-4C30-A581-5EBA46C4B704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A66CEE4-2988-4C30-A581-5EBA46C4B704}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A66CEE4-2988-4C30-A581-5EBA46C4B704}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A66CEE4-2988-4C30-A581-5EBA46C4B704}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5A9FEC44-E023-4616-84A7-078A0940E377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5A9FEC44-E023-4616-84A7-078A0940E377}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A9FEC44-E023-4616-84A7-078A0940E377}.Release|Any CPU.ActiveCfg = Release|Any CPU

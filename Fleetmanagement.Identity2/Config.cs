@@ -2,7 +2,7 @@
 using IdentityServer4.Models;
 using System.Collections.Generic;
 
-namespace Fleetmanagement.Identity2
+namespace Fleetmanagement.IdentityProvider
 {
     public static class Config
     {

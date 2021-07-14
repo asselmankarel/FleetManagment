@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Fleetmanagement.Identity2.Migrations.PersistedGrantDb
+namespace Fleetmanagement.IdentityProvider.Migrations.PersistedGrantDb
 {
     public partial class InitialIsOperational : Migration
     {

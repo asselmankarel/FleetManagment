@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Fleetmanagement.Identity2.Migrations
+namespace Fleetmanagement.IdentityProvider.Migrations
 {
     public partial class InitialIsConfiguration : Migration
     {

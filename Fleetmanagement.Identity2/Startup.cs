@@ -13,7 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using System.Reflection;
 
-namespace Fleetmanagement.Identity2
+namespace Fleetmanagement.IdentityProvider
 {
     public class Startup
     {

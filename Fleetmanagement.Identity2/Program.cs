@@ -9,7 +9,7 @@ using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using System;
 
-namespace Fleetmanagement.Identity2
+namespace Fleetmanagement.IdentityProvider
 {
     public class Program
     {

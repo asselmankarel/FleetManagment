@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Fleetmanagement.Identity2.Migrations
+namespace Fleetmanagement.IdentityProvider.Migrations
 {
     [DbContext(typeof(ConfigurationDbContext))]
     [Migration("20210713115930_InitialIsConfiguration")]
