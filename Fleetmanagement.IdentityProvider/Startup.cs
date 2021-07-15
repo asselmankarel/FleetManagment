@@ -1,11 +1,8 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
-
-using Fleetmanagement.IdentityProvider.DbContexts;
+﻿using Fleetmanagement.IdentityProvider.DbContexts;
 using Fleetmanagement.IdentityProvider.Services;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
+using IdentityServer4.Services;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Reflection;
 
@@ -45,10 +43,10 @@ namespace Fleetmanagement.IdentityProvider
             {
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
-            });
-            //.AddInMemoryIdentityResources(Config.IdentityResources)
-            //.AddInMemoryApiScopes(Config.ApiScopes)
-            //.AddInMemoryClients(Config.Clients)
+            })
+            .AddInMemoryIdentityResources(Config.IdentityResources)
+            .AddInMemoryApiScopes(Config.ApiScopes)
+            .AddInMemoryClients(Config.Clients);
             //.AddTestUsers(TestUsers.Users);
 
             builder.AddProfileService<LocalUserProfileService>();
@@ -56,18 +54,28 @@ namespace Fleetmanagement.IdentityProvider
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
-            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+            //services.AddSingleton<ICorsPolicyService>((container) => {
+            //    var logger = container.GetRequiredService<ILogger<DefaultCorsPolicyService>>();
+            //    return new DefaultCorsPolicyService(logger)
+            //    {
+            //        AllowedOrigins = { "https://localhost:3000", "http://localhost:3000" }
+            //    };
+            //});
 
-            builder.AddConfigurationStore(options =>
-            {
-                options.ConfigureDbContext = builder => builder.UseSqlServer(connectionString,
-                    options => options.MigrationsAssembly(migrationsAssembly));
-            });
 
-            builder.AddOperationalStore(options => {
-                options.ConfigureDbContext = builder => builder.UseSqlServer(connectionString,
-                    options => options.MigrationsAssembly(migrationsAssembly));
-            });
+            // Config and operational data in DB
+            //var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+
+            //builder.AddConfigurationStore(options =>
+            //{
+            //    options.ConfigureDbContext = builder => builder.UseSqlServer(connectionString,
+            //        options => options.MigrationsAssembly(migrationsAssembly));
+            //});
+
+            //builder.AddOperationalStore(options => {
+            //    options.ConfigureDbContext = builder => builder.UseSqlServer(connectionString,
+            //        options => options.MigrationsAssembly(migrationsAssembly));
+            //});
         }
 
         public void Configure(IApplicationBuilder app)

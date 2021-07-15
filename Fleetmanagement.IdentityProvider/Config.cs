@@ -10,12 +10,15 @@ namespace Fleetmanagement.IdentityProvider
             new IdentityResource[]
             { 
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile()               
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
-            { };
+            {
+                new ApiScope { Name = "fleetmanagement-read-api" },
+                new ApiScope { Name = "fleetmanagement-write-api" } 
+            };
 
         public static IEnumerable<Client> Clients =>
             new Client[] 
@@ -26,8 +29,9 @@ namespace Fleetmanagement.IdentityProvider
                     ClientName = "Fleetmanagement Driver WebGUI",
                     AllowedGrantTypes = GrantTypes.Code,
                     RequirePkce = true,
-                    RedirectUris = new List<string>() { "https://localhost:3000/signin-oidc" },
-                    PostLogoutRedirectUris = new List<string>() { "https://localhost:3000/signout-callback-oidc" },
+                    RedirectUris = { "http://localhost:3000/callback" },
+                    PostLogoutRedirectUris = { "http://localhost:3000" },
+                    AllowedCorsOrigins = { "https://localhost:3000", "http://localhost:3000" },
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,

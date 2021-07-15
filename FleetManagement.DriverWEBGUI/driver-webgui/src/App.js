@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
+
 import Banner from './components/Banner';
 import Profile from './components/Profile';
 import LoginForm from './forms/LoginForm';
@@ -10,6 +11,7 @@ import Fuelcard from './components/Fuelcard';
 import Requests from './Requests';
 import RequestForm from './forms/RequestForm';
 import Footer from './components/Footer';
+import userManager from './UserManager';
 import './css/App.css';
 
 
@@ -21,6 +23,10 @@ function App() {
 
   function handleSuccessFullLogin(username, password, rememberMe) {
     //do some authentication
+    userManager.signinRedirect();
+    userManager.getUser().then(user => {
+      console.log(user);
+    });
 
     // store username 
     const id = username;

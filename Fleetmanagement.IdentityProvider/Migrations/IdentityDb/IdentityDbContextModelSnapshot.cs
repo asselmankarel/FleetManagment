@@ -56,16 +56,16 @@ namespace Fleetmanagement.IdentityProvider.Migrations.IdentityDb
 
                     b.ToTable("Users");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("d8980b9c-a72a-4ce8-b084-ee934c09d9c7"),
-                            ConcurrencyStamp = "bcce2bc6-fee3-4a99-94aa-c7efa5e1abb5",
-                            Email = "karel.asselman@allphi.eu",
-                            IsActive = true,
-                            Password = "Pass123$",
-                            Subject = "962d2a3c-6c11-47bb-8453-a41485baee8a"
-                        });
+                    //b.HasData(
+                    //    new
+                    //    {
+                    //        Id = new Guid("d8980b9c-a72a-4ce8-b084-ee934c09d9c7"),
+                    //        ConcurrencyStamp = "bcce2bc6-fee3-4a99-94aa-c7efa5e1abb5",
+                    //        Email = "karel.asselman@allphi.eu",
+                    //        IsActive = true,
+                    //        Password = "Pass123$",
+                    //        Subject = "962d2a3c-6c11-47bb-8453-a41485baee8a"
+                    //    });
                 });
 
             modelBuilder.Entity("Fleetmanagement.IdentityProvider.Entities.UserClaim", b =>
@@ -97,31 +97,31 @@ namespace Fleetmanagement.IdentityProvider.Migrations.IdentityDb
 
                     b.ToTable("UserClaims");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("2e83a31b-7609-43ce-b1e9-dbe3eac21726"),
-                            ConcurrencyStamp = "44240753-3f40-4d0f-9b08-18fe617d6d8f",
-                            Type = "name",
-                            UserId = new Guid("d8980b9c-a72a-4ce8-b084-ee934c09d9c7"),
-                            Value = "Karel Asselman"
-                        },
-                        new
-                        {
-                            Id = new Guid("67c40e5d-9ccd-481e-98b8-10ea3b07c7ef"),
-                            ConcurrencyStamp = "f9235a42-d30d-4588-b56e-94f937b71c15",
-                            Type = "given_name",
-                            UserId = new Guid("d8980b9c-a72a-4ce8-b084-ee934c09d9c7"),
-                            Value = "Karel"
-                        },
-                        new
-                        {
-                            Id = new Guid("5a4394af-e982-40f6-b735-43aa7a147f51"),
-                            ConcurrencyStamp = "bd990066-8661-4848-b99c-0c4a660c465d",
-                            Type = "family_name",
-                            UserId = new Guid("d8980b9c-a72a-4ce8-b084-ee934c09d9c7"),
-                            Value = "Asselman"
-                        });
+                    //b.HasData(
+                    //    new
+                    //    {
+                    //        Id = new Guid("2e83a31b-7609-43ce-b1e9-dbe3eac21726"),
+                    //        ConcurrencyStamp = "44240753-3f40-4d0f-9b08-18fe617d6d8f",
+                    //        Type = "name",
+                    //        UserId = new Guid("d8980b9c-a72a-4ce8-b084-ee934c09d9c7"),
+                    //        Value = "Karel Asselman"
+                    //    },
+                    //    new
+                    //    {
+                    //        Id = new Guid("67c40e5d-9ccd-481e-98b8-10ea3b07c7ef"),
+                    //        ConcurrencyStamp = "f9235a42-d30d-4588-b56e-94f937b71c15",
+                    //        Type = "given_name",
+                    //        UserId = new Guid("d8980b9c-a72a-4ce8-b084-ee934c09d9c7"),
+                    //        Value = "Karel"
+                    //    },
+                    //    new
+                    //    {
+                    //        Id = new Guid("5a4394af-e982-40f6-b735-43aa7a147f51"),
+                    //        ConcurrencyStamp = "bd990066-8661-4848-b99c-0c4a660c465d",
+                    //        Type = "family_name",
+                    //        UserId = new Guid("d8980b9c-a72a-4ce8-b084-ee934c09d9c7"),
+                    //        Value = "Asselman"
+                    //    });
                 });
 
             modelBuilder.Entity("Fleetmanagement.IdentityProvider.Entities.UserClaim", b =>
