@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using FleetManagement.DAL.DataAccess;
+using FleetManagement.DAL.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +15,8 @@ namespace Fleetmanagement.GrpcAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(AutoMapperProfiles.DriverProfile));
+            services.AddScoped<ApplicationDbContext>();
+            services.AddScoped<IDriverRepository, DriverRepository>();
             services.AddGrpc();
         }
 

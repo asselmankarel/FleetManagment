@@ -1,4 +1,6 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Fleetmanagement.GrpcAPI;
+using FleetManagement.GrpcClientLibrary;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -10,13 +12,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace FleetManagement.WinUI
+namespace FleetManagement.AdminApp
 {
     /// <summary>
     /// An empty window that can be used on its own or navigated to within a Frame.
@@ -26,11 +29,17 @@ namespace FleetManagement.WinUI
         public MainWindow()
         {
             this.InitializeComponent();
+            var drivers = LoadDrivers();
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private async Task<List<DriverModel>> LoadDrivers()
         {
-            myButton.Content = "Clicked";
+            DriverClient dc = new DriverClient("https://localhost:6001");
+            var driverList = await dc.DriverList();
+
+            return driverList;
         }
+
+
     }
 }

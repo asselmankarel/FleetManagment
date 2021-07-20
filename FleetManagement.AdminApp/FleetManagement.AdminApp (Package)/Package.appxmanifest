@@ -7,12 +7,12 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="a8348361-363e-4325-92ac-08e6faf42b46"
+    Name="d010cd91-4b7b-4c49-bb84-b9dcb6b0339b"
     Publisher="CN=KarelAsselman"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>FleetManagement.WinUI (Package)</DisplayName>
+    <DisplayName>FleetManagement.AdminApp (Package)</DisplayName>
     <PublisherDisplayName>KarelAsselman</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="FleetManagement.WinUI (Package)"
-        Description="FleetManagement.WinUI (Package)"
+        DisplayName="FleetManagement.AdminApp (Package)"
+        Description="FleetManagement.AdminApp (Package)"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
