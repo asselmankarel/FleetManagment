@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.WriteAPI", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.BL", "FleetManagement.BL\FleetManagement.BL.csproj", "{B9930D26-353A-4EAD-BA69-2386F24285DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleetmanagement.IdentityProvider", "Fleetmanagement.IdentityProvider\Fleetmanagement.IdentityProvider.csproj", "{E5839442-8CBA-4AEC-A567-F161E5A53611}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.IdentityProvider", "Fleetmanagement.IdentityProvider\FleetManagement.IdentityProvider.csproj", "{E5839442-8CBA-4AEC-A567-F161E5A53611}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleetmanagement.GrpcAPI", "Fleetmanagement.GrpcAPI\Fleetmanagement.GrpcAPI.csproj", "{FD0AC89A-2069-4DB6-92C3-D1A0D4E90CE8}"
 EndProject
