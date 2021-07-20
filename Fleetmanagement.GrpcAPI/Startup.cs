@@ -27,7 +27,7 @@ namespace Fleetmanagement.GrpcAPI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<GreeterService>();
+                endpoints.MapGrpcService<DriverService>();
 
                 endpoints.MapGet("/", async context =>
                 {
