@@ -31,11 +31,13 @@ namespace FleetManagement.GrpcClientLibrary
         public async Task<List<DriverModel>> DriverList()
         {
             var drivers = new List<DriverModel>();
-            using var call = _driverClient.GetDrivers(new DriversRequest());
-
-            while (await call.ResponseStream.MoveNext())
+            using (var call = _driverClient.GetDrivers(new DriversRequest()))
             {
-                drivers.Add(call.ResponseStream.Current);
+                while (await call.ResponseStream.MoveNext())
+                {
+                    var driver = call.ResponseStream.Current;
+                    drivers.Add(driver);
+                }
             }
 
             return drivers;

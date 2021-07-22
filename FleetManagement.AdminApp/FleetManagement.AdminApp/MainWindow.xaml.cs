@@ -1,4 +1,5 @@
 ﻿using Fleetmanagement.GrpcAPI;
+using FleetManagement.AdminApp.ViewModels;
 using FleetManagement.GrpcClientLibrary;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -26,20 +27,21 @@ namespace FleetManagement.AdminApp
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        public DriverListViewModel driverListViewModel { get; private set; }
+
         public MainWindow()
         {
             this.InitializeComponent();
-            var drivers = LoadDrivers();
+            driverListViewModel = new DriverListViewModel();
+            this.Activated += MainWindow_Activated;         
         }
 
-        private async Task<List<DriverModel>> LoadDrivers()
+        private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
-            DriverClient dc = new DriverClient("https://localhost:6001");
-            var driverList = await dc.DriverList();
-
-            return driverList;
+            if (driverListViewModel.Drivers.Count == 0)
+            {
+                driverListViewModel.Load();
+            }
         }
-
-
     }
 }

@@ -2,6 +2,7 @@
 using FleetManagement.DAL.Repositories;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 
@@ -34,8 +35,15 @@ namespace Fleetmanagement.GrpcAPI
 
             foreach(var driver in drivers)
             {
+                if (context.CancellationToken.IsCancellationRequested)
+                {
+                    _logger.LogDebug("Request cancelled!");
+                    break;
+                }
+
                 await responseStream.WriteAsync(_mapper.Map<DriverModel>(driver));
             }       
+           
         }
     }
 }

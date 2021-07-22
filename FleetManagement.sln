@@ -35,9 +35,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06-Test", "06-Test", "{4828
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "FleetManagement.AdminApp (Package)", "FleetManagement.AdminApp\FleetManagement.AdminApp (Package)\FleetManagement.AdminApp (Package).wapproj", "{9C560EE9-1F50-4159-B12E-546104F013FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagement.AdminApp", "FleetManagement.AdminApp\FleetManagement.AdminApp\FleetManagement.AdminApp.csproj", "{56208A95-F43A-48F1-A878-528DDB8B2F90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.AdminApp", "FleetManagement.AdminApp\FleetManagement.AdminApp\FleetManagement.AdminApp.csproj", "{56208A95-F43A-48F1-A878-528DDB8B2F90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagement.GrpcClientLibrary", "FleetManagement.GrpcClientLibrary\FleetManagement.GrpcClientLibrary.csproj", "{B4251583-9984-4E9C-95F0-12AF73D3E9D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.GrpcClientLibrary", "FleetManagement.GrpcClientLibrary\FleetManagement.GrpcClientLibrary.csproj", "{B4251583-9984-4E9C-95F0-12AF73D3E9D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fleetmanagement.GrpcConsoleTest", "Fleetmanagement.GrpcConsoleTest\Fleetmanagement.GrpcConsoleTest.csproj", "{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -248,6 +250,22 @@ Global
 		{B4251583-9984-4E9C-95F0-12AF73D3E9D9}.Release|x64.Build.0 = Release|Any CPU
 		{B4251583-9984-4E9C-95F0-12AF73D3E9D9}.Release|x86.ActiveCfg = Release|Any CPU
 		{B4251583-9984-4E9C-95F0-12AF73D3E9D9}.Release|x86.Build.0 = Release|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Debug|arm64.Build.0 = Debug|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Debug|x64.Build.0 = Debug|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Debug|x86.Build.0 = Debug|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Release|arm64.ActiveCfg = Release|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Release|arm64.Build.0 = Release|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Release|x64.ActiveCfg = Release|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Release|x64.Build.0 = Release|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Release|x86.ActiveCfg = Release|Any CPU
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -265,6 +283,7 @@ Global
 		{9C560EE9-1F50-4159-B12E-546104F013FC} = {C15AF901-481B-498D-A393-B79F712BFC3E}
 		{56208A95-F43A-48F1-A878-528DDB8B2F90} = {C15AF901-481B-498D-A393-B79F712BFC3E}
 		{B4251583-9984-4E9C-95F0-12AF73D3E9D9} = {C15AF901-481B-498D-A393-B79F712BFC3E}
+		{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99} = {48283483-E98C-44C1-9F28-2D12507C4E94}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F32025E0-5A64-46C6-AFA1-4D70CEC39516}

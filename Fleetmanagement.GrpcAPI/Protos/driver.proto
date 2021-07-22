@@ -4,6 +4,8 @@ syntax = "proto3";
 
 option csharp_namespace = "Fleetmanagement.GrpcAPI";
 
+package driver;
+
 service Driver {
 	rpc GetDriver (DriverRequest) returns (DriverModel);
 	rpc GetDrivers (DriversRequest) returns (stream DriverModel);
