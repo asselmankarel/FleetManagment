@@ -9,6 +9,12 @@
     <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
     <UseWinUI>true</UseWinUI>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="NavigationViews\DriverListView.xaml" />
+    <None Remove="NavigationViews\FuelcardListView.xaml" />
+    <None Remove="NavigationViews\HomeView.xaml" />
+    <None Remove="NavigationViews\VehicleListView.xaml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ProjectReunion" Version="0.8.1" />
@@ -19,5 +25,29 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\FleetManagement.GrpcClientLibrary\FleetManagement.GrpcClientLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="NavigationViews\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="NavigationViews\FuelcardListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="NavigationViews\VehicleListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="NavigationViews\DriverListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>

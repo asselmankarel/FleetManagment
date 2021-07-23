@@ -8,5 +8,17 @@
     <None Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Update="NavigationViews\HomeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NavigationViews\FuelcardListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NavigationViews\VehicleListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NavigationViews\DriverListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-//import "google/protobuf/timestamp.proto";
+import "google/protobuf/timestamp.proto";
 
 option csharp_namespace = "Fleetmanagement.GrpcAPI";
 
@@ -25,9 +25,11 @@ message DriverModel {
 	string Email = 4;
 	string DriversLicense = 5;
 	bool IsActive = 6;
+
 }
 
 message SuccessResponse {
 	bool Success = 1;
 	string Message = 2;
+	google.protobuf.Timestamp Timestamp = 3;
 }

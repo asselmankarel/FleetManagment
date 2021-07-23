@@ -10,6 +10,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -27,21 +28,30 @@ namespace FleetManagement.AdminApp
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        public DriverListViewModel driverListViewModel { get; private set; }
-
+        
         public MainWindow()
         {
             this.InitializeComponent();
-            driverListViewModel = new DriverListViewModel();
-            this.Activated += MainWindow_Activated;         
+            ContentFrame.Navigate(typeof(NavigationViews.HomeView));
         }
 
-        private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
+       
+
+        private void MainMenu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            if (driverListViewModel.Drivers?.Count == 0)
+            var item = args.InvokedItemContainer as NavigationViewItem;
+            Debug.WriteLine(item.Tag?.ToString());
+            var tag = item.Tag?.ToString();
+            switch (tag)
             {
-                driverListViewModel.Load();
+                case "drivers": ContentFrame.Navigate(typeof(NavigationViews.DriverListView)); break;
+                case "vehicles": ContentFrame.Navigate(typeof(NavigationViews.VehicleListView)); break;
+                case "fuelcards": ContentFrame.Navigate(typeof(NavigationViews.FuelcardListView)); break;
+
+                default : ContentFrame.Navigate(typeof(NavigationViews.HomeView)); break; 
             }
+
         }
+        
     }
 }

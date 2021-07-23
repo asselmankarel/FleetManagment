@@ -12,24 +12,33 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="4*" />
-        </Grid.ColumnDefinitions>
+
 
         <!--Header-->
-        <Border Grid.ColumnSpan="2" Background="#2397D4">
+        <Border Background="#2397D4">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="Fleetmanagment Admin" FontSize="40" VerticalAlignment="Center" Margin="15" />
             </StackPanel>
         </Border>
         
         <!--Content-->
-        <ListView Grid.Column="1"
-                  Grid.Row="1"
-                  ItemsSource="{x:Bind driverListViewModel.Drivers,Mode=OneWay}"
-                  SelectedItem="{x:Bind driverListViewModel.SelectedDriver,Mode=TwoWay}"
-                  DisplayMemberPath="FirstName" />
+        
+
+        <NavigationView Grid.Row="1" x:Name="MainMenu" ItemInvoked="MainMenu_ItemInvoked">
+            <!--<NavigationView.AutoSuggestBox>
+                <AutoSuggestBox x:Name="MainSearchBox" QueryIcon="Find" />
+            </NavigationView.AutoSuggestBox>-->
+            
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Bullets" Content="Drivers" Tag="drivers" />
+                <NavigationViewItem Icon="Bullets" Content="Vehicles" Tag="vehicles" />
+                <NavigationViewItem Icon="Bullets" Content="Fuelcards" Tag="fuelcards" />
+            </NavigationView.MenuItems>
+            
+            <Frame x:Name="ContentFrame">
+                
+            </Frame>
+        </NavigationView>
 
     </Grid>
 </Window>

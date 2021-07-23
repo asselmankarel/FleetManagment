@@ -9,7 +9,11 @@ namespace FleetManagement.AdminApp.ViewModels
     public class DriverListItem
     {
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
+
         public string NationalIdentificationNumber { get; set; }
+
+        public string FullName { get => $"{FirstName} {LastName}"; }
     }
 }
