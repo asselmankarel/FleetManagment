@@ -38,7 +38,7 @@ namespace FleetManagement.AdminApp
 
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
-            if (driverListViewModel.Drivers.Count == 0)
+            if (driverListViewModel.Drivers?.Count == 0)
             {
                 driverListViewModel.Load();
             }

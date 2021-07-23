@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FleetManagement.AdminApp.ViewModels
 {
-    public class DriverItem
+    public class DriverListItem
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

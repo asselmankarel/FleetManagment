@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fleetmanagement.GrpcAPI;
+using System.Diagnostics;
 
 namespace FleetManagement.GrpcClientLibrary
 {
@@ -19,7 +20,6 @@ namespace FleetManagement.GrpcClientLibrary
             _grpcChannel = GrpcChannel.ForAddress(serverAddress);
            _driverClient = new Driver.DriverClient(_grpcChannel);           
         }
-
 
         public DriverModel DriverDetails(int driverId)
         {
@@ -37,7 +37,18 @@ namespace FleetManagement.GrpcClientLibrary
                 {
                     var driver = call.ResponseStream.Current;
                     drivers.Add(driver);
+
                 }
+
+                //var allDrivers = call.ResponseStream.ReadAllAsync<DriverModel>();
+                //await foreach (var driver in allDrivers)
+                //{
+                //    drivers.Add(driver);
+                //}
+
+                Debug.WriteLine(call.GetStatus());
+                Debug.WriteLine($"Number of drivers: {drivers.Count}");
+
             }
 
             return drivers;

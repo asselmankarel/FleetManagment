@@ -19,15 +19,15 @@ message DriverRequest {
 message DriversRequest { }
 
 message DriverModel {
-	string nationalIdentificationNumber = 1;
-	string firstName = 2;
-	string lastName = 3;
-	string email = 4;
-	string driversLicense = 5;
-	bool isActive = 6;
+	string NationalIdentificationNumber = 1;
+	string FirstName = 2;
+	string LastName = 3;
+	string Email = 4;
+	string DriversLicense = 5;
+	bool IsActive = 6;
 }
 
 message SuccessResponse {
-	bool success = 1;
-	string message = 2;
+	bool Success = 1;
+	string Message = 2;
 }

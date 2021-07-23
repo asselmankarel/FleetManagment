@@ -3,6 +3,7 @@ using FleetManagement.GrpcClientLibrary;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,24 +12,28 @@ namespace FleetManagement.AdminApp.ViewModels
 {
     public class DriverListViewModel : ViewModelBase
     {
-        public ObservableCollection<DriverItem> Drivers { get; set; }
-        private DriverItem _selectedDriver { get; set; }
+        public ObservableCollection<DriverListItem> Drivers { get; set; } = new ObservableCollection<DriverListItem>();
+        private DriverListItem _selectedDriver { get; set; }
         private const string _grpcServerUrl = "http://localhost:6000";
+        private DriverClient _driverGrpcClient;            
 
         public DriverListViewModel()
         {
+            _driverGrpcClient = new DriverClient(_grpcServerUrl); 
             Load();
+ 
         }
 
-        public void Load()
+        public async void Load()
         {
-            var drivers = LoadDrivers(_grpcServerUrl).Result;
+            var drivers = await LoadDrivers();
+
             MapToCollection(drivers);
         }
 
         public bool IsDriverSelected => SelectedDriver != null;
 
-        public DriverItem SelectedDriver
+        public DriverListItem SelectedDriver
         {
             get => _selectedDriver;
 
@@ -43,10 +48,10 @@ namespace FleetManagement.AdminApp.ViewModels
             }
         }
 
-        private static async Task<List<DriverModel>> LoadDrivers(string grpcServerUrl)
+        private async Task<List<DriverModel>> LoadDrivers()
         {
-            DriverClient dc = new DriverClient(grpcServerUrl);
-            List<DriverModel> driverList = await dc.DriverList();
+            
+            var driverList = await _driverGrpcClient.DriverList();
 
             return driverList;
         }
@@ -57,7 +62,7 @@ namespace FleetManagement.AdminApp.ViewModels
 
             foreach (var driver in drivers)
             {
-                Drivers.Add(new DriverItem
+                Drivers.Add(new DriverListItem
                 {
                     FirstName = driver.FirstName,
                     LastName = driver.LastName,
