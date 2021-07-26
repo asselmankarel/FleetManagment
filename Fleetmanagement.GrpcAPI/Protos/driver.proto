@@ -6,19 +6,22 @@ option csharp_namespace = "Fleetmanagement.GrpcAPI";
 
 package driver;
 
-service Driver {
+service Driver
+{
 	rpc GetDriver (DriverRequest) returns (DriverModel);
 	rpc GetDrivers (DriversRequest) returns (stream DriverModel);
 	rpc AddDriver (DriverModel) returns (SuccessResponse);
 }
 
-message DriverRequest {
+message DriverRequest
+{
 	int32 DriverId = 1;
 }
 
 message DriversRequest { }
 
-message DriverModel {
+message DriverModel
+{
 	string NationalIdentificationNumber = 1;
 	string FirstName = 2;
 	string LastName = 3;
@@ -28,7 +31,8 @@ message DriverModel {
 
 }
 
-message SuccessResponse {
+message SuccessResponse
+{
 	bool Success = 1;
 	string Message = 2;
 	google.protobuf.Timestamp Timestamp = 3;

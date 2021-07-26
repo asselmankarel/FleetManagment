@@ -17,9 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.0.3" />
     <PackageReference Include="Microsoft.ProjectReunion" Version="0.8.1" />
     <PackageReference Include="Microsoft.ProjectReunion.Foundation" Version="0.8.1" />
     <PackageReference Include="Microsoft.ProjectReunion.WinUI" Version="0.8.1" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls" Version="7.0.2" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 

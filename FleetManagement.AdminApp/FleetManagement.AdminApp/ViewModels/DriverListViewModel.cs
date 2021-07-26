@@ -1,8 +1,10 @@
 ﻿using Fleetmanagement.GrpcAPI;
 using FleetManagement.GrpcClientLibrary;
+using Microsoft.UI.Xaml;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -13,9 +15,11 @@ namespace FleetManagement.AdminApp.ViewModels
     public class DriverListViewModel : ViewModelBase
     {
         public ObservableCollection<DriverListItem> Drivers { get; set; } = new ObservableCollection<DriverListItem>();
+        private Visibility _isLoading = Visibility.Visible;
         private DriverListItem _selectedDriver { get; set; }
         private const string _grpcServerUrl = "http://localhost:6000";
-        private DriverClient _driverGrpcClient;            
+        private DriverClient _driverGrpcClient;
+        
 
         public DriverListViewModel()
         {
@@ -25,13 +29,28 @@ namespace FleetManagement.AdminApp.ViewModels
         }
 
         public async void Load()
-        {
+        {           
             var drivers = await LoadDrivers();
-
-            MapToCollection(drivers);
+            MapToCollection(drivers);           
+            IsLoading = Visibility.Collapsed;
         }
 
         public bool IsDriverSelected => SelectedDriver != null;
+
+        public Visibility IsLoading
+        {
+            get => _isLoading; 
+            
+            set
+            {
+                if (_isLoading != value)
+                {
+                    _isLoading = value;
+                    RaisePropertyChanged();
+                    RaisePropertyChanged(nameof(IsLoading));
+                }
+            }
+        }
 
         public DriverListItem SelectedDriver
         {
@@ -41,7 +60,7 @@ namespace FleetManagement.AdminApp.ViewModels
             {
                 if (_selectedDriver != value)
                 {
-                    _selectedDriver = value;
+                    _selectedDriver = value;                    
                     RaisePropertyChanged();
                     RaisePropertyChanged(nameof(IsDriverSelected));
                 }
@@ -66,7 +85,10 @@ namespace FleetManagement.AdminApp.ViewModels
                 {
                     FirstName = driver.FirstName,
                     LastName = driver.LastName,
-                    NationalIdentificationNumber = driver.NationalIdentificationNumber
+                    NationalIdentificationNumber = driver.NationalIdentificationNumber,
+                    Email = driver.Email,
+                    DriversLicense = driver.DriversLicense,
+                    IsActive = driver.IsActive
                 });
             }
         }

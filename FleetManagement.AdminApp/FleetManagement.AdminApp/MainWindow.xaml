@@ -30,7 +30,7 @@
             </NavigationView.AutoSuggestBox>-->
             
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Bullets" Content="Drivers" Tag="drivers" />
+                <NavigationViewItem Icon="Contact" Content="Drivers" Tag="drivers" />
                 <NavigationViewItem Icon="Bullets" Content="Vehicles" Tag="vehicles" />
                 <NavigationViewItem Icon="Bullets" Content="Fuelcards" Tag="fuelcards" />
             </NavigationView.MenuItems>

@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.AdminApp", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement.GrpcClientLibrary", "FleetManagement.GrpcClientLibrary\FleetManagement.GrpcClientLibrary.csproj", "{B4251583-9984-4E9C-95F0-12AF73D3E9D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fleetmanagement.GrpcConsoleTest", "Fleetmanagement.GrpcConsoleTest\Fleetmanagement.GrpcConsoleTest.csproj", "{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fleetmanagement.GrpcConsoleTest", "Fleetmanagement.GrpcConsoleTest\Fleetmanagement.GrpcConsoleTest.csproj", "{52A30ABF-FDB3-4A83-ACAF-19CE7D392B99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

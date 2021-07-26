@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option csharp_namespace = "Fleetmanagement.GrpcAPI";
+
+package vehicle;
+
+service Vehicle
+{
+	rpc GetVehicle (VehicleRequest) returns (VehicleModel);
+	rpc GetVehicles (VehiclesRequest) returns (stream VehicleModel);
+	rpc AddVehicle (VehicleModel) returns (SuccessResponse);
+}
+
+message VehicleRequest
+{
+	int32 VehicleId = 1;	
+}
+
+message VehiclesRequest { }
+
+message VehicleModel
+{
+	string ChassisNumber = 1;
+	string VehicleType = 2;
+	string FuelType = 3;
+}
+
+message SuccessResponse
+{
+	bool Success = 1;
+	string Message = 2;
+	google.protobuf.Timestamp Timestamp = 3;
+}
