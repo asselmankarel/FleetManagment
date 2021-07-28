@@ -14,22 +14,31 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Loading..." Visibility="{x:Bind driverListViewModel.IsLoading, Mode=OneWay}" Margin="10"/>
+        <TextBlock Text="Loading..." Visibility="{x:Bind DriverListViewModel.IsLoading, Mode=OneWay}" Margin="10"/>
 
         <ListView Grid.Column="0"
-                  ItemsSource="{x:Bind driverListViewModel.Drivers, Mode=OneWay}"
-                  SelectedItem="{x:Bind driverListViewModel.SelectedDriver, Mode=TwoWay}"
+                  ItemsSource="{x:Bind DriverListViewModel.Drivers, Mode=OneWay}"
+                  SelectedItem="{x:Bind DriverListViewModel.SelectedDriver, Mode=TwoWay}"
                   DisplayMemberPath="FullName" 
-                  Margin="10 0" />
+                  Margin="10 0" >
+            
+        </ListView>
 
         <StackPanel Grid.Column="1" Background="DarkGray" Orientation="Vertical" Spacing="10" Padding="25">
             <TextBlock Text="Selected driver:" FontWeight="Bold" />
-            <TextBox Header="First name" Text="{x:Bind driverListViewModel.SelectedDriver.FirstName, Mode=TwoWay}" />
-            <TextBox Header="Last name" Text="{x:Bind driverListViewModel.SelectedDriver.LastName, Mode=TwoWay}" />
-            <TextBox Header="Email Address" Text="{x:Bind driverListViewModel.SelectedDriver.Email, Mode=TwoWay}" />
-            <TextBox Header="National identification number" Text="{x:Bind driverListViewModel.SelectedDriver.NationalIdentificationNumber, Mode=TwoWay}" />
-            <TextBox Header="Drivers license" Text="{x:Bind driverListViewModel.SelectedDriver.DriversLicense, Mode=TwoWay}" />
-            <Button x:Name="SaveButton" Content="Save changes" />
+            <TextBox  Header="First name" Text="{x:Bind DriverListViewModel.SelectedDriver.FirstName, Mode=TwoWay}" />
+            <TextBox Header="Last name" Text="{x:Bind DriverListViewModel.SelectedDriver.LastName, Mode=TwoWay}" />
+            <TextBox Header="Email Address" Text="{x:Bind DriverListViewModel.SelectedDriver.Email, Mode=TwoWay}" />
+            <TextBox Header="National identification number" Text="{x:Bind DriverListViewModel.SelectedDriver.NationalIdentificationNumber, Mode=TwoWay}" />
+            <TextBox Header="Drivers license" Text="{x:Bind DriverListViewModel.SelectedDriver.DriversLicense, Mode=TwoWay}" />
+            <Button x:Name="SaveButton" Content="Save" Margin="0 20" FontWeight="Bold" Command="{x:Bind DriverListViewModel.UpdateCommand}"/>
+            <SymbolIcon Symbol="ReportHacked"
+                        Foreground="Red"
+                        Visibility="{x:Bind DriverListViewModel.SelectedDriver.HasErrors, Mode=OneWay}">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="{x:Bind DriverListViewModel.SelectedDriver.HasErrors.ToString()}" ></TextBlock>
+                </ToolTipService.ToolTip>
+            </SymbolIcon>
         </StackPanel>
     </Grid>
 </Page>

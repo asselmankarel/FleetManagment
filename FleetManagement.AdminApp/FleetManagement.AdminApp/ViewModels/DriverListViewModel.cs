@@ -1,35 +1,47 @@
-﻿using Fleetmanagement.GrpcAPI;
-using FleetManagement.GrpcClientLibrary;
+﻿using FleetManagement.GrpcClientLibrary;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace FleetManagement.AdminApp.ViewModels
 {
-    public class DriverListViewModel : ViewModelBase
+    public class DriverListViewModel : ObservableValidator
     {
-        public ObservableCollection<DriverListItem> Drivers { get; set; } = new ObservableCollection<DriverListItem>();
-        private Visibility _isLoading = Visibility.Visible;
-        private DriverListItem _selectedDriver { get; set; }
-        private const string _grpcServerUrl = "http://localhost:6000";
-        private DriverClient _driverGrpcClient;
-        
+        public ObservableCollection<Models.DriverModel> Drivers { get; set; } = new ObservableCollection<Models.DriverModel>();
+        public ICommand UpdateCommand { get; }
 
+        private Visibility _isLoading = Visibility.Visible;
+        private Models.DriverModel _selectedDriver;
+        private readonly string _grpcServerUrl = "http://localhost:6000";
+        private readonly DriverClient _driverGrpcClient;
+       
         public DriverListViewModel()
         {
-            _driverGrpcClient = new DriverClient(_grpcServerUrl); 
+            _driverGrpcClient = new DriverClient(_grpcServerUrl);
             Load();
- 
+            UpdateCommand = new RelayCommand(OnUpdate, CanUpdate);
+        }
+
+        private bool CanUpdate()
+        {
+            //TODO: validation
+            return true;
+        }
+
+        private void OnUpdate()
+        {
+            //TODO:
+            throw new NotImplementedException();
         }
 
         public async void Load()
-        {           
+        {
+            IsLoading = Visibility.Visible;
             var drivers = await LoadDrivers();
             MapToCollection(drivers);           
             IsLoading = Visibility.Collapsed;
@@ -39,49 +51,32 @@ namespace FleetManagement.AdminApp.ViewModels
 
         public Visibility IsLoading
         {
-            get => _isLoading; 
-            
-            set
-            {
-                if (_isLoading != value)
-                {
-                    _isLoading = value;
-                    RaisePropertyChanged();
-                    RaisePropertyChanged(nameof(IsLoading));
-                }
-            }
+            get => _isLoading;             
+            set => SetProperty(ref _isLoading, value);
         }
 
-        public DriverListItem SelectedDriver
+        public Models.DriverModel SelectedDriver
         {
             get => _selectedDriver;
-
-            set
-            {
-                if (_selectedDriver != value)
-                {
-                    _selectedDriver = value;                    
-                    RaisePropertyChanged();
-                    RaisePropertyChanged(nameof(IsDriverSelected));
-                }
-            }
+            set => SetProperty(ref _selectedDriver, value, true);                
         }
 
-        private async Task<List<DriverModel>> LoadDrivers()
-        {
-            
+        private async Task<List<Fleetmanagement.GrpcAPI.DriverModel>> LoadDrivers()
+        {            
             var driverList = await _driverGrpcClient.DriverList();
 
             return driverList;
         }
 
-        private void MapToCollection(List<DriverModel> drivers)
+        private void MapToCollection(List<Fleetmanagement.GrpcAPI.DriverModel> drivers)
         {
             Drivers.Clear();
 
+            Drivers.Add(new Models.DriverModel { FirstName = "New", LastName = "Driver" });
+
             foreach (var driver in drivers)
             {
-                Drivers.Add(new DriverListItem
+                Drivers.Add(new Models.DriverModel
                 {
                     FirstName = driver.FirstName,
                     LastName = driver.LastName,

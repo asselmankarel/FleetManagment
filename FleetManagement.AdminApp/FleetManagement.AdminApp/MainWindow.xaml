@@ -22,17 +22,15 @@
         </Border>
         
         <!--Content-->
-        
-
         <NavigationView Grid.Row="1" x:Name="MainMenu" ItemInvoked="MainMenu_ItemInvoked">
             <!--<NavigationView.AutoSuggestBox>
                 <AutoSuggestBox x:Name="MainSearchBox" QueryIcon="Find" />
             </NavigationView.AutoSuggestBox>-->
             
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Contact" Content="Drivers" Tag="drivers" />
-                <NavigationViewItem Icon="Bullets" Content="Vehicles" Tag="vehicles" />
-                <NavigationViewItem Icon="Bullets" Content="Fuelcards" Tag="fuelcards" />
+                <NavigationViewItem Icon="People" Content="Drivers" Tag="drivers" />
+                <NavigationViewItem Icon="Preview" Content="Vehicles" Tag="vehicles" />
+                <NavigationViewItem Icon="Pin" Content="Fuelcards" Tag="fuelcards" />
             </NavigationView.MenuItems>
             
             <Frame x:Name="ContentFrame">

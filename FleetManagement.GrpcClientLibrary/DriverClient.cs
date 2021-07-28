@@ -12,8 +12,8 @@ namespace FleetManagement.GrpcClientLibrary
 {
     public class DriverClient
     {
-        private GrpcChannel _grpcChannel;
-        Driver.DriverClient _driverClient;
+        private readonly GrpcChannel _grpcChannel;
+        private readonly Driver.DriverClient _driverClient;
 
         public DriverClient(string serverAddress)
         {
