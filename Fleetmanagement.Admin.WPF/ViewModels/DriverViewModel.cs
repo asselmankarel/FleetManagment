@@ -51,13 +51,14 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             {
                 Drivers.Add(new DriverModel
                 {
+                    Id = driver.Id,
                     FirstName = driver.FirstName,
                     LastName = driver.LastName,
                     NationalIdentificationNumber = driver.NationalIdentificationNumber,
                     Email = driver.Email,
                     DriversLicense = driver.DriversLicense,
                     IsActive = driver.IsActive
-                });
+                }); ;
             }
         }
     }

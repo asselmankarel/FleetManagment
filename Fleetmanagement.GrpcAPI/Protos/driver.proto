@@ -22,12 +22,13 @@ message DriversRequest { }
 
 message DriverModel
 {
-	string NationalIdentificationNumber = 1;
-	string FirstName = 2;
-	string LastName = 3;
-	string Email = 4;
-	string DriversLicense = 5;
-	bool IsActive = 6;
+	int32 Id = 1;
+	string NationalIdentificationNumber = 2;
+	string FirstName = 3;
+	string LastName = 4;
+	string Email = 5;
+	string DriversLicense = 6;
+	bool IsActive = 7;
 
 }
 

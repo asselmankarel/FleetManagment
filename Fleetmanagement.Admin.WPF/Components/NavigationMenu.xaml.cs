@@ -1,6 +1,4 @@
-﻿using Fleetmanagement.Admin.WPF.ViewModels;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,13 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Fleetmanagement.Admin.WPF
+namespace Fleetmanagement.Admin.WPF.Components
 {
-    public partial class MainWindow : Window
-    {       
-        public ObservableObject CurrentViewModel { get; private set; }
-
-        public MainWindow()
+    /// <summary>
+    /// Interaction logic for NavigationMenu.xaml
+    /// </summary>
+    public partial class NavigationMenu : UserControl
+    {
+        public NavigationMenu()
         {
             InitializeComponent();
         }

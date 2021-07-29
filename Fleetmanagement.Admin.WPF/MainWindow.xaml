@@ -8,6 +8,7 @@
         xmlns:viewmodels="clr-namespace:Fleetmanagement.Admin.WPF.ViewModels"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:components="clr-namespace:Fleetmanagement.Admin.WPF.Components"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="16"
@@ -15,38 +16,23 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Fleetmanagement Administration" Height="600" Width="1024" >
+        Title="Fleetmanagement Administration" Height="600" Width="1024">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.Column="0" HorizontalAlignment="Center" Name="MainMenu">
-            <ListViewItem>
-                <Button Content="Drivers" Width="150" Margin="10" Foreground="White"/>
-            </ListViewItem>
-            <ListViewItem>
-                <Button Content="Vehicles" Width="150" Margin="10" Foreground="White"/>
-            </ListViewItem>
-            <ListViewItem>
-                <Button Content="Fuelcards" Width="150" Margin="10" Foreground="White"/>
-            </ListViewItem>
-            <ListViewItem>
-                <Button Content="Requests" Width="150" Margin="10" Foreground="White"/>
-            </ListViewItem>
-            <ListViewItem>
-                <Button Content="Maintenances" Width="150" Margin="10" Foreground="White"/>
-            </ListViewItem>
-            <ListViewItem>
-                <Button Content="Repairs" Width="150" Margin="10" Foreground="White"/>
-            </ListViewItem>
-        </ListView>
+        <components:NavigationMenu Grid.Column="0"/>
 
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}" >
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}" >
                     <views:HomeView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:DriverViewModel}" >
+                    <views:DriverView />
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

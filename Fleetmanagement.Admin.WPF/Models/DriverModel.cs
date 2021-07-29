@@ -10,6 +10,8 @@ namespace FleetManagement.Admin.WPF.Models
 {
     public class DriverModel : ObservableValidator
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "First name is required")]
         public string FirstName { get; set; }
 

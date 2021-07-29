@@ -1,4 +1,5 @@
-﻿using Fleetmanagement.Admin.WPF.ViewModels;
+﻿using Fleetmanagement.Admin.WPF.Stores;
+using Fleetmanagement.Admin.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,11 +18,17 @@ namespace Fleetmanagement.Admin.WPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainWindow = new MainWindow()
+            NavigationStore navigationStore = new NavigationStore();
+            navigationStore.CurrentViewModel = new HomeViewModel();
+            var navigationViewModel = new NavigationMenuViewModel(navigationStore);
+
+            Window window = new MainWindow()
             {
-                DataContext = new MainViewModel()
+                DataContext = new MainViewModel(navigationStore, navigationViewModel)
             };
 
+            window.Show();
+                        
             base.OnStartup(e);
         }
     }
