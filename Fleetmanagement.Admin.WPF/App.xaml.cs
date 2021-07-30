@@ -6,9 +6,6 @@ using System.Windows;
 
 namespace Fleetmanagement.Admin.WPF
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private readonly IServiceProvider _serviceProvider;
@@ -35,7 +32,7 @@ namespace Fleetmanagement.Admin.WPF
         protected override void OnStartup(StartupEventArgs e)
         {            
             Window mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
-            mainWindow.Show();     
+            mainWindow.Show();
             base.OnStartup(e);
         }
 

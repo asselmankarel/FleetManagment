@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,11 +14,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FleetManagement.GrpcClientLibrary\FleetManagement.GrpcClientLibrary.csproj" />
+    <Page Include="App.xaml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\FleetManagement.GrpcClientLibrary\FleetManagement.GrpcClientLibrary.csproj" />
   </ItemGroup>
+
+  
+
 
 </Project>

@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-
 option csharp_namespace = "Fleetmanagement.GrpcAPI";
 
 package driver;
@@ -10,7 +8,7 @@ service Driver
 {
 	rpc GetDriver (DriverRequest) returns (DriverModel);
 	rpc GetDrivers (DriversRequest) returns (stream DriverModel);
-	rpc AddDriver (DriverModel) returns (SuccessResponse);
+	rpc AddDriver (DriverModel) returns (DriverSuccessResponse);
 }
 
 message DriverRequest
@@ -32,9 +30,8 @@ message DriverModel
 
 }
 
-message SuccessResponse
+message DriverSuccessResponse
 {
 	bool Success = 1;
 	string Message = 2;
-	google.protobuf.Timestamp Timestamp = 3;
 }

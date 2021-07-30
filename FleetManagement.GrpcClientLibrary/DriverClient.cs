@@ -1,12 +1,8 @@
-﻿using Grpc.Net.Client;
+﻿using Fleetmanagement.GrpcAPI;
 using Grpc.Core;
-using System;
+using Grpc.Net.Client;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Fleetmanagement.GrpcAPI;
-using System.Diagnostics;
 
 namespace FleetManagement.GrpcClientLibrary
 {
@@ -39,16 +35,6 @@ namespace FleetManagement.GrpcClientLibrary
                     drivers.Add(driver);
 
                 }
-
-                //var allDrivers = call.ResponseStream.ReadAllAsync<DriverModel>();
-                //await foreach (var driver in allDrivers)
-                //{
-                //    drivers.Add(driver);
-                //}
-
-                Debug.WriteLine(call.GetStatus());
-                Debug.WriteLine($"Number of drivers: {drivers.Count}");
-
             }
 
             return drivers;

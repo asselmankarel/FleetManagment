@@ -8,7 +8,7 @@ service Vehicle
 {
 	rpc GetVehicle (VehicleRequest) returns (VehicleModel);
 	rpc GetVehicles (VehiclesRequest) returns (stream VehicleModel);
-	rpc AddVehicle (VehicleModel) returns (SuccessResponse);
+	rpc AddVehicle (VehicleModel) returns (VehicleSuccessResponse);
 }
 
 message VehicleRequest
@@ -20,14 +20,14 @@ message VehiclesRequest { }
 
 message VehicleModel
 {
-	string ChassisNumber = 1;
-	string VehicleType = 2;
-	string FuelType = 3;
+	int32 Id = 1;
+	string ChassisNumber = 2;
+	string VehicleType = 3;
+	string FuelType = 4;
 }
 
-message SuccessResponse
+message VehicleSuccessResponse
 {
 	bool Success = 1;
 	string Message = 2;
-	google.protobuf.Timestamp Timestamp = 3;
 }

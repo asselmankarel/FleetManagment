@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <None Remove="Protos\driver.proto" />
+    <None Remove="Protos\vehicle.proto" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +27,7 @@
 
   <ItemGroup>
     <Protobuf Include="Protos\driver.proto" />
+    <Protobuf Include="Protos\vehicle.proto" />
   </ItemGroup>
 
 </Project>

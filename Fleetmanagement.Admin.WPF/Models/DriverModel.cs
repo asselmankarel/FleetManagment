@@ -1,16 +1,11 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FleetManagement.Admin.WPF.Models
 {
     public class DriverModel : ObservableValidator
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         [Required(ErrorMessage = "First name is required")]
         public string FirstName { get; set; }
