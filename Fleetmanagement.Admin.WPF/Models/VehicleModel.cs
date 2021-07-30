@@ -19,5 +19,9 @@ namespace Fleetmanagement.Admin.WPF.Models
 
         public string Licenseplate { get; set; }
 
+        public string DisplayMember {
+            get => ChassisNumber;
+        }
+
     }
 }

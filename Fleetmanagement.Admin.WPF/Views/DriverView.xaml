@@ -20,12 +20,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView 
-            ItemsSource="{Binding Drivers}"
-            SelectedItem="{Binding SelectedDriver, Mode=TwoWay}" 
-            DisplayMemberPath="FullName" 
-            FontWeight="Bold"
-            ScrollViewer.CanContentScroll="True"/>
+        <ListView ItemsSource="{Binding Drivers}"
+                  SelectedItem="{Binding SelectedDriver, Mode=TwoWay}" 
+                  DisplayMemberPath="FullName" 
+                  FontWeight="Bold"
+                  ScrollViewer.CanContentScroll="True"/>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

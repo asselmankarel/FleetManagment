@@ -15,6 +15,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public ICommand HomeNavigationCommand { get; set; }
         public ICommand DriverNavigationCommand { get; set; }
         public ICommand VehicleNavigationCommand { get; set; }
+        
         public NavigationStore NavigationStore { get; set; }
 
         public NavigationMenuViewModel(NavigationStore navigationStore)
@@ -22,6 +23,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             NavigationStore = navigationStore;
             HomeNavigationCommand = new NavigateCommand<HomeViewModel>(NavigationStore, () => new HomeViewModel());
             DriverNavigationCommand = new NavigateCommand<DriverViewModel>(NavigationStore, () => new DriverViewModel());
+            VehicleNavigationCommand = new NavigateCommand<VehicleViewModel>(NavigationStore, () => new VehicleViewModel());
         }
 
         public NavigationMenuViewModel()

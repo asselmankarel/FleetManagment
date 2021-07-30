@@ -1,4 +1,5 @@
-﻿using FleetManagement.DAL.DataAccess;
+﻿using Fleetmanagement.GrpcAPI.Services;
+using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,6 +18,7 @@ namespace Fleetmanagement.GrpcAPI
             services.AddAutoMapper(typeof(AutoMapperProfiles.DriverProfile));
             services.AddScoped<ApplicationDbContext>();
             services.AddScoped<IDriverRepository, DriverRepository>();
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddGrpc();
         }
 
@@ -33,6 +35,7 @@ namespace Fleetmanagement.GrpcAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<DriverService>();
+                endpoints.MapGrpcService<VehicleService>();
 
                 endpoints.MapGet("/", async context =>
                 {

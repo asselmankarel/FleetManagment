@@ -3,30 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Fleetmanagement.Admin.WPF.Views"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"                        
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="40" />
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <DataGrid Grid.Row="0" 
-                  ItemsSource="{Binding Vehicles, Mode=OneWay}"
-                  SelectedItem="{Binding SelectedVehicle, Mode=TwoWay}" />
+        <ListBox Grid.Column="0"
+                 ItemsSource="{Binding Vehicles, Mode=OneWay}"
+                 SelectedItem="{Binding SelectedVehicle, Mode=TwoWay}"
+                 DisplayMemberPath="DisplayMember"
+                 FontWeight="Bold"
+                 ScrollViewer.CanContentScroll="True" />
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Margin="5" Foreground="WhiteSmoke">
+        <StackPanel Grid.Column="1" Margin="25" >
+            <Label Content="ChassisNumber" Margin="10 20 10 0" FontWeight="Bold"/>
+            <TextBox Text="{Binding SelectedVehicle.ChassisNumber, Mode=TwoWay}" Margin="10 0 10 10"/>
+
+            <Label Content="Vehicle type" Margin="10 10 10 0" FontWeight="Bold"/>
+            <ComboBox ItemsSource="{Binding VehicleTypes}"
+                      SelectedItem="{Binding SelectedVehicle.VehicleType, Mode=TwoWay}"
+                      Margin="10 0 10 10"
+                      Width="200"
+                      HorizontalAlignment="Left"/>
+
+
+            <Label Content="Fuel type" Margin="10 10 10 0" FontWeight="Bold"/>
+            <ComboBox ItemsSource="{Binding FuelTypes}"
+                      SelectedItem="{Binding SelectedVehicle.FuelType, Mode=TwoWay}"
+                      Margin="10 0 10 10"
+                      Width="200"
+                      HorizontalAlignment="Left"/>
+
+            <Label Content="Licenseplate" Margin="10 10 10 0" FontWeight="Bold"/>
+            <Label Content="{Binding SelectedVehicle.Licenseplate, Mode=OneWay}" Margin="10 0 10 10"/>
+
+            <Button Margin="10 50 0 0" Foreground="White" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Edit" Margin="10 0 0 0" />
-                    <TextBlock Text="Edit" Margin="10 0 0 0" />
+                    <TextBlock Text="Edit" Margin="0 0 0 0" />
                 </StackPanel>
             </Button>
         </StackPanel>
-
-
-
     </Grid>
 </UserControl>

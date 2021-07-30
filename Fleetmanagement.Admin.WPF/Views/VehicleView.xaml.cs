@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Fleetmanagement.Admin.WPF.Views
 {
-    /// <summary>
-    /// Interaction logic for VehicleView.xaml
-    /// </summary>
+
     public partial class VehicleView : UserControl
     {
         public VehicleView()

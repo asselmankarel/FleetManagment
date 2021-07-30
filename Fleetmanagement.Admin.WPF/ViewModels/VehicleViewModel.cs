@@ -11,6 +11,11 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         private VehicleModel _selectedVehicle;
         private readonly Services.VehicleService _vehicleService;
 
+        public List<string> VehicleTypes { get; } = new List<string>() { "Car","Van","Truck" };
+        public List<string> FuelTypes { get; } = new List<string>()
+        {
+            "Cng","Diesel","Electric","Gasoline","Hybrid","Hydrogen","Lpg"
+        };
         public ObservableCollection<VehicleModel> Vehicles { get; set; } = new ObservableCollection<VehicleModel>();
 
         public VehicleViewModel()

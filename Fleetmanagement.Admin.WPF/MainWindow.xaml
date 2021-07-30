@@ -34,9 +34,9 @@
                 <DataTemplate DataType="{x:Type viewmodels:DriverViewModel}" >
                     <views:DriverView />
                 </DataTemplate>
-                <!--<DataTemplate DataType="{x:Type viewmodels:VehicleViewModel}" >
+                <DataTemplate DataType="{x:Type viewmodels:VehicleViewModel}" >
                     <views:VehicleView />
-                </DataTemplate>-->
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>
