@@ -1,21 +1,17 @@
-﻿using Fleetmanagement.Admin.WPF.Stores;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace Fleetmanagement.Admin.WPF.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
-        private readonly NavigationStore _navigationStore;
-        private readonly NavigationMenuViewModel _navigationMenuViewModel;
-        public NavigationMenuViewModel NavigationMenuViewModel { get => _navigationMenuViewModel; }
+        public NavigationMenuViewModel NavigationMenuViewModel { get; }
 
-        public ObservableObject CurrentViewModel => _navigationStore.CurrentViewModel;
+        public ObservableObject CurrentViewModel => NavigationMenuViewModel.NavigationStore.CurrentViewModel;
 
-        public MainViewModel(NavigationStore navigationStore, NavigationMenuViewModel navigationMenuViewModel)
+        public MainViewModel( NavigationMenuViewModel navigationMenuViewModel)
         {
-            _navigationStore = navigationStore;
-            _navigationMenuViewModel = navigationMenuViewModel;
-            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+            NavigationMenuViewModel = navigationMenuViewModel;
+            NavigationMenuViewModel.NavigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 
         private void OnCurrentViewModelChanged()

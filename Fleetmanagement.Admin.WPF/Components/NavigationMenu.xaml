@@ -3,29 +3,67 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Fleetmanagement.Admin.WPF.Components"
+             xmlns:local="clr-namespace:Fleetmanagement.Admin.WPF.Components" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Border  Grid.Column="0" BorderThickness="0 0 1 0" BorderBrush="LightGray" DataContext="{Binding NavigationMenuViewModel}">
         <ListView HorizontalAlignment="Center" Name="MainMenu">
-            <ListViewItem>
-                <Button Content="Drivers" Width="150" Margin="5" Foreground="White" Command="{Binding DriverNavigationCommand}"/>
+            <ListViewItem >
+                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="{Binding DriverNavigationCommand}">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="People" Margin="10 0 0 0"/>
+                        <TextBlock Text="Drivers" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Button>
             </ListViewItem>
             <ListViewItem>
-                <Button Content="Vehicles" Width="150" Margin="5" Foreground="White"/>
+                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="{Binding VehicleNavigationCommand}">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Car" Margin="10 0 0 0"/>
+                        <TextBlock Text="Vehicles" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Button>
             </ListViewItem>
             <ListViewItem>
-                <Button Content="Fuelcards" Width="150" Margin="5" Foreground="White"/>
+                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="CreditCard" Margin="10 0 0 0"/>
+                        <TextBlock Text="Fuelcards" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Button>
             </ListViewItem>
             <ListViewItem>
-                <Button Content="Requests" Width="150" Margin="5" Foreground="White"/>
+                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Ticket" Margin="10 0 0 0"/>
+                        <TextBlock Text="Requests" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Button>
+            </ListViewItem>
+            <ListViewItem >
+                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Wrench" Margin="10 0 0 0"/>
+                        <TextBlock Text="Maintenances" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Button>
             </ListViewItem>
             <ListViewItem>
-                <Button Content="Maintenances" Width="150" Margin="5" Foreground="White"/>
+                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="{Binding HomeNavigationCommand}">
+                    <StackPanel  Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Tools" Margin="10 0 0 0"/>
+                        <TextBlock Text="Repairs" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Button>
             </ListViewItem>
             <ListViewItem>
-                <Button Content="Repairs" Width="150" Margin="5" Foreground="White"/>
+                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="{Binding HomeNavigationCommand}">
+                    <StackPanel  Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Home" Margin="10 0 0 0"/>
+                        <TextBlock Text="Home" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Button>
             </ListViewItem>
         </ListView>
     </Border>
