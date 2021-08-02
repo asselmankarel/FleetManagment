@@ -19,6 +19,7 @@ namespace Fleetmanagement.GrpcAPI
             services.AddScoped<ApplicationDbContext>();
             services.AddScoped<IDriverRepository, DriverRepository>();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IFuelcardRepository, FuelcardRepository>();
             services.AddGrpc();
         }
 
@@ -36,6 +37,8 @@ namespace Fleetmanagement.GrpcAPI
             {
                 endpoints.MapGrpcService<DriverService>();
                 endpoints.MapGrpcService<VehicleService>();
+                endpoints.MapGrpcService<FuelcardService>();
+                endpoints.MapGrpcService<RequestService>();
 
                 endpoints.MapGet("/", async context =>
                 {

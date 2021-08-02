@@ -1,16 +1,33 @@
-﻿using System;
+﻿using Fleetmanagement.GrpcAPI;
+using Grpc.Core;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FleetManagement.GrpcClientLibrary
 {
-    class FuelcardClient : ClientBase
+    public class FuelcardClient : ClientBase
     {
+        private readonly Fuelcard.FuelcardClient _fuelcardClient;
+
         public FuelcardClient(string serverUrl) : base(serverUrl)
         {
+            _fuelcardClient = new Fuelcard.FuelcardClient(grpcChannel);
+        }
 
+        public async Task<List<FuelcardModel>> GetFuelcardList()
+        {
+            var fuelcards = new List<FuelcardModel>();
+
+            using (var call = _fuelcardClient.GetFuelcards(new FuelcardsRequest()))
+            {
+                while (await call.ResponseStream.MoveNext())
+                {
+                    var fuelcard = call.ResponseStream.Current;
+                    fuelcards.Add(fuelcard);
+                }
+            }
+
+            return fuelcards;
         }
     }
 }

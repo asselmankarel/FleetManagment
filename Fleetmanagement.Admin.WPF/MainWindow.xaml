@@ -37,6 +37,9 @@
                 <DataTemplate DataType="{x:Type viewmodels:VehicleViewModel}" >
                     <views:VehicleView />
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:FuelcardViewModel}" >
+                    <views:FuelcardView />
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>

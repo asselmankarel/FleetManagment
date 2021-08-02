@@ -26,7 +26,7 @@
                 </Button>
             </ListViewItem>
             <ListViewItem>
-                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="">
+                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="{Binding FuelcardNavigationCommand}">
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="CreditCard" Margin="10 0 0 0"/>
                         <TextBlock Text="Fuelcards" Margin="10 0 0 0"/>

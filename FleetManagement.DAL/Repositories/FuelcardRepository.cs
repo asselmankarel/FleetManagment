@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.Repositories
 {
-    public class FuelcardRepository : GenericRepository<Fuelcard>
+    public class FuelcardRepository : GenericRepository<Fuelcard>, IFuelcardRepository
     {
         public FuelcardRepository(ApplicationDbContext context) : base(context)
         {
@@ -26,5 +27,11 @@ namespace FleetManagement.DAL.Repositories
             return fuelcard;
         }
 
+        public async Task<List<Fuelcard>> GetAllFuelcardsWithServices()
+        {
+            var fuelcards = await _context.Fuelcards.Include(f => f.Services).ToListAsync();
+
+            return fuelcards;
+        }
     }
 }

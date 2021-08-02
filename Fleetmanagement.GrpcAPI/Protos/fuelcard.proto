@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Fleetmanagement.GrpcAPI";
+
+package fuelcard;
+
+service Fuelcard
+{
+	rpc GetFuelcards (FuelcardsRequest) returns (stream FuelcardModel);
+}
+
+message FuelcardsRequest {}
+
+message FuelcardModel 
+{
+	int32 Id = 1;
+	string CardNumber = 2;
+	string AuthType = 3;
+	string FuelType = 4;
+	repeated string Services = 5;
+}

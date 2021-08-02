@@ -20,6 +20,8 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
 
         public async void LoadDrivers()
         {
+            Drivers.Clear();
+            Drivers.Add(new DriverModel { FirstName = "New", LastName = "Driver" });
             var drivers = await _driverService.GetDriversFromGrpcApi();
             MapToCollection(drivers);       
         }
@@ -33,9 +35,6 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
 
         private void MapToCollection(List<Fleetmanagement.GrpcAPI.DriverModel> drivers)
         {
-            Drivers.Clear();
-            Drivers.Add(new DriverModel { FirstName = "New", LastName = "Driver" });
-
             foreach (var driver in drivers)
             {
                 Drivers.Add(new DriverModel
