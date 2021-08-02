@@ -151,3 +151,6 @@ C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Test\obj\Deb
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Test\obj\Debug\net5.0\ref\FleetManagement.Test.dll
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Test\obj\Debug\net5.0\FleetManagement.Test.pdb
 C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Test\obj\Debug\net5.0\FleetManagement.Test.genruntimeconfig.cache
+C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Test\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Test\bin\Debug\net5.0\FleetManagement.BL.dll
+C:\Users\KarelAsselman\source\repos\FleetManagement\FleetManagement.Test\bin\Debug\net5.0\FleetManagement.BL.pdb

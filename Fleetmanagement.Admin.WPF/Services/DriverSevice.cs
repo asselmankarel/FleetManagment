@@ -13,7 +13,7 @@ namespace Fleetmanagement.Admin.WPF.Services
             _driverGrpcClient = new DriverClient(_grpcServerUrl);
         }
 
-        public async Task<List<Fleetmanagement.GrpcAPI.DriverModel>> GetDriversFromGrpcApi()
+        public async Task<List<GrpcAPI.DriverModel>> GetDriversFromGrpcApi()
         {
             var driverList = await _driverGrpcClient.DriverList();
 

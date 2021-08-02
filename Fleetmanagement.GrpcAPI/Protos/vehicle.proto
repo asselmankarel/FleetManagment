@@ -24,6 +24,7 @@ message VehicleModel
 	string ChassisNumber = 2;
 	string VehicleType = 3;
 	string FuelType = 4;
+	string Licenseplate = 5;
 }
 
 message VehicleSuccessResponse

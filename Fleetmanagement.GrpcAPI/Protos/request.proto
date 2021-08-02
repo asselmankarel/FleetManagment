@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "Protos/driver.proto";
+import "Protos/vehicle.proto";
+
+option csharp_namespace = "Fleetmanagement.GrpcAPI";
+
+package request;
+
+service Request
+{
+	rpc GetRequests (RequestsRequest) returns (stream RequestModel);
+	rpc UpdateRequest (RequestModel) returns (RequestSuccessResponse);
+}
+
+message RequestsRequest { }
+
+message RequestModel
+{
+	int32 Id = 1;
+	string RequestType = 2;
+	string RequestStatus = 3;
+	google.protobuf.Timestamp PrefDate1 = 4;
+	google.protobuf.Timestamp PrefDate2 = 5;
+	driver.DriverModel Driver = 6;
+	vehicle.VehicleModel Vehicle = 7;
+}
+ 
+message RequestSuccessResponse
+{
+	bool Success = 1;
+	string Message = 2;
+}

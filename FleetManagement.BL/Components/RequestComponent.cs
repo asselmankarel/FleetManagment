@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 
 namespace FleetManagement.BL.Components
 {
@@ -21,6 +22,13 @@ namespace FleetManagement.BL.Components
             _requestRepository = serviceProvider.GetRequiredService<IRequestRepository>();
             _driverRepository = serviceProvider.GetRequiredService<IDriverRepository>();
             _vehicleRepository = serviceProvider.GetRequiredService<IVehicleRepository>();
+        }
+
+        public async Task<List<Request>> GetRequests()
+        {
+            var requests = await _requestRepository.GetRequests();
+
+            return requests;
         }
 
         public ICreateResponse Create(ICreateRequest createRequest)
@@ -84,5 +92,6 @@ namespace FleetManagement.BL.Components
 
             return response;
         }
+
     }
 }

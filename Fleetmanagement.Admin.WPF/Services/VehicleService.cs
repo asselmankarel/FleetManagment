@@ -13,7 +13,7 @@ namespace Fleetmanagement.Admin.WPF.Services
             _vehicleClient = new VehicleClient(_grpcServerUrl);
         }
 
-        public async Task<List<Fleetmanagement.GrpcAPI.VehicleModel>> GetVehiclesFromGrpcApi()
+        public async Task<List<GrpcAPI.VehicleModel>> GetVehiclesFromGrpcApi()
         {
             var vehicleList = await _vehicleClient.VehicleList();
 

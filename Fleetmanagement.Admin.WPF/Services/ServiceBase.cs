@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Fleetmanagement.Admin.WPF.Services
 {
-    public class ServiceBase
+    public abstract class ServiceBase
     {
-        public readonly string _grpcServerUrl = "http://localhost:6000";        
-
+        public readonly string _grpcServerUrl = "http://localhost:6000";
     }
 }

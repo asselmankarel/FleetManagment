@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <None Remove="Protos\driver.proto" />
+    <None Remove="Protos\request.proto" />
     <None Remove="Protos\vehicle.proto" />
   </ItemGroup>
 
@@ -21,12 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FleetManagement.BL\FleetManagement.BL.csproj" />
     <ProjectReference Include="..\FleetManagement.DAL\FleetManagement.DAL.csproj" />
     <ProjectReference Include="..\FleetManagement.Domain\FleetManagement.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Protobuf Include="Protos\driver.proto" />
+    <Protobuf Include="Protos\request.proto" />
     <Protobuf Include="Protos\vehicle.proto" />
   </ItemGroup>
 

@@ -1,9 +1,4 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fleetmanagement.Admin.WPF.Models
 {
@@ -20,8 +15,7 @@ namespace Fleetmanagement.Admin.WPF.Models
         public string Licenseplate { get; set; }
 
         public string DisplayMember {
-            get => ChassisNumber;
+            get => Licenseplate;
         }
-
     }
 }

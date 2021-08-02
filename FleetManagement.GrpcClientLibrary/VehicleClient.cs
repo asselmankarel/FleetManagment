@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace FleetManagement.GrpcClientLibrary
 {
-
-    public class VehicleClient
+    public class VehicleClient : ClientBase
     {
-        private readonly GrpcChannel _grpcChannel;
+ 
         private readonly Vehicle.VehicleClient _vehicleClient;
 
-        public VehicleClient(string serverAddress)
+        public VehicleClient(string serverUrl) : base(serverUrl)
         {
-            _grpcChannel = GrpcChannel.ForAddress(serverAddress);
-            _vehicleClient = new Vehicle.VehicleClient(_grpcChannel);
+            _vehicleClient = new Vehicle.VehicleClient(grpcChannel);
         }
 
         public VehicleModel VehicleDetails(int vehicleId)

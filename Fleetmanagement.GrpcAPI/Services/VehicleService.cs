@@ -2,7 +2,6 @@
 using FleetManagement.DAL.Repositories;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Fleetmanagement.GrpcAPI.Services
@@ -22,7 +21,7 @@ namespace Fleetmanagement.GrpcAPI.Services
 
         public override async Task GetVehicles(VehiclesRequest request, IServerStreamWriter<VehicleModel> responseStream, ServerCallContext context)
         {
-            var vehicles = _vehicleRepository.GetAll();
+            var vehicles = await _vehicleRepository.GetAllVehiclesWithActiveLicenseplate();
 
             foreach (var vehicle in vehicles)
             {

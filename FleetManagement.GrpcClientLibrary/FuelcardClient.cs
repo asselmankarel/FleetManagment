@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace FleetManagement.GrpcClientLibrary
 {
-    class FuelcardClient
+    class FuelcardClient : ClientBase
     {
+        public FuelcardClient(string serverUrl) : base(serverUrl)
+        {
+
+        }
     }
 }

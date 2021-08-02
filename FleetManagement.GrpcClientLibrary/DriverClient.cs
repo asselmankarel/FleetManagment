@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace FleetManagement.GrpcClientLibrary
 {
-    public class DriverClient
+    public class DriverClient : ClientBase
     {
-        private readonly GrpcChannel _grpcChannel;
+  
         private readonly Driver.DriverClient _driverClient;
 
-        public DriverClient(string serverAddress)
+        public DriverClient(string serverUrl) : base(serverUrl)
         {
-            _grpcChannel = GrpcChannel.ForAddress(serverAddress);
-           _driverClient = new Driver.DriverClient(_grpcChannel);           
+            
+           _driverClient = new Driver.DriverClient(grpcChannel);           
         }
 
         public DriverModel DriverDetails(int driverId)

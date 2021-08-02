@@ -3,6 +3,7 @@ using FleetManagement.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.Repositories
 {
@@ -18,6 +19,13 @@ namespace FleetManagement.DAL.Repositories
                 .Skip(_context.Requests.Count() - number - 1);
 
             return requests.OrderByDescending(r => r.Id).ToList();
+        }
+
+        public async Task<List<Request>> GetRequests()
+        {
+            var requests = await _context.Requests.Include(r => r.Driver).Include(r => r.Vehicle).ToListAsync();
+
+            return requests;
         }
     }
 }

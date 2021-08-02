@@ -16,6 +16,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         {
             "Cng","Diesel","Electric","Gasoline","Hybrid","Hydrogen","Lpg"
         };
+
         public ObservableCollection<VehicleModel> Vehicles { get; set; } = new ObservableCollection<VehicleModel>();
 
         public VehicleViewModel()
@@ -29,6 +30,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             var vehicles = await _vehicleService.GetVehiclesFromGrpcApi();
             MapToCollection(vehicles);
         }
+
         public VehicleModel SelectedVehicle
         {
             get => _selectedVehicle;
@@ -46,7 +48,9 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
                     Id = vehicle.Id,
                     ChassisNumber = vehicle.ChassisNumber,
                     VehicleType = vehicle.VehicleType,
-                    FuelType = vehicle.FuelType
+                    FuelType = vehicle.FuelType,
+                    Licenseplate = vehicle.Licenseplate
+                    
                 });
             }
         }

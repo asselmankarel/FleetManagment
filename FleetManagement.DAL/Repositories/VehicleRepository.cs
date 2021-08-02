@@ -2,7 +2,9 @@
 using FleetManagement.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.Repositories
 {
@@ -52,6 +54,16 @@ namespace FleetManagement.DAL.Repositories
             var licensePlate = vehicle.VehicleLicensePlates.FirstOrDefault().LicensePlate;
 
             return licensePlate.Number;
+        }
+
+        public async Task<List<Vehicle>> GetAllVehiclesWithActiveLicenseplate()
+        {
+            var vehicles = await _context.Vehicles
+                .Include(v => v.VehicleLicensePlates.Where(vlp => vlp.EndDate == null))
+                .ThenInclude(vlp => vlp.LicensePlate)
+                .ToListAsync();
+
+            return vehicles;
         }
     }
 }
