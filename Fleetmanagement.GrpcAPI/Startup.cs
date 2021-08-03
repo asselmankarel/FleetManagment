@@ -22,8 +22,10 @@ namespace Fleetmanagement.GrpcAPI
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IFuelcardRepository, FuelcardRepository>();
             services.AddScoped<IRequestRepository, RequestRepository>();
+            services.AddScoped<IDriverComponent, DriverComponent>();
             services.AddScoped<IRequestComponent, RequestComponent>();
             services.AddGrpc();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

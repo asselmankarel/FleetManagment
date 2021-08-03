@@ -8,7 +8,7 @@ service Driver
 {
 	rpc GetDriver (DriverRequest) returns (DriverModel);
 	rpc GetDrivers (DriversRequest) returns (stream DriverModel);
-	rpc AddDriver (DriverModel) returns (DriverSuccessResponse);
+	rpc SaveDriver (DriverModel) returns (DriverSuccessResponse);
 }
 
 message DriverRequest

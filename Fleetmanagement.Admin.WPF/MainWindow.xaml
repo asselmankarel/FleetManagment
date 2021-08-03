@@ -16,7 +16,7 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Fleetmanagement Administration" Height="600" Width="1024">
+        Title="Fleetmanagement Administration" Height="800" Width="1280">
 
     <Grid>
         <Grid.Resources>

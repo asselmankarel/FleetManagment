@@ -1,7 +1,9 @@
 ﻿using FleetManagement.DAL.DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.Repositories
 {
@@ -27,6 +29,22 @@ namespace FleetManagement.DAL.Repositories
         {
             _context.Set<T>().Add(entity);
             _context.SaveChanges();
+        }
+
+        public async Task<int> AddAsync(T entity)
+        {
+            
+            var response = await _context.Set<T>().AddAsync(entity);
+            Debug.WriteLine(response.ToString());
+            var numberOfChangedEntities = await _context.SaveChangesAsync();
+
+            return numberOfChangedEntities;
+        }
+
+        public async void UpdateAsync(T entity)
+        {
+            _context.Set<T>().Update(entity);
+            await _context.SaveChangesAsync();
         }
 
         public void Update(T entity)

@@ -37,7 +37,7 @@ namespace FleetManagement.BL.Components
             if (driver == null) return MakeFailedResponse("Driver not found...");
 
             var request = MapCreateRequestToRequest(driver, createRequest);
-            CreateResponse createResponse = IsValid(request);
+            ICreateResponse createResponse = IsValid(request);
 
             if (!createResponse.Successful) return createResponse;            
 
@@ -81,7 +81,7 @@ namespace FleetManagement.BL.Components
             }            
         }
 
-        private static CreateResponse IsValid(Request request)
+        private static ICreateResponse IsValid(Request request)
         {
             var context = new ValidationContext(request);
             var results = new List<ValidationResult>();

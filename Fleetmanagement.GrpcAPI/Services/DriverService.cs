@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FleetManagement.BL.Components;
 using FleetManagement.DAL.Repositories;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
@@ -13,12 +14,14 @@ namespace Fleetmanagement.GrpcAPI
         
         private readonly ILogger<DriverService> _logger;
         private readonly IDriverRepository _driverRepository;
+        private readonly IDriverComponent _driverComponent;
         private readonly IMapper _mapper;
 
-        public DriverService(ILogger<DriverService> logger, IDriverRepository driverRepository, IMapper mapper)
+        public DriverService(ILogger<DriverService> logger, IDriverRepository driverRepository, IDriverComponent driverComponent, IMapper mapper)
         {
             _logger = logger;
             _driverRepository = driverRepository;
+            _driverComponent = driverComponent;
             _mapper = mapper;            
         }
 
@@ -43,7 +46,20 @@ namespace Fleetmanagement.GrpcAPI
 
                 await responseStream.WriteAsync(_mapper.Map<DriverModel>(driver));
             }       
-           
+        }
+
+        public override async Task<DriverSuccessResponse> SaveDriver(DriverModel request, ServerCallContext context)
+        {
+            var driver = _mapper.Map<FleetManagement.Domain.Models.Driver>(request);
+            var response = await _driverComponent.SaveDriver(driver);
+
+            if (response.Successful)
+            {
+                return new DriverSuccessResponse() { Success = true, Message = response.ToString() };
+            }
+
+
+            return new DriverSuccessResponse() { Success = false, Message = "Not implemented yet!" };
         }
     }
 }

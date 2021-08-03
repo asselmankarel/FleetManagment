@@ -40,5 +40,12 @@ namespace FleetManagement.GrpcClientLibrary
             return drivers;
         }
 
+        public DriverSuccessResponse SaveDriver(DriverModel driver)
+        {
+            var result = _driverClient.SaveDriver(driver);
+
+            return result;
+        }
+
     }
 }
