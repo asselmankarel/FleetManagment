@@ -23,7 +23,11 @@ namespace FleetManagement.DAL.Repositories
 
         public async Task<List<Request>> GetRequests()
         {
-            var requests = await _context.Requests.Include(r => r.Driver).Include(r => r.Vehicle).ToListAsync();
+            var requests = await _context.Requests.Include(r => r.Driver)
+                .Include(r => r.Vehicle)
+                .ThenInclude(v => v.VehicleLicensePlates.Where(vlp => vlp.EndDate == null))
+                .ThenInclude(vlp => vlp.LicensePlate)
+                .ToListAsync();
 
             return requests;
         }

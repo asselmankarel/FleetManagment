@@ -21,9 +21,8 @@ namespace FleetManagement.GrpcClientLibrary
             using (var call = _fuelcardClient.GetFuelcards(new FuelcardsRequest()))
             {
                 while (await call.ResponseStream.MoveNext())
-                {
-                    var fuelcard = call.ResponseStream.Current;
-                    fuelcards.Add(fuelcard);
+                {                    
+                    fuelcards.Add(call.ResponseStream.Current);
                 }
             }
 

@@ -9,19 +9,19 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
     {
         private DriverModel _selectedDriver;
         private readonly Services.DriverSevice _driverService;
-
+        
         public ObservableCollection<DriverModel> Drivers { get; set; } = new ObservableCollection<DriverModel>();
 
         public DriverViewModel()
         {
             _driverService = new Services.DriverSevice();
-            LoadDrivers();
+            LoadDrivers();           
         }
 
         public async void LoadDrivers()
         {
             Drivers.Clear();
-            Drivers.Add(new DriverModel { FirstName = "New", LastName = "Driver" });
+            Drivers.Add(new DriverModel { FirstName = "NEW", LastName = "DRIVER" });
             var drivers = await _driverService.GetDriversFromGrpcApi();
             MapToCollection(drivers);       
         }
@@ -32,6 +32,12 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             set => SetProperty(ref _selectedDriver, value, true);
         }
 
+        public bool CanSave()
+        {
+            if(_selectedDriver.HasErrors || _selectedDriver == null) return false;
+
+            return true;
+        }
 
         private void MapToCollection(List<Fleetmanagement.GrpcAPI.DriverModel> drivers)
         {

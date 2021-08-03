@@ -16,6 +16,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public ICommand DriverNavigationCommand { get; set; }
         public ICommand VehicleNavigationCommand { get; set; }
         public ICommand FuelcardNavigationCommand { get; set; }
+        public ICommand RequestNavigationCommand { get; set; }
 
         public NavigationStore NavigationStore { get; set; }
 
@@ -26,6 +27,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             DriverNavigationCommand = new NavigateCommand<DriverViewModel>(NavigationStore, () => new DriverViewModel());
             VehicleNavigationCommand = new NavigateCommand<VehicleViewModel>(NavigationStore, () => new VehicleViewModel());
             FuelcardNavigationCommand = new NavigateCommand<FuelcardViewModel>(NavigationStore, () => new FuelcardViewModel());
+            RequestNavigationCommand = new NavigateCommand<RequestViewModel>(NavigationStore, () => new RequestViewModel());
         }
 
         public NavigationMenuViewModel()

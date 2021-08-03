@@ -22,6 +22,8 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public VehicleViewModel()
         {
             _vehicleService = new Services.VehicleService();
+            Vehicles.Clear();
+            Vehicles.Add(new VehicleModel() { Licenseplate = "NEW VEHICLE"});
             LoadVehicles();
         }
 
@@ -39,7 +41,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
 
         private void MapToCollection(List<GrpcAPI.VehicleModel> vehicles)
         {
-            Vehicles.Clear();
+            
 
             foreach(var vehicle in vehicles)
             {

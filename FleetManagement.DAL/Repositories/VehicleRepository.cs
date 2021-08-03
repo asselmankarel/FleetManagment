@@ -36,7 +36,12 @@ namespace FleetManagement.DAL.Repositories
 
             try
             {
-                km = _context.Vehicles.Where(v => v.Id == id).Include(v => v.Mileages).FirstOrDefault().Mileages.Last().Km;
+                km = _context.Vehicles.Where(v => v.Id == id)
+                    .Include(v => v.Mileages)
+                    .FirstOrDefault()
+                    .Mileages
+                    .Last()
+                    .Km;
             }
             catch (Exception) { }
 

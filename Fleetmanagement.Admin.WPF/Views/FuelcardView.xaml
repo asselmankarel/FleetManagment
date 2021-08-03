@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Fleetmanagement.Admin.WPF.Views"
+             xmlns:local="clr-namespace:Fleetmanagement.Admin.WPF.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -18,10 +18,12 @@
                  DisplayMemberPath="CardNumber"
                  FontWeight="SemiBold"
                  FontFamily="Consolas"
+                 FontSize="16"
                  HorizontalAlignment="Center"
                  HorizontalContentAlignment="Center"
                  Width="185"
-                 ScrollViewer.CanContentScroll="True" />
+                 ScrollViewer.CanContentScroll="True" >
+        </ListBox>
 
         <StackPanel Grid.Column="1" Margin="25 10" >
             <Label Content="Number" Margin="10 20 10 0" FontWeight="Bold"/>
@@ -35,8 +37,13 @@
             
             <Label Content="Services" Margin="10 20 10 0" FontWeight="Bold"/>
             <ListView ItemsSource="{Binding SelectedFuelcard.Services}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350" />
-            
 
+            <Button Margin="10 50 0 0" Foreground="White" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Storage" Margin="5 0 0 0" />
+                    <TextBlock Text="Save" Margin="10 0 10 0" />
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>

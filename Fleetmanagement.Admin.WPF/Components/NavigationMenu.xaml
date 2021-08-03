@@ -34,7 +34,7 @@
                 </Button>
             </ListViewItem>
             <ListViewItem>
-                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="">
+                <Button HorizontalContentAlignment="Left" Width="150" Margin="5" Foreground="White" Command="{Binding RequestNavigationCommand}">
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Ticket" Margin="10 0 0 0"/>
                         <TextBlock Text="Requests" Margin="10 0 0 0"/>

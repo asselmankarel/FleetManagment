@@ -1,4 +1,5 @@
 ﻿using Fleetmanagement.GrpcAPI.Services;
+using FleetManagement.BL.Components;
 using FleetManagement.DAL.DataAccess;
 using FleetManagement.DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -20,6 +21,8 @@ namespace Fleetmanagement.GrpcAPI
             services.AddScoped<IDriverRepository, DriverRepository>();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IFuelcardRepository, FuelcardRepository>();
+            services.AddScoped<IRequestRepository, RequestRepository>();
+            services.AddScoped<IRequestComponent, RequestComponent>();
             services.AddGrpc();
         }
 

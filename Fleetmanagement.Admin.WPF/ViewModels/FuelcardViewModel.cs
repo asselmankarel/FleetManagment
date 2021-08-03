@@ -28,7 +28,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         private async void LoadFuelcards()
         {
             Fuelcards.Clear();
-            Fuelcards.Add(new FuelcardModel() { CardNumber = "New fuelcard" });
+            Fuelcards.Add(new FuelcardModel() { CardNumber = "NEW FUELCARD" });
             var fuelcards = await _fuelcardService.GetFuelcardsFromGrpcApi();
             MapToCollection(fuelcards);
         }

@@ -20,7 +20,7 @@ message RequestModel
 {
 	int32 Id = 1;
 	string RequestType = 2;
-	string RequestStatus = 3;
+	string Status = 3;
 	google.protobuf.Timestamp PrefDate1 = 4;
 	google.protobuf.Timestamp PrefDate2 = 5;
 	driver.DriverModel Driver = 6;

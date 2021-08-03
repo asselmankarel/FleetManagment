@@ -18,6 +18,7 @@
                  DisplayMemberPath="DisplayMember"
                  FontWeight="SemiBold"
                  FontFamily="Consolas"
+                 FontSize="16"
                  HorizontalAlignment="Center"
                  HorizontalContentAlignment="Center"
                  Width="185"
@@ -47,8 +48,8 @@
 
             <Button Margin="10 50 0 0" Foreground="White" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Edit" Margin="5 0 0 0" />
-                    <TextBlock Text="Edit" Margin="10 0 10 0" />
+                    <materialDesign:PackIcon Kind="Storage" Margin="5 0 0 0" />
+                    <TextBlock Text="Save" Margin="10 0 10 0" />
                 </StackPanel>
             </Button>
         </StackPanel>
