@@ -1,4 +1,5 @@
-﻿using FleetManagement.GrpcClientLibrary;
+﻿using Fleetmanagement.Admin.WPF.Models;
+using FleetManagement.GrpcClientLibrary;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -13,11 +14,31 @@ namespace Fleetmanagement.Admin.WPF.Services
             _vehicleClient = new VehicleClient(_grpcServerUrl);
         }
 
-        public async Task<List<GrpcAPI.VehicleModel>> GetVehiclesFromGrpcApi()
+        public async Task<List<VehicleModel>> GetVehiclesFromGrpcApi()
         {
             var vehicleList = await _vehicleClient.VehicleList();
+            var vehicles = MapToVehcileModel(vehicleList);
 
-            return vehicleList;
+            return vehicles;
+        }
+
+        private List<VehicleModel> MapToVehcileModel(List<GrpcAPI.VehicleModel> vehicles)
+        {
+            var Vehicles = new List<VehicleModel>();
+
+            foreach (var vehicle in vehicles)
+            {
+                Vehicles.Add(new VehicleModel()
+                {
+                    Id = vehicle.Id,
+                    ChassisNumber = vehicle.ChassisNumber,
+                    VehicleType = vehicle.VehicleType,
+                    FuelType = vehicle.FuelType,
+                    Licenseplate = vehicle.Licenseplate
+                });
+            }
+
+            return Vehicles;
         }
     }
 }

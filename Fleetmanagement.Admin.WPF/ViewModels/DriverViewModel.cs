@@ -23,7 +23,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             Drivers.Clear();
             Drivers.Add(new DriverModel { FirstName = "NEW", LastName = "DRIVER" });
             var drivers = await _driverService.GetDriversFromGrpcApi();
-            MapToCollection(drivers);       
+            drivers.ForEach(driver => Drivers.Add(driver));
         }
 
         public DriverModel SelectedDriver
@@ -37,23 +37,6 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             if(_selectedDriver.HasErrors || _selectedDriver == null) return false;
 
             return true;
-        }
-
-        private void MapToCollection(List<Fleetmanagement.GrpcAPI.DriverModel> drivers)
-        {
-            foreach (var driver in drivers)
-            {
-                Drivers.Add(new DriverModel
-                {
-                    Id = driver.Id,
-                    FirstName = driver.FirstName,
-                    LastName = driver.LastName,
-                    NationalIdentificationNumber = driver.NationalIdentificationNumber,
-                    Email = driver.Email,
-                    DriversLicense = driver.DriversLicense,
-                    IsActive = driver.IsActive
-                }); ;
-            }
-        }
+        }       
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Fleetmanagement.Admin.WPF.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Fleetmanagement.Admin.WPF.ViewModels
 {
@@ -30,22 +28,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             Fuelcards.Clear();
             Fuelcards.Add(new FuelcardModel() { CardNumber = "NEW FUELCARD" });
             var fuelcards = await _fuelcardService.GetFuelcardsFromGrpcApi();
-            MapToCollection(fuelcards);
-        }
-
-        private void MapToCollection(List<GrpcAPI.FuelcardModel> fuelcards)
-        {
-            foreach (var fuelcard in fuelcards)
-            {
-                Fuelcards.Add(new FuelcardModel()
-                {
-                    Id = fuelcard.Id,
-                    CardNumber = fuelcard.CardNumber,
-                    AuthType = fuelcard.AuthType,
-                    FuelType = fuelcard.FuelType,
-                    Services = fuelcard.Services.ToList()
-                });
-            }
+            fuelcards.ForEach(fc => Fuelcards.Add(fc));
         }
     }
 }

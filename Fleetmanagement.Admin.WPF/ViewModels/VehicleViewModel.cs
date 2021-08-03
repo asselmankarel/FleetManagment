@@ -21,16 +21,16 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
 
         public VehicleViewModel()
         {
-            _vehicleService = new Services.VehicleService();
-            Vehicles.Clear();
-            Vehicles.Add(new VehicleModel() { Licenseplate = "NEW VEHICLE"});
+            _vehicleService = new Services.VehicleService();            
             LoadVehicles();
         }
 
         public async void LoadVehicles()
         {
+            Vehicles.Clear();
+            Vehicles.Add(new VehicleModel() { Licenseplate = "NEW VEHICLE" });
             var vehicles = await _vehicleService.GetVehiclesFromGrpcApi();
-            MapToCollection(vehicles);
+            vehicles.ForEach(v => Vehicles.Add(v));
         }
 
         public VehicleModel SelectedVehicle
@@ -39,22 +39,5 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             set => SetProperty(ref _selectedVehicle, value, true);
         }
 
-        private void MapToCollection(List<GrpcAPI.VehicleModel> vehicles)
-        {
-            
-
-            foreach(var vehicle in vehicles)
-            {
-                Vehicles.Add(new VehicleModel()
-                {
-                    Id = vehicle.Id,
-                    ChassisNumber = vehicle.ChassisNumber,
-                    VehicleType = vehicle.VehicleType,
-                    FuelType = vehicle.FuelType,
-                    Licenseplate = vehicle.Licenseplate
-                    
-                });
-            }
-        }
     }
 }

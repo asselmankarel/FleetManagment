@@ -19,19 +19,7 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.Resources>
-            <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
-                <Setter Property="FontSize" Value="16"  />
-                <Style.Triggers >
-                    <Trigger Property="Validation.HasError" Value="True">
-                        <Setter Property="Background" Value="OrangeRed" />
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-            <Style TargetType="Label" BasedOn="{StaticResource MaterialDesignLabel}">
-                <Setter Property="FontSize" Value="16"  />
-            </Style>
-        </Grid.Resources>
+        
 
         <ListView ItemsSource="{Binding Drivers}"
                   SelectedItem="{Binding SelectedDriver, Mode=TwoWay}" 
