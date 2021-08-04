@@ -48,18 +48,18 @@ namespace Fleetmanagement.GrpcAPI
             }       
         }
 
-        public override async Task<DriverSuccessResponse> SaveDriver(DriverModel request, ServerCallContext context)
+        public override async Task<SuccessResponse> SaveDriver(DriverModel request, ServerCallContext context)
         {
             var driver = _mapper.Map<FleetManagement.Domain.Models.Driver>(request);
             var response = await _driverComponent.SaveDriver(driver);
 
             if (response.Successful)
             {
-                return new DriverSuccessResponse() { Success = true, Message = response.ToString() };
+                return new SuccessResponse() { SuccessFul = true, ErrorMessage = response.ToString() };
             }
 
 
-            return new DriverSuccessResponse() { Success = false, Message = "Not implemented yet!" };
+            return new SuccessResponse() { SuccessFul = false, ErrorMessage = "Not implemented yet!" };
         }
     }
 }

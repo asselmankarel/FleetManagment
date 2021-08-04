@@ -17,24 +17,35 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <ListView ItemsSource="{Binding Drivers}"
+        <!--Driver List-->
+        <Border BorderThickness="0 0 1 0" BorderBrush="LightGray">
+            <ListView ItemsSource="{Binding Drivers}"
                   SelectedItem="{Binding SelectedDriver, Mode=TwoWay}" 
                   DisplayMemberPath="FullName" 
                   FontWeight="SemiBold"
                   FontFamily="Consolas"
                   FontSize="16"
+                  Margin="10"
                   ScrollViewer.CanContentScroll="True"/>
-        
+            
+        </Border>
+
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-            
-            <StackPanel Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Driver-->
+            <StackPanel Grid.Row="0" Grid.Column="0" Margin="10 0 0 0">
+                <Label Content="Driver info" Margin="10" FontSize="16" FontWeight="Bold" Foreground="Teal"/>
                 <Label Content="Firstname" Margin="10 20 10 0" FontWeight="Bold"/>
                 <TextBox Text="{Binding SelectedDriver.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
 
@@ -64,7 +75,7 @@
                             <TextBlock Text="Save" Margin="10 0 10 0" />
                         </StackPanel>
                     </Button>
-                    
+
                     <Button Margin="10 25 0 0"
                             Foreground="White"
                             Background="Orange"
@@ -80,13 +91,35 @@
                 </StackPanel>
             </StackPanel>
             
-            <StatusBar Grid.Row="1"  >
+            <!--Address-->
+            <StackPanel Grid.Row="0" Grid.Column="1" >
+                <Label Content="Address info" Margin="10" FontSize="16" FontWeight="Bold" Foreground="Teal"/>
+                <Label Content="Street" FontWeight="Bold" Margin="10 20 10 0"/>
+                <TextBox Text="{Binding SelectedDriver.Address.Street, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
+                
+                <Label Content="Number" FontWeight="Bold" Margin="10 10 10 0"/>
+                <TextBox Text="{Binding SelectedDriver.Address.Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
+
+                <Label Content="Box" FontWeight="Bold" Margin="10 10 10 0"/>
+                <TextBox Text="{Binding SelectedDriver.Address.Box, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
+
+                <Label Content="Postalcode" FontWeight="Bold" Margin="10 10 10 0"/>
+                <TextBox Text="{Binding SelectedDriver.Address.PostalCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
+
+                <Label Content="City" FontWeight="Bold" Margin="10 10 10 0"/>
+                <TextBox Text="{Binding SelectedDriver.Address.City, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
+
+                <Label Content="Country" FontWeight="Bold" Margin="10 10 10 0"/>
+                <TextBox Text="{Binding SelectedDriver.Address.Country, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
+            </StackPanel>
+
+            <StatusBar Grid.Row="1" Grid.ColumnSpan="2" >
                 <StatusBarItem HorizontalAlignment="Left">
                     <TextBlock Text="{Binding StatusBarText}" Margin="10 0" Foreground="Teal"/>
                 </StatusBarItem>
             </StatusBar>
 
         </Grid>
-        
+
     </Grid>
 </UserControl>

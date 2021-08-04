@@ -1,6 +1,5 @@
 ﻿using Fleetmanagement.GrpcAPI;
 using Grpc.Core;
-using Grpc.Net.Client;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -40,7 +39,7 @@ namespace FleetManagement.GrpcClientLibrary
             return drivers;
         }
 
-        public DriverSuccessResponse SaveDriver(DriverModel driver)
+        public SuccessResponse SaveDriver(DriverModel driver)
         {
             var result = _driverClient.SaveDriver(driver);
 

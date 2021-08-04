@@ -22,7 +22,7 @@ namespace FleetManagement.DAL.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            return _context.Set<T>().ToList();            
+            return _context.Set<T>().ToList();
         }
 
         public void Add(T entity)
@@ -41,22 +41,25 @@ namespace FleetManagement.DAL.Repositories
             return numberOfChangedEntities;
         }
 
-        public async void UpdateAsync(T entity)
+        public async Task<int> UpdateAsync(T entity)
         {
             _context.Set<T>().Update(entity);
-            await _context.SaveChangesAsync();
+            var numberOfWrittenEnities = await _context.SaveChangesAsync();
+            return numberOfWrittenEnities;
         }
 
-        public void Update(T entity)
+        public int Update(T entity)
         {
             _context.Set<T>().Update(entity);
-            _context.SaveChanges();
+            return _context.SaveChanges();
         }
 
         public void Dispose()
         {
             if (_context != null)
+            {
                 _context.Dispose();
+            }
         }
     }
 }

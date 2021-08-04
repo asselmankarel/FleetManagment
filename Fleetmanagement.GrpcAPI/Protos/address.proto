@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "Protos/response.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Fleetmanagement.GrpcAPI";
+
+package address;
+
+service Address {
+	rpc GetAddress (AddressRequest) returns (AddressModel);
+	rpc SaveAddress (AddressModel) returns (SuccessResponse);
+}
+
+message AddressModel
+{
+	int32 Id = 1;
+	string Street = 2;
+	string Number = 3;
+	string PostalCode = 4;
+	google.protobuf.Int32Value Box = 5;
+	string City = 6;
+	string Country = 7;
+	int32 EmployeeId = 8;
+}
+
+message AddressRequest
+{
+	int32 EmployeeId = 1;
+}

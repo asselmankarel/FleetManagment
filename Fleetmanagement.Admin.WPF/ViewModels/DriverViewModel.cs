@@ -1,12 +1,9 @@
-﻿using Fleetmanagement.Admin.WPF.Commands;
-using FleetManagement.Admin.WPF.Models;
+﻿using FleetManagement.Admin.WPF.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Windows.Input;
 
 namespace Fleetmanagement.Admin.WPF.ViewModels
 {
@@ -14,6 +11,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
     {
         private DriverModel _selectedDriver;
         private readonly Services.DriverSevice _driverService;
+        private readonly Services.AddressService _addressService;
         private string _statusBarText;
 
         public ObservableCollection<DriverModel> Drivers { get; set; } = new ObservableCollection<DriverModel>();
@@ -22,6 +20,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public DriverViewModel()
         {           
             _driverService = new Services.DriverSevice();
+            _addressService = new Services.AddressService();
             SaveCommand = new RelayCommand(OnSave, CanSave);
             LoadDrivers();            
         }
@@ -37,15 +36,24 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         }
 
         public DriverModel SelectedDriver
-        { 
+        {
             get => _selectedDriver;
             set
-            {
+            {                
                 SetProperty(ref _selectedDriver, value, true);
                 OnPropertyChanged(nameof(_selectedDriver.CanSave));
                 if (_selectedDriver != null)
+                {
+                    LoadDriverAddress();
                     _selectedDriver.PropertyChanged += _selectedDriver_PropertyChanged;
+                }
             }
+        }
+
+        private void LoadDriverAddress()
+        {
+            var address = _addressService.GetAddress(_selectedDriver.Id);
+            _selectedDriver.Address = address;
         }
 
         public string StatusBarText
@@ -57,17 +65,18 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public void OnSave()
         {
             StatusBarText = "Saving...";
-            var response = _driverService.SaveDriver(_selectedDriver);
+            var saveDriverResponse = _driverService.SaveDriver(_selectedDriver);
+            var saveAddressResponse = _addressService.SaveAddress(_selectedDriver.Address);
             _selectedDriver.PropertyChanged -= _selectedDriver_PropertyChanged;
             LoadDrivers();
-            StatusBarText = response.Message;
+            StatusBarText = $"{saveDriverResponse.ErrorMessage} {saveAddressResponse.ErrorMessage}";
         }
 
         private void _selectedDriver_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             SaveCommand.NotifyCanExecuteChanged();
         }
-  
+
         private bool CanSave()
         {
             if (_selectedDriver == null) return false;

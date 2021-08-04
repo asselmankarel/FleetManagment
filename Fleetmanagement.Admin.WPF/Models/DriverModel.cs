@@ -1,4 +1,6 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+﻿using Fleetmanagement.Admin.WPF.Models;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Admin.WPF.Models
@@ -83,6 +85,14 @@ namespace FleetManagement.Admin.WPF.Models
             {
                 SetProperty(ref _isActive, value, true);
             }
+        }
+
+
+        private AddressModel _address;
+        public AddressModel Address
+        {
+            get => _address;
+            set => SetProperty(ref _address, value, true);          
         }
 
         public bool CanSave => !HasErrors;

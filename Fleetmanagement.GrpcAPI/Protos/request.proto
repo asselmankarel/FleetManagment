@@ -11,7 +11,7 @@ package request;
 service Request
 {
 	rpc GetRequests (RequestsRequest) returns (stream RequestModel);
-	rpc UpdateRequest (RequestModel) returns (RequestSuccessResponse);
+	rpc SaveRequest (RequestModel) returns (RequestSuccessResponse);
 }
 
 message RequestsRequest { }

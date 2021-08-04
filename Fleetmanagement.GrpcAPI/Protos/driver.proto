@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "Protos/response.proto";
+
 option csharp_namespace = "Fleetmanagement.GrpcAPI";
 
 package driver;
@@ -8,7 +10,7 @@ service Driver
 {
 	rpc GetDriver (DriverRequest) returns (DriverModel);
 	rpc GetDrivers (DriversRequest) returns (stream DriverModel);
-	rpc SaveDriver (DriverModel) returns (DriverSuccessResponse);
+	rpc SaveDriver (DriverModel) returns (SuccessResponse);
 }
 
 message DriverRequest
@@ -26,12 +28,5 @@ message DriverModel
 	string LastName = 4;
 	string Email = 5;
 	string DriversLicense = 6;
-	bool IsActive = 7;
-
-}
-
-message DriverSuccessResponse
-{
-	bool Success = 1;
-	string Message = 2;
+	bool IsActive = 7;	
 }

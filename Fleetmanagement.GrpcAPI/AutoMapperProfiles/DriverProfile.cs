@@ -7,7 +7,7 @@ namespace Fleetmanagement.GrpcAPI.AutoMapperProfiles
         public DriverProfile()
         {
             CreateMap<FleetManagement.Domain.Models.Driver, DriverModel>();
-            CreateMap<DriverModel, FleetManagement.Domain.Models.Driver>();
+            CreateMap<DriverModel, FleetManagement.Domain.Models.Driver>();            
         }
     }
 }

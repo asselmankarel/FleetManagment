@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.Repositories
 {
@@ -8,7 +9,8 @@ namespace FleetManagement.DAL.Repositories
         T GetById(int id);
         IEnumerable<T> GetAll();
         void Add(T entity);
-        void Update(T entity);
+        int Update(T entity);
+        Task<int> UpdateAsync(T entity);
 
  
     }

@@ -5,9 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\address.proto" />
     <None Remove="Protos\driver.proto" />
     <None Remove="Protos\fuelcard.proto" />
     <None Remove="Protos\request.proto" />
+    <None Remove="Protos\response.proto" />
     <None Remove="Protos\vehicle.proto" />
   </ItemGroup>
 
@@ -29,9 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Protobuf Include="Protos\address.proto" />
     <Protobuf Include="Protos\driver.proto" />
     <Protobuf Include="Protos\fuelcard.proto" />
     <Protobuf Include="Protos\request.proto" />
+    <Protobuf Include="Protos\response.proto" />
     <Protobuf Include="Protos\vehicle.proto" />
   </ItemGroup>
 
