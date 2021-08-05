@@ -15,6 +15,7 @@ namespace FleetManagement.DAL.Repositories
         {
             _context = context;
         }
+
         public T GetById(int id)
         {
             return _context.Set<T>().Find(id);
@@ -33,7 +34,6 @@ namespace FleetManagement.DAL.Repositories
 
         public async Task<int> AddAsync(T entity)
         {
-            
             var response = await _context.Set<T>().AddAsync(entity);
             Debug.WriteLine(response.ToString());
             var numberOfChangedEntities = await _context.SaveChangesAsync();

@@ -1,6 +1,7 @@
 ﻿using Fleetmanagement.Admin.WPF.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Admin.WPF.Models
@@ -18,8 +19,7 @@ namespace FleetManagement.Admin.WPF.Models
             get => _firstName;
             set
             {
-                SetProperty(ref _firstName, value, true);
-                OnPropertyChanged(nameof(CanSave));
+                SetProperty(ref _firstName, value, true);                                
             }
         }
 
@@ -33,7 +33,6 @@ namespace FleetManagement.Admin.WPF.Models
             set
             {
                 SetProperty(ref _lastName, value, true);
-                OnPropertyChanged(nameof(CanSave));
             }
         }
 
@@ -46,8 +45,7 @@ namespace FleetManagement.Admin.WPF.Models
             set
             {
                 SetProperty(ref _nationalIdentitfication, value, true);
-                OnPropertyChanged(nameof(CanSave));
-            } 
+            }
         }
 
         private string _email;
@@ -60,7 +58,6 @@ namespace FleetManagement.Admin.WPF.Models
             set
             {
                 SetProperty(ref _email, value, true);
-                OnPropertyChanged(nameof(CanSave));
             }
         }
 
@@ -73,7 +70,6 @@ namespace FleetManagement.Admin.WPF.Models
             set
             {
                 SetProperty(ref _driversLicense, value, true);
-                OnPropertyChanged(nameof(CanSave));
             }
         }
 
@@ -83,19 +79,25 @@ namespace FleetManagement.Admin.WPF.Models
             get => _isActive;
             set
             {
-                SetProperty(ref _isActive, value, true);
+                SetProperty(ref _isActive, value, true);;
             }
         }
-
 
         private AddressModel _address;
         public AddressModel Address
         {
             get => _address;
-            set => SetProperty(ref _address, value, true);          
+            set => SetProperty(ref _address, value, true);       
         }
 
-        public bool CanSave => !HasErrors;
+        
+
+        public bool CanSave => _canSave();
+        private bool _canSave()
+        {
+            return Address != null && !HasErrors && !Address.HasErrors;
+        }
+
 
         public string FullName => $"{FirstName} {LastName}";
     }

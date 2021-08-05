@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "Protos/response.proto";
+import "Protos/address.proto";
 
 option csharp_namespace = "Fleetmanagement.GrpcAPI";
 
@@ -28,5 +29,6 @@ message DriverModel
 	string LastName = 4;
 	string Email = 5;
 	string DriversLicense = 6;
-	bool IsActive = 7;	
+	bool IsActive = 7;
+	address.AddressModel Address = 8;
 }

@@ -64,11 +64,9 @@
                 <Label Content="Is active" Margin="10 10 10 0" FontWeight="Bold" />
                 <CheckBox Margin="10 10 10 0" IsChecked="{Binding SelectedDriver.IsActive}"/>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button Margin="10 25 0 0"
-                            Foreground="White"
-                            HorizontalAlignment="Left"
-                            IsEnabled="{Binding SelectedDriver.CanSave}"
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 60">
+                    <Button Foreground="White"
+                            HorizontalAlignment="Left"                           
                             Command="{Binding SaveCommand}">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Storage" Margin="5 0 0 0" />
@@ -76,12 +74,11 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Margin="10 25 0 0"
+                    <Button Margin="10 0 0 0"
                             Foreground="White"
                             Background="Orange"
                             BorderBrush="Orange"
-                            HorizontalAlignment="Left"
-                            IsEnabled="{Binding SelectedDriver.CanSave}"
+                            HorizontalAlignment="Left"                            
                             Command="{Binding SaveCommand}">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Delete" Margin="5 0 0 0" />

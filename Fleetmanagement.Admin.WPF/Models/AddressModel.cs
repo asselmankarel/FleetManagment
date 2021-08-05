@@ -19,7 +19,6 @@ namespace Fleetmanagement.Admin.WPF.Models
 
         private string _number;
         [Required]
-        [MinLength(2)]
         public string Number
         {
             get => _number;
@@ -35,9 +34,8 @@ namespace Fleetmanagement.Admin.WPF.Models
             set => SetProperty(ref _postalCode, value, true);
         }
 
-        private int? _box;
-        [Required]        
-        public int? Box
+        private string _box;       
+        public string Box
         {
             get => _box;
             set => SetProperty(ref _box, value, true);
@@ -60,5 +58,6 @@ namespace Fleetmanagement.Admin.WPF.Models
             get => _country;
             set => SetProperty(ref _country, value, true);
         }
+
     }
 }

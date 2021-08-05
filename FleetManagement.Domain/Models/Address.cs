@@ -20,8 +20,8 @@ namespace FleetManagement.Domain.Models
         [StringLength(25, MinimumLength = 4)]
         public string PostalCode { get; set; }
 
-        [Range(1,10000)]
-        public int? Box { get; set; }
+        [StringLength(256)]
+        public string Box { get; set; }
 
         [Required]
         [StringLength(256, MinimumLength = 2)]
@@ -33,7 +33,6 @@ namespace FleetManagement.Domain.Models
 
         public int EmployeeId { get; set; }
         public Employee Employee { get; set; }
-
 
     }
 }

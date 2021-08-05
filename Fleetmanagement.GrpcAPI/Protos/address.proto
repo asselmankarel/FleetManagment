@@ -18,7 +18,7 @@ message AddressModel
 	string Street = 2;
 	string Number = 3;
 	string PostalCode = 4;
-	google.protobuf.Int32Value Box = 5;
+	google.protobuf.StringValue Box = 5;
 	string City = 6;
 	string Country = 7;
 	int32 EmployeeId = 8;

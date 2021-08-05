@@ -16,7 +16,7 @@ namespace FleetManagment.ReadAPI.ReadModels
 
         public string Number { get; set; }
 
-        public int Box { get; set; }
+        public string Box { get; set; }
 
         public string PostalCode { get; set; }
 

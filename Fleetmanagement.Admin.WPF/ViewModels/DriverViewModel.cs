@@ -1,28 +1,30 @@
 ﻿using FleetManagement.Admin.WPF.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
+
 
 namespace Fleetmanagement.Admin.WPF.ViewModels
 {
     public class DriverViewModel : ObservableValidator
     {
-        private DriverModel _selectedDriver;
         private readonly Services.DriverSevice _driverService;
         private readonly Services.AddressService _addressService;
+        private DriverModel _selectedDriver;
         private string _statusBarText;
 
+        public bool _selectedDriverHasChanges { get; set; }
         public ObservableCollection<DriverModel> Drivers { get; set; } = new ObservableCollection<DriverModel>();
         public RelayCommand SaveCommand { get; set; }
 
         public DriverViewModel()
-        {           
+        {
             _driverService = new Services.DriverSevice();
             _addressService = new Services.AddressService();
             SaveCommand = new RelayCommand(OnSave, CanSave);
-            LoadDrivers();            
+            LoadDrivers();
         }
 
         public async void LoadDrivers()
@@ -39,21 +41,21 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         {
             get => _selectedDriver;
             set
-            {                
+            {
+                if(_selectedDriver != null)
+                {
+                    HandleSelectedDriverChanged();
+                }
                 SetProperty(ref _selectedDriver, value, true);
-                OnPropertyChanged(nameof(_selectedDriver.CanSave));
                 if (_selectedDriver != null)
                 {
-                    LoadDriverAddress();
-                    _selectedDriver.PropertyChanged += _selectedDriver_PropertyChanged;
+                    LoadDriverAddress();                    
+                    _selectedDriver.PropertyChanged += ViewModelPropertyChanged;
+                    _selectedDriver.Address.PropertyChanged += ViewModelPropertyChanged;
+                    _selectedDriverHasChanges = false;
+                    SaveCommand.NotifyCanExecuteChanged();
                 }
             }
-        }
-
-        private void LoadDriverAddress()
-        {
-            var address = _addressService.GetAddress(_selectedDriver.Id);
-            _selectedDriver.Address = address;
         }
 
         public string StatusBarText
@@ -65,23 +67,60 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public void OnSave()
         {
             StatusBarText = "Saving...";
+            var selectedDriver = SelectedDriver;
             var saveDriverResponse = _driverService.SaveDriver(_selectedDriver);
-            var saveAddressResponse = _addressService.SaveAddress(_selectedDriver.Address);
-            _selectedDriver.PropertyChanged -= _selectedDriver_PropertyChanged;
+            _selectedDriverHasChanges = false;
             LoadDrivers();
-            StatusBarText = $"{saveDriverResponse.ErrorMessage} {saveAddressResponse.ErrorMessage}";
+            SelectedDriver = selectedDriver;
+            StatusBarText = saveDriverResponse.ErrorMessage;
+            SaveCommand.NotifyCanExecuteChanged();
         }
 
-        private void _selectedDriver_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void HandleSelectedDriverChanged()
         {
+            if (_selectedDriverHasChanges)
+            {
+                if (Xceed.Wpf.Toolkit.MessageBox.Show("Selected driver has pending changes! Do you want to save these changes?",
+                    "Pending changes",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    OnSave();
+                }
+                else
+                {
+                    RestoreOriginalDriverData();
+                }
+            }
+            _selectedDriver.PropertyChanged -= ViewModelPropertyChanged;
+            _selectedDriver.Address.PropertyChanged -= ViewModelPropertyChanged;
+        }
+
+        private void RestoreOriginalDriverData()
+        {
+            var originalDriver = _driverService.GetDriverFromGrpcApi(_selectedDriver.Id);
+            _selectedDriver.FirstName = originalDriver.FirstName;
+            _selectedDriver.LastName = originalDriver.LastName;
+            _selectedDriver.NationalIdentificationNumber = originalDriver.NationalIdentificationNumber;
+            _selectedDriver.DriversLicense = originalDriver.DriversLicense;
+            _selectedDriver.Email = originalDriver.Email;
+            _selectedDriver.IsActive = originalDriver.IsActive;
+            LoadDriverAddress();
+        }
+
+        private void LoadDriverAddress()
+        {
+            var address = _addressService.GetAddress(_selectedDriver.Id);
+            _selectedDriver.Address = address;
+        }
+
+        private void ViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            _selectedDriverHasChanges = true;
             SaveCommand.NotifyCanExecuteChanged();
         }
 
         private bool CanSave()
         {
-            if (_selectedDriver == null) return false;
-
-            return _selectedDriver.CanSave;
+            return _selectedDriver != null && _selectedDriver.CanSave && _selectedDriverHasChanges;
         }
     }
 }
