@@ -1,10 +1,10 @@
 ﻿using FleetManagement.Admin.WPF.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
-
 
 namespace Fleetmanagement.Admin.WPF.ViewModels
 {
@@ -18,6 +18,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public bool _selectedDriverHasChanges { get; set; }
         public ObservableCollection<DriverModel> Drivers { get; set; } = new ObservableCollection<DriverModel>();
         public RelayCommand SaveCommand { get; set; }
+        public List<string> DriverlicenseTypes { get; } = new List<string>() {"A", "B", "C", "CE", "D" };
 
         public DriverViewModel()
         {
@@ -42,7 +43,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             get => _selectedDriver;
             set
             {
-                if(_selectedDriver != null)
+                if (_selectedDriver != null)
                 {
                     HandleSelectedDriverChanged();
                 }
@@ -78,6 +79,8 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
 
         private void HandleSelectedDriverChanged()
         {
+            if (!_selectedDriver.CanSave) return;
+
             if (_selectedDriverHasChanges)
             {
                 if (Xceed.Wpf.Toolkit.MessageBox.Show("Selected driver has pending changes! Do you want to save these changes?",

@@ -1,7 +1,5 @@
 ﻿using Fleetmanagement.Admin.WPF.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Admin.WPF.Models
@@ -9,6 +7,7 @@ namespace FleetManagement.Admin.WPF.Models
     public class DriverModel : ObservableValidator
     {
         public int Id { get; init; }
+        public string FullName => $"{FirstName} {LastName}";
 
         private string _firstName;
 
@@ -17,10 +16,7 @@ namespace FleetManagement.Admin.WPF.Models
         public string FirstName
         {
             get => _firstName;
-            set
-            {
-                SetProperty(ref _firstName, value, true);                                
-            }
+            set => SetProperty(ref _firstName, value, true);                                
         }
 
         private string _lastName;
@@ -30,22 +26,17 @@ namespace FleetManagement.Admin.WPF.Models
         public string LastName
         {
             get => _lastName;
-            set
-            {
-                SetProperty(ref _lastName, value, true);
-            }
+            set => SetProperty(ref _lastName, value, true);
         }
 
         private string _nationalIdentitfication;
 
         [Required(ErrorMessage = "National ID number is required")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "National ID number must be 11 digits")]
         public string NationalIdentificationNumber
         {
             get => _nationalIdentitfication;
-            set
-            {
-                SetProperty(ref _nationalIdentitfication, value, true);
-            }
+            set => SetProperty(ref _nationalIdentitfication, value, true);
         }
 
         private string _email;
@@ -55,10 +46,7 @@ namespace FleetManagement.Admin.WPF.Models
         public string Email
         {
             get => _email;
-            set
-            {
-                SetProperty(ref _email, value, true);
-            }
+            set => SetProperty(ref _email, value, true);
         }
 
         private string _driversLicense;
@@ -67,20 +55,14 @@ namespace FleetManagement.Admin.WPF.Models
         public string DriversLicense
         {
             get => _driversLicense;
-            set
-            {
-                SetProperty(ref _driversLicense, value, true);
-            }
+            set => SetProperty(ref _driversLicense, value, true);
         }
 
         private bool _isActive;
         public bool IsActive
         {
             get => _isActive;
-            set
-            {
-                SetProperty(ref _isActive, value, true);;
-            }
+            set => SetProperty(ref _isActive, value, true);
         }
 
         private AddressModel _address;
@@ -90,15 +72,10 @@ namespace FleetManagement.Admin.WPF.Models
             set => SetProperty(ref _address, value, true);       
         }
 
-        
-
         public bool CanSave => _canSave();
         private bool _canSave()
         {
             return Address != null && !HasErrors && !Address.HasErrors;
         }
-
-
-        public string FullName => $"{FirstName} {LastName}";
     }
 }

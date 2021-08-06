@@ -26,15 +26,13 @@ namespace Fleetmanagement.Admin.WPF.Services
         public DriverModel GetDriverFromGrpcApi(int Id)
         {
             var driver = _driverGrpcClient.DriverDetails(Id);
+
             return MapToDriverModel(driver);
-
         }
-
-        
 
         public GrpcAPI.SuccessResponse SaveDriver(DriverModel driver)
         {
-            var grpcDriverModel = new GrpcAPI.DriverModel()
+            GrpcAPI.DriverModel grpcDriverModel = new()
             {
                 Id = driver.Id,
                 NationalIdentificationNumber = driver.NationalIdentificationNumber,
@@ -75,7 +73,7 @@ namespace Fleetmanagement.Admin.WPF.Services
 
         private List<DriverModel> MapToDriverModel(List<GrpcAPI.DriverModel> drivers)
         {
-            List<DriverModel> Drivers = new List<DriverModel>();
+            List<DriverModel> Drivers = new();
 
             foreach (var driver in drivers)
             {
@@ -88,8 +86,9 @@ namespace Fleetmanagement.Admin.WPF.Services
                     Email = driver.Email,
                     DriversLicense = driver.DriversLicense,
                     IsActive = driver.IsActive
-                }); ;
+                });
             }
+
             return Drivers;
         }
     }

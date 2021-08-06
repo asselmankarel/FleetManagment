@@ -7,9 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Components\ConfirmDialog.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Components\NavigationMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,9 +27,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Components\ConfirmDialog.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Components\NavigationMenu.xaml">
       <SubType>Designer</SubType>
     </Page>

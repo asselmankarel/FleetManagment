@@ -11,7 +11,7 @@ namespace FleetManagement.Domain.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(11)]
+        [StringLength(11)]
         public string NationalIdentificationNumber { get; set; }
 
         [Required]

@@ -9,11 +9,11 @@ namespace FleetManagement.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(256, MinimumLength = 3)]
+        [StringLength(256, MinimumLength = 2)]
         public string Street { get; set; }
 
         [Required]
-        [StringLength(25, MinimumLength = 1)]
+        [StringLength(25)]
         public string Number { get; set; }
 
         [Required]

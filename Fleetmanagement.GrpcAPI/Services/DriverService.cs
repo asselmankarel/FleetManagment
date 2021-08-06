@@ -3,7 +3,6 @@ using FleetManagement.BL.Components;
 using FleetManagement.DAL.Repositories;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 
@@ -59,7 +58,7 @@ namespace Fleetmanagement.GrpcAPI
             }
 
 
-            return new SuccessResponse() { SuccessFul = false, ErrorMessage = "Not implemented yet!" };
+            return new SuccessResponse() { SuccessFul = false, ErrorMessage = response.ErrorMessages[0] };
         }
     }
 }
