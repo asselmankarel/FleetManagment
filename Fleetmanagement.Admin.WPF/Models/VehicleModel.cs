@@ -54,10 +54,15 @@ namespace Fleetmanagement.Admin.WPF.Models
             set => SetProperty(ref _fuelType, value, true);
         }
 
-        public string Licenseplate { get; set; }
+        public string Licenseplate { get; init; }
 
         public string DisplayMember {
-            get => $"{Make} {Model}";
+            get
+            {
+                if (this.Id == 0) return "ADD VEHICLE";
+                
+                return $"{Make} {Model} {Licenseplate}";
+            }
         }
 
         public bool CanSave => !HasErrors;

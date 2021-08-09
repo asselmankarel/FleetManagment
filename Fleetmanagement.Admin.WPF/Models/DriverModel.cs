@@ -7,7 +7,15 @@ namespace FleetManagement.Admin.WPF.Models
     public class DriverModel : ObservableValidator
     {
         public int Id { get; init; }
-        public string FullName => $"{FirstName} {LastName}";
+        public string FullName
+        {
+            get
+            {
+                if (this.Id == 0) return "ADD DRIVER";
+
+                return $"{FirstName} {LastName}";
+            }
+        }
 
         private string _firstName;
 
@@ -69,8 +77,16 @@ namespace FleetManagement.Admin.WPF.Models
         public AddressModel Address
         {
             get => _address;
-            set => SetProperty(ref _address, value, true);       
+            set => SetProperty(ref _address, value, true);
         }
+
+        private VehicleModel _vehicle;
+        public VehicleModel Vehicle
+        {
+            get => _vehicle;
+            set => SetProperty(ref _vehicle, value);
+        }
+
 
         public bool CanSave => _canSave();
         private bool _canSave()

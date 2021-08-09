@@ -13,7 +13,7 @@ namespace Fleetmanagement.GrpcAPI.AutoMapperProfiles
             CreateMap<FleetManagement.Domain.Models.Vehicle, VehicleModel>()
                 .ForMember(
                     destination => destination.Licenseplate,
-                    opt => opt.MapFrom(source => source.VehicleLicensePlates.First().LicensePlate.Number));
+                    opt => opt.MapFrom(source => source.VehicleLicensePlates.First().LicensePlate.Number));            
         }
     }
 }

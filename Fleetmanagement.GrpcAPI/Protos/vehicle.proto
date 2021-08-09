@@ -7,6 +7,7 @@ package vehicle;
 service Vehicle
 {
 	rpc GetVehicle (VehicleRequest) returns (VehicleModel);
+	rpc GetVehicleByDriverId (VehicleByDriverIdRequest) returns (VehicleModel);
 	rpc GetVehicles (VehiclesRequest) returns (stream VehicleModel);
 	rpc AddVehicle (VehicleModel) returns (VehicleSuccessResponse);
 }
@@ -14,6 +15,11 @@ service Vehicle
 message VehicleRequest
 {
 	int32 VehicleId = 1;	
+}
+
+message VehicleByDriverIdRequest
+{
+	int32 DriverId = 1;
 }
 
 message VehiclesRequest { }

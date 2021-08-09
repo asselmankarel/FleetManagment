@@ -22,6 +22,22 @@ namespace Fleetmanagement.Admin.WPF.Services
             return vehicles;
         }
 
+        public async Task<VehicleModel> GetVehiclefromGrpcApi(int driverId)
+        {
+            var vehicle = await _vehicleClient.GetVehicleByDriverId(driverId);
+
+            return new VehicleModel()
+            {
+                Id = vehicle.Id,
+                ChassisNumber = vehicle.ChassisNumber,
+                VehicleType = vehicle.VehicleType,
+                FuelType = vehicle.FuelType,
+                Licenseplate = vehicle.Licenseplate,
+                Make = vehicle.Make,
+                Model = vehicle.Model
+            };
+        }
+
         private List<VehicleModel> MapToVehicleModel(List<GrpcAPI.VehicleModel> vehicles)
         {
             var Vehicles = new List<VehicleModel>();

@@ -15,11 +15,7 @@ namespace Fleetmanagement.Admin.WPF.Models
         public string CardNumber
         {
             get => _cardNumber;
-            set
-            {
-                SetProperty(ref _cardNumber, value, true);
-                OnPropertyChanged(nameof(CanSave));                
-            }
+            set => SetProperty(ref _cardNumber, value, true);
         }
 
         private string _authType;
@@ -28,11 +24,7 @@ namespace Fleetmanagement.Admin.WPF.Models
         public string AuthType
         {
             get => _authType;
-            set
-            {
-                SetProperty(ref _authType, value, true);
-                OnPropertyChanged(nameof(CanSave));
-            }
+            set => SetProperty(ref _authType, value, true);
         }
 
         private string _fuelType;
@@ -41,11 +33,7 @@ namespace Fleetmanagement.Admin.WPF.Models
         public string FuelType
         {
             get => _fuelType;
-            set
-            {
-                SetProperty(ref _fuelType, value, true);
-                OnPropertyChanged(nameof(CanSave));
-            }
+            set => SetProperty(ref _fuelType, value, true);
         }
 
         public List<string> Services { get; set; } = new List<string>();

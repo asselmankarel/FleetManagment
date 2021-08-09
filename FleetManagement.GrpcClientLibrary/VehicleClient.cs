@@ -1,6 +1,7 @@
 ﻿using Fleetmanagement.GrpcAPI;
 using Grpc.Core;
 using Grpc.Net.Client;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -26,7 +27,7 @@ namespace FleetManagement.GrpcClientLibrary
 
         public async Task<List<VehicleModel>> VehicleList()
         {
-            var  vehicles = new List<VehicleModel>();
+            var vehicles = new List<VehicleModel>();
             using (var call = _vehicleClient.GetVehicles(new VehiclesRequest()))
             {
                 while (await call.ResponseStream.MoveNext())
@@ -39,5 +40,11 @@ namespace FleetManagement.GrpcClientLibrary
             return vehicles;
         }
 
+        public Task<VehicleModel> GetVehicleByDriverId(int driverId)
+        {
+            var vehicle = _vehicleClient.GetVehicleByDriverId(new VehicleByDriverIdRequest() { DriverId = driverId });
+
+            return Task.FromResult(vehicle);
+        }
     }
 }

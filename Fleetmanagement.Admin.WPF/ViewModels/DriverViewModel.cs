@@ -13,6 +13,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
     {
         private readonly Services.DriverSevice _driverService;
         private readonly Services.AddressService _addressService;
+        private readonly Services.VehicleService _vehicleService;
         private DriverModel _selectedDriver;
         private string _statusBarText;
         private bool _selectedDriverHasChanges;
@@ -26,6 +27,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         {
             _driverService = new Services.DriverSevice();
             _addressService = new Services.AddressService();
+            _vehicleService = new Services.VehicleService();
             SaveCommand = new RelayCommand(OnSave, CanSave);
             LoadDrivers("Ready");
         }
@@ -33,7 +35,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public async void LoadDrivers(string statusBarTextAfterLoading)
         {
             Drivers.Clear();
-            Drivers.Add(new DriverModel { FirstName = "NEW", LastName = "DRIVER" });
+            Drivers.Add(new DriverModel());
             var drivers = await _driverService.GetDriversFromGrpcApi();
             drivers.ForEach(driver => Drivers.Add(driver));
             StatusBarText = statusBarTextAfterLoading;
@@ -51,7 +53,8 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
                 SetProperty(ref _selectedDriver, value, true);
                 if (_selectedDriver != null)
                 {
-                    LoadDriverAddress();                    
+                    LoadDriverAddress();
+                    LoadDriverVehcicle();
                     _selectedDriver.PropertyChanged += ViewModelPropertyChanged;
                     _selectedDriver.Address.PropertyChanged += ViewModelPropertyChanged;
                     _selectedDriverHasChanges = false;
@@ -59,6 +62,8 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
                 }
             }
         }
+
+       
 
         public string StatusBarText
         {
@@ -112,6 +117,12 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         {
             var address = _addressService.GetAddress(_selectedDriver.Id);
             _selectedDriver.Address = address;
+        }
+
+        private async void LoadDriverVehcicle()
+        {
+            var vehicle = await _vehicleService.GetVehiclefromGrpcApi(_selectedDriver.Id);
+            _selectedDriver.Vehicle = vehicle;
         }
 
         private void ViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)

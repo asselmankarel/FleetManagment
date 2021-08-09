@@ -19,12 +19,14 @@ namespace FleetManagement.DAL.Repositories
         {
             var result = _context.DriverVehicles
             .Where(dv => dv.DriverId == driverId && dv.EndDate == null)
-            .Include("Vehicle")
+            .Include(dv => dv.Vehicle)
+            .ThenInclude(v => v.VehicleLicensePlates.Where(vlp => vlp.EndDate == null))
+            .ThenInclude(vlp => vlp.LicensePlate)
             .FirstOrDefault();
 
-            if (result == null)
+            if (result?.Vehicle == null)
             {
-                throw new NullReferenceException();
+                return new Vehicle();
             }
 
             return result.Vehicle;

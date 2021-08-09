@@ -68,6 +68,9 @@
                 <Label Content="Is active" Margin="10 10 10 0" FontWeight="Bold" />
                 <CheckBox Margin="15 10 10 0" IsChecked="{Binding SelectedDriver.IsActive}"/>
 
+                <Label Content="Vehicle info" Margin="10 25 10 0" FontSize="16" FontWeight="Bold" Foreground="Teal" />
+                <TextBox Text="{Binding SelectedDriver.Vehicle.DisplayMember, Mode=OneWay}" Margin="10 10 10 0" FontWeight="Bold" Width="350" HorizontalAlignment="Left" IsEnabled="False"/>
+
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 60">
                     <Button Foreground="White"
                             HorizontalAlignment="Left"                           

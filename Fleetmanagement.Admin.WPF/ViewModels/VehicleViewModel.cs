@@ -28,7 +28,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public async void LoadVehicles()
         {
             Vehicles.Clear();
-            Vehicles.Add(new VehicleModel() { Make = "NEW", Model = "VEHICLE" });
+            Vehicles.Add(new VehicleModel());
             var vehicles = await _vehicleService.GetVehiclesFromGrpcApi();
             vehicles.ForEach(v => Vehicles.Add(v));
         }
