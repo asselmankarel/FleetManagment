@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Components\NavigationMenu.xaml.cs">
+    <Compile Update="Controls\NavigationMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\DriverView.xaml.cs">
@@ -27,7 +27,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Components\NavigationMenu.xaml">
+    <Page Update="Controls\NavigationMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

@@ -1,6 +1,7 @@
 ﻿using FleetManagement.Admin.WPF.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -14,8 +15,8 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         private readonly Services.AddressService _addressService;
         private DriverModel _selectedDriver;
         private string _statusBarText;
+        private bool _selectedDriverHasChanges;
 
-        public bool _selectedDriverHasChanges { get; set; }
         public ObservableCollection<DriverModel> Drivers { get; set; } = new ObservableCollection<DriverModel>();
         public RelayCommand SaveCommand { get; set; }
         public List<string> DriverlicenseTypes { get; } = new List<string>() {"A", "B", "C", "CE", "D" };
@@ -25,17 +26,16 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             _driverService = new Services.DriverSevice();
             _addressService = new Services.AddressService();
             SaveCommand = new RelayCommand(OnSave, CanSave);
-            LoadDrivers();
+            LoadDrivers("Ready");
         }
 
-        public async void LoadDrivers()
+        public async void LoadDrivers(string statusBarTextAfterLoading)
         {
-            StatusBarText = "loading...";
             Drivers.Clear();
             Drivers.Add(new DriverModel { FirstName = "NEW", LastName = "DRIVER" });
             var drivers = await _driverService.GetDriversFromGrpcApi();
             drivers.ForEach(driver => Drivers.Add(driver));
-            StatusBarText = "Ready";
+            StatusBarText = statusBarTextAfterLoading;
         }
 
         public DriverModel SelectedDriver
@@ -62,19 +62,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         public string StatusBarText
         {
             get => _statusBarText;
-            set => SetProperty(ref _statusBarText, value);
-        }
-
-        public void OnSave()
-        {
-            StatusBarText = "Saving...";
-            var selectedDriver = SelectedDriver;
-            var saveDriverResponse = _driverService.SaveDriver(_selectedDriver);
-            _selectedDriverHasChanges = false;
-            LoadDrivers();
-            SelectedDriver = selectedDriver;
-            StatusBarText = saveDriverResponse.ErrorMessage;
-            SaveCommand.NotifyCanExecuteChanged();
+            set => SetProperty(ref _statusBarText, $"{value.Replace("\r","").Replace("\n","")} : {DateTime.Now}");
         }
 
         private void HandleSelectedDriverChanged()
@@ -95,6 +83,16 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             }
             _selectedDriver.PropertyChanged -= ViewModelPropertyChanged;
             _selectedDriver.Address.PropertyChanged -= ViewModelPropertyChanged;
+        }
+
+        public void OnSave()
+        {
+            var selectedDriver = SelectedDriver;
+            var saveDriverResponse = _driverService.SaveDriver(_selectedDriver);
+            _selectedDriverHasChanges = false;
+            LoadDrivers(saveDriverResponse.ErrorMessage);
+            SelectedDriver = selectedDriver;
+            SaveCommand.NotifyCanExecuteChanged();
         }
 
         private void RestoreOriginalDriverData()

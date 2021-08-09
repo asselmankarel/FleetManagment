@@ -115,7 +115,7 @@
                 <TextBox Text="{Binding SelectedDriver.Address.Country, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
             </StackPanel>
 
-            <StatusBar Grid.Row="1" Grid.ColumnSpan="2" >
+            <StatusBar Grid.Row="1" Grid.ColumnSpan="2" Height="25">
                 <StatusBarItem HorizontalAlignment="Left">
                     <TextBlock Text="{Binding StatusBarText}" Margin="10 0" Foreground="Teal"/>
                 </StatusBarItem>

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Fleetmanagement.Admin.WPF.Components
+namespace Fleetmanagement.Admin.WPF.Controls
 {
     /// <summary>
     /// Interaction logic for NavigationMenu.xaml

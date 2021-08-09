@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"                        
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="{DynamicResource MaterialDesignLightBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
@@ -24,7 +24,7 @@
                  Width="185"
                  ScrollViewer.CanContentScroll="True" />
 
-        <StackPanel Grid.Column="1" Margin="25 10" >
+        <StackPanel Grid.Column="1" Margin="25 10">
             <Label Content="ChassisNumber" Margin="10 20 10 0" FontWeight="Bold"/>
             <TextBox Text="{Binding SelectedVehicle.ChassisNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350"/>
 
@@ -34,7 +34,6 @@
                       Margin="10 0 10 10"
                       Width="200"
                       HorizontalAlignment="Left"/>
-
 
             <Label Content="Fuel type" Margin="10 10 10 0" FontWeight="Bold"/>
             <ComboBox ItemsSource="{Binding FuelTypes}"

@@ -8,7 +8,7 @@
         xmlns:viewmodels="clr-namespace:Fleetmanagement.Admin.WPF.ViewModels"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:components="clr-namespace:Fleetmanagement.Admin.WPF.Components"
+        xmlns:components="clr-namespace:Fleetmanagement.Admin.WPF.Controls"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="16"
