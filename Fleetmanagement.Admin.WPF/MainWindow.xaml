@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fleetmanagement.Admin.WPF"
         xmlns:views="clr-namespace:Fleetmanagement.Admin.WPF.Views"
-        xmlns:viewmodels="clr-namespace:Fleetmanagement.Admin.WPF.ListViewModels"
+        xmlns:viewmodels="clr-namespace:Fleetmanagement.Admin.WPF.ViewModels"
+        xmlns:listviewmodels="clr-namespace:Fleetmanagement.Admin.WPF.ListViewModels"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:components="clr-namespace:Fleetmanagement.Admin.WPF.Controls"
@@ -44,16 +45,16 @@
                 <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}" >
                     <views:HomeView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:DriverListViewModel}" >
+                <DataTemplate DataType="{x:Type listviewmodels:DriverListViewModel}" >
                     <views:DriverView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:VehicleListViewModel}" >
+                <DataTemplate DataType="{x:Type listviewmodels:VehicleListViewModel}" >
                     <views:VehicleView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:FuelcardViewModel}" >
+                <DataTemplate DataType="{x:Type listviewmodels:FuelcardListViewModel}" >
                     <views:FuelcardView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:RequestListViewModel}" >
+                <DataTemplate DataType="{x:Type listviewmodels:RequestListViewModel}" >
                     <views:RequestView />
                 </DataTemplate>
             </ContentControl.Resources>

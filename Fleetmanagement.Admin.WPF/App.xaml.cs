@@ -3,6 +3,7 @@ using Fleetmanagement.Admin.WPF.ListViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
+using Fleetmanagement.Admin.WPF.ViewModels;
 
 namespace Fleetmanagement.Admin.WPF
 {

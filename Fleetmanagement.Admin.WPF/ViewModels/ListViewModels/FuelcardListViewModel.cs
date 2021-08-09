@@ -4,14 +4,14 @@ using System.Collections.ObjectModel;
 
 namespace Fleetmanagement.Admin.WPF.ListViewModels
 {
-    public class FuelcardViewModel : ObservableValidator
+    public class FuelcardListViewModel : ObservableValidator
     {
         private ViewModels.FuelcardViewModel _selectedFuelcard;
         private readonly Services.FuelcardService _fuelcardService;
 
         public ObservableCollection<ViewModels.FuelcardViewModel> Fuelcards { get; set; } = new ObservableCollection<ViewModels.FuelcardViewModel>();
 
-        public FuelcardViewModel()
+        public FuelcardListViewModel()
         {
             _fuelcardService = new Services.FuelcardService();
             LoadFuelcards();
