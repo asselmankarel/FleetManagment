@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
 namespace FleetManagement.Domain.Models
@@ -12,5 +14,8 @@ namespace FleetManagement.Domain.Models
         [Required]
         [MaxLength(15)]
         public string Number { get; set; }
+
+
+        public ICollection<VehicleLicensePlate> VehicleLicenseplates { get; set; }
     }
 }

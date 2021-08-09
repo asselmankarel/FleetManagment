@@ -24,43 +24,25 @@ namespace FleetManagement.DAL.Repositories
             .ThenInclude(vlp => vlp.LicensePlate)            
             .FirstOrDefault();
 
-            if (result?.Vehicle == null)
-            {
-                return new Vehicle();
-            }
-
-            return result.Vehicle;
+            return result == null ? null : result.Vehicle;
         }
 
         public int GetLastMileage(int id)
         {
-            var km = 0;
+            var result = _context.Mileages.Where(m => m.Vehicle.Id == id)
+                .LastOrDefault();
 
-            try
-            {
-                km = _context.Vehicles.Where(v => v.Id == id)
-                    .Include(v => v.Mileages)
-                    .FirstOrDefault()
-                    .Mileages
-                    .Last()
-                    .Km;
-            }
-            catch (Exception) { }
-
-            return km;
+           return result == null ? 0 : result.Km;
         }
+
 
         public string GetActiveLicensePlateForVehicle(int vehicleId)
         {
-            var vehicle = _context.Vehicles
-                .Where(v => v.Id == vehicleId)
-                .Include(v => v.VehicleLicensePlates.Where(vlp => vlp.EndDate == null))
-                .ThenInclude(vlp => vlp.LicensePlate)
+            var licensePlate = _context.LicensePlates
+                .Where(l => l.VehicleLicenseplates.Any(vl => vl.VehicleId == vehicleId && vl.EndDate == null))
                 .FirstOrDefault();
 
-            var licensePlate = vehicle.VehicleLicensePlates.FirstOrDefault().LicensePlate;
-
-            return licensePlate.Number;
+            return licensePlate?.Number;
         }
 
         public async Task<List<Vehicle>> GetAllVehiclesWithActiveLicenseplate()

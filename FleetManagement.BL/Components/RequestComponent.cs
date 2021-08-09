@@ -31,6 +31,7 @@ namespace FleetManagement.BL.Components
             return requests;
         }
 
+        // TODO: 
         public ICreateResponse Create(ICreateRequest createRequest)
         {
             var driver = _driverRepository.GetById(createRequest.DriverId);
@@ -62,7 +63,7 @@ namespace FleetManagement.BL.Components
 
         private static Request MapCreateRequestToRequest(Driver driver, ICreateRequest createRequest)
         {
-            return new Request 
+            return new Request
             {
                 Driver = driver,
                 RequestType = (RequestType)createRequest.RequestType,
@@ -78,7 +79,7 @@ namespace FleetManagement.BL.Components
                 case RequestType.Maintenance: return true;
                 case RequestType.Repair: return true;
                 default: return false;
-            }            
+            }
         }
 
         private static ICreateResponse IsValid(Request request)

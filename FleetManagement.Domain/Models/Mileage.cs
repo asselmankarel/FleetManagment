@@ -12,5 +12,7 @@ namespace FleetManagement.Domain.Models
 
         [Range(0, 300000)]
         public int Km { get; set; }
+
+        public Vehicle Vehicle { get; set; }
     }
 }   

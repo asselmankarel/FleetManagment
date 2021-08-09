@@ -6,7 +6,7 @@ namespace FleetManagment.WriteAPI.Mappers
 {
     public static class CommandToRequestMapper
     {
-        public static ICreateRequest CreateRequestFromCommand(AddRequest addRequestCommand) 
+        public static ICreateRequest CreateRequestFromCommand(AddRequest addRequestCommand)
         {
             var createRequest = new CreateRequest
             {

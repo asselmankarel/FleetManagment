@@ -38,7 +38,7 @@ namespace Fleetmanagement.GrpcAPI.Services
         public override Task<VehicleModel> GetVehicleByDriverId(VehicleByDriverIdRequest request, ServerCallContext context)
         {
             var vehicle = _vehicleRepository.GetCurrentVehicleForDriver(request.DriverId);
-            if (vehicle.Id == 0) return Task.FromResult(new VehicleModel());
+            if (vehicle == null) return Task.FromResult(new VehicleModel());
 
             return Task.FromResult(_mapper.Map<VehicleModel>(vehicle));
         }
