@@ -3,6 +3,7 @@ using FleetManagement.BL.Components;
 using FleetManagement.DAL.Repositories;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 using System.Threading.Tasks;
 
 
@@ -33,7 +34,7 @@ namespace Fleetmanagement.GrpcAPI
 
         public override async Task GetDrivers(DriversRequest request, IServerStreamWriter<DriverModel> responseStream, ServerCallContext context)
         {
-            var drivers = _driverRepository.GetAll();
+            var drivers = _driverRepository.GetAll().OrderBy(d => d.FirstName);
 
             foreach(var driver in drivers)
             {

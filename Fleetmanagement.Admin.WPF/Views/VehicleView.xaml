@@ -12,7 +12,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Column="0"
+        <Border BorderThickness="0 0 1 0" BorderBrush="LightGray">
+            <ListBox Grid.Column="0"
                  ItemsSource="{Binding Vehicles, Mode=OneWay}"
                  SelectedItem="{Binding SelectedVehicle, Mode=TwoWay}"
                  DisplayMemberPath="DisplayMember"
@@ -22,6 +23,7 @@
                  HorizontalAlignment="Center"
                  HorizontalContentAlignment="Left"
                  ScrollViewer.CanContentScroll="True" />
+        </Border>
 
         <StackPanel Grid.Column="1" Margin="25 10">
             <Label Content="Make" Margin="10 20 10 0" FontWeight="Bold"/>

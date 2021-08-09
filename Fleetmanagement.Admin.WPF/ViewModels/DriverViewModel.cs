@@ -48,22 +48,34 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             {
                 if (_selectedDriver != null)
                 {
-                    HandleSelectedDriverChanged();
+                    OnSelectedDriverChange();
                 }
+
                 SetProperty(ref _selectedDriver, value, true);
+
                 if (_selectedDriver != null)
                 {
-                    LoadDriverAddress();
-                    LoadDriverVehcicle();
-                    _selectedDriver.PropertyChanged += ViewModelPropertyChanged;
-                    _selectedDriver.Address.PropertyChanged += ViewModelPropertyChanged;
-                    _selectedDriverHasChanges = false;
-                    SaveCommand.NotifyCanExecuteChanged();
+                    OnSelectedDriverDidChange();
                 }
             }
         }
 
-       
+        public void OnSave()
+        {
+            var saveDriverResponse = _driverService.SaveDriver(_selectedDriver);
+            _selectedDriverHasChanges = false;
+
+            if (!saveDriverResponse.SuccessFul)
+            {
+                LoadDrivers(saveDriverResponse.ErrorMessage);
+            }
+            else
+            {
+                StatusBarText = saveDriverResponse.ErrorMessage;
+            }
+
+            SaveCommand.NotifyCanExecuteChanged();
+        }
 
         public string StatusBarText
         {
@@ -71,14 +83,15 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             set => SetProperty(ref _statusBarText, $"{value.Replace("\r","").Replace("\n","")} : {DateTime.Now}");
         }
 
-        private void HandleSelectedDriverChanged()
+        private void OnSelectedDriverChange()
         {
             if (!_selectedDriver.CanSave) return;
 
             if (_selectedDriverHasChanges)
             {
-                if (Xceed.Wpf.Toolkit.MessageBox.Show("Selected driver has pending changes! Do you want to save these changes?",
-                    "Pending changes",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (Xceed.Wpf.Toolkit.MessageBox.Show(
+                    "Selected driver has pending changes! Do you want to save these changes?",
+                    "Pending changes",MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     OnSave();
                 }
@@ -91,13 +104,13 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             _selectedDriver.Address.PropertyChanged -= ViewModelPropertyChanged;
         }
 
-        public void OnSave()
+        private void OnSelectedDriverDidChange()
         {
-            var selectedDriver = SelectedDriver;
-            var saveDriverResponse = _driverService.SaveDriver(_selectedDriver);
+            LoadDriverAddress();
+            LoadDriverVehcicle();
+            _selectedDriver.PropertyChanged += ViewModelPropertyChanged;
+            _selectedDriver.Address.PropertyChanged += ViewModelPropertyChanged;
             _selectedDriverHasChanges = false;
-            LoadDrivers(saveDriverResponse.ErrorMessage);
-            SelectedDriver = selectedDriver;
             SaveCommand.NotifyCanExecuteChanged();
         }
 
@@ -111,6 +124,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
             _selectedDriver.Email = originalDriver.Email;
             _selectedDriver.IsActive = originalDriver.IsActive;
             LoadDriverAddress();
+            LoadDriverVehcicle();
         }
 
         private void LoadDriverAddress()

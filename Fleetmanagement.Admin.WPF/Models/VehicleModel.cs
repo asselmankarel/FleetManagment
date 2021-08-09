@@ -35,7 +35,6 @@ namespace Fleetmanagement.Admin.WPF.Models
             set => SetProperty(ref _model, value, true);
         }
 
-
         private string _vehicleType;
 
         [Required]
@@ -56,12 +55,13 @@ namespace Fleetmanagement.Admin.WPF.Models
 
         public string Licenseplate { get; init; }
 
-        public string DisplayMember {
+        public string DisplayMember
+        {
             get
             {
                 if (this.Id == 0) return "ADD VEHICLE";
                 
-                return $"{Make} {Model} {Licenseplate}";
+                return $"{Licenseplate} {Make} {Model}";
             }
         }
 

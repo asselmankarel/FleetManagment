@@ -21,7 +21,7 @@ namespace FleetManagement.DAL.Repositories
             .Where(dv => dv.DriverId == driverId && dv.EndDate == null)
             .Include(dv => dv.Vehicle)
             .ThenInclude(v => v.VehicleLicensePlates.Where(vlp => vlp.EndDate == null))
-            .ThenInclude(vlp => vlp.LicensePlate)
+            .ThenInclude(vlp => vlp.LicensePlate)            
             .FirstOrDefault();
 
             if (result?.Vehicle == null)
@@ -68,6 +68,7 @@ namespace FleetManagement.DAL.Repositories
             var vehicles = await _context.Vehicles
                 .Include(v => v.VehicleLicensePlates.Where(vlp => vlp.EndDate == null))
                 .ThenInclude(vlp => vlp.LicensePlate)
+                .OrderBy(v => v.Make)
                 .ToListAsync();
 
             return vehicles;
