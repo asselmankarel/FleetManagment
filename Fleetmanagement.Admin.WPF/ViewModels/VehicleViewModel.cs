@@ -1,43 +1,70 @@
-﻿using Fleetmanagement.Admin.WPF.Models;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Fleetmanagement.Admin.WPF.ViewModels
 {
     public class VehicleViewModel : ObservableValidator
     {
-        private VehicleModel _selectedVehicle;
-        private readonly Services.VehicleService _vehicleService;
+        public int Id { get; init; }
 
-        public List<string> VehicleTypes { get; } = new List<string>() { "Car","Van","Truck" };
-        public List<string> FuelTypes { get; } = new List<string>()
+        private string _chassisNumber;
+
+        [Required]
+        [MinLength(12)]
+        public string ChassisNumber
         {
-            "Cng","Diesel","Electric","Gasoline","Hybrid","Hydrogen","Lpg"
-        };
-
-        public ObservableCollection<VehicleModel> Vehicles { get; set; } = new ObservableCollection<VehicleModel>();
-
-        public VehicleViewModel()
-        {
-            _vehicleService = new Services.VehicleService();
-            LoadVehicles();
+            get => _chassisNumber;
+            set => SetProperty(ref _chassisNumber, value, true);
         }
 
-        public async void LoadVehicles()
+        private string _make;
+
+        [Required]
+        public string Make
         {
-            Vehicles.Clear();
-            Vehicles.Add(new VehicleModel());
-            var vehicles = await _vehicleService.GetVehiclesFromGrpcApi();
-            vehicles.ForEach(v => Vehicles.Add(v));
+            get =>_make;
+            set => SetProperty(ref _make, value, true);
         }
 
-        public VehicleModel SelectedVehicle
+        private string _model;
+
+        [Required]
+        public string Model
         {
-            get => _selectedVehicle;
-            set => SetProperty(ref _selectedVehicle, value, true);
+            get => _model;
+            set => SetProperty(ref _model, value, true);
         }
 
+        private string _vehicleType;
+
+        [Required]
+        public string VehicleType
+        {
+            get => _vehicleType;
+            set => SetProperty(ref _vehicleType, value, true);
+        }
+
+        private string _fuelType;
+
+        [Required]
+        public string FuelType
+        {
+            get => _fuelType;
+            set => SetProperty(ref _fuelType, value, true);
+        }
+
+        public string Licenseplate { get; init; }
+
+        public string DisplayMember
+        {
+            get
+            {
+                if (this.Id == 0) return "ADD VEHICLE";
+                
+                return $"{Licenseplate} {Make} {Model}";
+            }
+        }
+
+        public bool CanSave => !HasErrors;
     }
 }

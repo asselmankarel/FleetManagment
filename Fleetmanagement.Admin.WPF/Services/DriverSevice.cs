@@ -1,4 +1,4 @@
-﻿using FleetManagement.Admin.WPF.Models;
+﻿using FleetManagement.Admin.WPF.ViewModels;
 using FleetManagement.GrpcClientLibrary;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace Fleetmanagement.Admin.WPF.Services
             _driverGrpcClient = new DriverClient(_grpcServerUrl);
         }
 
-        public async Task<List<DriverModel>> GetDriversFromGrpcApi()
+        public async Task<List<DriverViewModel>> GetDriversFromGrpcApi()
         {
             var driverList = await _driverGrpcClient.DriverList();
             var drivers = MapToDriverModel(driverList);
@@ -23,14 +23,14 @@ namespace Fleetmanagement.Admin.WPF.Services
             return drivers;
         }
         
-        public DriverModel GetDriverFromGrpcApi(int Id)
+        public DriverViewModel GetDriverFromGrpcApi(int Id)
         {
             var driver = _driverGrpcClient.DriverDetails(Id);
 
             return MapToDriverModel(driver);
         }
 
-        public GrpcAPI.SuccessResponse SaveDriver(DriverModel driver)
+        public GrpcAPI.SuccessResponse SaveDriver(DriverViewModel driver)
         {
             GrpcAPI.DriverModel grpcDriverModel = new()
             {
@@ -57,9 +57,9 @@ namespace Fleetmanagement.Admin.WPF.Services
             return  _driverGrpcClient.SaveDriver(grpcDriverModel);
         }
 
-        private DriverModel MapToDriverModel(GrpcAPI.DriverModel driver)
+        private DriverViewModel MapToDriverModel(GrpcAPI.DriverModel driver)
         {
-            return new DriverModel()
+            return new DriverViewModel()
             {
                 Id = driver.Id,
                 FirstName = driver.FirstName,
@@ -71,13 +71,13 @@ namespace Fleetmanagement.Admin.WPF.Services
             };
         }
 
-        private List<DriverModel> MapToDriverModel(List<GrpcAPI.DriverModel> drivers)
+        private List<DriverViewModel> MapToDriverModel(List<GrpcAPI.DriverModel> drivers)
         {
-            List<DriverModel> Drivers = new();
+            List<DriverViewModel> Drivers = new();
 
             foreach (var driver in drivers)
             {
-                Drivers.Add(new DriverModel
+                Drivers.Add(new DriverViewModel
                 {
                     Id = driver.Id,
                     FirstName = driver.FirstName,

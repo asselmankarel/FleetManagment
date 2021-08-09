@@ -1,10 +1,10 @@
-﻿using Fleetmanagement.Admin.WPF.Models;
+﻿using Fleetmanagement.Admin.WPF.ViewModels;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 
-namespace Fleetmanagement.Admin.WPF.ViewModels
+namespace Fleetmanagement.Admin.WPF.ListViewModels
 {
-    public class RequestViewModel : ObservableValidator
+    public class RequestListViewModel : ObservableValidator
     {
         private readonly Services.RequestService _requestService;
 
@@ -17,7 +17,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
 
         public ObservableCollection<RequestModel> Requests { get; set; } = new ObservableCollection<RequestModel>();
 
-        public RequestViewModel()
+        public RequestListViewModel()
         {
             _requestService = new Services.RequestService();
             LoadRequests();

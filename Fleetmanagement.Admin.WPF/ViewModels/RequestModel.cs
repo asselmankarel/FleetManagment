@@ -1,8 +1,8 @@
-﻿using FleetManagement.Admin.WPF.Models;
+﻿using FleetManagement.Admin.WPF.ViewModels;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fleetmanagement.Admin.WPF.Models
+namespace Fleetmanagement.Admin.WPF.ViewModels
 {
     public class RequestModel
     {
@@ -17,9 +17,9 @@ namespace Fleetmanagement.Admin.WPF.Models
 
         public DateTime? PrefDate2 { get; init; }
 
-        public DriverModel Driver { get; init; }
+        public DriverViewModel Driver { get; init; }
 
-        public VehicleModel Vehicle { get; init; }
+        public VehicleViewModel Vehicle { get; init; }
 
         public string DisplayMember { get => $"{RequestType} : {Status}"; }
 

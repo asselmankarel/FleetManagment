@@ -1,9 +1,9 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Fleetmanagement.Admin.WPF.Models
+namespace Fleetmanagement.Admin.WPF.ViewModels
 {
-    public class AddressModel : ObservableValidator
+    public class AddressViewModel : ObservableValidator
     {
         public int Id { get; init; }
         public int EmployeeId { get; init; }

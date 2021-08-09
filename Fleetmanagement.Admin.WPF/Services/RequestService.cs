@@ -1,5 +1,5 @@
-﻿using Fleetmanagement.Admin.WPF.Models;
-using FleetManagement.Admin.WPF.Models;
+﻿using Fleetmanagement.Admin.WPF.ViewModels;
+using FleetManagement.Admin.WPF.ViewModels;
 using FleetManagement.GrpcClientLibrary;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -44,11 +44,11 @@ namespace Fleetmanagement.Admin.WPF.Services
             return Requests;
         }
 
-        private VehicleModel MapToVehicle(GrpcAPI.VehicleModel vehicle)
+        private VehicleViewModel MapToVehicle(GrpcAPI.VehicleModel vehicle)
         {
             if (vehicle == null) return null;
 
-            return new VehicleModel()
+            return new VehicleViewModel()
             {
                 Id = vehicle.Id,
                 ChassisNumber = vehicle.ChassisNumber,
@@ -58,9 +58,9 @@ namespace Fleetmanagement.Admin.WPF.Services
             };
         }
 
-        private DriverModel MapToDriver(GrpcAPI.DriverModel driver)
+        private DriverViewModel MapToDriver(GrpcAPI.DriverModel driver)
         {
-            return new DriverModel()
+            return new DriverViewModel()
             {
                 Id = driver.Id,
                 FirstName = driver.FirstName,

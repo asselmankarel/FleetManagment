@@ -1,4 +1,4 @@
-﻿using Fleetmanagement.Admin.WPF.Models;
+﻿using Fleetmanagement.Admin.WPF.ViewModels;
 using FleetManagement.GrpcClientLibrary;
 
 namespace Fleetmanagement.Admin.WPF.Services
@@ -12,11 +12,11 @@ namespace Fleetmanagement.Admin.WPF.Services
             _addressClient = new AddressClient(_grpcServerUrl);
         }
 
-        public AddressModel GetAddress(int driverId)
+        public AddressViewModel GetAddress(int driverId)
         {
             var address = _addressClient.AddressDetails(driverId);
 
-            return new AddressModel()
+            return new AddressViewModel()
             {
                 Id = address.Id,
                 Street = address.Street,
@@ -29,7 +29,7 @@ namespace Fleetmanagement.Admin.WPF.Services
             };
         }
 
-        public GrpcAPI.SuccessResponse SaveAddress(AddressModel address)
+        public GrpcAPI.SuccessResponse SaveAddress(AddressViewModel address)
         {
             var grpcAddressModel = new GrpcAPI.AddressModel()
             {

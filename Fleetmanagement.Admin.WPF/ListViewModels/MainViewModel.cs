@@ -1,6 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 
-namespace Fleetmanagement.Admin.WPF.ViewModels
+namespace Fleetmanagement.Admin.WPF.ListViewModels
 {
     public class MainViewModel : ObservableObject
     {

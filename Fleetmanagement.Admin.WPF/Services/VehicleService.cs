@@ -1,4 +1,4 @@
-﻿using Fleetmanagement.Admin.WPF.Models;
+﻿using Fleetmanagement.Admin.WPF.ViewModels;
 using FleetManagement.GrpcClientLibrary;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,7 +14,7 @@ namespace Fleetmanagement.Admin.WPF.Services
             _vehicleClient = new VehicleClient(_grpcServerUrl);
         }
 
-        public async Task<List<VehicleModel>> GetVehiclesFromGrpcApi()
+        public async Task<List<VehicleViewModel>> GetVehiclesFromGrpcApi()
         {
             var vehicleList = await _vehicleClient.VehicleList();
             var vehicles = MapToVehicleModel(vehicleList);
@@ -22,11 +22,11 @@ namespace Fleetmanagement.Admin.WPF.Services
             return vehicles;
         }
 
-        public async Task<VehicleModel> GetVehiclefromGrpcApi(int driverId)
+        public async Task<VehicleViewModel> GetVehiclefromGrpcApi(int driverId)
         {
             var vehicle = await _vehicleClient.GetVehicleByDriverId(driverId);
 
-            return new VehicleModel()
+            return new VehicleViewModel()
             {
                 Id = vehicle.Id,
                 ChassisNumber = vehicle.ChassisNumber,
@@ -38,13 +38,13 @@ namespace Fleetmanagement.Admin.WPF.Services
             };
         }
 
-        private List<VehicleModel> MapToVehicleModel(List<GrpcAPI.VehicleModel> vehicles)
+        private List<VehicleViewModel> MapToVehicleModel(List<GrpcAPI.VehicleModel> vehicles)
         {
-            var Vehicles = new List<VehicleModel>();
+            var Vehicles = new List<VehicleViewModel>();
 
             foreach (var vehicle in vehicles)
             {
-                Vehicles.Add(new VehicleModel()
+                Vehicles.Add(new VehicleViewModel()
                 {
                     Id = vehicle.Id,
                     ChassisNumber = vehicle.ChassisNumber,

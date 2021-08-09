@@ -2,7 +2,7 @@
 using Fleetmanagement.Admin.WPF.Stores;
 using System.Windows.Input;
 
-namespace Fleetmanagement.Admin.WPF.ViewModels
+namespace Fleetmanagement.Admin.WPF.ListViewModels
 {
     public class NavigationMenuViewModel
     {
@@ -18,10 +18,10 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         {
             NavigationStore = navigationStore;
             HomeNavigationCommand = new NavigateCommand<HomeViewModel>(NavigationStore, () => new HomeViewModel());
-            DriverNavigationCommand = new NavigateCommand<DriverViewModel>(NavigationStore, () => new DriverViewModel());
-            VehicleNavigationCommand = new NavigateCommand<VehicleViewModel>(NavigationStore, () => new VehicleViewModel());
+            DriverNavigationCommand = new NavigateCommand<DriverListViewModel>(NavigationStore, () => new DriverListViewModel());
+            VehicleNavigationCommand = new NavigateCommand<VehicleListViewModel>(NavigationStore, () => new VehicleListViewModel());
             FuelcardNavigationCommand = new NavigateCommand<FuelcardViewModel>(NavigationStore, () => new FuelcardViewModel());
-            RequestNavigationCommand = new NavigateCommand<RequestViewModel>(NavigationStore, () => new RequestViewModel());
+            RequestNavigationCommand = new NavigateCommand<RequestListViewModel>(NavigationStore, () => new RequestListViewModel());
         }
 
         public NavigationMenuViewModel()

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fleetmanagement.Admin.WPF"
         xmlns:views="clr-namespace:Fleetmanagement.Admin.WPF.Views"
-        xmlns:viewmodels="clr-namespace:Fleetmanagement.Admin.WPF.ViewModels"
+        xmlns:viewmodels="clr-namespace:Fleetmanagement.Admin.WPF.ListViewModels"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:components="clr-namespace:Fleetmanagement.Admin.WPF.Controls"
@@ -44,16 +44,16 @@
                 <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}" >
                     <views:HomeView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:DriverViewModel}" >
+                <DataTemplate DataType="{x:Type viewmodels:DriverListViewModel}" >
                     <views:DriverView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:VehicleViewModel}" >
+                <DataTemplate DataType="{x:Type viewmodels:VehicleListViewModel}" >
                     <views:VehicleView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:FuelcardViewModel}" >
                     <views:FuelcardView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:RequestViewModel}" >
+                <DataTemplate DataType="{x:Type viewmodels:RequestListViewModel}" >
                     <views:RequestView />
                 </DataTemplate>
             </ContentControl.Resources>

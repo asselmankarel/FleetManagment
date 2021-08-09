@@ -1,34 +1,46 @@
-﻿using Fleetmanagement.Admin.WPF.Models;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Fleetmanagement.Admin.WPF.ViewModels
 {
     public class FuelcardViewModel : ObservableValidator
     {
-        private FuelcardModel _selectedFuelcard;
-        private readonly Services.FuelcardService _fuelcardService;
+        public int Id { get; init; }
 
-        public ObservableCollection<FuelcardModel> Fuelcards { get; set; } = new ObservableCollection<FuelcardModel>();
+        private string _cardNumber;
 
-        public FuelcardViewModel()
+        [Required]
+        [MinLength(8)]
+        public string CardNumber
         {
-            _fuelcardService = new Services.FuelcardService();
-            LoadFuelcards();
+            get => _cardNumber;
+            set => SetProperty(ref _cardNumber, value, true);
         }
 
-        public FuelcardModel SelectedFuelcard 
+        private string _authType;
+
+        [Required]
+        public string AuthType
         {
-            get => _selectedFuelcard;
-            set => SetProperty(ref _selectedFuelcard, value, true);
+            get => _authType;
+            set => SetProperty(ref _authType, value, true);
         }
 
-        private async void LoadFuelcards()
+        private string _fuelType;
+
+        [Required]
+        public string FuelType
         {
-            Fuelcards.Clear();
-            Fuelcards.Add(new FuelcardModel() { CardNumber = "NEW FUELCARD" });
-            var fuelcards = await _fuelcardService.GetFuelcardsFromGrpcApi();
-            fuelcards.ForEach(fc => Fuelcards.Add(fc));
+            get => _fuelType;
+            set => SetProperty(ref _fuelType, value, true);
         }
+
+        public List<string> Services { get; set; } = new List<string>();
+
+        public bool CanSave => !HasErrors;
+       
+
+
     }
 }

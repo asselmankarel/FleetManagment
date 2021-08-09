@@ -1,5 +1,5 @@
 ﻿using Fleetmanagement.Admin.WPF.Stores;
-using Fleetmanagement.Admin.WPF.ViewModels;
+using Fleetmanagement.Admin.WPF.ListViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;

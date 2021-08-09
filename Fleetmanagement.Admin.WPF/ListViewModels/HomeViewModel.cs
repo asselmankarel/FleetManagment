@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fleetmanagement.Admin.WPF.ViewModels
+namespace Fleetmanagement.Admin.WPF.ListViewModels
 {
     public class HomeViewModel : ObservableObject
     {

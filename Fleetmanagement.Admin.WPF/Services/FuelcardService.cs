@@ -1,4 +1,4 @@
-﻿using Fleetmanagement.Admin.WPF.Models;
+﻿using Fleetmanagement.Admin.WPF.ViewModels;
 using FleetManagement.GrpcClientLibrary;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace Fleetmanagement.Admin.WPF.Services
             _fuelcardClient = new FuelcardClient(_grpcServerUrl);
         }
 
-        public async Task<List<FuelcardModel>> GetFuelcardsFromGrpcApi()
+        public async Task<List<FuelcardViewModel>> GetFuelcardsFromGrpcApi()
         {
             var fuelcardList = await _fuelcardClient.GetFuelcardList();
             var fuelcards = MapToFuelcardModel(fuelcardList);
@@ -23,13 +23,13 @@ namespace Fleetmanagement.Admin.WPF.Services
             return fuelcards;
         }
 
-        private List<FuelcardModel> MapToFuelcardModel(List<GrpcAPI.FuelcardModel> fuelcards)
+        private List<FuelcardViewModel> MapToFuelcardModel(List<GrpcAPI.FuelcardModel> fuelcards)
         {
-            var Fuelcards = new List<FuelcardModel>();
+            var Fuelcards = new List<FuelcardViewModel>();
 
             foreach (var fuelcard in fuelcards)
             {
-                Fuelcards.Add(new FuelcardModel()
+                Fuelcards.Add(new FuelcardViewModel()
                 {
                     Id = fuelcard.Id,
                     CardNumber = fuelcard.CardNumber,

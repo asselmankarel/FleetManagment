@@ -1,153 +1,97 @@
-﻿using FleetManagement.Admin.WPF.Models;
+﻿using Fleetmanagement.Admin.WPF.ViewModels;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Windows;
+using System.ComponentModel.DataAnnotations;
 
-namespace Fleetmanagement.Admin.WPF.ViewModels
+namespace FleetManagement.Admin.WPF.ViewModels
 {
     public class DriverViewModel : ObservableValidator
     {
-        private readonly Services.DriverSevice _driverService;
-        private readonly Services.AddressService _addressService;
-        private readonly Services.VehicleService _vehicleService;
-        private DriverModel _selectedDriver;
-        private string _statusBarText;
-        private bool _selectedDriverHasChanges;
-
-        public ObservableCollection<DriverModel> Drivers { get; set; } = new ObservableCollection<DriverModel>();
-        public List<string> DriverlicenseTypes { get; } = new List<string>() {"A", "B", "C", "CE", "D" };
-        public RelayCommand SaveCommand { get; set; }
-        public RelayCommand DeleteCommand { get; set; }
-
-        public DriverViewModel()
+        public int Id { get; init; }
+        public string FullName
         {
-            _driverService = new Services.DriverSevice();
-            _addressService = new Services.AddressService();
-            _vehicleService = new Services.VehicleService();
-            SaveCommand = new RelayCommand(OnSave, CanSave);
-            LoadDrivers("Ready");
-        }
-
-        public async void LoadDrivers(string statusBarTextAfterLoading)
-        {
-            Drivers.Clear();
-            Drivers.Add(new DriverModel());
-            var drivers = await _driverService.GetDriversFromGrpcApi();
-            drivers.ForEach(driver => Drivers.Add(driver));
-            StatusBarText = statusBarTextAfterLoading;
-        }
-
-        public DriverModel SelectedDriver
-        {
-            get => _selectedDriver;
-            set
+            get
             {
-                if (_selectedDriver != null)
-                {
-                    OnSelectedDriverChange();
-                }
+                if (this.Id == 0) return "ADD DRIVER";
 
-                SetProperty(ref _selectedDriver, value, true);
-
-                if (_selectedDriver != null)
-                {
-                    OnSelectedDriverDidChange();
-                }
+                return $"{FirstName} {LastName}";
             }
         }
 
-        public void OnSave()
+        private string _firstName;
+
+        [MinLength(2)]
+        [Required(ErrorMessage = "First name is required")]
+        public string FirstName
         {
-            var saveDriverResponse = _driverService.SaveDriver(_selectedDriver);
-            _selectedDriverHasChanges = false;
-
-            if (!saveDriverResponse.SuccessFul)
-            {
-                LoadDrivers(saveDriverResponse.ErrorMessage);
-            }
-            else
-            {
-                StatusBarText = saveDriverResponse.ErrorMessage;
-            }
-
-            SaveCommand.NotifyCanExecuteChanged();
+            get => _firstName;
+            set => SetProperty(ref _firstName, value, true);
         }
 
-        public string StatusBarText
+        private string _lastName;
+
+        [Required(ErrorMessage = "Last name is required")]
+        [MinLength(2)]
+        public string LastName
         {
-            get => _statusBarText;
-            set => SetProperty(ref _statusBarText, $"{value.Replace("\r","").Replace("\n","")} : {DateTime.Now}");
+            get => _lastName;
+            set => SetProperty(ref _lastName, value, true);
         }
 
-        private void OnSelectedDriverChange()
-        {
-            if (!_selectedDriver.CanSave) return;
+        private string _nationalIdentitfication;
 
-            if (_selectedDriverHasChanges)
-            {
-                if (Xceed.Wpf.Toolkit.MessageBox.Show(
-                    "Selected driver has pending changes! Do you want to save these changes?",
-                    "Pending changes",MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                {
-                    OnSave();
-                }
-                else
-                {
-                    RestoreOriginalDriverData();
-                }
-            }
-            _selectedDriver.PropertyChanged -= ViewModelPropertyChanged;
-            _selectedDriver.Address.PropertyChanged -= ViewModelPropertyChanged;
+        [Required(ErrorMessage = "National ID number is required")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "National ID number must be 11 digits")]
+        public string NationalIdentificationNumber
+        {
+            get => _nationalIdentitfication;
+            set => SetProperty(ref _nationalIdentitfication, value, true);
         }
 
-        private void OnSelectedDriverDidChange()
+        private string _email;
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress]
+        public string Email
         {
-            LoadDriverAddress();
-            LoadDriverVehcicle();
-            _selectedDriver.PropertyChanged += ViewModelPropertyChanged;
-            _selectedDriver.Address.PropertyChanged += ViewModelPropertyChanged;
-            _selectedDriverHasChanges = false;
-            SaveCommand.NotifyCanExecuteChanged();
+            get => _email;
+            set => SetProperty(ref _email, value, true);
         }
 
-        private void RestoreOriginalDriverData()
+        private string _driversLicense;
+
+        [Required]
+        public string DriversLicense
         {
-            var originalDriver = _driverService.GetDriverFromGrpcApi(_selectedDriver.Id);
-            _selectedDriver.FirstName = originalDriver.FirstName;
-            _selectedDriver.LastName = originalDriver.LastName;
-            _selectedDriver.NationalIdentificationNumber = originalDriver.NationalIdentificationNumber;
-            _selectedDriver.DriversLicense = originalDriver.DriversLicense;
-            _selectedDriver.Email = originalDriver.Email;
-            _selectedDriver.IsActive = originalDriver.IsActive;
-            LoadDriverAddress();
-            LoadDriverVehcicle();
+            get => _driversLicense;
+            set => SetProperty(ref _driversLicense, value, true);
         }
 
-        private void LoadDriverAddress()
+        private bool _isActive;
+        public bool IsActive
         {
-            var address = _addressService.GetAddress(_selectedDriver.Id);
-            _selectedDriver.Address = address;
+            get => _isActive;
+            set => SetProperty(ref _isActive, value, true);
         }
 
-        private async void LoadDriverVehcicle()
+        private AddressViewModel _address;
+        public AddressViewModel Address
         {
-            var vehicle = await _vehicleService.GetVehiclefromGrpcApi(_selectedDriver.Id);
-            _selectedDriver.Vehicle = vehicle;
+            get => _address;
+            set => SetProperty(ref _address, value, true);
         }
 
-        private void ViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private VehicleViewModel _vehicle;
+        public VehicleViewModel Vehicle
         {
-            _selectedDriverHasChanges = true;
-            SaveCommand.NotifyCanExecuteChanged();
+            get => _vehicle;
+            set => SetProperty(ref _vehicle, value);
         }
 
-        private bool CanSave()
+
+        public bool CanSave => _canSave();
+        private bool _canSave()
         {
-            return _selectedDriver != null && _selectedDriver.CanSave && _selectedDriverHasChanges;
+            return Address != null && !HasErrors && !Address.HasErrors;
         }
     }
 }
