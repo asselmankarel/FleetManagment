@@ -15,6 +15,14 @@ namespace FleetManagement.Domain.Models
         [Required]
         public string ChassisNumber { get; set; }
 
+        [MaxLength(256)]
+        [Required]
+        public string Make { get; set; }
+
+        [MaxLength(256)]
+        [Required]
+        public string Model { get; set; }
+
         [Required]
         public VehicleType VehicleType { get; set; }
 

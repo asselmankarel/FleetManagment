@@ -24,5 +24,14 @@ namespace Fleetmanagement.Admin.WPF.Views
         {
             InitializeComponent();
         }
+
+        private void TextBoxNameGotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "NEW" || textBox.Text == "DRIVER")
+            {
+                textBox.Text = string.Empty;
+            }
+        }
     }
 }

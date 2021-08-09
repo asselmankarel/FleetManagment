@@ -16,7 +16,7 @@ namespace FleetManagement.Admin.WPF.Models
         public string FirstName
         {
             get => _firstName;
-            set => SetProperty(ref _firstName, value, true);                                
+            set => SetProperty(ref _firstName, value, true);
         }
 
         private string _lastName;

@@ -47,10 +47,10 @@
             <StackPanel Grid.Row="0" Grid.Column="0" Margin="10 0 0 0">
                 <Label Content="Driver info" Margin="10" FontSize="16" FontWeight="Bold" Foreground="Teal"/>
                 <Label Content="Firstname" Margin="10 20 10 0" FontWeight="Bold"/>
-                <TextBox Text="{Binding SelectedDriver.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
+                <TextBox Text="{Binding SelectedDriver.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBoxNameGotFocus" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
 
                 <Label Content="Lastname" Margin="10 10 10 0" FontWeight="Bold"/>
-                <TextBox Text="{Binding SelectedDriver.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350"/>
+                <TextBox Text="{Binding SelectedDriver.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBoxNameGotFocus" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350"/>
 
                 <Label Content="National identification number" Margin="10 10 10 0" FontWeight="Bold"/>
                 <TextBox Text="{Binding SelectedDriver.NationalIdentificationNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350"/>
@@ -59,13 +59,12 @@
                 <TextBox Text="{Binding SelectedDriver.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350"/>
 
                 <Label Content="Driverslicense" Margin="10 10 10 0" FontWeight="Bold" />
-                <!--<TextBox Text="{Binding SelectedDriver.DriversLicense, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" HorizontalAlignment="Left" Width="350"/>-->
                 <ComboBox ItemsSource="{Binding DriverlicenseTypes}"
                           SelectedItem="{Binding SelectedDriver.DriversLicense, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Margin="15 0 10 10"
                           HorizontalAlignment="Left"
                           Width="50"/>
-                
+
                 <Label Content="Is active" Margin="10 10 10 0" FontWeight="Bold" />
                 <CheckBox Margin="15 10 10 0" IsChecked="{Binding SelectedDriver.IsActive}"/>
 
@@ -92,13 +91,13 @@
                     </Button>
                 </StackPanel>
             </StackPanel>
-            
+
             <!--Address-->
             <StackPanel Grid.Row="0" Grid.Column="1" >
                 <Label Content="Address info" Margin="10" FontSize="16" FontWeight="Bold" Foreground="Teal"/>
                 <Label Content="Street" FontWeight="Bold" Margin="10 20 10 0"/>
                 <TextBox Text="{Binding SelectedDriver.Address.Street, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
-                
+
                 <Label Content="Number" FontWeight="Bold" Margin="10 10 10 0"/>
                 <TextBox Text="{Binding SelectedDriver.Address.Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350" FontSize="16"/>
 
@@ -120,8 +119,6 @@
                     <TextBlock Text="{Binding StatusBarText}" Margin="10 0" Foreground="Teal"/>
                 </StatusBarItem>
             </StatusBar>
-
         </Grid>
-
     </Grid>
 </UserControl>

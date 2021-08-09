@@ -4,14 +4,16 @@ using FleetManagement.DAL.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FleetManagement.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class DriverDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210809073133_AddVehicleMakeAndModel")]
+    partial class AddVehicleMakeAndModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -476,13 +478,11 @@ namespace FleetManagement.DAL.Migrations
 
                     b.Property<string>("Make")
                         .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("VehicleType")
                         .IsRequired()

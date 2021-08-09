@@ -17,12 +17,12 @@ namespace Fleetmanagement.Admin.WPF.Services
         public async Task<List<VehicleModel>> GetVehiclesFromGrpcApi()
         {
             var vehicleList = await _vehicleClient.VehicleList();
-            var vehicles = MapToVehcileModel(vehicleList);
+            var vehicles = MapToVehicleModel(vehicleList);
 
             return vehicles;
         }
 
-        private List<VehicleModel> MapToVehcileModel(List<GrpcAPI.VehicleModel> vehicles)
+        private List<VehicleModel> MapToVehicleModel(List<GrpcAPI.VehicleModel> vehicles)
         {
             var Vehicles = new List<VehicleModel>();
 
@@ -34,7 +34,9 @@ namespace Fleetmanagement.Admin.WPF.Services
                     ChassisNumber = vehicle.ChassisNumber,
                     VehicleType = vehicle.VehicleType,
                     FuelType = vehicle.FuelType,
-                    Licenseplate = vehicle.Licenseplate
+                    Licenseplate = vehicle.Licenseplate,
+                    Make = vehicle.Make,
+                    Model = vehicle.Model
                 });
             }
 

@@ -18,8 +18,9 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
         private bool _selectedDriverHasChanges;
 
         public ObservableCollection<DriverModel> Drivers { get; set; } = new ObservableCollection<DriverModel>();
-        public RelayCommand SaveCommand { get; set; }
         public List<string> DriverlicenseTypes { get; } = new List<string>() {"A", "B", "C", "CE", "D" };
+        public RelayCommand SaveCommand { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
 
         public DriverViewModel()
         {

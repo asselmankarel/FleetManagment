@@ -25,6 +25,8 @@ message VehicleModel
 	string VehicleType = 3;
 	string FuelType = 4;
 	string Licenseplate = 5;
+	string Make = 6;
+	string Model = 7;
 }
 
 message VehicleSuccessResponse

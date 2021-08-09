@@ -21,14 +21,14 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
 
         public VehicleViewModel()
         {
-            _vehicleService = new Services.VehicleService();            
+            _vehicleService = new Services.VehicleService();
             LoadVehicles();
         }
 
         public async void LoadVehicles()
         {
             Vehicles.Clear();
-            Vehicles.Add(new VehicleModel() { Licenseplate = "NEW VEHICLE" });
+            Vehicles.Add(new VehicleModel() { Make = "NEW", Model = "VEHICLE" });
             var vehicles = await _vehicleService.GetVehiclesFromGrpcApi();
             vehicles.ForEach(v => Vehicles.Add(v));
         }
