@@ -2,7 +2,6 @@
 using FleetManagment.WriteAPI.Mappers;
 using FleetManagment.WriteAPI.Models;
 using MediatR;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 

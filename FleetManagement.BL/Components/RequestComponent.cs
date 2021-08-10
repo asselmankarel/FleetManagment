@@ -17,16 +17,16 @@ namespace FleetManagement.BL.Components
         private readonly IDriverRepository _driverRepository;
         private readonly IVehicleRepository _vehicleRepository;
 
-        public RequestComponent(IServiceProvider serviceProvider)
+        public RequestComponent(IRequestRepository requestRepository, IDriverRepository driverRepository, IVehicleRepository vehicleRepository)
         {
-            _requestRepository = serviceProvider.GetRequiredService<IRequestRepository>();
-            _driverRepository = serviceProvider.GetRequiredService<IDriverRepository>();
-            _vehicleRepository = serviceProvider.GetRequiredService<IVehicleRepository>();
+            _requestRepository = requestRepository;
+            _driverRepository = driverRepository;
+            _vehicleRepository = vehicleRepository;
         }
 
         public async Task<List<Request>> GetRequests()
         {
-            var requests = await _requestRepository.GetRequests();
+            List<Request> requests = await _requestRepository.GetRequests();
 
             return requests;
         }
@@ -34,13 +34,12 @@ namespace FleetManagement.BL.Components
         // TODO: 
         public ICreateResponse Create(ICreateRequest createRequest)
         {
-            var driver = _driverRepository.GetById(createRequest.DriverId);
-            if (driver == null) return MakeFailedResponse("Driver not found...");
+            if (!DriverExists(createRequest.DriverId)) return MakeFailedResponse("Driver not found...");
 
-            var request = MapCreateRequestToRequest(driver, createRequest);
+            Request request = MapCreateRequestToRequest(createRequest);
             ICreateResponse createResponse = IsValid(request);
 
-            if (!createResponse.Successful) return createResponse;            
+            if (!createResponse.Successful) return createResponse;
 
             if (RequiresCar(request))
             {
@@ -52,6 +51,11 @@ namespace FleetManagement.BL.Components
             return new CreateResponse { Successful = true };
         }
 
+        private bool DriverExists(int driverId)
+        {
+            return _driverRepository.GetById(driverId) != null;
+        }
+
         private static ICreateResponse MakeFailedResponse(string error)
         {
             return new CreateResponse
@@ -61,8 +65,10 @@ namespace FleetManagement.BL.Components
             };
         }
 
-        private static Request MapCreateRequestToRequest(Driver driver, ICreateRequest createRequest)
+        private Request MapCreateRequestToRequest(ICreateRequest createRequest)
         {
+            Driver driver = _driverRepository.GetById(createRequest.DriverId);
+
             return new Request
             {
                 Driver = driver,
