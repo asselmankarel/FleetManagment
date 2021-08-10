@@ -9,7 +9,7 @@ namespace FleetManagement.BL.Components
     public interface IRequestComponent
     {
         public ICreateResponse Create(ICreateRequest createRequest);
-        
+
         public Task<List<Request>> GetRequests();
     }
 }

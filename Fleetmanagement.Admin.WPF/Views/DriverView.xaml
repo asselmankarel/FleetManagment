@@ -53,7 +53,7 @@
                 <TextBox Text="{Binding SelectedDriver.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBoxNameGotFocus" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350"/>
 
                 <Label Content="National identification number" Margin="10 10 10 0" FontWeight="Bold"/>
-                <TextBox Text="{Binding SelectedDriver.NationalIdentificationNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350"/>
+                <TextBox Text="{Binding SelectedDriver.NationalIdentificationNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350"/>
 
                 <Label Content="Email" Margin="10 10 10 0" FontWeight="Bold"/>
                 <TextBox Text="{Binding SelectedDriver.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 0 10 10" HorizontalAlignment="Left" Width="350"/>

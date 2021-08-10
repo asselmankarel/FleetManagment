@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
 using Fleetmanagement.Admin.WPF.ViewModels;
+using AutoMapper;
+using Fleetmanagement.Admin.WPF.Services;
 
 namespace Fleetmanagement.Admin.WPF
 {
@@ -14,7 +16,13 @@ namespace Fleetmanagement.Admin.WPF
         public App()
         {
             IServiceCollection services = new ServiceCollection();
-            services.AddSingleton<NavigationStore>(s => new NavigationStore() 
+            ConfigureServices(services);
+            _serviceProvider = services.BuildServiceProvider();
+        }
+
+        private void ConfigureServices(IServiceCollection services)
+        {
+            services.AddSingleton<NavigationStore>(s => new NavigationStore()
             {
                 CurrentViewModel = new HomeViewModel()
             });
@@ -25,10 +33,12 @@ namespace Fleetmanagement.Admin.WPF
             {
                 DataContext = s.GetRequiredService<MainViewModel>()
             });
-            
-            _serviceProvider = services.BuildServiceProvider();
-        }
+            services.AddScoped<VehicleService>();
+            services.AddScoped<DriverSevice>();
+            services.AddScoped<AddressService>();
 
+            services.AddAutoMapper(typeof(AutoMapperProfiles.VehicleProfile));
+        }
 
         protected override void OnStartup(StartupEventArgs e)
         {            
@@ -39,7 +49,7 @@ namespace Fleetmanagement.Admin.WPF
 
         private NavigationMenuViewModel CreatNavigationViewModel(IServiceProvider serviceProvider)
         {
-            return new NavigationMenuViewModel(serviceProvider.GetRequiredService<NavigationStore>());
+            return new NavigationMenuViewModel(serviceProvider);
         }
 
         private MainViewModel CreateMainViewModel(IServiceProvider serviceProvider)

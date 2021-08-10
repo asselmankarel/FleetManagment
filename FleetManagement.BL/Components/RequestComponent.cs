@@ -3,7 +3,6 @@ using FleetManagement.BL.Responses;
 using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Enums;
 using FleetManagement.Domain.Models;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -31,10 +30,9 @@ namespace FleetManagement.BL.Components
             return requests;
         }
 
-        // TODO: 
         public ICreateResponse Create(ICreateRequest createRequest)
         {
-            if (!DriverExists(createRequest.DriverId)) return MakeFailedResponse("Driver not found...");
+            if (!DriverExists(createRequest.DriverId)) return GenerateFailedResponse("Driver not found...");
 
             Request request = MapCreateRequestToRequest(createRequest);
             ICreateResponse createResponse = IsValid(request);
@@ -44,7 +42,7 @@ namespace FleetManagement.BL.Components
             if (RequiresCar(request))
             {
                 request.Vehicle = _vehicleRepository.GetCurrentVehicleForDriver(request.Driver.Id);
-                if (request.Vehicle == null) return MakeFailedResponse("No vehicle found for driver...");
+                if (request.Vehicle == null) return GenerateFailedResponse("No vehicle found for driver...");
             }
             _requestRepository.Add(request);
 
@@ -56,7 +54,7 @@ namespace FleetManagement.BL.Components
             return _driverRepository.GetById(driverId) != null;
         }
 
-        private static ICreateResponse MakeFailedResponse(string error)
+        private static ICreateResponse GenerateFailedResponse(string error)
         {
             return new CreateResponse
             {

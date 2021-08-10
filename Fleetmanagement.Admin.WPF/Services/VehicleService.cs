@@ -1,5 +1,7 @@
-﻿using Fleetmanagement.Admin.WPF.ViewModels;
+﻿using AutoMapper;
+using Fleetmanagement.Admin.WPF.ViewModels;
 using FleetManagement.GrpcClientLibrary;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,10 +10,12 @@ namespace Fleetmanagement.Admin.WPF.Services
     public class VehicleService : ServiceBase
     {
         private readonly VehicleClient _vehicleClient;
+        private IMapper _mapper;
 
-        public VehicleService()
+        public VehicleService(IMapper mapper)
         {
-            _vehicleClient = new VehicleClient(_grpcServerUrl);
+            _mapper = mapper;
+            _vehicleClient = new VehicleClient(_grpcServerUrl);            
         }
 
         public async Task<List<VehicleViewModel>> GetVehiclesFromGrpcApi()
@@ -26,16 +30,7 @@ namespace Fleetmanagement.Admin.WPF.Services
         {
             var vehicle = await _vehicleClient.GetVehicleByDriverId(driverId);
 
-            return new VehicleViewModel()
-            {
-                Id = vehicle.Id,
-                ChassisNumber = vehicle.ChassisNumber,
-                VehicleType = vehicle.VehicleType,
-                FuelType = vehicle.FuelType,
-                Licenseplate = vehicle.Licenseplate,
-                Make = vehicle.Make,
-                Model = vehicle.Model
-            };
+            return _mapper.Map<VehicleViewModel>(vehicle);
         }
 
         private List<VehicleViewModel> MapToVehicleModel(List<GrpcAPI.VehicleModel> vehicles)
@@ -44,19 +39,18 @@ namespace Fleetmanagement.Admin.WPF.Services
 
             foreach (var vehicle in vehicles)
             {
-                Vehicles.Add(new VehicleViewModel()
-                {
-                    Id = vehicle.Id,
-                    ChassisNumber = vehicle.ChassisNumber,
-                    VehicleType = vehicle.VehicleType,
-                    FuelType = vehicle.FuelType,
-                    Licenseplate = vehicle.Licenseplate,
-                    Make = vehicle.Make,
-                    Model = vehicle.Model
-                });
+                Vehicles.Add(_mapper.Map<VehicleViewModel>(vehicle));
             }
 
             return Vehicles;
+        }
+
+        private GrpcAPI.SuccessResponse SaveVehicle(VehicleViewModel selectedVehicle)
+        {
+   
+            var vehicle = _mapper.Map<GrpcAPI.VehicleModel>(selectedVehicle);
+
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using Fleetmanagement.Admin.WPF.ViewModels;
+﻿using Fleetmanagement.Admin.WPF.Services;
+using Fleetmanagement.Admin.WPF.ViewModels;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +13,8 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
         private VehicleViewModel _selectedVehicle;
         private readonly Services.VehicleService _vehicleService;
 
+        public RelayCommand SaveCommand { get; set; }
+
         public List<string> VehicleTypes { get; } = new List<string>() { "Car","Van","Truck" };
         public List<string> FuelTypes { get; } = new List<string>()
         {
@@ -19,9 +23,11 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
 
         public ObservableCollection<VehicleViewModel> Vehicles { get; set; } = new ObservableCollection<VehicleViewModel>();
 
-        public VehicleListViewModel()
+
+        public VehicleListViewModel(VehicleService vehicleService)
         {
-            _vehicleService = new Services.VehicleService();
+            _vehicleService = vehicleService;
+            SaveCommand = new RelayCommand(OnSave, CanSave);
             LoadVehicles();
         }
 
@@ -39,5 +45,15 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
             set => SetProperty(ref _selectedVehicle, value, true);
         }
 
+        private void OnSave()
+        {
+            //var saveVehicleResponse = _vehicleService.SaveVehicle(_selectedVehicle);
+
+        }
+
+        private bool CanSave()
+        {
+            return !_selectedVehicle.HasErrors;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using FleetManagement.Admin.WPF.ViewModels;
+﻿using Fleetmanagement.Admin.WPF.Services;
+using FleetManagement.Admin.WPF.ViewModels;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -23,11 +24,12 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
         public RelayCommand SaveCommand { get; set; }
         public RelayCommand DeleteCommand { get; set; }
 
-        public DriverListViewModel()
+
+        public DriverListViewModel(DriverSevice driverService, AddressService addressService, VehicleService vehicleService)
         {
-            _driverService = new Services.DriverSevice();
-            _addressService = new Services.AddressService();
-            _vehicleService = new Services.VehicleService();
+            _driverService = driverService;
+            _addressService = addressService;
+            _vehicleService = vehicleService;
             SaveCommand = new RelayCommand(OnSave, CanSave);
             LoadDrivers("Ready");
         }
