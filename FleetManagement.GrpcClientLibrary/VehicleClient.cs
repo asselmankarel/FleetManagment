@@ -1,7 +1,5 @@
 ﻿using Fleetmanagement.GrpcAPI;
 using Grpc.Core;
-using Grpc.Net.Client;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -45,6 +43,20 @@ namespace FleetManagement.GrpcClientLibrary
             var vehicle = _vehicleClient.GetVehicleByDriverId(new VehicleByDriverIdRequest() { DriverId = driverId });
 
             return Task.FromResult(vehicle);
+        }
+
+        public Task<SuccessResponse> SaveVehicle(VehicleModel vehicle)
+        {
+            var response = _vehicleClient.SaveVehicle(vehicle);
+
+            return Task.FromResult(response);
+        }
+
+        public Task<SuccessResponse> Delete(DeleteRequest deleteRequest)
+        {
+            var response = _vehicleClient.DeleteVehicle(deleteRequest);
+
+            return Task.FromResult(response);
         }
     }
 }

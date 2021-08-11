@@ -19,7 +19,7 @@ namespace Fleetmanagement.Admin.WPF.ViewModels
 
         private string _make;
 
-        [Required]
+        [Required]       
         public string Make
         {
             get =>_make;

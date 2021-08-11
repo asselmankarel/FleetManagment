@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <None Remove="Protos\address.proto" />
+	<None Remove="Protos\deleteRequest.proto" />  
     <None Remove="Protos\driver.proto" />
     <None Remove="Protos\fuelcard.proto" />
     <None Remove="Protos\request.proto" />
@@ -32,8 +33,9 @@
 
   <ItemGroup>
     <Protobuf Include="Protos\address.proto" />
+    <Protobuf Include="Protos\deleteRequest.proto" />
     <Protobuf Include="Protos\driver.proto" />
-    <Protobuf Include="Protos\fuelcard.proto" />
+	<Protobuf Include="Protos\fuelcard.proto" />
     <Protobuf Include="Protos\request.proto" />
     <Protobuf Include="Protos\response.proto" />
     <Protobuf Include="Protos\vehicle.proto" />

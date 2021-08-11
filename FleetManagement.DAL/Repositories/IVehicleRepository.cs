@@ -13,5 +13,7 @@ namespace FleetManagement.DAL.Repositories
         int GetLastMileage(int id);
 
         Task<List<Vehicle>> GetAllVehiclesWithActiveLicenseplate();
+
+        void Delete(int id);
     }
 }

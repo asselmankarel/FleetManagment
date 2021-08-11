@@ -35,7 +35,6 @@ namespace FleetManagement.DAL.Repositories
            return result == null ? 0 : result.Km;
         }
 
-
         public string GetActiveLicensePlateForVehicle(int vehicleId)
         {
             var licensePlate = _context.LicensePlates
@@ -43,6 +42,16 @@ namespace FleetManagement.DAL.Repositories
                 .FirstOrDefault();
 
             return licensePlate?.Number;
+        }
+
+        public void Delete(int id)
+        {
+            var vehicle = _context.Vehicles.Find(id);
+            if (vehicle != null)
+            {
+                _context.Vehicles.Remove(vehicle);
+                _context.SaveChanges();
+            }
         }
 
         public async Task<List<Vehicle>> GetAllVehiclesWithActiveLicenseplate()

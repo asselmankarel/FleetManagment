@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+import "Protos/response.proto";
+import "Protos/deleteRequest.proto";
+
 option csharp_namespace = "Fleetmanagement.GrpcAPI";
 
 package vehicle;
@@ -9,7 +12,9 @@ service Vehicle
 	rpc GetVehicle (VehicleRequest) returns (VehicleModel);
 	rpc GetVehicleByDriverId (VehicleByDriverIdRequest) returns (VehicleModel);
 	rpc GetVehicles (VehiclesRequest) returns (stream VehicleModel);
-	rpc AddVehicle (VehicleModel) returns (VehicleSuccessResponse);
+	rpc AddVehicle (VehicleModel) returns (SuccessResponse);
+	rpc SaveVehicle (VehicleModel) returns (SuccessResponse);
+	rpc DeleteVehicle (DeleteRequest) returns (SuccessResponse);
 }
 
 message VehicleRequest
@@ -33,10 +38,4 @@ message VehicleModel
 	string Licenseplate = 5;
 	string Make = 6;
 	string Model = 7;
-}
-
-message VehicleSuccessResponse
-{
-	bool Success = 1;
-	string Message = 2;
 }

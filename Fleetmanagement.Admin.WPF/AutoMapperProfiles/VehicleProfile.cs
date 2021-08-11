@@ -8,7 +8,9 @@ namespace Fleetmanagement.Admin.WPF.AutoMapperProfiles
         public VehicleProfile()
         {
             CreateMap<GrpcAPI.VehicleModel, VehicleViewModel>();
-            CreateMap<VehicleViewModel, GrpcAPI.VehicleModel>();
+            CreateMap<VehicleViewModel, GrpcAPI.VehicleModel>()
+                .ForSourceMember(src => src.Licenseplate, opt => opt.DoNotValidate())
+                .ForMember(dest => dest.Licenseplate, opt => opt.Ignore());
         }
     }
 }

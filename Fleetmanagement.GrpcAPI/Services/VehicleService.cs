@@ -2,6 +2,7 @@
 using FleetManagement.DAL.Repositories;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Threading.Tasks;
 
 namespace Fleetmanagement.GrpcAPI.Services
@@ -43,5 +44,32 @@ namespace Fleetmanagement.GrpcAPI.Services
             return Task.FromResult(_mapper.Map<VehicleModel>(vehicle));
         }
 
+        public override Task<SuccessResponse> SaveVehicle(VehicleModel vehicleModel, ServerCallContext context)
+        {
+            var vehicle = _mapper.Map<FleetManagement.Domain.Models.Vehicle>(vehicleModel);
+
+            var numberOfSavedEntities = _vehicleRepository.Update(vehicle);
+
+            if (numberOfSavedEntities > 0)
+            {
+                return Task.FromResult(new SuccessResponse { SuccessFul = true});
+            }
+
+            return Task.FromResult(new SuccessResponse { SuccessFul = false, ErrorMessage = "Unable to save vehicle"});
+        }
+
+        public override Task<SuccessResponse> DeleteVehicle(DeleteRequest request, ServerCallContext context)
+        {
+            try
+            {
+                _vehicleRepository.Delete(request.Id);
+            }
+            catch (Exception ex)
+            {
+                return Task.FromResult(new SuccessResponse() { SuccessFul = false, ErrorMessage = ex.Message });
+            }
+
+            return Task.FromResult(new SuccessResponse() { SuccessFul = true });
+        }
     }
 }

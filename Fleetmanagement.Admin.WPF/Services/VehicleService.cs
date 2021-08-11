@@ -33,6 +33,15 @@ namespace Fleetmanagement.Admin.WPF.Services
             return _mapper.Map<VehicleViewModel>(vehicle);
         }
 
+        public Task<GrpcAPI.SuccessResponse> SaveVehicle(VehicleViewModel vehicle)
+        {
+            var grpcVehicleModel = _mapper.Map<GrpcAPI.VehicleModel>(vehicle);
+            var response = _vehicleClient.SaveVehicle(grpcVehicleModel);
+
+            return response;
+        }
+
+
         private List<VehicleViewModel> MapToVehicleModel(List<GrpcAPI.VehicleModel> vehicles)
         {
             var Vehicles = new List<VehicleViewModel>();
@@ -45,12 +54,11 @@ namespace Fleetmanagement.Admin.WPF.Services
             return Vehicles;
         }
 
-        private GrpcAPI.SuccessResponse SaveVehicle(VehicleViewModel selectedVehicle)
+        public async Task<GrpcAPI.SuccessResponse> Delete(int id)
         {
-   
-            var vehicle = _mapper.Map<GrpcAPI.VehicleModel>(selectedVehicle);
+            var response = await _vehicleClient.Delete(new GrpcAPI.DeleteRequest() { Id = id });
 
-            throw new NotImplementedException();
+            return response;
         }
     }
 }

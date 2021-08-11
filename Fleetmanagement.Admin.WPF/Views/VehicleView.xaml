@@ -58,16 +58,30 @@
             <Label Content="Licenseplate" Margin="10 10 10 0" FontWeight="Bold"/>
             <Label Content="{Binding SelectedVehicle.Licenseplate, Mode=OneWay}" Margin="10 0 10 10"/>
 
-            <Button Margin="10 50 0 0"
-                    Foreground="White"
-                    HorizontalAlignment="Left"
-                    IsEnabled="{Binding SelectedVehicle.CanSave}">
+            <StackPanel Orientation="Horizontal" Margin="10 50 0 0">
                 
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Storage" Margin="5 0 0 0" />
-                    <TextBlock Text="Save" Margin="10 0 10 0" />
-                </StackPanel>
-            </Button>
+                <Button Foreground="White"
+                        HorizontalAlignment="Left"
+                        Command="{Binding SaveCommand}">
+                
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Storage" Margin="5 0 0 0" />
+                        <TextBlock Text="Save" Margin="10 0 10 0" />
+                    </StackPanel>
+                </Button>
+                <Button Margin="10 0"
+                        Foreground="White"
+                        Background="Orange"
+                        BorderBrush="Orange"
+                        HorizontalAlignment="Left"
+                        Command="{Binding DeleteCommand}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Delete" Margin="5 0 0 0" />
+                        <TextBlock Text="Delete" Margin="10 0 10 0" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>
