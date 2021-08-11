@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FleetManagement.Domain.Models
 {
-    public class Request
+    public class RequestRequest
     {
      
         [Key]

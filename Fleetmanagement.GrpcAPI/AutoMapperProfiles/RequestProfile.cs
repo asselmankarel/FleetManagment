@@ -9,7 +9,7 @@ namespace Fleetmanagement.GrpcAPI.AutoMapperProfiles
     {
         public RequestProfile()
         {
-            CreateMap<FleetManagement.Domain.Models.Request, RequestModel>()
+            CreateMap<FleetManagement.Domain.Models.RequestRequest, RequestModel>()
                 .ForMember(destination => destination.PrefDate1,
                     opt => opt.MapFrom(source => DateTime.SpecifyKind(source.PrefDate1, DateTimeKind.Utc).ToTimestamp()))
                 .ForMember(destination => destination.PrefDate2,

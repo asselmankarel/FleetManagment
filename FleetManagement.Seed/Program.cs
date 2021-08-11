@@ -197,7 +197,7 @@ namespace FleetManagement.Seed
             Vehicle vehicle = _context.Vehicles.Find(1);
             RequestType requestType = RequestType.Maintenance;
 
-            var RequestFaker = new Faker<Request>()
+            var RequestFaker = new Faker<RequestRequest>()
                 .RuleFor(r => r.Driver, d => driver)
                 .RuleFor(r => r.RequestType, f => requestType)
                 .RuleFor(r => r.PrefDate1, f => f.Date.Soon())

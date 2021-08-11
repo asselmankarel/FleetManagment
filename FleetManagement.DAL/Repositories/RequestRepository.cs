@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.Repositories
 {
-    public class RequestRepository : GenericRepository<Request>, IRequestRepository
+    public class RequestRepository : GenericRepository<RequestRequest>, IRequestRepository
     {
         public RequestRepository(ApplicationDbContext context) : base(context) { }
 
-        public List<Request> GetRequestsByDriverId(int id, int number)
+        public List<RequestRequest> GetRequestsByDriverId(int id, int number)
         {
             var requests = _context.Requests
                 .Where(r => r.Driver.Id == id)
@@ -21,7 +21,7 @@ namespace FleetManagement.DAL.Repositories
             return requests.OrderByDescending(r => r.Id).ToList();
         }
 
-        public async Task<List<Request>> GetRequests()
+        public async Task<List<RequestRequest>> GetRequests()
         {
             var requests = await _context.Requests.Include(r => r.Driver)
                 .Include(r => r.Vehicle)

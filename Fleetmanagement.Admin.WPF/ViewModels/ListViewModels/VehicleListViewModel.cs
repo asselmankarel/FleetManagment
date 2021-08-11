@@ -2,10 +2,10 @@
 using Fleetmanagement.Admin.WPF.ViewModels;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Xc = Xceed.Wpf.Toolkit;
 
 namespace Fleetmanagement.Admin.WPF.ListViewModels
 {
@@ -74,7 +74,7 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
             var saveVehicleResponse = await _vehicleService.SaveVehicle(_selectedVehicle);
             if (!saveVehicleResponse.SuccessFul)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show(saveVehicleResponse.ErrorMessage, "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+                Xc.MessageBox.Show(saveVehicleResponse.ErrorMessage, "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
             }
             LoadVehicles();
         }
@@ -94,7 +94,7 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
             var response = await _vehicleService.Delete(_selectedVehicle.Id);
             if (!response.SuccessFul)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show(response.ErrorMessage, "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+                Xc.MessageBox.Show(response.ErrorMessage, "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
             }
             LoadVehicles();
             DeleteCommand.NotifyCanExecuteChanged();

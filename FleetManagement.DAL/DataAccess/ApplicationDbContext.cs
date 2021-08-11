@@ -18,7 +18,7 @@ namespace FleetManagement.DAL.DataAccess
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<DriverVehicle> DriverVehicles { get; set; }
         public DbSet<DriverFuelcard> DriverFuelcards { get; set; }
-        public DbSet<Request> Requests { get; set; }
+        public DbSet<RequestRequest> Requests { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Mileage> Mileages { get; set; }
         public DbSet<LicensePlate> LicensePlates { get; set; }
@@ -39,7 +39,7 @@ namespace FleetManagement.DAL.DataAccess
             new DriverFuelcardConfiguration().Configure(builder.Entity<DriverFuelcard>());
             new DriverVehicleConfiguration().Configure(builder.Entity<DriverVehicle>());
             new VehicleLicensePlateConfiguration().Configure(builder.Entity<VehicleLicensePlate>());
-            new RequestConfiguration().Configure(builder.Entity<Request>());
+            new RequestConfiguration().Configure(builder.Entity<RequestRequest>());
             
         }
 

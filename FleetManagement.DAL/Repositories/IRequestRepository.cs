@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace FleetManagement.DAL.Repositories
 {
-    public interface IRequestRepository : IGenericRepository<Request>
+    public interface IRequestRepository : IGenericRepository<RequestRequest>
     {
-        List<Request> GetRequestsByDriverId(int id, int number);
+        List<RequestRequest> GetRequestsByDriverId(int id, int number);
 
-        Task<List<Request>> GetRequests();
+        Task<List<RequestRequest>> GetRequests();
     }
 }

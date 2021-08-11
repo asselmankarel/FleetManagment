@@ -10,6 +10,6 @@ namespace FleetManagement.BL.Components
     {
         public ICreateResponse Create(ICreateRequest createRequest);
 
-        public Task<List<Request>> GetRequests();
+        public Task<List<RequestRequest>> GetRequests();
     }
 }

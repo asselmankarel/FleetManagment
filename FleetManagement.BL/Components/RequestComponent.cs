@@ -23,9 +23,9 @@ namespace FleetManagement.BL.Components
             _vehicleRepository = vehicleRepository;
         }
 
-        public async Task<List<Request>> GetRequests()
+        public async Task<List<RequestRequest>> GetRequests()
         {
-            List<Request> requests = await _requestRepository.GetRequests();
+            List<RequestRequest> requests = await _requestRepository.GetRequests();
 
             return requests;
         }
@@ -34,7 +34,7 @@ namespace FleetManagement.BL.Components
         {
             if (!DriverExists(createRequest.DriverId)) return GenerateFailedResponse("Driver not found...");
 
-            Request request = MapCreateRequestToRequest(createRequest);
+            RequestRequest request = MapCreateRequestToRequest(createRequest);
             ICreateResponse createResponse = IsValid(request);
 
             if (!createResponse.Successful) return createResponse;
@@ -63,11 +63,11 @@ namespace FleetManagement.BL.Components
             };
         }
 
-        private Request MapCreateRequestToRequest(ICreateRequest createRequest)
+        private RequestRequest MapCreateRequestToRequest(ICreateRequest createRequest)
         {
             Driver driver = _driverRepository.GetById(createRequest.DriverId);
 
-            return new Request
+            return new RequestRequest
             {
                 Driver = driver,
                 RequestType = (RequestType)createRequest.RequestType,
@@ -76,7 +76,7 @@ namespace FleetManagement.BL.Components
             };
         }
 
-        private static bool RequiresCar(Request request)
+        private static bool RequiresCar(RequestRequest request)
         {
             switch (request.RequestType)
             {
@@ -86,7 +86,7 @@ namespace FleetManagement.BL.Components
             }
         }
 
-        private static ICreateResponse IsValid(Request request)
+        private static ICreateResponse IsValid(RequestRequest request)
         {
             var context = new ValidationContext(request);
             var results = new List<ValidationResult>();
