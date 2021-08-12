@@ -21,7 +21,7 @@ namespace FleetManagement.Test
         public RequestComponentShould(ITestOutputHelper output)
         {
             _output = output;
-            MockSetup();
+            RepositoryMockSetup();
             _requestComponent = new RequestComponent(
                 _requestRepository.Object,
                 _driverRepository.Object,
@@ -29,7 +29,7 @@ namespace FleetManagement.Test
         }
 
         #region Setup
-        private void MockSetup()
+        private void RepositoryMockSetup()
         {
             _requestRepository = new Mock<IRequestRepository>();
             _driverRepository = new Mock<IDriverRepository>();

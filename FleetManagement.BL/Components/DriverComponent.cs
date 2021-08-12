@@ -36,7 +36,7 @@ namespace FleetManagement.BL.Components
                     }
                     else
                     {
-                        _driverRepository.UpdateAsync(driver);
+                        await _driverRepository.UpdateAsync(driver);
                     }
                     
                     response = new CreateResponse() { Successful = true, ErrorMessages = { "Driver saved."}};

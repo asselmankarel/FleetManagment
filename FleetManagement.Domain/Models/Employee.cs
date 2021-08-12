@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FleetManagement.Domain.Validators;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,6 +13,7 @@ namespace FleetManagement.Domain.Models
         public int Id { get; set; }
 
         [StringLength(11)]
+        [NationalInsuranceNumberValidator]
         public string NationalIdentificationNumber { get; set; }
 
         [Required]

@@ -1,4 +1,5 @@
-﻿using FleetManagement.GrpcClientLibrary;
+﻿using FleetManagement.Domain.Validators;
+using FleetManagement.GrpcClientLibrary;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,11 +12,19 @@ namespace Fleetmanagement.GrpcConsoleTest
 
         static void Main(string[] args)
         {
-            var drivers = LoadDrivers().Result;
+            //var drivers = LoadDrivers().Result;
 
-            foreach(var driver in drivers)
+            //foreach(var driver in drivers)
+            //{
+            //    Console.WriteLine($"{driver.FirstName} {driver.LastName}");
+            //}
+            var NisValidator = new NationalInsuranceNumberValidator();
+            List<string> numbers = new List<string>() { "10012701503" };
+
+            foreach (var number in numbers) 
             {
-                Console.WriteLine($"{driver.FirstName} {driver.LastName}");
+                Console.WriteLine($"{number} is valid : {NisValidator.IsValid(number)}");
+
             }
 
             Console.ReadLine();
