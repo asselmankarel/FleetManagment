@@ -1,13 +1,12 @@
-﻿using FleetManagement.Domain.Enums;
-using FleetManagement.Domain.Models;
-using Xunit;
-using Moq;
-using FleetManagement.DAL.Repositories;
-using FleetManagement.BL.Components;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System;
+﻿using FleetManagement.BL.Components;
 using FleetManagement.BL.Requests;
+using FleetManagement.DAL.Repositories;
+using FleetManagement.Domain.Enums;
+using FleetManagement.Domain.Models;
+using Moq;
+using System;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace FleetManagement.Test
 {
@@ -16,11 +15,12 @@ namespace FleetManagement.Test
         private Mock<IRequestRepository> _requestRepository;
         private Mock<IDriverRepository> _driverRepository;
         private Mock<IVehicleRepository> _vehicleRepository;
-
         private RequestComponent _requestComponent;
+        private readonly ITestOutputHelper _output;
 
-        public RequestComponentShould()
+        public RequestComponentShould(ITestOutputHelper output)
         {
+            _output = output;
             _requestRepository = new Mock<IRequestRepository>();
             _driverRepository = new Mock<IDriverRepository>();
             _driverRepository.Setup(d => d.GetById(It.IsInRange<int>(1,1,Moq.Range.Inclusive)))
@@ -41,6 +41,7 @@ namespace FleetManagement.Test
         [Fact]
         public void NotCreateARequestWithoutADriver()
         {
+            _output.WriteLine("A request cannot be created without a driver");
             ICreateRequest request = new CreateRequest()
             {
                 PrefDate1 = DateTime.Now.AddDays(1),
@@ -49,13 +50,13 @@ namespace FleetManagement.Test
             };
 
             var response = _requestComponent.Create(request);
-
             Assert.False(response.Successful);
         }
 
         [Fact]
         public void NotCreateARequestIfDriverDoesNotExists()
         {
+            _output.WriteLine("A request cannot be created if the driver does not exist");
             ICreateRequest request = new CreateRequest()
             {
                 DriverId = 2,
@@ -65,27 +66,59 @@ namespace FleetManagement.Test
             };
 
             var response = _requestComponent.Create(request);
+            Assert.False(response.Successful);
+            Assert.Contains("Driver not found...", response.ErrorMessages);
+        }
 
+        [Fact]
+        public void NotCreateARequestWhenPrefDate1IsNotInTheFuture()
+        {
+            _output.WriteLine("PrefDate 1 must be in the future");
+            ICreateRequest request = new CreateRequest()
+            {
+                DriverId = 1,
+                PrefDate1 = DateTime.Now.AddDays(-1),
+                PrefDate2 = DateTime.Now.AddDays(1),
+                RequestType = (int)RequestType.Fuelcard
+            };
+
+            var response = _requestComponent.Create(request);
             Assert.False(response.Successful);
         }
 
-        //[Fact]
-        //public void NotCreateARequestWhenPrefDate1IsNotInTheFuture()
-        //{
+        [Fact]
+        public void NotCreateAMaintenanceRequestIfDriverHasNoVehice()
+        {
+            _output.WriteLine("A request of type maintenance requires the driver to hav a vehicle");
+            ICreateRequest request = new CreateRequest()
+            {
+                DriverId = 1,
+                PrefDate1 = DateTime.Now.AddDays(1),
+                PrefDate2 = DateTime.Now.AddDays(2),
+                RequestType = (int)RequestType.Maintenance
+            };
 
-        //}
+            var response = _requestComponent.Create(request);
+            Assert.False(response.Successful);
+            Assert.Contains("No vehicle found for driver...", response.ErrorMessages);
+        }
 
-        //[Fact]
-        //public void NotCreateAMaintenanceRequestIfDriverHasNoVehice()
-        //{
-            
-        //}
+        [Fact]
+        public void NotCreateARepairRequestIfDriverHasNoVehice()
+        {
+            _output.WriteLine("A request of type repair requires the driver to have a vehicle");
+            ICreateRequest request = new CreateRequest()
+            {
+                DriverId = 1,
+                PrefDate1 = DateTime.Now.AddDays(1),
+                PrefDate2 = DateTime.Now.AddDays(2),
+                RequestType = (int)RequestType.Repair
+            };
 
-        //[Fact]
-        //public void NotCreateARepairRequestIfDriverHasNoVehice()
-        //{
-
-        //}
+            var response = _requestComponent.Create(request);
+            Assert.False(response.Successful);
+            Assert.Contains("No vehicle found for driver...", response.ErrorMessages);
+        }
 
     }
 }
