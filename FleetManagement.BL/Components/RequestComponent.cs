@@ -36,6 +36,7 @@ namespace FleetManagement.BL.Components
 
             RequestRequest request = MapCreateRequestToRequest(createRequest);
             ICreateResponse createResponse = IsValid(request);
+            ValidateDates(request, ref createResponse);
 
             if (!createResponse.Successful) return createResponse;
 
@@ -49,6 +50,15 @@ namespace FleetManagement.BL.Components
             return new CreateResponse { Successful = true };
         }
 
+        private void ValidateDates(RequestRequest request, ref ICreateResponse createResponse)
+        {
+            if (request.PrefDate1 >= request.PrefDate2)
+            {
+                createResponse.Successful = false;
+                createResponse.ErrorMessages.Add("PrefDate2 must be later then PrefDate1");
+            }
+        }
+
         private bool DriverExists(int driverId)
         {
             return _driverRepository.GetById(driverId) != null;
@@ -59,7 +69,7 @@ namespace FleetManagement.BL.Components
             return new CreateResponse
             {
                 Successful = false,
-                ErrorMessages = { error }
+                ErrorMessages = new List<string> { error }
             };
         }
 
