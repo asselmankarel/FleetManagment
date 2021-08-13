@@ -1,6 +1,7 @@
 ﻿using Fleetmanagement.Admin.WPF.ViewModels;
 using FleetManagement.Admin.WPF.ViewModels;
 using FleetManagement.GrpcClientLibrary;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -56,6 +57,19 @@ namespace Fleetmanagement.Admin.WPF.Services
                 FuelType = vehicle.FuelType,
                 Licenseplate = vehicle.Licenseplate
             };
+        }
+
+        public async Task<GrpcAPI.SuccessResponse> UpdateRequestStatus(RequestModel selectedRequest)
+        {
+            GrpcAPI.RequestModel requestModel = new GrpcAPI.RequestModel
+            {
+                Id = selectedRequest.Id,
+                Status = selectedRequest.Status
+            };
+
+            var response = await _requestClient.UpdateRequest(requestModel);
+
+            return response;
         }
 
         private DriverViewModel MapToDriver(GrpcAPI.DriverModel driver)

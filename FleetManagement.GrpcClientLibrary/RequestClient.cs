@@ -29,5 +29,12 @@ namespace FleetManagement.GrpcClientLibrary
 
             return requests;
         }
+
+        public async Task<SuccessResponse> UpdateRequest(RequestModel request)
+        {
+            var response = await _requestClient.SaveRequestAsync(request);
+
+            return response;
+        }
     }
 }

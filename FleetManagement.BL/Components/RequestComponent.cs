@@ -108,5 +108,11 @@ namespace FleetManagement.BL.Components
             return response;
         }
 
+        public void UpdateRequestStatus(RequestRequest request)
+        {
+            var requestEntity = _requestRepository.GetById(request.Id);
+            requestEntity.Status = request.Status;
+            _requestRepository.Update(requestEntity);
+        }
     }
 }

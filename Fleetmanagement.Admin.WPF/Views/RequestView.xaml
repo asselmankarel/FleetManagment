@@ -6,21 +6,24 @@
              xmlns:local="clr-namespace:Fleetmanagement.Admin.WPF.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+
+    <Grid Background="{DynamicResource MaterialDesignLightBackground}">
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <ListBox Grid.Column="0"
                  ItemsSource="{Binding Requests}"
                  SelectedItem="{Binding SelectedRequest, Mode=TwoWay}"
-                 
+                 Width="200"
                  FontWeight="Normal"
                  FontSize="14"
                  HorizontalAlignment="Left"
                  HorizontalContentAlignment="Left"
-                 Margin="10 5"
+                 Margin="10,5,0,5"
                  ScrollViewer.CanContentScroll="True" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -36,18 +39,39 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
+
         <StackPanel Grid.Column="1">
             <Label Content="Request by" Margin="10 20 10 0" FontWeight="Bold" />
             <TextBlock Text="{Binding SelectedRequest.Driver.FullName}"  IsEnabled="False" Margin="10"/>
 
-            <Button Margin="10 50 0 0" Foreground="White" HorizontalAlignment="Left">
+            <Label Content="Request type" Margin="10" FontWeight="Bold" />
+            <TextBlock Text="{Binding SelectedRequest.RequestType}"  IsEnabled="False" Margin="10"/>
+
+            <Label Content="Preferred dates" Margin="10" FontWeight="Bold" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="{Binding SelectedRequest.PrefDate1Str}"  IsEnabled="False" Margin="10"/>
+                <TextBlock Text="{Binding SelectedRequest.PrefDate2Str}" IsEnabled="False" Margin="10"/>
+            </StackPanel>
+
+            <Label Content="Request status" Margin="10" FontWeight="Bold" />
+            <ComboBox ItemsSource="{Binding StatusTypes, Mode=OneWay}"
+                      SelectedItem="{Binding SelectedRequest.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Width="250"
+                      Margin="10"
+                      HorizontalAlignment="Left"/>
+
+
+            <Button Margin="10 50 0 0"
+                    Foreground="White"
+                    HorizontalAlignment="Left"
+                    Command="{Binding SaveCommand}">
+                
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Storage" Margin="5 0 0 0" />
                     <TextBlock Text="Save" Margin="10 0 10 0" />
                 </StackPanel>
             </Button>
         </StackPanel>
-        
+
     </Grid>
 </UserControl>

@@ -4,6 +4,7 @@ using FleetManagement.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+
 namespace FleetManagement.BL.Components
 {
     public interface IRequestComponent
@@ -11,5 +12,6 @@ namespace FleetManagement.BL.Components
         public ICreateResponse Create(ICreateRequest createRequest);
 
         public Task<List<RequestRequest>> GetRequests();
+        void UpdateRequestStatus(RequestRequest request);
     }
 }

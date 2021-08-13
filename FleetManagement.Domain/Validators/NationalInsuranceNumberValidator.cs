@@ -62,7 +62,5 @@ namespace FleetManagement.Domain.Validators
 
             return false;
         }
-
- 
     }
 }

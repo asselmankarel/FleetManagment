@@ -15,7 +15,7 @@ namespace FleetManagement.Test
         private Mock<IRequestRepository> _requestRepository;
         private Mock<IDriverRepository> _driverRepository;
         private Mock<IVehicleRepository> _vehicleRepository;
-        private RequestComponent _requestComponent;
+        private IRequestComponent _requestComponent;
         private readonly ITestOutputHelper _output;
 
         public RequestComponentShould(ITestOutputHelper output)
@@ -44,12 +44,28 @@ namespace FleetManagement.Test
                         Id = 1,
                         Make = "Audi",
                         Model = "A3",
-                        ChassisNumber = "lkieydhdhgdgfd"
+                        ChassisNumber = "lkieydhdhgdgfd",
+                        FuelType = FuelType.Hybrid
                     }
                 );
         }
 
         #endregion
+
+        [Fact]
+        public void CreateARequestWithAValidCreateRequest()
+        {
+            _output.WriteLine("Creates a request when a valid createRequest is received");
+            ICreateRequest request = new CreateRequest()
+            {
+                DriverId = 1,
+                PrefDate1 = DateTime.Now.AddDays(3),
+                PrefDate2 = DateTime.Now.AddDays(4),
+                RequestType = (int)RequestType.Maintenance
+            };
+            var response = _requestComponent.Create(request);
+            Assert.True(response.Successful);
+        }
 
         #region Driver
 
@@ -162,19 +178,6 @@ namespace FleetManagement.Test
         
         #endregion
 
-        [Fact]
-        public void CreateARequestWithAValidCreateRequest()
-        {
-            _output.WriteLine("Creates a request when a valid createRequest is received");
-            ICreateRequest request = new CreateRequest()
-            {
-                DriverId = 1,
-                PrefDate1 = DateTime.Now.AddDays(3),
-                PrefDate2 = DateTime.Now.AddDays(4),
-                RequestType = (int)RequestType.Maintenance
-            };
-            var response = _requestComponent.Create(request);
-            Assert.True(response.Successful);
-        }
+        
     }
 }

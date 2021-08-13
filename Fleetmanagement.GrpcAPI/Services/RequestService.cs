@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using Fleetmanagement.GrpcAPI;
 using FleetManagement.BL.Components;
+using FleetManagement.Domain.Enums;
+using FleetManagement.Domain.Models;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Threading.Tasks;
 
 namespace Fleetmanagement.GrpcAPI.Services
@@ -34,6 +37,25 @@ namespace Fleetmanagement.GrpcAPI.Services
 
                 await responseStream.WriteAsync(_mapper.Map<RequestModel>(req));
             }
+        }
+
+        public override Task<SuccessResponse> SaveRequest(RequestModel request, ServerCallContext context)
+        {            
+            try
+            {
+                var requestRequest = new RequestRequest
+                {
+                    Id = request.Id,
+                    Status = (RequestStatus)Enum.Parse(typeof(RequestStatus), request.Status)
+                };
+                _requestComponent.UpdateRequestStatus(requestRequest);
+            }
+            catch (Exception ex)
+            {
+                return Task.FromResult(new SuccessResponse {SuccessFul = false, ErrorMessage = ex.Message });
+            }
+
+            return Task.FromResult(new SuccessResponse { SuccessFul = true });
         }
     }
 }

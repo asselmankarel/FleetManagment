@@ -48,6 +48,44 @@ namespace FleetManagement.Test
 
         }
 
+        [Theory]
+        [InlineData("830407041656")]
+        [InlineData("8304070416566")]
+        [InlineData("83040704165666")]
+        public void HaveErrorWhenNationalIsuranceNumberIsToLong(string nin)
+        {
+            _employee.NationalIdentificationNumber = nin;
+
+            _output.WriteLine("Employee should detect invalid National Insurance Number");
+            var context = new ValidationContext(_employee);
+            var results = new List<ValidationResult>();
+            bool success = Validator.TryValidateObject(_employee, context, results, true);
+            var ErrorMessages = new List<string>();
+            results.ForEach(result => ErrorMessages.Add(result.ErrorMessage));
+
+            Assert.False(success);
+            Assert.Contains("Invalid National Insurance Number", ErrorMessages);
+        }
+
+        [Theory]
+        [InlineData("8304070416")]
+        [InlineData("830407041")]
+        [InlineData("83040704")]
+        public void HaveErrorWhenNationalIsuranceNumberIsToShort(string nin)
+        {
+            _employee.NationalIdentificationNumber = nin;
+
+            _output.WriteLine("Employee should detect invalid National Insurance Number");
+            var context = new ValidationContext(_employee);
+            var results = new List<ValidationResult>();
+            bool success = Validator.TryValidateObject(_employee, context, results, true);
+            var ErrorMessages = new List<string>();
+            results.ForEach(result => ErrorMessages.Add(result.ErrorMessage));
+
+            Assert.False(success);
+            Assert.Contains("Invalid National Insurance Number", ErrorMessages);
+        }
+
         [Fact]
         public void ValidateNationalInsuranceNumberFromBefore2000()
         {
