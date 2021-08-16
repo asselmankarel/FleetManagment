@@ -1,7 +1,6 @@
 ﻿using Fleetmanagement.Admin.WPF.ViewModels;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -15,7 +14,7 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
         private bool _hasChanges;
         public ObservableCollection<RequestModel> Requests { get; set; } = new ObservableCollection<RequestModel>();
 
-        public List<string> StatusTypes { get;  } = new List<string>()
+        public List<string> StatusTypes { get; } = new List<string>()
         {
             "Created",
             "Processing",
@@ -46,6 +45,7 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
                 {
                     _hasChanges = false;
                     _selectedRequest.PropertyChanged += SelectedRequestPropertyChanged;
+                    SaveCommand.NotifyCanExecuteChanged();
                 }
             }
         }

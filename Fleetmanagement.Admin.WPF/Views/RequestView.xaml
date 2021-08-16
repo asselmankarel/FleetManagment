@@ -10,15 +10,15 @@
     <Grid Background="{DynamicResource MaterialDesignLightBackground}">
         
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250" />
-            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="425" />
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <ListBox Grid.Column="0"
                  ItemsSource="{Binding Requests}"
                  SelectedItem="{Binding SelectedRequest, Mode=TwoWay}"
-                 Width="200"
+                 
                  FontWeight="Normal"
                  FontSize="14"
                  HorizontalAlignment="Left"
@@ -28,19 +28,18 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <StackPanel.ToolTip>
-                            <ToolTip Content="{Binding Status, Mode=OneWay}"
-                                     Placement="Right"
-                                     HorizontalOffset="10"/>
-                        </StackPanel.ToolTip>
-                        <CheckBox IsEnabled="False" IsChecked="{Binding IsCompleted, Mode=OneWay}" Margin="10 0"/>
-                        <TextBlock Text="{Binding RequestType, Mode=OneWay}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsEnabled="False" IsChecked="{Binding IsCompleted, Mode=OneWay}" Margin="10 0"/>
+                            <TextBlock Text="{Binding RequestType, Mode=OneWay}" Width="100"/>
+                            <TextBlock Text="{Binding Driver.FullName, Mode=OneWay}" Width="150" Margin="10 0 0 0" FontSize="13"/>
+                            <TextBlock Text="{Binding Status, Mode=OneWay}" FontSize="12" Margin="0 0 10 0" Foreground="Teal"/>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" Margin="25 0">
             <Label Content="Request by" Margin="10 20 10 0" FontWeight="Bold" />
             <TextBlock Text="{Binding SelectedRequest.Driver.FullName}"  IsEnabled="False" Margin="10"/>
 

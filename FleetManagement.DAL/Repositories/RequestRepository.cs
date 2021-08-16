@@ -27,6 +27,8 @@ namespace FleetManagement.DAL.Repositories
                 .Include(r => r.Vehicle)
                 .ThenInclude(v => v.VehicleLicensePlates.Where(vlp => vlp.EndDate == null))
                 .ThenInclude(vlp => vlp.LicensePlate)
+                .OrderBy(r => r.CreatedAt)
+                .OrderBy(r => r.Driver.FirstName)
                 .ToListAsync();
 
             return requests;
