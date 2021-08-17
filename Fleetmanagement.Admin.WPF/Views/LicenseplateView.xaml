@@ -1,0 +1,32 @@
+﻿<Window x:Class="Fleetmanagement.Admin.WPF.Views.LicenseplateView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fleetmanagement.Admin.WPF.Views"
+        mc:Ignorable="d"
+        Title="LicenseplateView" Height="600" Width="300" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            
+        </Grid.RowDefinitions>
+
+        <Label Content="Select licenseplate"
+               HorizontalAlignment="Center"
+               Margin="5"
+               Foreground="Teal"
+               FontSize="16"
+               FontWeight="Bold" />
+        <ListBox Grid.Row="1">
+            
+        </ListBox>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="100" Content="Save" Foreground="WhiteSmoke"/>
+            <Button Width="100" Content="cancel" Foreground="WhiteSmoke" Margin="10 0" Click="ButtonCancel_Click" />
+        </StackPanel>
+        
+    </Grid>
+</Window>

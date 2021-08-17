@@ -1,7 +1,9 @@
 ﻿using Fleetmanagement.Admin.WPF.Services;
 using Fleetmanagement.Admin.WPF.ViewModels;
+using Fleetmanagement.Admin.WPF.Views;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -17,6 +19,7 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
 
         public RelayCommand SaveCommand { get; set; }
         public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand ChangeLicenseplateCommand { get; set; }
         public List<string> VehicleTypes { get; } = new List<string>() { "Car","Van","Truck" };
         public List<string> FuelTypes { get; } = new List<string>()
         {
@@ -30,7 +33,19 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
             _vehicleService = vehicleService;
             SaveCommand = new RelayCommand(OnSave, CanSave);
             DeleteCommand = new RelayCommand(OnDelete, CanDelete);
+            ChangeLicenseplateCommand = new RelayCommand(OnChangeLicenseplate, CanChangeLicenseplate);
             LoadVehicles();
+        }
+
+        private bool CanChangeLicenseplate()
+        {
+            return true;
+        }
+
+        private void OnChangeLicenseplate()
+        {
+            LicenseplateView licenseplateView = new LicenseplateView();            
+            licenseplateView.Show();
         }
 
         public async void LoadVehicles()

@@ -56,7 +56,13 @@
                       HorizontalAlignment="Left"/>
 
             <Label Content="Licenseplate" Margin="10 10 10 0" FontWeight="Bold"/>
-            <Label Content="{Binding SelectedVehicle.Licenseplate, Mode=OneWay}" Margin="10 0 10 10"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{Binding SelectedVehicle.Licenseplate, Mode=OneWay}" Margin="10 0 10 10" Width="150"/>
+                <Button Content="Change"
+                        Margin="5 0"
+                        Foreground="WhiteSmoke"
+                        Command="{Binding ChangeLicenseplateCommand}"/>
+            </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10 50 0 0">
                 
