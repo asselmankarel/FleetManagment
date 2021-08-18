@@ -101,7 +101,8 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
 
         private bool CanDelete()
         {
-            return _selectedVehicle != null && _selectedVehicle.Id != 0;
+            return false;
+           // return _selectedVehicle != null && _selectedVehicle.Id != 0;
         }
 
         private async void OnDelete()

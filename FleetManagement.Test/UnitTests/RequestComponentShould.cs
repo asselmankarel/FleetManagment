@@ -1,21 +1,21 @@
-﻿using FleetManagement.BL.Components;
+﻿using Moq;
+using System;
+using FleetManagement.BL.Components;
 using FleetManagement.BL.Requests;
 using FleetManagement.DAL.Repositories;
 using FleetManagement.Domain.Enums;
 using FleetManagement.Domain.Models;
-using Moq;
-using System;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace FleetManagement.Test
+namespace FleetManagement.Test.UnitTests
 {
     public class RequestComponentShould
     {
         private Mock<IRequestRepository> _requestRepository;
         private Mock<IDriverRepository> _driverRepository;
         private Mock<IVehicleRepository> _vehicleRepository;
-        private IRequestComponent _requestComponent;
+        private readonly IRequestComponent _requestComponent;
         private readonly ITestOutputHelper _output;
 
         public RequestComponentShould(ITestOutputHelper output)

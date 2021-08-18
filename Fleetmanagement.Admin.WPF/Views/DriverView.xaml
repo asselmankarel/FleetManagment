@@ -86,7 +86,7 @@
                             Background="Orange"
                             BorderBrush="Orange"
                             HorizontalAlignment="Left"                            
-                            Command="{Binding SaveCommand}">
+                            Command="{Binding DeleteCommand}">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Delete" Margin="5 0 0 0" />
                             <TextBlock Text="Delete" Margin="10 0 10 0" />

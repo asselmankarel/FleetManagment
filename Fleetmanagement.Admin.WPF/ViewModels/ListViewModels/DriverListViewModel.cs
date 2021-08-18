@@ -31,7 +31,18 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
             _addressService = addressService;
             _vehicleService = vehicleService;
             SaveCommand = new RelayCommand(OnSave, CanSave);
+            DeleteCommand = new RelayCommand(OnDelete, CanDelete);
             LoadDrivers("Ready");
+        }
+
+        private void OnDelete()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CanDelete()
+        {
+            return false;
         }
 
         public async void LoadDrivers(string statusBarTextAfterLoading)
@@ -102,8 +113,8 @@ namespace Fleetmanagement.Admin.WPF.ListViewModels
                     RestoreOriginalDriverData();
                 }
             }
-            _selectedDriver.PropertyChanged -= ViewModelPropertyChanged;
-            _selectedDriver.Address.PropertyChanged -= ViewModelPropertyChanged;
+            //_selectedDriver.PropertyChanged -= ViewModelPropertyChanged;
+            //_selectedDriver.Address.PropertyChanged -= ViewModelPropertyChanged;
         }
 
         private void OnSelectedDriverDidChange()
