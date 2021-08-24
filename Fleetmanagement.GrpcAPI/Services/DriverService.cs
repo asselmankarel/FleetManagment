@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Threading.Tasks;
 
-
 namespace Fleetmanagement.GrpcAPI
 {
     public class DriverService : Driver.DriverBase

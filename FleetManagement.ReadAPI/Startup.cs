@@ -46,7 +46,6 @@ namespace FleetManagement.ReadAPI
             services.AddMediatR(typeof(Startup));
             services.AddScoped<IDataAccessReader, DapperReader>();
             services.AddScoped<IReadRepository, ReadRepository>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
